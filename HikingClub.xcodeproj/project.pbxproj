@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
+		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
+		775507FB26F842E5005B8763 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507FA26F842E5005B8763 /* ViewController.swift */; };
+		775507FE26F842E5005B8763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 775507FC26F842E5005B8763 /* Main.storyboard */; };
+		7755080026F842E6005B8763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 775507FF26F842E6005B8763 /* Assets.xcassets */; };
+		7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7755080126F842E6005B8763 /* LaunchScreen.storyboard */; };
+		7755080C26F84DA0005B8763 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7755080B26F84DA0005B8763 /* RxSwift */; };
+		7755081026F84DA0005B8763 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7755080F26F84DA0005B8763 /* RxRelay */; };
+		7755081226F84DA0005B8763 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081126F84DA0005B8763 /* RxCocoa */; };
+		7755081726F84DCF005B8763 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081626F84DCF005B8763 /* Kingfisher */; };
+		7755081A26F84E03005B8763 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081926F84E03005B8763 /* Lottie */; };
+		7755081D26F84E52005B8763 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081C26F84E52005B8763 /* ReactiveMoya */; };
+		7755081F26F84E52005B8763 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081E26F84E52005B8763 /* CombineMoya */; };
+		7755082126F84E52005B8763 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082026F84E52005B8763 /* RxMoya */; };
+		7755082326F84E52005B8763 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082226F84E52005B8763 /* Moya */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		775507F826F842E5005B8763 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		775507FA26F842E5005B8763 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		775507FD26F842E5005B8763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		775507FF26F842E6005B8763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7755080226F842E6005B8763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7755080426F842E6005B8763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		775507F026F842E5005B8763 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7755082126F84E52005B8763 /* RxMoya in Frameworks */,
+				7755081726F84DCF005B8763 /* Kingfisher in Frameworks */,
+				7755081A26F84E03005B8763 /* Lottie in Frameworks */,
+				7755081F26F84E52005B8763 /* CombineMoya in Frameworks */,
+				7755081026F84DA0005B8763 /* RxRelay in Frameworks */,
+				7755082326F84E52005B8763 /* Moya in Frameworks */,
+				7755081226F84DA0005B8763 /* RxCocoa in Frameworks */,
+				7755081D26F84E52005B8763 /* ReactiveMoya in Frameworks */,
+				7755080C26F84DA0005B8763 /* RxSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		775507EA26F842E5005B8763 = {
+			isa = PBXGroup;
+			children = (
+				775507F526F842E5005B8763 /* HikingClub */,
+				775507F426F842E5005B8763 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		775507F426F842E5005B8763 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				775507F326F842E5005B8763 /* HikingClub.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		775507F526F842E5005B8763 /* HikingClub */ = {
+			isa = PBXGroup;
+			children = (
+				775507F626F842E5005B8763 /* AppDelegate.swift */,
+				775507F826F842E5005B8763 /* SceneDelegate.swift */,
+				775507FA26F842E5005B8763 /* ViewController.swift */,
+				775507FC26F842E5005B8763 /* Main.storyboard */,
+				775507FF26F842E6005B8763 /* Assets.xcassets */,
+				7755080126F842E6005B8763 /* LaunchScreen.storyboard */,
+				7755080426F842E6005B8763 /* Info.plist */,
+			);
+			path = HikingClub;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		775507F226F842E5005B8763 /* HikingClub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7755080726F842E6005B8763 /* Build configuration list for PBXNativeTarget "HikingClub" */;
+			buildPhases = (
+				775507EF26F842E5005B8763 /* Sources */,
+				775507F026F842E5005B8763 /* Frameworks */,
+				775507F126F842E5005B8763 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HikingClub;
+			packageProductDependencies = (
+				7755080B26F84DA0005B8763 /* RxSwift */,
+				7755080F26F84DA0005B8763 /* RxRelay */,
+				7755081126F84DA0005B8763 /* RxCocoa */,
+				7755081626F84DCF005B8763 /* Kingfisher */,
+				7755081926F84E03005B8763 /* Lottie */,
+				7755081C26F84E52005B8763 /* ReactiveMoya */,
+				7755081E26F84E52005B8763 /* CombineMoya */,
+				7755082026F84E52005B8763 /* RxMoya */,
+				7755082226F84E52005B8763 /* Moya */,
+			);
+			productName = HikingClub;
+			productReference = 775507F326F842E5005B8763 /* HikingClub.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		775507EB26F842E5005B8763 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					775507F226F842E5005B8763 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 775507EE26F842E5005B8763 /* Build configuration list for PBXProject "HikingClub" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 775507EA26F842E5005B8763;
+			packageReferences = (
+				7755080A26F84DA0005B8763 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				7755081526F84DCF005B8763 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				7755081826F84E03005B8763 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				7755081B26F84E52005B8763 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
+			productRefGroup = 775507F426F842E5005B8763 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				775507F226F842E5005B8763 /* HikingClub */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		775507F126F842E5005B8763 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
+				7755080026F842E6005B8763 /* Assets.xcassets in Resources */,
+				775507FE26F842E5005B8763 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		775507EF26F842E5005B8763 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				775507FB26F842E5005B8763 /* ViewController.swift in Sources */,
+				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
+				775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		775507FC26F842E5005B8763 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				775507FD26F842E5005B8763 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7755080126F842E6005B8763 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7755080226F842E6005B8763 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7755080526F842E6005B8763 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7755080626F842E6005B8763 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7755080826F842E6005B8763 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8WGBZHP3L6;
+				INFOPLIST_FILE = HikingClub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sz.HikingClub;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7755080926F842E6005B8763 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8WGBZHP3L6;
+				INFOPLIST_FILE = HikingClub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sz.HikingClub;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		775507EE26F842E5005B8763 /* Build configuration list for PBXProject "HikingClub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7755080526F842E6005B8763 /* Debug */,
+				7755080626F842E6005B8763 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7755080726F842E6005B8763 /* Build configuration list for PBXNativeTarget "HikingClub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7755080826F842E6005B8763 /* Debug */,
+				7755080926F842E6005B8763 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7755080A26F84DA0005B8763 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
+		7755081526F84DCF005B8763 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.1;
+			};
+		};
+		7755081826F84E03005B8763 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.3;
+			};
+		};
+		7755081B26F84E52005B8763 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7755080B26F84DA0005B8763 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7755080A26F84DA0005B8763 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		7755080F26F84DA0005B8763 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7755080A26F84DA0005B8763 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		7755081126F84DA0005B8763 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7755080A26F84DA0005B8763 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		7755081626F84DCF005B8763 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7755081526F84DCF005B8763 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		7755081926F84E03005B8763 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7755081826F84E03005B8763 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		7755081C26F84E52005B8763 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7755081B26F84E52005B8763 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		7755081E26F84E52005B8763 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7755081B26F84E52005B8763 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		7755082026F84E52005B8763 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7755081B26F84E52005B8763 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		7755082226F84E52005B8763 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7755081B26F84E52005B8763 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 775507EB26F842E5005B8763 /* Project object */;
+}
