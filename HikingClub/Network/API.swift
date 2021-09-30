@@ -43,7 +43,7 @@ extension API: TargetType {
 // MARK: - 디폴트 값
 extension TargetType {
     var baseURL: URL {
-        URL(string: BaseAPI.baseAPI)!
+        URL(string: "https://www.google.com")!
     }
     
     var headers: [String : String]? {

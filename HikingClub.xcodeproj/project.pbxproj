@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		067DC4EE26FEF48A00650862 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4ED26FEF48A00650862 /* BaseAPI.swift */; };
 		067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4EF26FEF8A000650862 /* NetworkProvider.swift */; };
 		067DC4FB26FF19DE00650862 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FA26FF19DE00650862 /* API.swift */; };
 		067DC4FF26FF213400650862 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FE26FF213400650862 /* NetworkError.swift */; };
@@ -30,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		067DC4ED26FEF48A00650862 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		067DC4EF26FEF8A000650862 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		067DC4FA26FF19DE00650862 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		067DC4FE26FF213400650862 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				067DC4FA26FF19DE00650862 /* API.swift */,
-				067DC4ED26FEF48A00650862 /* BaseAPI.swift */,
 				067DC4EF26FEF8A000650862 /* NetworkProvider.swift */,
 				067DC50026FF238F00650862 /* NetworkLogging.swift */,
 				067DC4FE26FF213400650862 /* NetworkError.swift */,
@@ -200,7 +197,6 @@
 				067DC4FF26FF213400650862 /* NetworkError.swift in Sources */,
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
 				775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */,
-				067DC4EE26FEF48A00650862 /* BaseAPI.swift in Sources */,
 				067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
 			);
