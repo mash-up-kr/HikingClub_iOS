@@ -14,6 +14,8 @@
 		06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1EC982708A7F300EA78D8 /* UIFont+.swift */; };
 		06A1EC9B2708B12A00EA78D8 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1EC9A2708B12A00EA78D8 /* UILabel+.swift */; };
 		06A1EC9D2708C5E800EA78D8 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1EC9C2708C5E800EA78D8 /* UIButton+.swift */; };
+		06A1ECA32708D21400EA78D8 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECA22708D21400EA78D8 /* UITableView+.swift */; };
+		06A1ECA52708D77900EA78D8 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECA42708D77900EA78D8 /* UICollectionView+.swift */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
 		775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507FA26F842E5005B8763 /* MainTabBarController.swift */; };
@@ -39,6 +41,8 @@
 		06A1EC982708A7F300EA78D8 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		06A1EC9A2708B12A00EA78D8 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		06A1EC9C2708C5E800EA78D8 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		06A1ECA22708D21400EA78D8 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
+		06A1ECA42708D77900EA78D8 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		775507F826F842E5005B8763 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				06A1EC982708A7F300EA78D8 /* UIFont+.swift */,
 				06A1EC9A2708B12A00EA78D8 /* UILabel+.swift */,
 				06A1EC9C2708C5E800EA78D8 /* UIButton+.swift */,
+				06A1ECA22708D21400EA78D8 /* UITableView+.swift */,
+				06A1ECA42708D77900EA78D8 /* UICollectionView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -209,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06A1ECA52708D77900EA78D8 /* UICollectionView+.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */,
 				06A1EC9B2708B12A00EA78D8 /* UILabel+.swift in Sources */,
@@ -218,6 +225,7 @@
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
 				06A1EC9D2708C5E800EA78D8 /* UIButton+.swift in Sources */,
 				775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */,
+				06A1ECA32708D21400EA78D8 /* UITableView+.swift in Sources */,
 				067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
 			);
