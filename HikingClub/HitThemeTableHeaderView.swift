@@ -15,6 +15,7 @@ final class HitThemeTableHeaderView: UITableViewHeaderFooterView {
     override func awakeFromNib() {
         super.awakeFromNib()
         configureUI()
+        setCollectionView()
     }
     
     func configureUI() {
@@ -23,5 +24,20 @@ final class HitThemeTableHeaderView: UITableViewHeaderFooterView {
         currentLocationButton.setTitle("현위치", for: .normal)
         currentLocationButton.setFont(.semiBold20)
         currentLocationButton.setImage(UIImage(named: "downArrow"), for: .normal)
+    }
+    
+    func setCollectionView() {
+        collectionView.dataSource = self
+    }
+}
+
+extension HitThemeTableHeaderView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HitThemeHeaderCollectionViewCell", for: indexPath)
+        return cell
     }
 }
