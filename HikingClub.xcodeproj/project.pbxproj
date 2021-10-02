@@ -26,6 +26,7 @@
 		7755081F26F84E52005B8763 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081E26F84E52005B8763 /* CombineMoya */; };
 		7755082126F84E52005B8763 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082026F84E52005B8763 /* RxMoya */; };
 		7755082326F84E52005B8763 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082226F84E52005B8763 /* Moya */; };
+		77B7A1282708A674008F5530 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77B7A1272708A674008F5530 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 				7755081226F84DA0005B8763 /* RxCocoa in Frameworks */,
 				7755081D26F84E52005B8763 /* ReactiveMoya in Frameworks */,
 				7755080C26F84DA0005B8763 /* RxSwift in Frameworks */,
+				77B7A1282708A674008F5530 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +133,7 @@
 				7755081E26F84E52005B8763 /* CombineMoya */,
 				7755082026F84E52005B8763 /* RxMoya */,
 				7755082226F84E52005B8763 /* Moya */,
+				77B7A1272708A674008F5530 /* SnapKit */,
 			);
 			productName = HikingClub;
 			productReference = 775507F326F842E5005B8763 /* HikingClub.app */;
@@ -164,6 +167,7 @@
 				7755081526F84DCF005B8763 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				7755081826F84E03005B8763 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				7755081B26F84E52005B8763 /* XCRemoteSwiftPackageReference "Moya" */,
+				77B7A1262708A674008F5530 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 775507F426F842E5005B8763 /* Products */;
 			projectDirPath = "";
@@ -194,7 +198,7 @@
 			files = (
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
-				775507FB26F842E5005B8763 /* ViewController.swift in Sources */,
+				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				067DC4FF26FF213400650862 /* NetworkError.swift in Sources */,
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
 				775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */,
@@ -437,6 +441,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		77B7A1262708A674008F5530 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -484,6 +496,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7755081B26F84E52005B8763 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		77B7A1272708A674008F5530 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77B7A1262708A674008F5530 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
