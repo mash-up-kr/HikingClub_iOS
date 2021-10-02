@@ -11,6 +11,7 @@
 		067DC4FB26FF19DE00650862 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FA26FF19DE00650862 /* API.swift */; };
 		067DC4FF26FF213400650862 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FE26FF213400650862 /* NetworkError.swift */; };
 		067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC50026FF238F00650862 /* NetworkLogging.swift */; };
+		77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77213CF72708EF1600994C9A /* BaseWebView.swift */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
 		775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507FA26F842E5005B8763 /* MainTabBarController.swift */; };
@@ -34,6 +35,7 @@
 		067DC4FA26FF19DE00650862 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		067DC4FE26FF213400650862 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		067DC50026FF238F00650862 /* NetworkLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogging.swift; sourceTree = "<group>"; };
+		77213CF72708EF1600994C9A /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		775507F826F842E5005B8763 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		775507F526F842E5005B8763 /* HikingClub */ = {
 			isa = PBXGroup;
 			children = (
+				77B7A1212708A14D008F5530 /* WebView */,
 				067DC4EA26FEF38700650862 /* Network */,
 				775507F626F842E5005B8763 /* AppDelegate.swift */,
 				775507F826F842E5005B8763 /* SceneDelegate.swift */,
@@ -105,6 +108,14 @@
 				7755080426F842E6005B8763 /* Info.plist */,
 			);
 			path = HikingClub;
+			sourceTree = "<group>";
+		};
+		77B7A1212708A14D008F5530 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				77213CF72708EF1600994C9A /* BaseWebView.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +214,7 @@
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
 				775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */,
 				067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */,
+				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
