@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainTabBarController.swift
 //  HikingClub
 //
 //  Created by AhnSangHoon on 2021/09/20.
@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class MainTabBarController: UITabBarController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

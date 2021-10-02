@@ -13,7 +13,7 @@
 		067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC50026FF238F00650862 /* NetworkLogging.swift */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
-		775507FB26F842E5005B8763 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507FA26F842E5005B8763 /* ViewController.swift */; };
+		775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507FA26F842E5005B8763 /* MainTabBarController.swift */; };
 		775507FE26F842E5005B8763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 775507FC26F842E5005B8763 /* Main.storyboard */; };
 		7755080026F842E6005B8763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 775507FF26F842E6005B8763 /* Assets.xcassets */; };
 		7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7755080126F842E6005B8763 /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		775507F826F842E5005B8763 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		775507FA26F842E5005B8763 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		775507FA26F842E5005B8763 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		775507FD26F842E5005B8763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		775507FF26F842E6005B8763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7755080226F842E6005B8763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 				067DC4EA26FEF38700650862 /* Network */,
 				775507F626F842E5005B8763 /* AppDelegate.swift */,
 				775507F826F842E5005B8763 /* SceneDelegate.swift */,
-				775507FA26F842E5005B8763 /* ViewController.swift */,
+				775507FA26F842E5005B8763 /* MainTabBarController.swift */,
 				775507FC26F842E5005B8763 /* Main.storyboard */,
 				775507FF26F842E6005B8763 /* Assets.xcassets */,
 				7755080126F842E6005B8763 /* LaunchScreen.storyboard */,
@@ -192,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
 				775507FB26F842E5005B8763 /* ViewController.swift in Sources */,
 				067DC4FF26FF213400650862 /* NetworkError.swift in Sources */,
