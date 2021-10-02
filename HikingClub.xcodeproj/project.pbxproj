@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		283AF0502708672C0033ED71 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283AF04F2708672C0033ED71 /* Home.storyboard */; };
+		283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF06C27086B940033ED71 /* HomeViewController.swift */; };
+		283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF07527086DA40033ED71 /* RoadTableViewCell.swift */; };
+		283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283AF07627086DA40033ED71 /* RoadTableViewCell.xib */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
 		775507FB26F842E5005B8763 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507FA26F842E5005B8763 /* ViewController.swift */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		283AF04F2708672C0033ED71 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		283AF06C27086B940033ED71 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		283AF07527086DA40033ED71 /* RoadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadTableViewCell.swift; sourceTree = "<group>"; };
+		283AF07627086DA40033ED71 /* RoadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadTableViewCell.xib; sourceTree = "<group>"; };
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		775507F826F842E5005B8763 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +85,10 @@
 				775507F626F842E5005B8763 /* AppDelegate.swift */,
 				775507F826F842E5005B8763 /* SceneDelegate.swift */,
 				775507FA26F842E5005B8763 /* ViewController.swift */,
+				283AF04F2708672C0033ED71 /* Home.storyboard */,
+				283AF06C27086B940033ED71 /* HomeViewController.swift */,
+				283AF07527086DA40033ED71 /* RoadTableViewCell.swift */,
+				283AF07627086DA40033ED71 /* RoadTableViewCell.xib */,
 				775507FC26F842E5005B8763 /* Main.storyboard */,
 				775507FF26F842E6005B8763 /* Assets.xcassets */,
 				7755080126F842E6005B8763 /* LaunchScreen.storyboard */,
@@ -159,7 +171,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283AF0502708672C0033ED71 /* Home.storyboard in Resources */,
 				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
+				283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */,
 				7755080026F842E6005B8763 /* Assets.xcassets in Resources */,
 				775507FE26F842E5005B8763 /* Main.storyboard in Resources */,
 			);
@@ -174,7 +188,9 @@
 			files = (
 				775507FB26F842E5005B8763 /* ViewController.swift in Sources */,
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
+				283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */,
 				775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */,
+				283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +337,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8WGBZHP3L6;
 				INFOPLIST_FILE = HikingClub/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -331,6 +348,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sz.HikingClub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = mashuphikingclub;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -341,7 +359,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8WGBZHP3L6;
 				INFOPLIST_FILE = HikingClub/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -351,6 +370,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sz.HikingClub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = mashuphikingclub;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
