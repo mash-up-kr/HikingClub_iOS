@@ -11,12 +11,12 @@ class RoadTableViewCell: UITableViewCell {
     
     @IBOutlet weak var roadImageView: UIImageView!
     @IBOutlet weak var roadTitleLabel: UILabel!
-    @IBOutlet weak var roadBookMarkImageView: UIImageView!
+    @IBOutlet weak var roadBookMarkButton: UIButton!
     @IBOutlet weak var roadDistanceLabel: UILabel!
     @IBOutlet weak var roadSpotLabel: UILabel!
     @IBOutlet weak var roadAddressLabel: UILabel!
     @IBOutlet weak var roadHashTagStackView: UIStackView!
-    @IBOutlet weak var roadTitleLabelTopConstraint: NSLayoutConstraint!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,10 +25,14 @@ class RoadTableViewCell: UITableViewCell {
         roadDistanceLabel.setFont(.semiBold13)
         roadSpotLabel.setFont(.semiBold11)
         roadAddressLabel.setFont(.semiBold13)
-        
     }
     
-    func settingRoadHashTagStackView(_ tags: [String]) {
+    func configure(tags: [String]) {
+        settingRoadHashTagStackView(tags)
+        setRoadTitleLabelTopConstraint()
+    }
+    
+    private func settingRoadHashTagStackView(_ tags: [String]) {
         roadHashTagStackView.subviews.forEach {
             $0.removeFromSuperview()
         }
@@ -41,9 +45,20 @@ class RoadTableViewCell: UITableViewCell {
         
         if tags.count > 3 {
             let label = UILabel()
-            label.text = "\(tags.count - 3)"
+            label.text = "+\(tags.count - 3)"
             label.setFont(.medium14)
             roadHashTagStackView.addArrangedSubview(label)
+        }
+    }
+    
+    private func setRoadTitleLabelTopConstraint() {
+        roadImageView.isHidden = true
+        if roadImageView.image == nil {
+            roadImageView.isHidden = true
+            
+        } else {
+            roadImageView.isHidden = false
+            
         }
     }
 }

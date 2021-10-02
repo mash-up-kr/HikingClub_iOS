@@ -15,9 +15,12 @@ class RoadHashTagView: UIView {
         super.init(frame: frame)
         addSubview(hashTagLable)
         hashTagLable.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalToSuperview().offset(5)
+            $0.leading.equalToSuperview().offset(5)
+            $0.trailing.bottom.equalToSuperview().inset(5)
             $0.top.equalToSuperview().offset(6)
         }
+        
+        backgroundColor = .gray
     }
     
     func setText(_ text: String) {
