@@ -11,9 +11,21 @@ import SnapKit
 class RoadHashTagView: UIView {
     let hashTagLable = UILabel()
     
-    // label 폰트
-    // View 색
-    // 레이아웃 잡기
-    func setText() {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(hashTagLable)
+        hashTagLable.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview().offset(5)
+            $0.top.equalToSuperview().offset(6)
+        }
+    }
+    
+    func setText(_ text: String) {
+        hashTagLable.setFont(.regular11)
+        hashTagLable.text = text
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

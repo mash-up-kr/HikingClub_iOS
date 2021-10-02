@@ -20,10 +20,30 @@ class RoadTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        roadTitleLabel.setFont(.bold16)
+        roadDistanceLabel.setFont(.semiBold13)
+        roadSpotLabel.setFont(.semiBold11)
+        roadAddressLabel.setFont(.semiBold13)
+        
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    
+    func settingRoadHashTagStackView(_ tags: [String]) {
+        roadHashTagStackView.subviews.forEach {
+            $0.removeFromSuperview()
+        }
+        let maxCount = min(tags.count, 3)
+        for i in 0..<maxCount {
+            let tagView = RoadHashTagView()
+            tagView.setText(tags[i])
+            roadHashTagStackView.addArrangedSubview(tagView)
+        }
+        
+        if tags.count > 3 {
+            let label = UILabel()
+            label.text = "\(tags.count - 3)"
+            label.setFont(.medium14)
+            roadHashTagStackView.addArrangedSubview(label)
+        }
     }
 }
