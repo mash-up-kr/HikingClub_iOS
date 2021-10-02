@@ -30,16 +30,16 @@
                             <constraint firstAttribute="width" constant="12" id="2f4-KT-BmB"/>
                             <constraint firstAttribute="height" constant="16" id="zZm-My-KLL"/>
                         </constraints>
-                        <state key="normal" image="Vector"/>
+                        <state key="normal" image="BookMark"/>
                     </button>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame" translatesAutoresizingMaskIntoConstraints="NO" id="cxs-3c-ioW">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pin" translatesAutoresizingMaskIntoConstraints="NO" id="cxs-3c-ioW">
                         <rect key="frame" x="19" y="138.5" width="12" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="12" id="VLl-YK-gNc"/>
                             <constraint firstAttribute="height" constant="13" id="biz-fS-tyl"/>
                         </constraints>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame" translatesAutoresizingMaskIntoConstraints="NO" id="ORW-un-ed5">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pin" translatesAutoresizingMaskIntoConstraints="NO" id="ORW-un-ed5">
                         <rect key="frame" x="19" y="161.5" width="12" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="12" id="ppE-b1-2AC"/>
@@ -61,7 +61,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6i-oV-Ofn">
                         <rect key="frame" x="126.5" y="135" width="103" height="20"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector-1" translatesAutoresizingMaskIntoConstraints="NO" id="NlF-5A-m1h">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="NlF-5A-m1h">
                                 <rect key="frame" x="3" y="3" width="13" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="Zx2-gj-f4t"/>
@@ -135,9 +135,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Frame" width="18" height="18"/>
-        <image name="Vector" width="15" height="18"/>
-        <image name="Vector-1" width="12" height="11"/>
+        <image name="BookMark" width="15" height="18"/>
+        <image name="Pin" width="18" height="18"/>
+        <image name="Star" width="12" height="11"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
