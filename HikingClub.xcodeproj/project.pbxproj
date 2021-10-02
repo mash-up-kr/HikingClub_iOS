@@ -27,6 +27,7 @@
 		7755081F26F84E52005B8763 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081E26F84E52005B8763 /* CombineMoya */; };
 		7755082126F84E52005B8763 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082026F84E52005B8763 /* RxMoya */; };
 		7755082326F84E52005B8763 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082226F84E52005B8763 /* Moya */; };
+		77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7A1242708A1C2008F5530 /* WebViewController.swift */; };
 		77B7A1282708A674008F5530 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77B7A1272708A674008F5530 /* SnapKit */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		775507FF26F842E6005B8763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7755080226F842E6005B8763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7755080426F842E6005B8763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77B7A1242708A1C2008F5530 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		77B7A1212708A14D008F5530 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				77B7A1242708A1C2008F5530 /* WebViewController.swift */,
 				77213CF72708EF1600994C9A /* BaseWebView.swift */,
 			);
 			path = WebView;
@@ -209,6 +212,7 @@
 			files = (
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
+				77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				067DC4FF26FF213400650862 /* NetworkError.swift in Sources */,
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
