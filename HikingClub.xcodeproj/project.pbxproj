@@ -11,6 +11,11 @@
 		067DC4FB26FF19DE00650862 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FA26FF19DE00650862 /* API.swift */; };
 		067DC4FF26FF213400650862 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FE26FF213400650862 /* NetworkError.swift */; };
 		067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC50026FF238F00650862 /* NetworkLogging.swift */; };
+		283AF0502708672C0033ED71 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283AF04F2708672C0033ED71 /* Home.storyboard */; };
+		283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF06C27086B940033ED71 /* HomeViewController.swift */; };
+		283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF07527086DA40033ED71 /* RoadTableViewCell.swift */; };
+		283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283AF07627086DA40033ED71 /* RoadTableViewCell.xib */; };
+		283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF0822708B6440033ED71 /* RoadHashTagView.swift */; };
 		77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77213CF72708EF1600994C9A /* BaseWebView.swift */; };
 		06A1EC8E27088F3E00EA78D8 /* HitThemeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1EC8D27088F3E00EA78D8 /* HitThemeTableHeaderView.swift */; };
 		06A1EC9027088F4400EA78D8 /* HitThemeTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06A1EC8F27088F4400EA78D8 /* HitThemeTableHeaderView.xib */; };
@@ -45,6 +50,11 @@
 		067DC4FA26FF19DE00650862 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		067DC4FE26FF213400650862 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		067DC50026FF238F00650862 /* NetworkLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogging.swift; sourceTree = "<group>"; };
+		283AF04F2708672C0033ED71 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		283AF06C27086B940033ED71 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		283AF07527086DA40033ED71 /* RoadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadTableViewCell.swift; sourceTree = "<group>"; };
+		283AF07627086DA40033ED71 /* RoadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadTableViewCell.xib; sourceTree = "<group>"; };
+		283AF0822708B6440033ED71 /* RoadHashTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadHashTagView.swift; sourceTree = "<group>"; };
 		77213CF72708EF1600994C9A /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		06A1EC8D27088F3E00EA78D8 /* HitThemeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitThemeTableHeaderView.swift; sourceTree = "<group>"; };
 		06A1EC8F27088F4400EA78D8 /* HitThemeTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HitThemeTableHeaderView.xib; sourceTree = "<group>"; };
@@ -138,6 +148,11 @@
 				06A1EC8D27088F3E00EA78D8 /* HitThemeTableHeaderView.swift */,
 				06A1EC8F27088F4400EA78D8 /* HitThemeTableHeaderView.xib */,
 				775507F826F842E5005B8763 /* SceneDelegate.swift */,
+				283AF04F2708672C0033ED71 /* Home.storyboard */,
+				283AF06C27086B940033ED71 /* HomeViewController.swift */,
+				283AF07527086DA40033ED71 /* RoadTableViewCell.swift */,
+				283AF07627086DA40033ED71 /* RoadTableViewCell.xib */,
+				283AF0822708B6440033ED71 /* RoadHashTagView.swift */,
 				775507FA26F842E5005B8763 /* MainTabBarController.swift */,
 				775507FC26F842E5005B8763 /* Main.storyboard */,
 				775507FF26F842E6005B8763 /* Assets.xcassets */,
@@ -232,6 +247,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283AF0502708672C0033ED71 /* Home.storyboard in Resources */,
+				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
+				283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */,
 				06A1EC9027088F4400EA78D8 /* HitThemeTableHeaderView.xib in Resources */,
 				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
 				06A1ECA12708CEFA00EA78D8 /* HitThemeHeaderCollectionViewCell.xib in Resources */,
@@ -254,12 +272,15 @@
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
 				77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
+				283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */,
 				067DC4FF26FF213400650862 /* NetworkError.swift in Sources */,
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
+				283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */,
 				06A1EC8E27088F3E00EA78D8 /* HitThemeTableHeaderView.swift in Sources */,
 				06A1ECA02708CEFA00EA78D8 /* HitThemeHeaderCollectionViewCell.swift in Sources */,
 				06A1EC9D2708C5E800EA78D8 /* UIButton+.swift in Sources */,
 				775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */,
+				283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */,
 				06A1ECA32708D21400EA78D8 /* UITableView+.swift in Sources */,
 				067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */,
 				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
