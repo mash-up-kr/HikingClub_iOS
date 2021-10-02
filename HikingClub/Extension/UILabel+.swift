@@ -8,7 +8,7 @@
 import UIKit
 
 extension UILabel {
-    func setText(type: NDFont) {
+    func setFont(_ type: NDFont) {
         font = UIFont.ndFont(type: type)
     }
 }
