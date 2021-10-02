@@ -37,7 +37,7 @@ extension HitThemeTableHeaderView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HitThemeHeaderCollectionViewCell", for: indexPath)
+        let cell: HitThemeHeaderCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         return cell
     }
 }
