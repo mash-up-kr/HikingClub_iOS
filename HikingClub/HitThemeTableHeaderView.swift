@@ -19,15 +19,18 @@ final class HitThemeTableHeaderView: UITableViewHeaderFooterView {
     }
     
     func configureUI() {
+        hitThemeLabel.text = "인기 테마"
         hitThemeLabel.setFont(.semiBold16)
         currentLocationButton.semanticContentAttribute = .forceRightToLeft
         currentLocationButton.setTitle("현위치", for: .normal)
         currentLocationButton.setFont(.semiBold20)
+        currentLocationButton.setTitleColor(.black, for: .normal)
         currentLocationButton.setImage(UIImage(named: "downArrow"), for: .normal)
     }
     
     func setCollectionView() {
         collectionView.dataSource = self
+        collectionView.register(HitThemeHeaderCollectionViewCell.self)
     }
 }
 
@@ -39,5 +42,11 @@ extension HitThemeTableHeaderView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HitThemeHeaderCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         return cell
+    }
+}
+
+extension HitThemeTableHeaderView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return UICollectionViewFlowLayout.automaticSize
     }
 }
