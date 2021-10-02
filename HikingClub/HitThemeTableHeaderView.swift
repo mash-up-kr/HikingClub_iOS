@@ -21,6 +21,7 @@ final class HitThemeTableHeaderView: UITableViewHeaderFooterView {
         hitThemeLabel.setFont(.semiBold16)
         currentLocationButton.semanticContentAttribute = .forceRightToLeft
         currentLocationButton.setTitle("현위치", for: .normal)
+        currentLocationButton.setFont(.semiBold20)
         currentLocationButton.setImage(UIImage(named: "downArrow"), for: .normal)
     }
 }
