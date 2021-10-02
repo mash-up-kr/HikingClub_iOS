@@ -14,5 +14,6 @@ final class HitThemeHeaderCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.setFont(.semiBold16)
+        titleLabel.text = "단풍길"
     }
 }
