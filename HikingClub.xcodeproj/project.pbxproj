@@ -211,18 +211,10 @@
 		77169DCA270AD1E2000AB1D2 /* Road */ = {
 			isa = PBXGroup;
 			children = (
+				283AF0822708B6440033ED71 /* RoadHashTagView.swift */,
 				77169DCC270B22CA000AB1D2 /* TableViewCell */,
-				77169DCB270B2295000AB1D2 /* HashTag */,
 			);
 			path = Road;
-			sourceTree = "<group>";
-		};
-		77169DCB270B2295000AB1D2 /* HashTag */ = {
-			isa = PBXGroup;
-			children = (
-				283AF0822708B6440033ED71 /* RoadHashTagView.swift */,
-			);
-			path = HashTag;
 			sourceTree = "<group>";
 		};
 		77169DCC270B22CA000AB1D2 /* TableViewCell */ = {
