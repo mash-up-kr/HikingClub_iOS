@@ -9,9 +9,8 @@ import UIKit
 import SnapKit // TODO: Remove
 import WebKit
 
-final class WebViewController: UIViewController {
+final class WebViewController: BaseViewController<WebViewModel> {
     private lazy var webView: BaseWebView = BaseWebView(self)
-    private let localTestWebPageURL = URL(string: "http://192.168.200.109:3000/detail/1234")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +23,7 @@ final class WebViewController: UIViewController {
         webView.uiDelegate = self
         webView.navigationDelegate = self
         
-        webView.load(URLRequest(url: localTestWebPageURL))
+        webView.load(URLRequest(url: viewModel.localTestWebPageURL))
     }
     
     private func layout() {
@@ -40,7 +39,6 @@ final class WebViewController: UIViewController {
 extension WebViewController: WKUIDelegate, WKNavigationDelegate { }
 
 extension WebViewController: WKScriptMessageHandler {
-    // TODO: Move To ViewModel
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         print(message) // TODO: Refactor
     }
