@@ -46,6 +46,7 @@
 		77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7A1242708A1C2008F5530 /* WebViewController.swift */; };
 		77B7A1282708A674008F5530 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77B7A1272708A674008F5530 /* SnapKit */; };
 		77E59131270DDCFA0070F381 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59130270DDCFA0070F381 /* BaseViewModel.swift */; };
+		77E59133270DDDA40070F381 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59132270DDDA40070F381 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		7755080426F842E6005B8763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77B7A1242708A1C2008F5530 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		77E59130270DDCFA0070F381 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		77E59132270DDDA40070F381 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				77169DC6270AD133000AB1D2 /* View */,
 				283AF04F2708672C0033ED71 /* Home.storyboard */,
 				283AF06C27086B940033ED71 /* HomeViewController.swift */,
+				77E59132270DDDA40070F381 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */,
 				06A1EC9B2708B12A00EA78D8 /* UILabel+.swift in Sources */,
+				77E59133270DDDA40070F381 /* HomeViewModel.swift in Sources */,
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
 				77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */,
 				77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */,
