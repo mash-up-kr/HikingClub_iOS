@@ -26,6 +26,7 @@
 		283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283AF07627086DA40033ED71 /* RoadTableViewCell.xib */; };
 		283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF0822708B6440033ED71 /* RoadHashTagView.swift */; };
 		77169DC2270AD00C000AB1D2 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77169DC1270AD00C000AB1D2 /* Colors.xcassets */; };
+		77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77169DD0270C8C36000AB1D2 /* BaseViewController.swift */; };
 		77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77213CF72708EF1600994C9A /* BaseWebView.swift */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 		7755082326F84E52005B8763 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082226F84E52005B8763 /* Moya */; };
 		77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7A1242708A1C2008F5530 /* WebViewController.swift */; };
 		77B7A1282708A674008F5530 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77B7A1272708A674008F5530 /* SnapKit */; };
+		77E59131270DDCFA0070F381 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59130270DDCFA0070F381 /* BaseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,7 @@
 		283AF07627086DA40033ED71 /* RoadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadTableViewCell.xib; sourceTree = "<group>"; };
 		283AF0822708B6440033ED71 /* RoadHashTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadHashTagView.swift; sourceTree = "<group>"; };
 		77169DC1270AD00C000AB1D2 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		77169DD0270C8C36000AB1D2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		77213CF72708EF1600994C9A /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +79,7 @@
 		7755080226F842E6005B8763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7755080426F842E6005B8763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77B7A1242708A1C2008F5530 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		77E59130270DDCFA0070F381 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +242,8 @@
 		77169DCE270C8C1D000AB1D2 /* BaseArchitecture */ = {
 			isa = PBXGroup;
 			children = (
+				77169DD0270C8C36000AB1D2 /* BaseViewController.swift */,
+				77E59130270DDCFA0070F381 /* BaseViewModel.swift */,
 			);
 			path = BaseArchitecture;
 			sourceTree = "<group>";
@@ -374,10 +380,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				06A1ECA52708D77900EA78D8 /* UICollectionView+.swift in Sources */,
+				77E59131270DDCFA0070F381 /* BaseViewModel.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */,
 				06A1EC9B2708B12A00EA78D8 /* UILabel+.swift in Sources */,
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
+				77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */,
 				77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */,
