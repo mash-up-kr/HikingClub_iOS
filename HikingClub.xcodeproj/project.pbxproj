@@ -226,6 +226,22 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		77169DCD270C8C14000AB1D2 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				77169DCE270C8C1D000AB1D2 /* BaseArchitecture */,
+				06A1EC9127089D2700EA78D8 /* Extension */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		77169DCE270C8C1D000AB1D2 /* BaseArchitecture */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BaseArchitecture;
+			sourceTree = "<group>";
+		};
 		775507EA26F842E5005B8763 = {
 			isa = PBXGroup;
 			children = (
@@ -245,7 +261,7 @@
 		775507F526F842E5005B8763 /* HikingClub */ = {
 			isa = PBXGroup;
 			children = (
-				06A1EC9127089D2700EA78D8 /* Extension */,
+				77169DCD270C8C14000AB1D2 /* Helper */,
 				067DC4EA26FEF38700650862 /* Network */,
 				77169DC3270AD076000AB1D2 /* Feature */,
 				77169DBF270ACD58000AB1D2 /* SupportingFiles */,
