@@ -6,7 +6,9 @@
 //
 
 import UIKit
+import RxSwift
 
-class BaseViewController<T>: UIViewController where T: BaseViewModel {
+class BaseViewController<T: BaseViewModel>: UIViewController {
     let viewModel: T = T()
+    let disposeBag = DisposeBag()
 }
