@@ -7,11 +7,10 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: BaseViewController<HomeViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -20,13 +19,14 @@ class HomeViewController: UIViewController {
         tableView.register(RoadTableViewCell.self)
         tableView.register(headerFooter: HitThemeTableHeaderView.self)
     }
-    
 }
 
-extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate { }
+
+extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RoadTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.configure(tags: ["망리단길","메롱길","단풍길","단풍길1","단풍길2","단풍길3"])
+        cell.configure(tags: viewModel.sampleTags)
         return cell
     }
     
