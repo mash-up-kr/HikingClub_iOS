@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import RxCocoa
 import RxSwift
 
 class BaseViewController<T: BaseViewModel>: UIViewController {
     let viewModel: T = T()
     let disposeBag = DisposeBag()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+    }
 }
