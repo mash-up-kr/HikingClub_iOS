@@ -50,6 +50,7 @@
 		77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59134270DDFCF0070F381 /* WebViewModel.swift */; };
 		77E5913827115F890070F381 /* LoginNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5913727115F890070F381 /* LoginNavigationViewController.swift */; };
 		77E5913C271170860070F381 /* LoginNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5913B271170860070F381 /* LoginNavigationViewModel.swift */; };
+		77E591402711723C0070F381 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5913F2711723C0070F381 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		77E59134270DDFCF0070F381 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		77E5913727115F890070F381 /* LoginNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationViewController.swift; sourceTree = "<group>"; };
 		77E5913B271170860070F381 /* LoginNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationViewModel.swift; sourceTree = "<group>"; };
+		77E5913F2711723C0070F381 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,10 +300,19 @@
 		77E5913627115F6D0070F381 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				77E5913D271172090070F381 /* SignUp */,
 				77E5913727115F890070F381 /* LoginNavigationViewController.swift */,
 				77E5913B271170860070F381 /* LoginNavigationViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		77E5913D271172090070F381 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				77E5913F2711723C0070F381 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +424,7 @@
 				77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */,
+				77E591402711723C0070F381 /* SignUpViewController.swift in Sources */,
 				067DC4FF26FF213400650862 /* NetworkError.swift in Sources */,
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
 				283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */,
