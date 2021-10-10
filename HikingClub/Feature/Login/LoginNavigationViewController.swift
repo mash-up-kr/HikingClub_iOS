@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LoginNavigationViewController: BaseViewController<LoginNavigationViewModel> {
+final class LoginNavigationViewController: BaseViewController<LoginNavigationViewModel>, CodeBasedProtocol {
     private let navigationButtonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -48,23 +48,16 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
         button.setTitle("바로 둘러보기 >", for: .normal)
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        attribute()
         layout()
         bind()
     }
     
-    // MARK: - Attribute
-    
-    private func attribute() {
-        view.backgroundColor = .systemBackground
-    }
-    
     // MARK: - Layout
     
-    private func layout() {
+    func layout() {
         view.addSubview(navigationButtonStackView)
         navigationButtonStackView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
@@ -100,19 +93,38 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
     // MARK: - Bind
     
     private func bind() {
+        signUpButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigateToSignUpNavigationViewController()
+            })
+            .disposed(by: disposeBag)
+        
         guestLoginButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.dismiss(animated: true)
             })
             .disposed(by: disposeBag)
     }
+    
+    private func navigateToSignUpNavigationViewController() {
+        let viewController = SignUpViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
-// TODO: Move To Extension
+// TODO: Remove After Extension Merged
 extension UIStackView {
     func addArrangedSubviews(_ views: UIView...) {
         for view in views {
             self.addArrangedSubview(view)
+        }
+    }
+}
+
+extension UIView {
+    func addSubviews(_ views: UIView...) {
+        for view in views {
+            self.addSubview(view)
         }
     }
 }

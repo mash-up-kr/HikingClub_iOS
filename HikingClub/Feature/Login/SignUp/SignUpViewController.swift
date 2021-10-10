@@ -36,38 +36,6 @@ class SignUpViewController: BaseViewController<BaseViewModel> {
     }
 }
 
-protocol CodeBasedProtocol {
-    func attribute()
-    func layout()
-}
-
-extension CodeBasedProtocol {
-    func attribute() { }
-    
-    func layout() { }
-}
-
-class CodeBasedView: UIView, CodeBasedProtocol {
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        attribute()
-        layout()
-    }
-    
-    init() {
-        super.init(frame: .zero)
-        attribute()
-        layout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func attribute() { }
-    
-    func layout() { }
-}
 
 class GreetingView: CodeBasedView {
     private let titleLabel: UILabel = {
