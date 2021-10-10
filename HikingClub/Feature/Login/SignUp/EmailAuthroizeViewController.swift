@@ -86,13 +86,15 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
             $0.bottom.equalTo(authorizeButton.snp.top)
         }
         authorizeButton.snp.makeConstraints {
-            $0.bottom.equalTo(view)
             $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view)
+            
             $0.height.equalTo(122)
         }
         scrollView.addSubview(scrollContentsView)
         scrollContentsView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+            
             $0.width.equalTo(view)
         }
         

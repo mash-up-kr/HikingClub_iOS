@@ -13,6 +13,11 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
         view.backgroundColor = .red
         return view
     }()
+    
+    private let scrollView = UIScrollView()
+    
+    private let scrollContentsView = UIView()
+    
     private let textFieldStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -66,7 +71,14 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
         
         return view
     }()
-
+    
+    // TODO: CAT Button Component로 교쳬 예정
+    private let nextButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("다음", for: .normal)
+        button.backgroundColor = .gray
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,19 +89,42 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
     // MARK: - Layout
     
     private func layout() {
-        view.addSubviews(navigationArea, textFieldStackView)
+        view.addSubviews(navigationArea, scrollView, nextButton)
         navigationArea.snp.makeConstraints {
             $0.top.equalTo(view)
             $0.leading.trailing.equalToSuperview()
             
             $0.height.equalTo(98)
         }
-        textFieldStackView.snp.makeConstraints {
-            $0.top.equalTo(navigationArea.snp.bottom).offset(48)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().inset(16)
+        scrollView.snp.makeConstraints {
+            $0.top.equalTo(navigationArea.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(nextButton.snp.top)
+        }
+        nextButton.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view)
+            
+            $0.height.equalTo(122)
+        }
+        scrollView.addSubview(scrollContentsView)
+        scrollContentsView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            
+            $0.width.equalTo(view)
         }
         
+        scrollContentsViewLayout()
+    }
+    
+    private func scrollContentsViewLayout() {
+        scrollContentsView.addSubview(textFieldStackView)
+        textFieldStackView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(48)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview()
+        }
         textFieldStackViewLayout()
     }
     
@@ -107,9 +142,8 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
             .disposed(by: disposeBag)
     }
     
-    
     private func navigateToEmailAuthorizeViewController() {
-        
+        navigationController?.pushViewController(EmailAuthorizeViewController(), animated: true)
     }
     
 }
