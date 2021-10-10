@@ -45,6 +45,8 @@
 		7755082326F84E52005B8763 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082226F84E52005B8763 /* Moya */; };
 		777B516F27119A9200299430 /* CodeBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516E27119A9200299430 /* CodeBasedView.swift */; };
 		777B517327129D6500299430 /* CodeBasedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517227129D6500299430 /* CodeBasedProtocol.swift */; };
+		777B517527129E6300299430 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517427129E6300299430 /* GreetingView.swift */; };
+		777B517727129EA700299430 /* SignUpTermStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517627129EA700299430 /* SignUpTermStackView.swift */; };
 		77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7A1242708A1C2008F5530 /* WebViewController.swift */; };
 		77B7A1282708A674008F5530 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77B7A1272708A674008F5530 /* SnapKit */; };
 		77E59131270DDCFA0070F381 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59130270DDCFA0070F381 /* BaseViewModel.swift */; };
@@ -87,6 +89,8 @@
 		7755080426F842E6005B8763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		777B516E27119A9200299430 /* CodeBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedView.swift; sourceTree = "<group>"; };
 		777B517227129D6500299430 /* CodeBasedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedProtocol.swift; sourceTree = "<group>"; };
+		777B517427129E6300299430 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
+		777B517627129EA700299430 /* SignUpTermStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTermStackView.swift; sourceTree = "<group>"; };
 		77B7A1242708A1C2008F5530 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		77E59130270DDCFA0070F381 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		77E59132270DDDA40070F381 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 		777B516C27119A5200299430 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				777B517427129E6300299430 /* GreetingView.swift */,
+				777B517627129EA700299430 /* SignUpTermStackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				06A1ECA52708D77900EA78D8 /* UICollectionView+.swift in Sources */,
 				77E59131270DDCFA0070F381 /* BaseViewModel.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
+				777B517727129EA700299430 /* SignUpTermStackView.swift in Sources */,
 				777B516F27119A9200299430 /* CodeBasedView.swift in Sources */,
 				06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */,
 				77E5913827115F890070F381 /* LoginNavigationViewController.swift in Sources */,
@@ -453,6 +460,7 @@
 				77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */,
 				77E5913C271170860070F381 /* LoginNavigationViewModel.swift in Sources */,
 				77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */,
+				777B517527129E6300299430 /* GreetingView.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */,
 				77E591402711723C0070F381 /* SignUpViewController.swift in Sources */,
