@@ -35,6 +35,7 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
+        bind()
     }
     
     // MARK: - Attribute
@@ -82,6 +83,6 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
     }
     
     private func navigateToSignUpInputViewController() {
-        
+        navigationController?.pushViewController(SignUpInputViewController(), animated: true)
     }
 }

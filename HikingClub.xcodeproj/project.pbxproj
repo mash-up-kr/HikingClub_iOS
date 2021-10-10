@@ -47,6 +47,7 @@
 		777B517327129D6500299430 /* CodeBasedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517227129D6500299430 /* CodeBasedProtocol.swift */; };
 		777B517527129E6300299430 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517427129E6300299430 /* GreetingView.swift */; };
 		777B517727129EA700299430 /* SignUpTermStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517627129EA700299430 /* SignUpTermStackView.swift */; };
+		777B517A2712AA2300299430 /* SignUpInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B51792712AA2300299430 /* SignUpInputViewController.swift */; };
 		77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7A1242708A1C2008F5530 /* WebViewController.swift */; };
 		77B7A1282708A674008F5530 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77B7A1272708A674008F5530 /* SnapKit */; };
 		77E59131270DDCFA0070F381 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59130270DDCFA0070F381 /* BaseViewModel.swift */; };
@@ -91,6 +92,7 @@
 		777B517227129D6500299430 /* CodeBasedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedProtocol.swift; sourceTree = "<group>"; };
 		777B517427129E6300299430 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
 		777B517627129EA700299430 /* SignUpTermStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTermStackView.swift; sourceTree = "<group>"; };
+		777B51792712AA2300299430 /* SignUpInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputViewController.swift; sourceTree = "<group>"; };
 		77B7A1242708A1C2008F5530 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		77E59130270DDCFA0070F381 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		77E59132270DDDA40070F381 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 			children = (
 				777B516C27119A5200299430 /* View */,
 				77E5913F2711723C0070F381 /* SignUpViewController.swift */,
+				777B51792712AA2300299430 /* SignUpInputViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */,
 				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
+				777B517A2712AA2300299430 /* SignUpInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
