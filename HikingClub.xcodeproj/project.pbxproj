@@ -51,6 +51,7 @@
 		777B517C2712AEB300299430 /* EmailAuthroizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517B2712AEB300299430 /* EmailAuthroizeViewController.swift */; };
 		777B517E2714336700299430 /* InitialSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517D2714336700299430 /* InitialSettingViewController.swift */; };
 		777B51802714472B00299430 /* TermDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517F2714472B00299430 /* TermDetailViewController.swift */; };
+		777B51852714553600299430 /* InitialCategorySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B51842714553600299430 /* InitialCategorySettingViewController.swift */; };
 		77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7A1242708A1C2008F5530 /* WebViewController.swift */; };
 		77B7A1282708A674008F5530 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77B7A1272708A674008F5530 /* SnapKit */; };
 		77E59131270DDCFA0070F381 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59130270DDCFA0070F381 /* BaseViewModel.swift */; };
@@ -99,6 +100,7 @@
 		777B517B2712AEB300299430 /* EmailAuthroizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthroizeViewController.swift; sourceTree = "<group>"; };
 		777B517D2714336700299430 /* InitialSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingViewController.swift; sourceTree = "<group>"; };
 		777B517F2714472B00299430 /* TermDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewController.swift; sourceTree = "<group>"; };
+		777B51842714553600299430 /* InitialCategorySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCategorySettingViewController.swift; sourceTree = "<group>"; };
 		77B7A1242708A1C2008F5530 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		77E59130270DDCFA0070F381 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		77E59132270DDDA40070F381 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -330,6 +332,15 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		777B51862714553900299430 /* InitialSetting */ = {
+			isa = PBXGroup;
+			children = (
+				777B517D2714336700299430 /* InitialSettingViewController.swift */,
+				777B51842714553600299430 /* InitialCategorySettingViewController.swift */,
+			);
+			path = InitialSetting;
+			sourceTree = "<group>";
+		};
 		77B7A1212708A14D008F5530 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,7 +369,7 @@
 				777B517F2714472B00299430 /* TermDetailViewController.swift */,
 				777B51792712AA2300299430 /* SignUpInputViewController.swift */,
 				777B517B2712AEB300299430 /* EmailAuthroizeViewController.swift */,
-				777B517D2714336700299430 /* InitialSettingViewController.swift */,
+				777B51862714553900299430 /* InitialSetting */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -492,6 +503,7 @@
 				777B517E2714336700299430 /* InitialSettingViewController.swift in Sources */,
 				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
+				777B51852714553600299430 /* InitialCategorySettingViewController.swift in Sources */,
 				777B517A2712AA2300299430 /* SignUpInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

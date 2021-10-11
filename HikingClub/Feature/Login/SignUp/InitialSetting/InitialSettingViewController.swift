@@ -118,21 +118,16 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
         
         compelteButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                self?.navigateToHomeViewController()
+                self?.navigateToCategorySettingViewController()
             })
             .disposed(by: disposeBag)
     }
     
-    private func navigateToHomeViewController() {
-        guard let loginViewController = navigationController?.viewControllers.first as? LoginNavigationViewController else { return }
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.navigationController?.popToRootViewController(animated: true)
-            loginViewController.dismiss(animated: true, completion: nil)
-        }
-    }
-    
     private func navigateToLocationSelectViewController() {
         print("동네설정 화면 푸시해주세요!")
+    }
+    
+    private func navigateToCategorySettingViewController() {
+        navigationController?.pushViewController(InitialCategorySettingViewController(), animated: true)
     }
 }
