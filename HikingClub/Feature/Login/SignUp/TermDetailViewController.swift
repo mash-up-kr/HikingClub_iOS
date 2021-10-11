@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TermDetailViewController: BaseViewController<BaseViewModel> {
+final class TermDetailViewController: BaseViewController<BaseViewModel> {
     private let navigationArea: UIView = {
         let view = UIView()
         view.backgroundColor = .red
@@ -89,7 +89,7 @@ class TermDetailViewController: BaseViewController<BaseViewModel> {
             $0.height.equalTo(98)
         }
         termTextView.snp.makeConstraints {
-            $0.top.equalTo(navigationArea.snp.bottom).offset(38)
+            $0.top.equalTo(navigationArea.snp.bottom).offset(48)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
         }

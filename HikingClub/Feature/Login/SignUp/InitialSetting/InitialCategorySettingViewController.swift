@@ -35,6 +35,8 @@ final class InitialCategorySettingViewController: BaseViewController<BaseViewMod
         bind()
     }
     
+    // MARK: - Layout
+    
     private func layout() {
         view.addSubviews(navigationArea, categoryCollectionViewArea ,twoButtonComponentButton)
         navigationArea.snp.makeConstraints {
@@ -57,6 +59,8 @@ final class InitialCategorySettingViewController: BaseViewController<BaseViewMod
             $0.height.equalTo(122)
         }
     }
+    
+    // MARK: - Bind
     
     private func bind() {
         // TODO: twoButton CTA 버튼이므로, 컴포넌트 적용 후 액션 나눌것
