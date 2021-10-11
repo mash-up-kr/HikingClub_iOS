@@ -38,11 +38,6 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
         bind()
     }
     
-    // MARK: - Attribute
-    
-    private func attribute() {
-    }
-    
     // MARK: - Layout
     private func layout() {
         view.addSubviews(navigationArea, greetingView, termStackView, termNoticeLabel, agreeButton)
@@ -68,6 +63,7 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
         agreeButton.snp.makeConstraints {
             $0.bottom.equalTo(view)
             $0.leading.trailing.equalToSuperview()
+            
             $0.height.equalTo(122)
         }
     }
@@ -75,6 +71,12 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
     // MARK: - Bind
     
     private func bind() {
+        termStackView.didTapDetailButton
+            .subscribe(onNext: { [weak self] in
+                self?.navigateToTermDetailViewController($0)
+            })
+            .disposed(by: disposeBag)
+        
         agreeButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.navigateToSignUpInputViewController()
@@ -84,5 +86,12 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
     
     private func navigateToSignUpInputViewController() {
         navigationController?.pushViewController(SignUpInputViewController(), animated: true)
+    }
+    
+    private func navigateToTermDetailViewController(_ termType: SignUpTermsStackView.SignUpTermType) {
+        let viewController = TermDetailViewController()
+        viewController.termType = termType
+        viewController.modalPresentationStyle = .fullScreen
+        navigationController?.present(viewController, animated: true, completion: nil)
     }
 }

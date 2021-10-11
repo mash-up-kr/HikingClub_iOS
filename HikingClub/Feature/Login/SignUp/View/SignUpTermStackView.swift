@@ -6,44 +6,61 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
 
 final class SignUpTermsStackView: UIStackView, CodeBasedProtocol {
+    enum SignUpTermType {
+        case personal
+    }
+    
     private let personalInformationTermView: SignUpTermView = SignUpTermView(.personal)
+    
+    let didTapDetailButton = PublishRelay<SignUpTermType>()
+    
+    private let disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
         attribute()
         layout()
+        bind()
     }
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Attribute
+    
     func attribute() {
         axis = .vertical
         
         addArrangedSubviews(personalInformationTermView)
     }
+    
+    // MARK: - Bind
+    
+    func bind() {
+        personalInformationTermView.detailButton.rx.tap
+            .map { SignUpTermType.personal }
+            .bind(to: didTapDetailButton)
+            .disposed(by: disposeBag)
+    }
 }
 
-
 private final class SignUpTermView: CodeBasedView {
-    enum SignUpTermType {
-        case personal
-    }
-
     private let agreeButton: SignUpTermAgreeButton = SignUpTermAgreeButton()
-    private let detailButton: UIButton = {
+    let detailButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
         button.setTitle(">", for: .normal)
         return button
     }()
     
-    private let termType: SignUpTermType
+    private let termType: SignUpTermsStackView.SignUpTermType
     
-    init(_ term:  SignUpTermType) {
+    init(_ term:  SignUpTermsStackView.SignUpTermType) {
         termType = term
         super.init()
     }
@@ -59,6 +76,8 @@ private final class SignUpTermView: CodeBasedView {
             agreeButton.setContent("[필수] 개인정보 처리 방침 동의")
         }
     }
+    
+    // MARK: - Layout
     
     override func layout() {
         super.layout()
@@ -100,6 +119,8 @@ private final class SignUpTermAgreeButton: UIButton, CodeBasedProtocol {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Layout
     
     func layout() {
         addSubviews(checkIconImageView, contentLabel)
