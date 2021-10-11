@@ -140,10 +140,19 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
                 self?.navigateToEmailAuthorizeViewController()
             })
             .disposed(by: disposeBag)
+        
+        nextButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigateToInitialSettingViewController()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func navigateToEmailAuthorizeViewController() {
         navigationController?.pushViewController(EmailAuthorizeViewController(), animated: true)
     }
     
+    private func navigateToInitialSettingViewController() {
+        navigationController?.pushViewController(InitialSettingViewController(), animated: true)
+    }
 }
