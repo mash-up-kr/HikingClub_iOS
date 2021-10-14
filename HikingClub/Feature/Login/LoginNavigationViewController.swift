@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LoginNavigationViewController: BaseViewController<LoginNavigationViewModel>, CodeBasedProtocol {
+final class LoginNavigationViewController: BaseViewController<LoginNavigationViewModel> {
     private let navigationButtonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -16,36 +16,33 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
         return stackView
     }()
     
-    private let signUpButton: UIButton = {
-        let button = UIButton()
-        button.setFont(.semiBold16)
-        button.setTitleColor(.black, for: .normal)
+    private let signUpButton: NDButton = {
+        let button = NDButton(theme: .init(.fillGreen, textStyle: .large, radius: 8))
         button.setTitle("시작하기", for: .normal)
-        
         return button
     }()
     
-    private let emailLoginButton: UIButton = {
-        let button = UIButton()
-        button.setFont(.semiBold16)
-        button.setTitleColor(.black, for: .normal)
+    private let emailLoginButton: NDButton = {
+        let button = NDButton(theme: .init(.strokeGreen, textStyle: .large, radius: 8))
         button.setTitle("이메일 로그인", for: .normal)
         return button
     }()
     
-    private let appleLoginButton: UIButton = {
-        let button = UIButton()
-        button.setFont(.semiBold16)
-        button.setTitleColor(.black, for: .normal)
+    private let appleLoginButton: NDButton = {
+        var theme = NDButtonTheme(.strokeGreen, textStyle: .large, radius: 8)
+        // TODO: gray900 추가시 적용할것
+        theme.textColor = .gray700
+        let button = NDButton(theme: theme)
         button.setTitle("Apple 로그인", for: .normal)
         return button
     }()
     
     private let guestLoginButton: UIButton = {
         let button = UIButton()
-        button.setFont(.semiBold16)
-        button.setTitleColor(.black, for: .normal)
+        button.setFont(.medium14)
+        button.setTitleColor(.gray700, for: .normal)
         button.setTitle("바로 둘러보기 >", for: .normal)
+        // TODO: icon 적용하기
         return button
     }()
     
@@ -60,7 +57,8 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
     func layout() {
         view.addSubview(navigationButtonStackView)
         navigationButtonStackView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(38)
         }
         navigationButtonStackViewLayout()
@@ -74,7 +72,6 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
         buttonsLayout()
     }
     
-    // TODO: 버튼 컴포넌트가 완료되면 되면 height이 결정되기 때문에 컴포넌트 적용 후 삭제
     private func buttonsLayout() {
         signUpButton.snp.makeConstraints {
             $0.height.equalTo(54)
