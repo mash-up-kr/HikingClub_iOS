@@ -38,7 +38,7 @@ final class InitialCategorySettingViewController: BaseViewController<BaseViewMod
     // MARK: - Layout
     
     private func layout() {
-        view.addSubviews(navigationArea, categoryCollectionViewArea ,twoButtonComponentButton)
+        view.addSubViews(navigationArea, categoryCollectionViewArea ,twoButtonComponentButton)
         navigationArea.snp.makeConstraints {
             $0.top.equalTo(view)
             $0.leading.trailing.equalToSuperview()

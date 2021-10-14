@@ -89,7 +89,7 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
     // MARK: - Layout
     
     private func layout() {
-        view.addSubviews(navigationArea, scrollView, nextButton)
+        view.addSubViews(navigationArea, scrollView, nextButton)
         navigationArea.snp.makeConstraints {
             $0.top.equalTo(view)
             $0.leading.trailing.equalToSuperview()
@@ -149,10 +149,10 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
     }
     
     private func navigateToEmailAuthorizeViewController() {
-        navigationController?.pushViewController(EmailAuthorizeViewController(), animated: true)
+        navigationController?.pushViewController(EmailAuthorizeViewController(BaseViewModel()), animated: true)
     }
     
     private func navigateToInitialSettingViewController() {
-        navigationController?.pushViewController(InitialSettingViewController(), animated: true)
+        navigationController?.pushViewController(InitialSettingViewController(BaseViewModel()), animated: true)
     }
 }

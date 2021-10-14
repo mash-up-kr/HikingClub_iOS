@@ -75,7 +75,7 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
     // MARK: - Layout
     
     private func layout() {
-        view.addSubviews(navigationArea, scrollView, authorizeButton)
+        view.addSubViews(navigationArea, scrollView, authorizeButton)
         navigationArea.snp.makeConstraints {
             $0.top.equalTo(view)
             $0.leading.trailing.equalToSuperview()
@@ -104,7 +104,7 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
     }
     
     private func scrollContentsViewLayout() {
-        scrollContentsView.addSubviews(textFieldComponent, sendAuthEmailButton, textFieldComponent2)
+        scrollContentsView.addSubViews(textFieldComponent, sendAuthEmailButton, textFieldComponent2)
         textFieldComponent.snp.makeConstraints {
             $0.top.equalToSuperview().offset(48)
             $0.leading.equalToSuperview().offset(16)

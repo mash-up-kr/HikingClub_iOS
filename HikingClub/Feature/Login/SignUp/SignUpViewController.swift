@@ -40,7 +40,7 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
     
     // MARK: - Layout
     private func layout() {
-        view.addSubviews(navigationArea, greetingView, termStackView, termNoticeLabel, agreeButton)
+        view.addSubViews(navigationArea, greetingView, termStackView, termNoticeLabel, agreeButton)
         navigationArea.snp.makeConstraints {
             $0.top.equalTo(view)
             $0.leading.trailing.equalToSuperview()
@@ -85,11 +85,11 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
     }
     
     private func navigateToSignUpInputViewController() {
-        navigationController?.pushViewController(SignUpInputViewController(), animated: true)
+        navigationController?.pushViewController(SignUpInputViewController(BaseViewModel()), animated: true)
     }
     
     private func navigateToTermDetailViewController(_ termType: SignUpTermsStackView.SignUpTermType) {
-        let viewController = TermDetailViewController()
+        let viewController = TermDetailViewController(BaseViewModel())
         viewController.termType = termType
         viewController.modalPresentationStyle = .fullScreen
         navigationController?.present(viewController, animated: true, completion: nil)

@@ -27,7 +27,7 @@ final class GreetingView: CodeBasedView {
     
     override func layout() {
         super.layout()
-        addSubviews(titleLabel, contentLabel)
+        addSubViews(titleLabel, contentLabel)
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)

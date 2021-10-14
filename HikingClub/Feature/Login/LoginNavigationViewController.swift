@@ -107,24 +107,7 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
     }
     
     private func navigateToSignUpNavigationViewController() {
-        let viewController = SignUpViewController()
+        let viewController = SignUpViewController(BaseViewModel())
         navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-// TODO: Remove After Extension Merged
-extension UIStackView {
-    func addArrangedSubviews(_ views: UIView...) {
-        for view in views {
-            self.addArrangedSubview(view)
-        }
-    }
-}
-
-extension UIView {
-    func addSubviews(_ views: UIView...) {
-        for view in views {
-            self.addSubview(view)
-        }
     }
 }

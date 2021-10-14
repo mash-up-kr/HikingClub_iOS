@@ -81,7 +81,7 @@ final class TermDetailViewController: BaseViewController<BaseViewModel> {
     // MARK: - Layout
     
     private func layout() {
-        view.addSubviews(navigationArea, termTextView, agreeButton)
+        view.addSubViews(navigationArea, termTextView, agreeButton)
         navigationArea.snp.makeConstraints {
             $0.top.equalTo(view)
             $0.leading.trailing.equalToSuperview()

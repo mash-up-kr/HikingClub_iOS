@@ -64,7 +64,7 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
     // MARK: - Layout
     
     private func layout() {
-        view.addSubviews(navigationArea, scrollView, compelteButton)
+        view.addSubViews(navigationArea, scrollView, compelteButton)
         navigationArea.snp.makeConstraints {
             $0.top.equalTo(view)
             $0.leading.trailing.equalToSuperview()
@@ -93,7 +93,7 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
     }
     
     private func scrollContentsViewLayout() {
-        scrollContentsView.addSubviews(textFieldComponent, textFieldComponent2)
+        scrollContentsView.addSubViews(textFieldComponent, textFieldComponent2)
         textFieldComponent.snp.makeConstraints {
             $0.top.equalToSuperview().offset(48)
             $0.leading.equalToSuperview().offset(16)
@@ -128,6 +128,6 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
     }
     
     private func navigateToCategorySettingViewController() {
-        navigationController?.pushViewController(InitialCategorySettingViewController(), animated: true)
+        navigationController?.pushViewController(InitialCategorySettingViewController(BaseViewModel()), animated: true)
     }
 }

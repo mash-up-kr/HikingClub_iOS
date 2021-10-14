@@ -81,8 +81,7 @@ private final class SignUpTermView: CodeBasedView {
     
     override func layout() {
         super.layout()
-        
-        addSubviews(agreeButton, detailButton)
+        addSubViews(agreeButton, detailButton)
         agreeButton.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.top.bottom.equalToSuperview()
@@ -123,7 +122,7 @@ private final class SignUpTermAgreeButton: UIButton, CodeBasedProtocol {
     // MARK: - Layout
     
     func layout() {
-        addSubviews(checkIconImageView, contentLabel)
+        addSubViews(checkIconImageView, contentLabel)
         checkIconImageView.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.centerY.equalToSuperview()
