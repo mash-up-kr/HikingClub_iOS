@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 
 class BaseViewController<T: BaseViewModel>: UIViewController {
-    var viewModel: T!
+    var viewModel: T
     let disposeBag = DisposeBag()
     
     /// 코드를 통해 ViewController를 생성할 때 사용하는 initializer

@@ -10,8 +10,8 @@ import UIKit
 final class MainTabBarController: UITabBarController {
     private let homeViewController: UINavigationController = {
         let homeStoryBoard = UIStoryboard(name: "Home", bundle: nil)
-        let homeViewController = homeStoryBoard.instantiateViewController(identifier: "HomeViewController") { coder -> HomeViewController in
-            return .init(coder, HomeViewModel())!
+        let homeViewController = homeStoryBoard.instantiate("HomeViewController") { coder -> HomeViewController in
+                .init(coder, HomeViewModel()) ?? HomeViewController(HomeViewModel())
         }
         return homeViewController.wrappedByNavigationController()
     }()
