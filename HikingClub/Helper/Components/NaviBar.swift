@@ -49,7 +49,7 @@ final class NaviBar: UIView {
         backgroundColor = .systemBackground
         addSubViews(titleLabel, leftButton, rightButton, dividerView)
         rightButton.isHidden = true
-        leftButton.setTemplateImage(named: "imgBack")
+        leftButton.isHidden = true
         configureLayout()
     }
     
@@ -80,9 +80,16 @@ final class NaviBar: UIView {
         }
     }
     
+    /// 오른쪽버튼버튼 설정
     func setRightItemImage(named: String) {
         rightButton.setImage(UIImage(named: named), for: .normal)
         rightButton.isHidden = false
+    }
+    
+    /// 백버튼 설정
+    func setBackItemImage() {
+        leftButton.setTemplateImage(named: "imgBack")
+        leftButton.isHidden = false
     }
     
     func setTitle(_ title: String) {
