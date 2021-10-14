@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LoginNavigationViewController: BaseViewController<LoginNavigationViewModel>, CodeBasedProtocol {
+final class LoginNavigationViewController: BaseViewController<LoginNavigationViewModel> {
     private let navigationButtonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -49,15 +49,10 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
         return button
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        layout()
-        bind()
-    }
-    
     // MARK: - Layout
     
-    func layout() {
+    override func layout() {
+        super.layout()
         view.addSubview(navigationButtonStackView)
         navigationButtonStackView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
@@ -92,7 +87,8 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
     
     // MARK: - Bind
     
-    private func bind() {
+    override func bind() {
+        super.bind()
         signUpButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.navigateToSignUpNavigationViewController()

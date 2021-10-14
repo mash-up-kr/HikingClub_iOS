@@ -54,16 +54,10 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
         return button
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        layout()
-        bind()
-    }
-    
     // MARK: - Layout
     
-    private func layout() {
+    override func layout() {
+        super.layout()
         view.addSubViews(navigationArea, scrollView, compelteButton)
         navigationArea.snp.makeConstraints {
             $0.top.equalTo(view)
@@ -109,7 +103,8 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
     
     // MARK: - Bind
     
-    private func bind() {
+    override func bind() {
+        super.bind()
         textFieldComponent2.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.navigateToLocationSelectViewController()

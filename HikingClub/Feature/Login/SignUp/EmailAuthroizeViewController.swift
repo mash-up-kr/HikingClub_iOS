@@ -67,14 +67,10 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
         return button
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        layout()
-    }
-    
     // MARK: - Layout
     
-    private func layout() {
+    override func layout() {
+        super.layout()
         view.addSubViews(navigationArea, scrollView, authorizeButton)
         navigationArea.snp.makeConstraints {
             $0.top.equalTo(view)

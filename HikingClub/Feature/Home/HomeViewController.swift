@@ -11,8 +11,8 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func attribute() {
+        super.attribute()
         tableView.dataSource = self
         tableView.delegate = self
         

@@ -28,16 +28,10 @@ final class InitialCategorySettingViewController: BaseViewController<BaseViewMod
         return button
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        layout()
-        bind()
-    }
-    
     // MARK: - Layout
     
-    private func layout() {
+    override func layout() {
+        super.layout()
         view.addSubViews(navigationArea, categoryCollectionViewArea ,twoButtonComponentButton)
         navigationArea.snp.makeConstraints {
             $0.top.equalTo(view)
@@ -62,7 +56,8 @@ final class InitialCategorySettingViewController: BaseViewController<BaseViewMod
     
     // MARK: - Bind
     
-    private func bind() {
+    override func bind() {
+        super.bind()
         // TODO: twoButton CTA 버튼이므로, 컴포넌트 적용 후 액션 나눌것
         twoButtonComponentButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
