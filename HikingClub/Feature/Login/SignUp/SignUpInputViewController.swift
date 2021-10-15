@@ -8,9 +8,10 @@
 import UIKit
 
 final class SignUpInputViewController: BaseViewController<BaseViewModel> {
-    private let navigationArea: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
+    private let navigationBar: NaviBar = {
+        let view = NaviBar(frame: .zero)
+        view.setTitle("회원가입")
+        view.setBackItemImage()
         return view
     }()
     
@@ -89,15 +90,13 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
     // MARK: - Layout
     
     private func layout() {
-        view.addSubViews(navigationArea, scrollView, nextButton)
-        navigationArea.snp.makeConstraints {
-            $0.top.equalTo(view)
+        view.addSubViews(navigationBar, scrollView, nextButton)
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
-            
-            $0.height.equalTo(98)
         }
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(navigationArea.snp.bottom)
+            $0.top.equalTo(navigationBar.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(nextButton.snp.top)
         }
@@ -135,14 +134,20 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
     // MARK: - Bind
     
     private func bind() {
+        navigationBar.rx.tapLeftItem
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         textFieldComponent.rx.tap
-            .subscribe(onNext: { [weak self] _ in
+            .subscribe(onNext: { [weak self] in
                 self?.navigateToEmailAuthorizeViewController()
             })
             .disposed(by: disposeBag)
         
         nextButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
+            .subscribe(onNext: { [weak self] in
                 self?.navigateToInitialSettingViewController()
             })
             .disposed(by: disposeBag)
