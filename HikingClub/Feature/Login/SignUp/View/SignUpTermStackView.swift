@@ -73,7 +73,7 @@ private final class SignUpTermView: CodeBasedView {
         super.attribute()
         switch termType {
         case .personal:
-            agreeButton.setContent("[필수] 개인정보 처리 방침 동의")
+            agreeButton.setContent("개인정보 처리 방침 동의")
         }
     }
     
@@ -85,11 +85,10 @@ private final class SignUpTermView: CodeBasedView {
         agreeButton.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.top.bottom.equalToSuperview()
-            $0.height.equalTo(56)
         }
         detailButton.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(16)
             $0.leading.equalTo(agreeButton.snp.trailing).offset(8)
-            $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(16)
             
             $0.width.height.equalTo(24)
@@ -107,6 +106,7 @@ private final class SignUpTermAgreeButton: UIButton, CodeBasedProtocol {
     private let contentLabel: UILabel = {
         let label = UILabel()
         label.setFont(.semiBold16)
+        label.numberOfLines = .zero
         return label
     }()
     
@@ -124,16 +124,16 @@ private final class SignUpTermAgreeButton: UIButton, CodeBasedProtocol {
     func layout() {
         addSubViews(checkIconImageView, contentLabel)
         checkIconImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(16)
             $0.leading.equalToSuperview()
-            $0.centerY.equalToSuperview()
             
             $0.width.height.equalTo(24)
         }
         contentLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(20)
             $0.leading.equalTo(checkIconImageView.snp.trailing).offset(10)
             $0.trailing.equalToSuperview()
-            
-            $0.centerY.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(20)
         }
     }
     
