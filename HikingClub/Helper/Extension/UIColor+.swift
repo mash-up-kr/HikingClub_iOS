@@ -15,6 +15,7 @@ extension UIColor {
     
     static let gray700 = UIColor(named: "gray700")!
     static let gray500 = UIColor(named: "gray500")!
+    static let gray300 = UIColor(named: "gray300")!
     static let gray100 = UIColor(named: "gray100")!
     
     var disable: UIColor {
