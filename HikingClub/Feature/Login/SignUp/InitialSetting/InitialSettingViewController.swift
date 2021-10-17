@@ -55,16 +55,10 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
         return button
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        layout()
-        bind()
-    }
-    
     // MARK: - Layout
     
-    private func layout() {
+    override func layout() {
+        super.layout()
         view.addSubViews(navigationBar, scrollView, compelteButton)
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -108,13 +102,14 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
     
     // MARK: - Bind
     
-    private func bind() {
+    override func bind() {
+        super.bind()
         navigationBar.rx.tapLeftItem
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
-        
+
         textFieldComponent2.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.navigateToLocationSelectViewController()

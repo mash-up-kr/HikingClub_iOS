@@ -67,19 +67,15 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
         button.backgroundColor = .gray
         return button
     }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        layout()
-        bind()
-    }
-    
+        
     // MARK: - Layout
     
-    private func layout() {
+    override func layout() {
+        super.layout()
         view.addSubViews(navigationBar, scrollView, authorizeButton)
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
+
             $0.leading.trailing.equalToSuperview()
         }
         scrollView.snp.makeConstraints {
