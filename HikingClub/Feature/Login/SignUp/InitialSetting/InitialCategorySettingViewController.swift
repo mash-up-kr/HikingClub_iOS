@@ -8,9 +8,10 @@
 import UIKit
 
 final class InitialCategorySettingViewController: BaseViewController<BaseViewModel> {
-    private let navigationArea: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
+    private let navigationBar: NaviBar = {
+        let view = NaviBar(frame: .zero)
+        view.setTitle("카테고리 설정")
+        // TODO: 오른쪽 닫기 icon 적용하기
         return view
     }()
     
@@ -32,15 +33,13 @@ final class InitialCategorySettingViewController: BaseViewController<BaseViewMod
     
     override func layout() {
         super.layout()
-        view.addSubViews(navigationArea, categoryCollectionViewArea ,twoButtonComponentButton)
-        navigationArea.snp.makeConstraints {
-            $0.top.equalTo(view)
+        view.addSubViews(navigationBar, categoryCollectionViewArea ,twoButtonComponentButton)
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
-            
-            $0.height.equalTo(98)
         }
         categoryCollectionViewArea.snp.makeConstraints {
-            $0.top.equalTo(navigationArea.snp.bottom).offset(48)
+            $0.top.equalTo(navigationBar.snp.bottom).offset(48)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
             
@@ -67,11 +66,7 @@ final class InitialCategorySettingViewController: BaseViewController<BaseViewMod
     }
 
     private func navigateToHomeViewController() {
-        guard let loginViewController = navigationController?.viewControllers.first as? LoginNavigationViewController else { return }
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.navigationController?.popToRootViewController(animated: true)
-            loginViewController.dismiss(animated: true, completion: nil)
-        }
+        // TODO: dismiss and viewModel navigation dismiss logic 구현하기
+        dismiss(animated: true, completion: nil)
     }
 }

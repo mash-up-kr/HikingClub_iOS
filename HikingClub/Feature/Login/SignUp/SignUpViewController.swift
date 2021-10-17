@@ -8,13 +8,17 @@
 import UIKit
 
 final class SignUpViewController: BaseViewController<BaseViewModel> {
-    private let navigationArea: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
+    private let navigationBar: NaviBar = {
+        let view = NaviBar(frame: .zero)
+        view.setTitle("회원가입")
+        view.setBackItemImage()
         return view
     }()
+    
     private let greetingView = GreetingView()
+    
     private let termStackView = SignUpTermsStackView()
+    
     private let termNoticeLabel: UILabel = {
         let label = UILabel()
         label.setFont(.medium12)
@@ -24,6 +28,7 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
         label.text = "개인정보 처리 방침에 동의하지 않으셔도 비회원으로 서비스 이용이 가능합니다. 비회원으로 서비스 이용시 일부 기능에 제한이 있을 수 있습니다."
         return label
     }()
+    
     // TODO: CAT Button Component로 교쳬 예정
     private let agreeButton: UIButton = {
         let button = UIButton()
@@ -33,17 +38,16 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
     }()
     
     // MARK: - Layout
+  
     override func layout() {
         super.layout()
-        view.addSubViews(navigationArea, greetingView, termStackView, termNoticeLabel, agreeButton)
-        navigationArea.snp.makeConstraints {
-            $0.top.equalTo(view)
+        view.addSubViews(navigationBar, greetingView, termStackView, termNoticeLabel, agreeButton)
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
-            
-            $0.height.equalTo(98)
         }
         greetingView.snp.makeConstraints {
-            $0.top.equalTo(navigationArea.snp.bottom).offset(48)
+            $0.top.equalTo(navigationBar.snp.bottom).offset(48)
             $0.leading.trailing.equalToSuperview()
         }
         termStackView.snp.makeConstraints {
@@ -67,6 +71,12 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
     
     override func bind() {
         super.bind()
+        navigationBar.rx.tapLeftItem
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+
         termStackView.didTapDetailButton
             .subscribe(onNext: { [weak self] in
                 self?.navigateToTermDetailViewController($0)
@@ -74,7 +84,7 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
             .disposed(by: disposeBag)
         
         agreeButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
+            .subscribe(onNext: { [weak self] in
                 self?.navigateToSignUpInputViewController()
             })
             .disposed(by: disposeBag)

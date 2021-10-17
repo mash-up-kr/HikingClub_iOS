@@ -8,9 +8,10 @@
 import UIKit
 
 final class InitialSettingViewController: BaseViewController<BaseViewModel> {
-    private let navigationArea: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
+    private let navigationBar: NaviBar = {
+        let view = NaviBar(frame: .zero)
+        view.setTitle("회원가입")
+        view.setBackItemImage()
         return view
     }()
     
@@ -58,15 +59,13 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
     
     override func layout() {
         super.layout()
-        view.addSubViews(navigationArea, scrollView, compelteButton)
-        navigationArea.snp.makeConstraints {
-            $0.top.equalTo(view)
+        view.addSubViews(navigationBar, scrollView, compelteButton)
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
-            
-            $0.height.equalTo(98)
         }
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(navigationArea.snp.bottom)
+            $0.top.equalTo(navigationBar.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(compelteButton.snp.top)
         }
@@ -105,6 +104,12 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
     
     override func bind() {
         super.bind()
+        navigationBar.rx.tapLeftItem
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+
         textFieldComponent2.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.navigateToLocationSelectViewController()
@@ -123,6 +128,9 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
     }
     
     private func navigateToCategorySettingViewController() {
-        navigationController?.pushViewController(InitialCategorySettingViewController(BaseViewModel()), animated: true)
+        let viewController = InitialCategorySettingViewController(BaseViewModel())
+        viewController.modalPresentationStyle = .fullScreen
+        // TODO: ViewModel에 dismiss relay 구독하기
+        present(viewController, animated: true)
     }
 }

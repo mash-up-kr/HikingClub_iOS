@@ -8,9 +8,10 @@
 import UIKit
 
 final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
-    private let navigationArea: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
+    private let navigationBar: NaviBar = {
+        let view = NaviBar(frame: .zero)
+        view.setTitle("이메일 인증")
+        view.setBackItemImage()
         return view
     }()
     
@@ -66,20 +67,19 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
         button.backgroundColor = .gray
         return button
     }()
-    
+        
     // MARK: - Layout
     
     override func layout() {
         super.layout()
-        view.addSubViews(navigationArea, scrollView, authorizeButton)
-        navigationArea.snp.makeConstraints {
-            $0.top.equalTo(view)
+        view.addSubViews(navigationBar, scrollView, authorizeButton)
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+
             $0.leading.trailing.equalToSuperview()
-            
-            $0.height.equalTo(98)
         }
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(navigationArea.snp.bottom)
+            $0.top.equalTo(navigationBar.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(authorizeButton.snp.top)
         }
@@ -117,5 +117,15 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
             $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    // MARK: - Bind
+    
+    private func bind() {
+        navigationBar.rx.tapLeftItem
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
