@@ -20,4 +20,11 @@ final class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         setViewControllers([homeViewController], animated: true)
     }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        super.motionEnded(motion, with: event)
+        if event?.subtype == .motionShake {
+            present(ComponentTestViewController(), animated: true)
+        }
+    }
 }
