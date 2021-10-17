@@ -97,7 +97,7 @@ final class NaviBar: UIView {
     }
     
     /// 네비게이션 하단 구분선 히든설정
-    func isDividerHidden(_ isHidden: Bool) {
+    func setDividerHidden(_ isHidden: Bool) {
         dividerView.isHidden = isHidden
     }
 }
