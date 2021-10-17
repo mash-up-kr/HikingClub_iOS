@@ -16,6 +16,18 @@ final class MainTabBarController: UITabBarController {
         return homeViewController.wrappedByNavigationController()
     }()
     
+    private let searchViewController: UINavigationController = {
+        UIViewController().wrappedByNavigationController()
+    }()
+    
+    private let writeViewController: UINavigationController = {
+        UIViewController().wrappedByNavigationController()
+    }()
+    
+    private let myPageViewController: UINavigationController = {
+        UIViewController().wrappedByNavigationController()
+    }()
+    
     private let homeTabBarItem = UITabBarItem(title: "홈", image: nil, tag: 1)
     
     private let searchTabBarItem = UITabBarItem(title: "검색", image: nil, tag: 2)
@@ -28,7 +40,10 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeViewController.tabBarItem = homeTabBarItem
+        searchViewController.tabBarItem = searchTabBarItem
+        writeViewController.tabBarItem = writeTabBarItem
+        myPageViewController.tabBarItem = mypageTabBarItem
         
-        setViewControllers([homeViewController], animated: true)
+        setViewControllers([homeViewController, searchViewController, writeViewController, myPageViewController], animated: true)
     }
 }
