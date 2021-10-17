@@ -12,13 +12,8 @@ import WebKit
 final class WebViewController: BaseViewController<WebViewModel> {
     private lazy var webView: BaseWebView = BaseWebView(self)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        attribute()
-        layout()
-    }
-    
-    private func attribute() {
+    override func attribute() {
+        super.attribute()
         view.backgroundColor = .systemBackground
         webView.uiDelegate = self
         webView.navigationDelegate = self
@@ -26,7 +21,8 @@ final class WebViewController: BaseViewController<WebViewModel> {
         webView.load(URLRequest(url: viewModel.localTestWebPageURL))
     }
     
-    private func layout() {
+    override func layout() {
+        super.layout()
         view.addSubview(webView)
         webView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)

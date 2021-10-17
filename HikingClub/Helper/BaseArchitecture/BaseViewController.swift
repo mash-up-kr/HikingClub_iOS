@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import RxCocoa
 import RxSwift
 
-class BaseViewController<T: BaseViewModel>: UIViewController {
+class BaseViewController<T: BaseViewModel>: UIViewController, CodeBasedProtocol {
     var viewModel: T
     let disposeBag = DisposeBag()
     
@@ -28,4 +29,19 @@ class BaseViewController<T: BaseViewModel>: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        attribute()
+        layout()
+        bind()
+    }
+    
+    func attribute() {
+        view.backgroundColor = .systemBackground
+    }
+    
+    func layout() { }
+    
+    func bind() { }
 }
