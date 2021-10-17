@@ -46,15 +46,10 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
         return button
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        layout()
-        bind()
-    }
-    
     // MARK: - Layout
     
-    func layout() {
+    override func layout() {
+        super.layout()
         view.addSubview(navigationButtonStackView)
         navigationButtonStackView.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
@@ -89,7 +84,8 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
     
     // MARK: - Bind
     
-    private func bind() {
+    override func bind() {
+        super.bind()
         signUpButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.navigateToSignUpNavigationViewController()

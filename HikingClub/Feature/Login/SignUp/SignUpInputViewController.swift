@@ -81,15 +81,10 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
         return button
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        layout()
-        bind()
-    }
-    
     // MARK: - Layout
     
-    private func layout() {
+    override func layout() {
+        super.layout()
         view.addSubViews(navigationBar, scrollView, nextButton)
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -133,13 +128,14 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
     
     // MARK: - Bind
     
-    private func bind() {
+    override func bind() {
+        super.bind()
         navigationBar.rx.tapLeftItem
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
-        
+
         textFieldComponent.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.navigateToEmailAuthorizeViewController()

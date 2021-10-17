@@ -8,11 +8,14 @@
 protocol CodeBasedProtocol {
     func attribute()
     func layout()
+    func bind()
 }
 
 extension CodeBasedProtocol {
     func attribute() { }
     
     func layout() { }
+    
+    func bind() { }
 }
 

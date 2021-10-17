@@ -30,16 +30,10 @@ final class TermDetailViewController: BaseViewController<BaseViewModel> {
     
     var termType: SignUpTermsStackView.SignUpTermType = .personal
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        attribute()
-        layout()
-        bind()
-    }
-    
     // MARK: - Attribute
     
-    private func attribute() {
+    override func attribute() {
+        super.attribute()
         setTermText()
     }
     
@@ -80,7 +74,8 @@ final class TermDetailViewController: BaseViewController<BaseViewModel> {
     
     // MARK: - Layout
     
-    private func layout() {
+    override func layout() {
+        super.layout()
         view.addSubViews(navigationArea, termTextView, agreeButton)
         navigationArea.snp.makeConstraints {
             $0.top.equalTo(view)
@@ -104,7 +99,8 @@ final class TermDetailViewController: BaseViewController<BaseViewModel> {
     
     // MARK: - Bind
     
-    private func bind() {
+    override func bind() {
+        super.bind()
         agreeButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.navigateToSignUpViewController()
