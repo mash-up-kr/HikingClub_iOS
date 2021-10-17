@@ -18,7 +18,7 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
     private let scrollView = UIScrollView()
     
     private let scrollContentsView = UIView()
-
+    
     private let textFieldComponent: UIView = {
         let view = UIView()
         view.backgroundColor = .blue
@@ -67,7 +67,7 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
         button.backgroundColor = .gray
         return button
     }()
-        
+    
     // MARK: - Layout
     
     override func layout() {
@@ -75,7 +75,6 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
         view.addSubViews(navigationBar, scrollView, authorizeButton)
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
-
             $0.leading.trailing.equalToSuperview()
         }
         scrollView.snp.makeConstraints {
@@ -121,7 +120,8 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
     
     // MARK: - Bind
     
-    private func bind() {
+    override func bind() {
+        super.bind()
         navigationBar.rx.tapLeftItem
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
