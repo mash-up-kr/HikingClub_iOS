@@ -52,6 +52,10 @@ final class NDTextFieldView: UIView {
     }
     
     private func configureUI() {
+        backgroundColor = .clear
+        layer.cornerRadius = 8
+        textField.addLeftPadding(16)
+        textField.layer.cornerRadius = 8
         textField.layer.borderColor = UIColor.gray100.cgColor
         textField.layer.borderWidth = 1.2
         textField.setPlaceholder(font: .semiBold16, color: .gray300)
