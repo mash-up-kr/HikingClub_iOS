@@ -53,6 +53,7 @@
 		7755082126F84E52005B8763 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082026F84E52005B8763 /* RxMoya */; };
 		7755082326F84E52005B8763 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082226F84E52005B8763 /* Moya */; };
 		775B95A8271F0BD9004D4540 /* AssetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B95A7271F0BD9004D4540 /* AssetImage.swift */; };
+		775B95AA271F110A004D4540 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B95A9271F110A004D4540 /* UIImageView+.swift */; };
 		777B5169271197B800299430 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5168271197B800299430 /* UIView+.swift */; };
 		777B516B2711981400299430 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516A2711981400299430 /* UIStackView+.swift */; };
 		777B516F27119A9200299430 /* CodeBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516E27119A9200299430 /* CodeBasedView.swift */; };
@@ -114,6 +115,7 @@
 		7755080226F842E6005B8763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7755080426F842E6005B8763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		775B95A7271F0BD9004D4540 /* AssetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetImage.swift; sourceTree = "<group>"; };
+		775B95A9271F110A004D4540 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		777B5168271197B800299430 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		777B516A2711981400299430 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		777B516E27119A9200299430 /* CodeBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				06A1EC982708A7F300EA78D8 /* UIFont+.swift */,
 				06A1EC9A2708B12A00EA78D8 /* UILabel+.swift */,
 				06A1EC9C2708C5E800EA78D8 /* UIButton+.swift */,
+				775B95A9271F110A004D4540 /* UIImageView+.swift */,
 				06A1ECA22708D21400EA78D8 /* UITableView+.swift */,
 				06A1ECA42708D77900EA78D8 /* UICollectionView+.swift */,
 				06A1ECAB2711828900EA78D8 /* UIColor+.swift */,
@@ -570,6 +573,7 @@
 				06A1ECAC2711828900EA78D8 /* UIColor+.swift in Sources */,
 				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
+				775B95AA271F110A004D4540 /* UIImageView+.swift in Sources */,
 				777B5169271197B800299430 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
