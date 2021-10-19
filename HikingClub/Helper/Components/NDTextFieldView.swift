@@ -60,6 +60,7 @@ final class NDTextFieldView: UIView {
         textField.layer.borderWidth = 1.2
         textField.setPlaceholder(font: .semiBold16, color: .gray300)
         textField.setFont(.semiBold16)
+        textField.backgroundColor = .gray50
         textField.textColor = .gray800
         
         titleLabel.setFont(.semiBold13)
