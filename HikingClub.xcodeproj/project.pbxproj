@@ -52,6 +52,7 @@
 		7755081F26F84E52005B8763 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081E26F84E52005B8763 /* CombineMoya */; };
 		7755082126F84E52005B8763 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082026F84E52005B8763 /* RxMoya */; };
 		7755082326F84E52005B8763 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082226F84E52005B8763 /* Moya */; };
+		775B95A8271F0BD9004D4540 /* AssetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B95A7271F0BD9004D4540 /* AssetImage.swift */; };
 		777B5169271197B800299430 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5168271197B800299430 /* UIView+.swift */; };
 		777B516B2711981400299430 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516A2711981400299430 /* UIStackView+.swift */; };
 		777B516F27119A9200299430 /* CodeBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516E27119A9200299430 /* CodeBasedView.swift */; };
@@ -112,6 +113,7 @@
 		775507FF26F842E6005B8763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7755080226F842E6005B8763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7755080426F842E6005B8763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		775B95A7271F0BD9004D4540 /* AssetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetImage.swift; sourceTree = "<group>"; };
 		777B5168271197B800299430 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		777B516A2711981400299430 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		777B516E27119A9200299430 /* CodeBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedView.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				775507FF26F842E6005B8763 /* Assets.xcassets */,
+				775B95A7271F0BD9004D4540 /* AssetImage.swift */,
 				06A1ECA92711789500EA78D8 /* Colors.xcassets */,
 			);
 			path = Resource;
@@ -540,6 +543,7 @@
 				77E5913C271170860070F381 /* LoginNavigationViewModel.swift in Sources */,
 				77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */,
 				777B517527129E6300299430 /* GreetingView.swift in Sources */,
+				775B95A8271F0BD9004D4540 /* AssetImage.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				777B516B2711981400299430 /* UIStackView+.swift in Sources */,
 				283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */,
