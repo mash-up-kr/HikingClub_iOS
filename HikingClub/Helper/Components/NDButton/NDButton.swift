@@ -11,7 +11,7 @@ import RxCocoa
 import SnapKit
 
 /// 노들길 버튼 템플릿
-class NDButton: UIView {
+final class NDButton: UIView {
     fileprivate let button: UIButton = UIButton(type: .system)
     var theme: NDButtonTheme = NDButtonTheme(.fillGreen) {
         didSet { setTheme(theme) }
