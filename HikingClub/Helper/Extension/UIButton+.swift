@@ -17,4 +17,8 @@ extension UIButton {
         tintColor = color
         setImage(image, for: state)
     }
+    
+    func setImage(_ asset: AssetImage, for state: UIControl.State = .normal) {
+        setImage(asset.image, for: state)
+    }
 }
