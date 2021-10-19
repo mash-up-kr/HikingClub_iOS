@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06679F07271EB39000D63AE1 /* NDButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06679F06271EB39000D63AE1 /* NDButtons.swift */; };
+		06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06679F08271EB3E400D63AE1 /* NDCTAButton.swift */; };
 		067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4EF26FEF8A000650862 /* NetworkProvider.swift */; };
 		067DC4FB26FF19DE00650862 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FA26FF19DE00650862 /* API.swift */; };
 		067DC4FF26FF213400650862 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FE26FF213400650862 /* NetworkError.swift */; };
@@ -28,6 +30,7 @@
 		06A1ECB5271952B100EA78D8 /* NDTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB4271952B100EA78D8 /* NDTextFieldView.swift */; };
 		06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */; };
 		06A1ECB927198ED200EA78D8 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB827198ED200EA78D8 /* UITextField+.swift */; };
+		06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC1F73271C1B79001A6584 /* NDAlert.swift */; };
 		283AF0502708672C0033ED71 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283AF04F2708672C0033ED71 /* Home.storyboard */; };
 		283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF06C27086B940033ED71 /* HomeViewController.swift */; };
 		283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF07527086DA40033ED71 /* RoadTableViewCell.swift */; };
@@ -74,6 +77,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06679F06271EB39000D63AE1 /* NDButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDButtons.swift; sourceTree = "<group>"; };
+		06679F08271EB3E400D63AE1 /* NDCTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDCTAButton.swift; sourceTree = "<group>"; };
 		067DC4EF26FEF8A000650862 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		067DC4FA26FF19DE00650862 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		067DC4FE26FF213400650862 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -95,6 +100,7 @@
 		06A1ECB4271952B100EA78D8 /* NDTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDTextFieldView.swift; sourceTree = "<group>"; };
 		06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTestViewController.swift; sourceTree = "<group>"; };
 		06A1ECB827198ED200EA78D8 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		06BC1F73271C1B79001A6584 /* NDAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDAlert.swift; sourceTree = "<group>"; };
 		283AF04F2708672C0033ED71 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		283AF06C27086B940033ED71 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		283AF07527086DA40033ED71 /* RoadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadTableViewCell.swift; sourceTree = "<group>"; };
@@ -185,10 +191,11 @@
 		06A1ECA62711759F00EA78D8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */,
 				06A1ECAD2711849100EA78D8 /* NDButton */,
 				06A1ECB227180C2F00EA78D8 /* NaviBar.swift */,
 				06A1ECB4271952B100EA78D8 /* NDTextFieldView.swift */,
-				06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */,
+				06BC1F73271C1B79001A6584 /* NDAlert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -196,6 +203,8 @@
 		06A1ECAD2711849100EA78D8 /* NDButton */ = {
 			isa = PBXGroup;
 			children = (
+				06679F08271EB3E400D63AE1 /* NDCTAButton.swift */,
+				06679F06271EB39000D63AE1 /* NDButtons.swift */,
 				06A1ECA72711782100EA78D8 /* NDButton.swift */,
 				06A1ECB02712C10A00EA78D8 /* NDButtonTheme.swift */,
 			);
@@ -532,9 +541,11 @@
 				777B517C2712AEB300299430 /* EmailAuthroizeViewController.swift in Sources */,
 				777B51802714472B00299430 /* TermDetailViewController.swift in Sources */,
 				77E59133270DDDA40070F381 /* HomeViewModel.swift in Sources */,
+				06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */,
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
 				06A1ECB327180C2F00EA78D8 /* NaviBar.swift in Sources */,
 				06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */,
+				06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */,
 				77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */,
 				77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */,
 				77E5913C271170860070F381 /* LoginNavigationViewModel.swift in Sources */,
@@ -544,6 +555,7 @@
 				777B516B2711981400299430 /* UIStackView+.swift in Sources */,
 				283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */,
 				77E591402711723C0070F381 /* SignUpViewController.swift in Sources */,
+				06679F07271EB39000D63AE1 /* NDButtons.swift in Sources */,
 				067DC4FF26FF213400650862 /* NetworkError.swift in Sources */,
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
 				283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */,
