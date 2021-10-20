@@ -28,23 +28,27 @@ final class MainTabBarController: UITabBarController {
         UIViewController().wrappedByNavigationController()
     }()
     
-    private let homeTabBarItem = UITabBarItem(title: "홈", image: nil, tag: 1)
+    private let homeTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_house_deselected_gray200_28,
+                                              selectedAsset: .icon_tabbar_house_selected_green900_28)
     
-    private let searchTabBarItem = UITabBarItem(title: "검색", image: nil, tag: 2)
+    private let searchTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_magnifier_left_deselected_gray200_28,
+                                                selectedAsset: .icon_tabbar_magnifier_left_selected_green900_28)
     
-    private let writeTabBarItem = UITabBarItem(title: "글등록", image: nil, tag: 3)
+    private let writeTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_pencil_deselected_gray200_28,
+                                               selectedAsset: .icon_tabbar_pencil_selected_green900_28)
     
-    private let mypageTabBarItem = UITabBarItem(title: "마이페이지", image: nil, tag: 4)
-    
+    private let mypageTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_magnifier_left_deselected_gray200_28,
+                                                selectedAsset: .icon_tabbar_magnifier_left_selected_green900_28)
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.barTintColor = .white
         homeViewController.tabBarItem = homeTabBarItem
         searchViewController.tabBarItem = searchTabBarItem
         writeViewController.tabBarItem = writeTabBarItem
         myPageViewController.tabBarItem = mypageTabBarItem
         
-        setViewControllers([homeViewController, searchViewController, writeViewController, myPageViewController], animated: true)
+        setViewControllers([homeViewController, searchViewController, writeViewController, myPageViewController], animated: false)
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
