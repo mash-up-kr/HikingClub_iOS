@@ -25,7 +25,7 @@ enum AssetImage: String {
     case icon_crossX_gray500_24
     case icon_crossX_gray900_24
     
-    case icon_maginfier_left_gray900_24
+    case icon_magnifier_left_gray900_24
     case icon_plus_gray900_24
     case icon_threeDots_horizon_gray900_24
     
@@ -39,8 +39,8 @@ enum AssetImage: String {
     
     case icon_tabbar_house_deselected_gray200_28
     case icon_tabbar_house_selected_green900_28
-    case icon_tabbar_maginfier_left_deselected_gray200_28
-    case icon_tabbar_maginfier_left_selected_green900_28
+    case icon_tabbar_magnifier_left_deselected_gray200_28
+    case icon_tabbar_magnifier_left_selected_green900_28
     case icon_tabbar_pencil_deselected_gray200_28
     case icon_tabbar_pencil_selected_green900_28
     case icon_tabbar_person_deselected_gray200_28
@@ -54,6 +54,7 @@ enum AssetImage: String {
     // MARK: - textfield
     
     case icon_textField_angleBracket_right_gray600_24
+    
     var image: UIImage? {
         return UIImage.init(named: self.rawValue)
     }
