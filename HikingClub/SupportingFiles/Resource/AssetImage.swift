@@ -35,6 +35,17 @@ enum AssetImage: String {
     case icon_check_circle_deselected_gray300_24
     case icon_check_circle_selected_green500_24
     
+    // MARK: - tabbar
+    
+    case icon_tabbar_house_deselected_gray200_28
+    case icon_tabbar_house_selected_green900_28
+    case icon_tabbar_maginfier_left_deselected_gray200_28
+    case icon_tabbar_maginfier_left_selected_green900_28
+    case icon_tabbar_pencil_deselected_gray200_28
+    case icon_tabbar_pencil_selected_green900_28
+    case icon_tabbar_person_deselected_gray200_28
+    case icon_tabbar_person_selected_green900_28
+    
     // MARK: - contentList
     
     case icon_contentList_bookMark_deselected_gray200_24
