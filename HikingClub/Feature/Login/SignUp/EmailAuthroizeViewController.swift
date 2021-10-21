@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
+final class EmailAuthorizeViewController: BaseViewController<BaseViewModel>, ScrollViewKeyboardApperanceProtocol {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("이메일 인증")
@@ -15,49 +15,34 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
         return view
     }()
     
-    private let scrollView = UIScrollView()
+    var scrollView = UIScrollView()
+    
+    var bottomAreaView: UIView {
+        authorizeButton
+    }
     
     private let scrollContentsView = UIView()
     
-    private let textFieldComponent: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        view.snp.makeConstraints {
-            $0.height.equalTo(77)
-        }
+    private let emailTextfield: NDTextFieldView = {
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.setTitle("이메일")
+        textfield.setPlaceholder("이메일 주소 입력")
         
-        let label = UILabel()
-        label.text = "텍스트필드 컴포넌트"
-        view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-        
-        return view
+        return textfield
     }()
     
-    private let sendAuthEmailButton: UIButton = {
-        let button = UIButton()
+    private let authenticationEmailReceiveButton: NDButton = {
+        let button = NDButton(theme: .init(.strokeGreen))
         button.setTitle("인증 메일 받기", for: .normal)
-        button.backgroundColor = .gray
+        
         return button
     }()
     
-    private let textFieldComponent2: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        view.snp.makeConstraints {
-            $0.height.equalTo(77)
-        }
+    private let authenticationNumberTextfield: NDTextFieldView = {
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.setTitle("인증번호", description: "입력한 이메일에서 인증번호를 확인해주세요.")
         
-        let label = UILabel()
-        label.text = "텍스트필드 컴포넌트 + 설명"
-        view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-        
-        return view
+        return textfield
     }()
     
     // TODO: CAT Button Component로 교쳬 예정
@@ -67,6 +52,13 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
         button.backgroundColor = .gray
         return button
     }()
+    
+    // MARK: - Attribute
+    
+    override func attribute() {
+        super.attribute()
+        initKeyboardApperance()
+    }
     
     // MARK: - Layout
     
@@ -99,19 +91,21 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
     }
     
     private func scrollContentsViewLayout() {
-        scrollContentsView.addSubViews(textFieldComponent, sendAuthEmailButton, textFieldComponent2)
-        textFieldComponent.snp.makeConstraints {
+        scrollContentsView.addSubViews(emailTextfield, authenticationEmailReceiveButton, authenticationNumberTextfield)
+        emailTextfield.snp.makeConstraints {
             $0.top.equalToSuperview().offset(48)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
         }
-        sendAuthEmailButton.snp.makeConstraints {
-            $0.top.equalTo(textFieldComponent.snp.bottom).offset(8)
+        authenticationEmailReceiveButton.snp.makeConstraints {
+            $0.top.equalTo(emailTextfield.snp.bottom).offset(8)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
+            
+            $0.height.equalTo(44)
         }
-        textFieldComponent2.snp.makeConstraints {
-            $0.top.equalTo(sendAuthEmailButton.snp.bottom).offset(36)
+        authenticationNumberTextfield.snp.makeConstraints {
+            $0.top.equalTo(authenticationEmailReceiveButton.snp.bottom).offset(36)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview()
@@ -123,6 +117,12 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel> {
     override func bind() {
         super.bind()
         navigationBar.rx.tapLeftItem
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        authorizeButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             })
