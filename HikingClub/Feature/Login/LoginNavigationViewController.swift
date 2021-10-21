@@ -30,8 +30,7 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
     
     private let appleLoginButton: NDButton = {
         var theme = NDButtonTheme(.strokeGreen, textStyle: .large, radius: 8)
-        // TODO: gray900 추가시 적용할것
-        theme.textColor = .gray700
+        theme.textColor = .gray900
         let button = NDButton(theme: theme)
         button.setTitle("Apple 로그인", for: .normal)
         return button
@@ -41,8 +40,9 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
         let button = UIButton()
         button.setFont(.medium14)
         button.setTitleColor(.gray700, for: .normal)
-        button.setTitle("바로 둘러보기 >", for: .normal)
-        // TODO: icon 적용하기
+        button.setTitle("바로 둘러보기", for: .normal)
+        button.setImage(.icon_angleBracket_right_gray700_16)
+        button.semanticContentAttribute = .forceRightToLeft
         return button
     }()
     
