@@ -17,8 +17,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
     private let stackView = UIStackView()
     private let ndTextFieldView = NDTextFieldView(scale: .small)
     private let alertButton = NDButton(theme: .init(.fillGreen))
-    
-    private let alert = NDAlert(buttonStyle: .one,
+    private let alert = NDAlert(buttonStyle: .two,
                                 title: "타이틀테스트",
                                 description: "설명 두줄을 한번 써봥야징,설명 두줄을 한번 써봥야징,설명 두줄을 한번 써봥야징",
                                 okTitle: "오케이!",
@@ -28,15 +27,18 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
                                 cancelTitle: "취소!") {
         print("취소")
     }
+    private let ctaButton = NDCTAButton(buttonStyle: .one)
+    
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setScrollView()
-        stackView.addArrangedSubviews(ndTextFieldView, alertButton)
+        stackView.addArrangedSubviews(ndTextFieldView, alertButton, ctaButton)
         testTextField()
         testAlert()
+        testCTAButton()
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -79,6 +81,18 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
                 self?.alert.snp.makeConstraints {
                     $0.edges.equalToSuperview()
                 }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func testCTAButton() {
+        view.layoutIfNeeded()
+        ctaButton.setGradientColor()
+        ctaButton.setTitle("오키", buttonType: .ok)
+        ctaButton.setTitle("엥", buttonType: .cancel)
+        ctaButton.rx.tapOk
+            .subscribe(onNext: {
+                print("오케이!")
             })
             .disposed(by: disposeBag)
     }
