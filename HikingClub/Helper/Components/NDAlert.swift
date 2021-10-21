@@ -23,10 +23,17 @@ final class NDAlert: UIView, CodeBasedProtocol {
     private let containerView: UIView = UIView()
     private let titleLabel: UILabel = UILabel()
     private let descriptionLabel: UILabel = UILabel()
-    fileprivate var ndButtons: NDButtons?
-    fileprivate var ndButton: NDButton?
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 7
+        return stackView
+    }()
+    fileprivate let okButton: NDButton = NDButton(theme: .init(.fillGreen))
+    fileprivate let cancelButton: NDButton = NDButton(theme: .init(.fillGray))
     private let disposeBag: DisposeBag = DisposeBag()
-    private var buttonStyle: ButtonStyle = .one
+    private let buttonStyle: ButtonStyle
     
     init(buttonStyle: NDAlert.ButtonStyle,
          title: String?,
@@ -35,41 +42,34 @@ final class NDAlert: UIView, CodeBasedProtocol {
          okHandler: (() -> Void)?,
          cancelTitle: String?,
          cancelHandler: (() -> Void)?) {
+        self.buttonStyle = buttonStyle
         super.init(frame: .zero)
-        
         titleLabel.text = title
         descriptionLabel.text = description
-        self.buttonStyle = buttonStyle
         
         addSubViews(dimView, containerView)
-        switch buttonStyle {
-        case .one:
-            ndButton = NDButton(theme: .init(.fillGreen))
-            ndButton?.setTitle(okTitle, for: .normal)
-            ndButton?.rx.tap
-                .subscribe(onNext: { [weak self] in
-                    okHandler?()
-                    self?.removeFromSuperview()
-                })
-                .disposed(by: disposeBag)
-            containerView.addSubViews(titleLabel, descriptionLabel, ndButton!)
-        case .two:
-            ndButtons = NDButtons(okTitle: okTitle, cancelTitle: cancelTitle)
-            ndButtons?.rx.okTap
-                .subscribe(onNext: { [weak self] in
-                    okHandler?()
-                    self?.removeFromSuperview()
-                })
-                .disposed(by: disposeBag)
-            
-            ndButtons?.rx.cancelTap
+        containerView.addSubViews(titleLabel, descriptionLabel, stackView)
+        
+        okButton.setTitle(okTitle, for: .normal)
+        if buttonStyle == .two {
+            cancelButton.setTitle(cancelTitle, for: .normal)
+            cancelButton.rx.tap
                 .subscribe(onNext: { [weak self] in
                     cancelHandler?()
                     self?.removeFromSuperview()
                 })
                 .disposed(by: disposeBag)
-            containerView.addSubViews(titleLabel, descriptionLabel, ndButtons!)
+            
+            stackView.addArrangedSubviews(cancelButton, okButton)
+        } else {
+            stackView.addArrangedSubviews(okButton)
         }
+        okButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                okHandler?()
+                self?.removeFromSuperview()
+            })
+            .disposed(by: disposeBag)
         
         attribute()
         layout()
@@ -100,21 +100,11 @@ final class NDAlert: UIView, CodeBasedProtocol {
             $0.trailing.equalToSuperview().inset(16)
         }
         
-        switch buttonStyle {
-        case .one:
-            ndButton?.snp.makeConstraints {
-                $0.top.equalTo(descriptionLabel.snp.bottom).offset(20)
-                $0.leading.equalToSuperview().offset(16)
-                $0.trailing.bottom.equalToSuperview().inset(16)
-                $0.height.equalTo(54)
-            }
-        case .two:
-            ndButtons?.snp.makeConstraints {
-                $0.top.equalTo(descriptionLabel.snp.bottom).offset(20)
-                $0.leading.equalToSuperview().offset(16)
-                $0.trailing.bottom.equalToSuperview().inset(16)
-                $0.height.equalTo(54)
-            }
+        stackView.snp.makeConstraints {
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.bottom.equalToSuperview().inset(16)
+            $0.height.equalTo(54)
         }
     }
     
