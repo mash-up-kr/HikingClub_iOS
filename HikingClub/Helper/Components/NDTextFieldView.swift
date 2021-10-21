@@ -30,7 +30,7 @@ final class NDTextFieldView: UIView {
     private let titleLabel: UILabel = UILabel()
     fileprivate let textField: UITextField = UITextField()
     private let descriptionLabel: UILabel = UILabel()
-    fileprivate let detailButton: UIButton = UIButton()
+    fileprivate let detailButton: UIButton = UIButton(type: .system)
     
     private let disposeBag: DisposeBag = DisposeBag()
     private var scale: Scale = .small
@@ -92,6 +92,11 @@ final class NDTextFieldView: UIView {
             $0.top.equalTo(textField.snp.bottom).offset(8)
             $0.leading.bottom.equalToSuperview()
         }
+        
+        detailButton.snp.makeConstraints {
+            $0.centerY.equalTo(textField)
+            $0.trailing.equalTo(textField).inset(24)
+        }
     }
     
     fileprivate func setTheme(_ theme: Theme) {
@@ -106,6 +111,8 @@ final class NDTextFieldView: UIView {
             textField.textColor = .red500
         case .selected:
             detailButton.isHidden = false
+            detailButton.setTemplateImage(named: "imgBack")
+            textField.isUserInteractionEnabled = false
             fallthrough
         case .normal:
             descriptionLabel.textColor = .gray500

@@ -64,7 +64,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
     func testTextField() {
         ndTextFieldView.setPlaceholder("플레이스 홀더")
         ndTextFieldView.setTitle("레이블", description: "설명이 들어갑니다")
-        ndTextFieldView.rx.theme.onNext(.warning)
+        ndTextFieldView.rx.theme.onNext(.selected)
     }
 
     func testAlert() {
