@@ -36,6 +36,8 @@
 		77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77169DD0270C8C36000AB1D2 /* BaseViewController.swift */; };
 		77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77213CF72708EF1600994C9A /* BaseWebView.swift */; };
 		773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */; };
+		773D61A02719D0D0001528B3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D619F2719D0D0001528B3 /* SignInViewController.swift */; };
+		773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D61A22719D872001528B3 /* ChangePasswordViewController.swift */; };
 		7741F98E27171CC2005B3D88 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741F98D27171CC2005B3D88 /* UIViewController+.swift */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
@@ -104,6 +106,8 @@
 		77169DD0270C8C36000AB1D2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		77213CF72708EF1600994C9A /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+.swift"; sourceTree = "<group>"; };
+		773D619F2719D0D0001528B3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		773D61A22719D872001528B3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		7741F98D27171CC2005B3D88 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -331,6 +335,31 @@
 			path = BaseArchitecture;
 			sourceTree = "<group>";
 		};
+		773D619E2719D0C1001528B3 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				773D619F2719D0D0001528B3 /* SignInViewController.swift */,
+				773D61A12719D85A001528B3 /* ForgotPassword */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		773D61A12719D85A001528B3 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				773D61A22719D872001528B3 /* ChangePasswordViewController.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		773D61A42719D8CA001528B3 /* EmailAuthorize */ = {
+			isa = PBXGroup;
+			children = (
+				777B517B2712AEB300299430 /* EmailAuthroizeViewController.swift */,
+			);
+			path = EmailAuthorize;
+			sourceTree = "<group>";
+		};
 		775507EA26F842E5005B8763 = {
 			isa = PBXGroup;
 			children = (
@@ -406,7 +435,9 @@
 		77E5913627115F6D0070F381 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				773D61A42719D8CA001528B3 /* EmailAuthorize */,
 				77E5913D271172090070F381 /* SignUp */,
+				773D619E2719D0C1001528B3 /* SignIn */,
 				77E5913727115F890070F381 /* LoginNavigationViewController.swift */,
 				77E5913B271170860070F381 /* LoginNavigationViewModel.swift */,
 			);
@@ -420,7 +451,6 @@
 				77E5913F2711723C0070F381 /* SignUpViewController.swift */,
 				777B517F2714472B00299430 /* TermDetailViewController.swift */,
 				777B51792712AA2300299430 /* SignUpInputViewController.swift */,
-				777B517B2712AEB300299430 /* EmailAuthroizeViewController.swift */,
 				777B51862714553900299430 /* InitialSetting */,
 			);
 			path = SignUp;
@@ -557,9 +587,11 @@
 				06A1EC9D2708C5E800EA78D8 /* UIButton+.swift in Sources */,
 				775B959D271C2512004D4540 /* ScrollViewKeyboardApperanceProtocol.swift in Sources */,
 				773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */,
+				773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */,
 				775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */,
 				283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */,
 				777B517327129D6500299430 /* CodeBasedProtocol.swift in Sources */,
+				773D61A02719D0D0001528B3 /* SignInViewController.swift in Sources */,
 				06A1ECA32708D21400EA78D8 /* UITableView+.swift in Sources */,
 				067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */,
 				777B517E2714336700299430 /* InitialSettingViewController.swift in Sources */,
