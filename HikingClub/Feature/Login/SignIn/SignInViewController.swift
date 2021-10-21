@@ -114,7 +114,7 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
             .disposed(by: disposeBag)
     }
     
-    private func navigateToForgotPasswordViewController() {
-        navigationController?.pushViewController(ForgotPasswordViewController(BaseViewModel()), animated: true)
+    private func navigateToEmailAuthorizeViewController() {
+        // TODO: 이메일 인증 화면(EmailAutorizeViewController) -> 비밀번호 변경 화면(ChangePasswordViewController)
     }
 }

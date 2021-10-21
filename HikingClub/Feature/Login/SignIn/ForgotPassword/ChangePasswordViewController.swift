@@ -1,5 +1,5 @@
 //
-//  ForgotPasswordViewController.swift
+//  ChangePasswordViewController.swift
 //  HikingClub
 //
 //  Created by AhnSangHoon on 2021/10/16.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ForgotPasswordViewController: BaseViewController<BaseViewModel> {
+final class ChangePasswordViewController: BaseViewController<BaseViewModel> {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("비밀번호 변경")
@@ -28,37 +28,17 @@ final class ForgotPasswordViewController: BaseViewController<BaseViewModel> {
         return stackView
     }()
     
-    private let textFieldComponent: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        view.snp.makeConstraints {
-            $0.height.equalTo(77)
-        }
-        
-        let label = UILabel()
-        label.text = "비밀번호 입력 텍스트필드 컴포넌트"
-        view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-        
+    private let passwordInputTextField: NDTextFieldView = {
+        let view = NDTextFieldView(scale: .big)
+        view.setTitle("새로운 비밀번호")
+        view.setPlaceholder("6-18자의 비밀번호")
         return view
     }()
     
-    private let textFieldComponent2: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        view.snp.makeConstraints {
-            $0.height.equalTo(77)
-        }
-        
-        let label = UILabel()
-        label.text = "비밀번호 확인 텍스트필드 컴포넌트"
-        view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-        
+    private let passwordConfirmInputTextField: NDTextFieldView = {
+        let view = NDTextFieldView(scale: .big)
+        view.setTitle("비밀번호 확인")
+        view.setPlaceholder("비밀번호를 다시 입력해주세요.")
         return view
     }()
     
@@ -114,7 +94,7 @@ final class ForgotPasswordViewController: BaseViewController<BaseViewModel> {
     }
     
     private func textFieldStackViewLayout() {
-        textFieldStackView.addArrangedSubviews(textFieldComponent, textFieldComponent2)
+        textFieldStackView.addArrangedSubviews(passwordInputTextField, passwordConfirmInputTextField)
     }
     
     // MARK: - Bind
