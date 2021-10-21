@@ -95,7 +95,7 @@ final class NDTextFieldView: UIView {
         
         detailButton.snp.makeConstraints {
             $0.centerY.equalTo(textField)
-            $0.trailing.equalTo(textField).inset(24)
+            $0.trailing.equalTo(textField).inset(16)
         }
     }
     
