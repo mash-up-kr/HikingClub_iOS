@@ -51,11 +51,11 @@ final class NDButtons: UIView, CodeBasedProtocol {
 }
 
 extension Reactive where Base: NDButtons {
-    var cancelTap: ControlEvent<Void> {
-        base.cancelButton.rx.tap
+    var tapOk: ControlEvent<Void> {
+        base.okButton.rx.tap
     }
     
-    var okTap: ControlEvent<Void> {
-        base.okButton.rx.tap
+    var tapCancel: ControlEvent<Void> {
+        base.cancelButton.rx.tap
     }
 }
