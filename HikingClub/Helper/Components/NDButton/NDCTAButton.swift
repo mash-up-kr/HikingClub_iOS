@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 /// 그라데이션 투명처리되어있는 버튼
+/// - NOTE: setGradientColor 호출해줘야 뒷배경 효과적용됨
 final class NDCTAButton: UIView, CodeBasedProtocol {
     enum ButtonStyle {
         case one
