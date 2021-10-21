@@ -72,15 +72,10 @@ final class ForgotPasswordViewController: BaseViewController<BaseViewModel> {
         return button
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        layout()
-        bind()
-    }
-    
     // MARK: - Layout
     
-    private func layout() {
+    override func layout() {
+        super.layout()
         view.addSubViews(navigationBar, scrollView, completeButton)
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -124,7 +119,8 @@ final class ForgotPasswordViewController: BaseViewController<BaseViewModel> {
     
     // MARK: - Bind
     
-    private func bind() {
+    override func bind() {
+        super.bind()
         navigationBar.rx.tapLeftItem
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
