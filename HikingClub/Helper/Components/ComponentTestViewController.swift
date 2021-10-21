@@ -28,6 +28,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         print("취소")
     }
     private let ctaButton = NDCTAButton(buttonStyle: .one)
+    private let toastView = NDToastView(theme: .red)
     
     private let disposeBag = DisposeBag()
     
@@ -35,10 +36,14 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setScrollView()
-        stackView.addArrangedSubviews(ndTextFieldView, alertButton, ctaButton)
+        stackView.addArrangedSubviews(ndTextFieldView,
+                                      alertButton,
+                                      ctaButton,
+                                      toastView)
         testTextField()
         testAlert()
         testCTAButton()
+        testToast()
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -95,6 +100,13 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
                 print("오케이!")
             })
             .disposed(by: disposeBag)
+    }
+    
+    func testToast() {
+        toastView.setTitle("토스트 메시지")
+        toastView.snp.makeConstraints {
+            $0.height.equalTo(48)
+        }
     }
 }
 #endif
