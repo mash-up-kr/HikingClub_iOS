@@ -87,20 +87,29 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
     override func bind() {
         super.bind()
         signUpButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.navigateToSignUpNavigationViewController()
+            .subscribe(onNext: { [weak self] in
+                self?.navigateToSignUpViewController()
+            })
+            .disposed(by: disposeBag)
+        
+        emailLoginButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.navigateToSignInViewController()
             })
             .disposed(by: disposeBag)
         
         guestLoginButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
+            .subscribe(onNext: { [weak self] in
                 self?.dismiss(animated: true)
             })
             .disposed(by: disposeBag)
     }
     
-    private func navigateToSignUpNavigationViewController() {
-        let viewController = SignUpViewController(BaseViewModel())
-        navigationController?.pushViewController(viewController, animated: true)
+    private func navigateToSignUpViewController() {
+        navigationController?.pushViewController(SignUpViewController(BaseViewModel()), animated: true)
+    }
+    
+    private func navigateToSignInViewController() {
+        navigationController?.pushViewController(SignInViewController(BaseViewModel()), animated: true)
     }
 }

@@ -1,25 +1,21 @@
 //
-//  SignUpInputViewController.swift
+//  ChangePasswordViewController.swift
 //  HikingClub
 //
-//  Created by AhnSangHoon on 2021/10/10.
+//  Created by AhnSangHoon on 2021/10/16.
 //
 
 import UIKit
 
-final class SignUpInputViewController: BaseViewController<BaseViewModel>, ScrollViewKeyboardApperanceProtocol {
+final class ChangePasswordViewController: BaseViewController<BaseViewModel> {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
-        view.setTitle("회원가입")
+        view.setTitle("비밀번호 변경")
         view.setBackItemImage()
         return view
     }()
     
-    var scrollView = UIScrollView()
-    
-    var bottomAreaView: UIView {
-        nextButton
-    }
+    private let scrollView = UIScrollView()
     
     private let scrollContentsView = UIView()
     
@@ -32,56 +28,35 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
         return stackView
     }()
     
-    private lazy var emailTextfield: NDTextFieldView = {
-        let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("이메일")
-        textfield.setPlaceholder("이메일 주소 입력")
-        
-        textfield.addSubview(emailTextFieldButton)
-        emailTextFieldButton.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        return textfield
+    private let passwordInputTextField: NDTextFieldView = {
+        let view = NDTextFieldView(scale: .big)
+        view.setTitle("새로운 비밀번호")
+        view.setPlaceholder("6-18자의 비밀번호")
+        return view
     }()
     
-    private let emailTextFieldButton = UIButton()
-    
-    private let passwordTextfield: NDTextFieldView = {
-        let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("비밀번호")
-        textfield.setPlaceholder("6~18자의 비밀번호")
-        
-        return textfield
+    private let passwordConfirmInputTextField: NDTextFieldView = {
+        let view = NDTextFieldView(scale: .big)
+        view.setTitle("비밀번호 확인")
+        view.setPlaceholder("비밀번호를 다시 입력해주세요.")
+        return view
     }()
     
-    private let passwordConfirmTextfield: NDTextFieldView = {
-        let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("비밀번호 확인")
-        textfield.setPlaceholder("비밀번호를 다시 입력해주세요.")
-        
-        return textfield
-    }()
+    private let signInButtonWrapper = UIView()
     
     // TODO: CAT Button Component로 교쳬 예정
-    private let nextButton: UIButton = {
+    private let completeButton: UIButton = {
         let button = UIButton()
-        button.setTitle("다음", for: .normal)
+        button.setTitle("완료", for: .normal)
         button.backgroundColor = .gray
         return button
     }()
-    
-    // MARK: - Attribute
-    
-    override func attribute() {
-        super.attribute()
-        initKeyboardApperance()
-    }
     
     // MARK: - Layout
     
     override func layout() {
         super.layout()
-        view.addSubViews(navigationBar, scrollView, nextButton)
+        view.addSubViews(navigationBar, scrollView, completeButton)
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
@@ -89,9 +64,8 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
         scrollView.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            
         }
-        nextButton.snp.makeConstraints {
+        completeButton.snp.makeConstraints {
             $0.top.equalTo(scrollView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view)
@@ -120,7 +94,7 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
     }
     
     private func textFieldStackViewLayout() {
-        textFieldStackView.addArrangedSubviews(emailTextfield, passwordTextfield, passwordConfirmTextfield)
+        textFieldStackView.addArrangedSubviews(passwordInputTextField, passwordConfirmInputTextField)
     }
     
     // MARK: - Bind
@@ -132,25 +106,20 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
-
-        emailTextFieldButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.navigateToEmailAuthorizeViewController()
-            })
-            .disposed(by: disposeBag)
         
-        nextButton.rx.tap
+        completeButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.navigateToInitialSettingViewController()
+                self?.navigateToSignInViewController()
             })
             .disposed(by: disposeBag)
     }
     
-    private func navigateToEmailAuthorizeViewController() {
-        navigationController?.pushViewController(EmailAuthorizeViewController(BaseViewModel()), animated: true)
-    }
-    
-    private func navigateToInitialSettingViewController() {
-        navigationController?.pushViewController(InitialSettingViewController(BaseViewModel()), animated: true)
+    private func navigateToSignInViewController() {
+        // TODO: 이메일 인증 화면 후 로그인 화면으로 돌아가야 하므로 필요한 로직
+        guard let navigationController = navigationController,
+              let signInViewController = navigationController.viewControllers.filter({ $0 is SignInViewController }).first
+        else { return }
+        
+        navigationController.popToViewController(signInViewController, animated: true)
     }
 }

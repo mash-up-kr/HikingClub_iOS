@@ -7,33 +7,35 @@
 
 import UIKit
 
-final class InitialSettingViewController: BaseViewController<BaseViewModel> {
+final class InitialSettingViewController: BaseViewController<BaseViewModel>, ScrollViewKeyboardApperanceProtocol {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
-        view.setTitle("회원가입")
+        view.setTitle("기본설정")
         view.setBackItemImage()
         return view
     }()
     
-    private let scrollView = UIScrollView()
+    var scrollView = UIScrollView()
+    
+    var bottomAreaView: UIView {
+        compelteButton
+    }
     
     private let scrollContentsView = UIView()
     
-    private let textFieldComponent: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        view.snp.makeConstraints {
-            $0.height.equalTo(77)
-        }
+    private let nickNameTextField: NDTextFieldView = {
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.setTitle("닉네임", description: "닉네임은 공백 포함 2-10자로 작성해 주세요.")
         
-        let label = UILabel()
-        label.text = "닉네임 입력 텍스트필드 컴포넌트"
-        view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
+        return textfield
+    }()
+    
+    private let townTextfield: NDTextFieldView = {
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.rx.theme.onNext(.selected)
+        textfield.setTitle("동네선택", description: "관심있는 동네를 선택해 주세요.")
         
-        return view
+        return textfield
     }()
     
     private let textFieldComponent2: UIButton = {
@@ -86,14 +88,14 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
     }
     
     private func scrollContentsViewLayout() {
-        scrollContentsView.addSubViews(textFieldComponent, textFieldComponent2)
-        textFieldComponent.snp.makeConstraints {
+        scrollContentsView.addSubViews(nickNameTextField, townTextfield)
+        nickNameTextField.snp.makeConstraints {
             $0.top.equalToSuperview().offset(48)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
         }
-        textFieldComponent2.snp.makeConstraints {
-            $0.top.equalTo(textFieldComponent.snp.bottom).offset(48)
+        townTextfield.snp.makeConstraints {
+            $0.top.equalTo(nickNameTextField.snp.bottom).offset(48)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview()
@@ -110,7 +112,7 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel> {
             })
             .disposed(by: disposeBag)
 
-        textFieldComponent2.rx.tap
+        townTextfield.rx.tapDetailButton
             .subscribe(onNext: { [weak self] _ in
                 self?.navigateToLocationSelectViewController()
             })
