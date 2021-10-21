@@ -28,31 +28,17 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
         return stackView
     }()
     
-    private let textFieldComponent: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .blue
-        button.snp.makeConstraints {
-            $0.height.equalTo(77)
-        }
-        
-        button.setTitle("비밀번호 찾기(아이디입력textField영역임)", for: .normal)
-        return button
+    private let emailInputTextField: NDTextFieldView = {
+        let view = NDTextFieldView(scale: .big)
+        view.setTitle("이메일")
+        view.setPlaceholder("이메일 주소 입력")
+        return view
     }()
     
-    private let textFieldComponent2: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        view.snp.makeConstraints {
-            $0.height.equalTo(77)
-        }
-        
-        let label = UILabel()
-        label.text = "텍스트필드 컴포넌트"
-        view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-        
+    private let passwordInputTextField: NDTextFieldView = {
+        let view = NDTextFieldView(scale: .big)
+        view.setTitle("비밀번호")
+        view.setPlaceholder("비밀번호 입력")
         return view
     }()
     
@@ -108,7 +94,7 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
     }
     
     private func textFieldStackViewLayout() {
-        textFieldStackView.addArrangedSubviews(textFieldComponent, textFieldComponent2)
+        textFieldStackView.addArrangedSubviews(emailInputTextField, passwordInputTextField)
     }
     
     // MARK: - Bind
@@ -118,12 +104,6 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
         navigationBar.rx.tapLeftItem
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: disposeBag)
-        
-        textFieldComponent.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.navigateToForgotPasswordViewController()
             })
             .disposed(by: disposeBag)
         
