@@ -16,33 +16,17 @@ protocol ScrollViewKeyboardApperanceProtocol {
     
     /// keyboard 노출/미노출에 따른 동작 실행
     func initKeyboardApperance()
-    
-    /// keyboard 노출/미노출에 따른 동작 제거
-    func removeKeyboardApperance()
 }
 
 extension ScrollViewKeyboardApperanceProtocol where Self: UIViewController {
     func initKeyboardApperance() {
         scrollView.keyboardDismissMode = .onDrag
         NotificationCenter.default.addObserver(forName: UIWindow.keyboardWillShowNotification, object: nil, queue: nil) { [weak self] notification in
-            self?.keyboardWillShow(notification)
+            self?.handleScrollView(notification, true)
         }
         NotificationCenter.default.addObserver(forName: UIWindow.keyboardWillHideNotification, object: nil, queue: nil) { [weak self] notification in
-            self?.keyboardWillHide(notification)
+            self?.handleScrollView(notification, false)
         }
-    }
-    
-    func removeKeyboardApperance() {
-        NotificationCenter.default.removeObserver(self, name: UIWindow.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIWindow.keyboardWillHideNotification, object: nil)
-    }
-    
-    private func keyboardWillShow(_ noti: Foundation.Notification) {
-        handleScrollView(noti, true)
-    }
-    
-    private func keyboardWillHide(_ noti: Foundation.Notification) {
-        handleScrollView(noti, false)
     }
     
     private func handleScrollView(_ notification: Foundation.Notification, _ isShow: Bool) {
