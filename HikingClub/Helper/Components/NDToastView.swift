@@ -17,14 +17,7 @@ final class NDToastView: UIView, CodeBasedProtocol {
     
     init(theme: Theme) {
         super.init(frame: .zero)
-        switch theme {
-        case .green:
-            backgroundColor = .green500
-            iconImageView.image = UIImage(named: "Pin")
-        case .red:
-            backgroundColor = .red500
-            iconImageView.image = UIImage(named: "Pin")
-        }
+        setTheme(theme)
         layout()
         attribute()
     }
@@ -54,5 +47,16 @@ final class NDToastView: UIView, CodeBasedProtocol {
     
     func setTitle(_ title: String) {
         titleLabel.text = title
+    }
+    
+    func setTheme(_ theme: Theme) {
+        switch theme {
+        case .green:
+            backgroundColor = .green500
+            iconImageView.image = UIImage(named: "Pin")
+        case .red:
+            backgroundColor = .red500
+            iconImageView.image = UIImage(named: "Pin")
+        }
     }
 }
