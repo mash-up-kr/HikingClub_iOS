@@ -37,8 +37,8 @@ final class MainTabBarController: UITabBarController {
     private let writeTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_pencil_deselected_gray200_28,
                                                selectedAsset: .icon_tabbar_pencil_selected_green900_28)
     
-    private let mypageTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_magnifier_left_deselected_gray200_28,
-                                                selectedAsset: .icon_tabbar_magnifier_left_selected_green900_28)
+    private let mypageTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_person_deselected_gray200_28,
+                                                selectedAsset: .icon_tabbar_person_selected_green900_28)
         
     override func viewDidLoad() {
         super.viewDidLoad()
