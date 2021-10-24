@@ -17,4 +17,10 @@ extension UITextField {
     func setFont(_ font: NDFont) {
         self.font = .ndFont(type: font)
     }
+    
+    func addLeftPadding(_ padding: CGFloat) {
+        let paddingView = UIView(frame: .init(x: 0, y: 0, width: padding, height: frame.height))
+        leftView = paddingView
+        leftViewMode = .always
+    }
 }
