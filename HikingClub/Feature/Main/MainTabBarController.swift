@@ -16,9 +16,39 @@ final class MainTabBarController: UITabBarController {
         return homeViewController.wrappedByNavigationController()
     }()
     
+    private let searchViewController: UINavigationController = {
+        UIViewController().wrappedByNavigationController()
+    }()
+    
+    private let writeViewController: UINavigationController = {
+        UIViewController().wrappedByNavigationController()
+    }()
+    
+    private let myPageViewController: UINavigationController = {
+        UIViewController().wrappedByNavigationController()
+    }()
+    
+    private let homeTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_house_deselected_gray200_28,
+                                              selectedAsset: .icon_tabbar_house_selected_green900_28)
+    
+    private let searchTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_magnifier_left_deselected_gray200_28,
+                                                selectedAsset: .icon_tabbar_magnifier_left_selected_green900_28)
+    
+    private let writeTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_pencil_deselected_gray200_28,
+                                               selectedAsset: .icon_tabbar_pencil_selected_green900_28)
+    
+    private let mypageTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_person_deselected_gray200_28,
+                                                selectedAsset: .icon_tabbar_person_selected_green900_28)
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        setViewControllers([homeViewController], animated: true)
+        tabBar.barTintColor = .white
+        homeViewController.tabBarItem = homeTabBarItem
+        searchViewController.tabBarItem = searchTabBarItem
+        writeViewController.tabBarItem = writeTabBarItem
+        myPageViewController.tabBarItem = mypageTabBarItem
+        
+        setViewControllers([homeViewController, searchViewController, writeViewController, myPageViewController], animated: false)
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {

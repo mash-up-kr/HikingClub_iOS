@@ -81,14 +81,15 @@ final class NaviBar: UIView {
     }
     
     /// 오른쪽버튼버튼 설정
-    func setRightItemImage(named: String) {
-        rightButton.setImage(UIImage(named: named), for: .normal)
+    func setRightItemImage(_ asset: AssetImage) {
+        rightButton.setImage(asset)
         rightButton.isHidden = false
     }
     
     /// 백버튼 설정
     func setBackItemImage() {
-        leftButton.setTemplateImage(named: "imgBack")
+        leftButton.setImage(.icon_angleBracket_left_gray900_24)
+        leftButton.tintColor = .gray900
         leftButton.isHidden = false
     }
     
