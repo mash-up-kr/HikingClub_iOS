@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		064A960F272185F900939AD5 /* NDToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064A960E272185F900939AD5 /* NDToastView.swift */; };
+		06679F07271EB39000D63AE1 /* NDButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06679F06271EB39000D63AE1 /* NDButtons.swift */; };
+		06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06679F08271EB3E400D63AE1 /* NDCTAButton.swift */; };
 		067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4EF26FEF8A000650862 /* NetworkProvider.swift */; };
 		067DC4FB26FF19DE00650862 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FA26FF19DE00650862 /* API.swift */; };
 		067DC4FF26FF213400650862 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FE26FF213400650862 /* NetworkError.swift */; };
@@ -25,6 +28,10 @@
 		06A1ECAC2711828900EA78D8 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECAB2711828900EA78D8 /* UIColor+.swift */; };
 		06A1ECB12712C10A00EA78D8 /* NDButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB02712C10A00EA78D8 /* NDButtonTheme.swift */; };
 		06A1ECB327180C2F00EA78D8 /* NaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB227180C2F00EA78D8 /* NaviBar.swift */; };
+		06A1ECB5271952B100EA78D8 /* NDTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB4271952B100EA78D8 /* NDTextFieldView.swift */; };
+		06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */; };
+		06A1ECB927198ED200EA78D8 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB827198ED200EA78D8 /* UITextField+.swift */; };
+		06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC1F73271C1B79001A6584 /* NDAlert.swift */; };
 		283AF0502708672C0033ED71 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283AF04F2708672C0033ED71 /* Home.storyboard */; };
 		283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF06C27086B940033ED71 /* HomeViewController.swift */; };
 		283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF07527086DA40033ED71 /* RoadTableViewCell.swift */; };
@@ -33,6 +40,8 @@
 		77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77169DD0270C8C36000AB1D2 /* BaseViewController.swift */; };
 		77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77213CF72708EF1600994C9A /* BaseWebView.swift */; };
 		773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */; };
+		773D61A02719D0D0001528B3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D619F2719D0D0001528B3 /* SignInViewController.swift */; };
+		773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D61A22719D872001528B3 /* ChangePasswordViewController.swift */; };
 		7741F98E27171CC2005B3D88 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741F98D27171CC2005B3D88 /* UIViewController+.swift */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
@@ -49,6 +58,10 @@
 		7755081F26F84E52005B8763 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081E26F84E52005B8763 /* CombineMoya */; };
 		7755082126F84E52005B8763 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082026F84E52005B8763 /* RxMoya */; };
 		7755082326F84E52005B8763 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755082226F84E52005B8763 /* Moya */; };
+		775B95A8271F0BD9004D4540 /* AssetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B95A7271F0BD9004D4540 /* AssetImage.swift */; };
+		775B95AA271F110A004D4540 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B95A9271F110A004D4540 /* UIImageView+.swift */; };
+		775B95AC27204D1C004D4540 /* UITabBarItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B95AB27204D1C004D4540 /* UITabBarItem+.swift */; };
+		775B959D271C2512004D4540 /* ScrollViewKeyboardApperanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B959C271C2512004D4540 /* ScrollViewKeyboardApperanceProtocol.swift */; };
 		777B5169271197B800299430 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5168271197B800299430 /* UIView+.swift */; };
 		777B516B2711981400299430 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516A2711981400299430 /* UIStackView+.swift */; };
 		777B516F27119A9200299430 /* CodeBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516E27119A9200299430 /* CodeBasedView.swift */; };
@@ -71,6 +84,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		064A960E272185F900939AD5 /* NDToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDToastView.swift; sourceTree = "<group>"; };
+		06679F06271EB39000D63AE1 /* NDButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDButtons.swift; sourceTree = "<group>"; };
+		06679F08271EB3E400D63AE1 /* NDCTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDCTAButton.swift; sourceTree = "<group>"; };
 		067DC4EF26FEF8A000650862 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		067DC4FA26FF19DE00650862 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		067DC4FE26FF213400650862 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -89,6 +105,10 @@
 		06A1ECAB2711828900EA78D8 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		06A1ECB02712C10A00EA78D8 /* NDButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDButtonTheme.swift; sourceTree = "<group>"; };
 		06A1ECB227180C2F00EA78D8 /* NaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviBar.swift; sourceTree = "<group>"; };
+		06A1ECB4271952B100EA78D8 /* NDTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDTextFieldView.swift; sourceTree = "<group>"; };
+		06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTestViewController.swift; sourceTree = "<group>"; };
+		06A1ECB827198ED200EA78D8 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		06BC1F73271C1B79001A6584 /* NDAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDAlert.swift; sourceTree = "<group>"; };
 		283AF04F2708672C0033ED71 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		283AF06C27086B940033ED71 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		283AF07527086DA40033ED71 /* RoadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadTableViewCell.swift; sourceTree = "<group>"; };
@@ -97,6 +117,8 @@
 		77169DD0270C8C36000AB1D2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		77213CF72708EF1600994C9A /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+.swift"; sourceTree = "<group>"; };
+		773D619F2719D0D0001528B3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		773D61A22719D872001528B3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		7741F98D27171CC2005B3D88 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +128,10 @@
 		775507FF26F842E6005B8763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7755080226F842E6005B8763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7755080426F842E6005B8763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		775B95A7271F0BD9004D4540 /* AssetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetImage.swift; sourceTree = "<group>"; };
+		775B95A9271F110A004D4540 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		775B95AB27204D1C004D4540 /* UITabBarItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+.swift"; sourceTree = "<group>"; };
+		775B959C271C2512004D4540 /* ScrollViewKeyboardApperanceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewKeyboardApperanceProtocol.swift; sourceTree = "<group>"; };
 		777B5168271197B800299430 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		777B516A2711981400299430 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		777B516E27119A9200299430 /* CodeBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedView.swift; sourceTree = "<group>"; };
@@ -164,13 +190,16 @@
 				06A1EC982708A7F300EA78D8 /* UIFont+.swift */,
 				06A1EC9A2708B12A00EA78D8 /* UILabel+.swift */,
 				06A1EC9C2708C5E800EA78D8 /* UIButton+.swift */,
+				775B95A9271F110A004D4540 /* UIImageView+.swift */,
 				06A1ECA22708D21400EA78D8 /* UITableView+.swift */,
 				06A1ECA42708D77900EA78D8 /* UICollectionView+.swift */,
 				06A1ECAB2711828900EA78D8 /* UIColor+.swift */,
 				777B5168271197B800299430 /* UIView+.swift */,
+				06A1ECB827198ED200EA78D8 /* UITextField+.swift */,
 				777B516A2711981400299430 /* UIStackView+.swift */,
 				7741F98D27171CC2005B3D88 /* UIViewController+.swift */,
 				773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */,
+				775B95AB27204D1C004D4540 /* UITabBarItem+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -178,8 +207,12 @@
 		06A1ECA62711759F00EA78D8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */,
 				06A1ECAD2711849100EA78D8 /* NDButton */,
 				06A1ECB227180C2F00EA78D8 /* NaviBar.swift */,
+				06A1ECB4271952B100EA78D8 /* NDTextFieldView.swift */,
+				06BC1F73271C1B79001A6584 /* NDAlert.swift */,
+				064A960E272185F900939AD5 /* NDToastView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -187,6 +220,8 @@
 		06A1ECAD2711849100EA78D8 /* NDButton */ = {
 			isa = PBXGroup;
 			children = (
+				06679F08271EB3E400D63AE1 /* NDCTAButton.swift */,
+				06679F06271EB39000D63AE1 /* NDButtons.swift */,
 				06A1ECA72711782100EA78D8 /* NDButton.swift */,
 				06A1ECB02712C10A00EA78D8 /* NDButtonTheme.swift */,
 			);
@@ -209,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				775507FF26F842E6005B8763 /* Assets.xcassets */,
+				775B95A7271F0BD9004D4540 /* AssetImage.swift */,
 				06A1ECA92711789500EA78D8 /* Colors.xcassets */,
 			);
 			path = Resource;
@@ -320,6 +356,31 @@
 			path = BaseArchitecture;
 			sourceTree = "<group>";
 		};
+		773D619E2719D0C1001528B3 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				773D619F2719D0D0001528B3 /* SignInViewController.swift */,
+				773D61A12719D85A001528B3 /* ForgotPassword */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		773D61A12719D85A001528B3 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				773D61A22719D872001528B3 /* ChangePasswordViewController.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		773D61A42719D8CA001528B3 /* EmailAuthorize */ = {
+			isa = PBXGroup;
+			children = (
+				777B517B2712AEB300299430 /* EmailAuthroizeViewController.swift */,
+			);
+			path = EmailAuthorize;
+			sourceTree = "<group>";
+		};
 		775507EA26F842E5005B8763 = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				777B517227129D6500299430 /* CodeBasedProtocol.swift */,
+				775B959C271C2512004D4540 /* ScrollViewKeyboardApperanceProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -394,7 +456,9 @@
 		77E5913627115F6D0070F381 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				773D61A42719D8CA001528B3 /* EmailAuthorize */,
 				77E5913D271172090070F381 /* SignUp */,
+				773D619E2719D0C1001528B3 /* SignIn */,
 				77E5913727115F890070F381 /* LoginNavigationViewController.swift */,
 				77E5913B271170860070F381 /* LoginNavigationViewModel.swift */,
 			);
@@ -408,7 +472,6 @@
 				77E5913F2711723C0070F381 /* SignUpViewController.swift */,
 				777B517F2714472B00299430 /* TermDetailViewController.swift */,
 				777B51792712AA2300299430 /* SignUpInputViewController.swift */,
-				777B517B2712AEB300299430 /* EmailAuthroizeViewController.swift */,
 				777B51862714553900299430 /* InitialSetting */,
 			);
 			path = SignUp;
@@ -519,31 +582,42 @@
 				06A1ECB12712C10A00EA78D8 /* NDButtonTheme.swift in Sources */,
 				06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */,
 				77E5913827115F890070F381 /* LoginNavigationViewController.swift in Sources */,
+				775B95AC27204D1C004D4540 /* UITabBarItem+.swift in Sources */,
 				06A1EC9B2708B12A00EA78D8 /* UILabel+.swift in Sources */,
 				777B517C2712AEB300299430 /* EmailAuthroizeViewController.swift in Sources */,
 				777B51802714472B00299430 /* TermDetailViewController.swift in Sources */,
 				77E59133270DDDA40070F381 /* HomeViewModel.swift in Sources */,
+				06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */,
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
 				06A1ECB327180C2F00EA78D8 /* NaviBar.swift in Sources */,
+				06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */,
+				06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */,
 				77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */,
 				77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */,
 				77E5913C271170860070F381 /* LoginNavigationViewModel.swift in Sources */,
 				77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */,
 				777B517527129E6300299430 /* GreetingView.swift in Sources */,
+				775B95A8271F0BD9004D4540 /* AssetImage.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				777B516B2711981400299430 /* UIStackView+.swift in Sources */,
 				283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */,
 				77E591402711723C0070F381 /* SignUpViewController.swift in Sources */,
+				06679F07271EB39000D63AE1 /* NDButtons.swift in Sources */,
 				067DC4FF26FF213400650862 /* NetworkError.swift in Sources */,
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
 				283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */,
 				06A1EC8E27088F3E00EA78D8 /* HitThemeTableHeaderView.swift in Sources */,
+				06A1ECB927198ED200EA78D8 /* UITextField+.swift in Sources */,
 				06A1ECA02708CEFA00EA78D8 /* HitThemeHeaderCollectionViewCell.swift in Sources */,
+				06A1ECB5271952B100EA78D8 /* NDTextFieldView.swift in Sources */,
 				06A1EC9D2708C5E800EA78D8 /* UIButton+.swift in Sources */,
+				775B959D271C2512004D4540 /* ScrollViewKeyboardApperanceProtocol.swift in Sources */,
 				773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */,
+				773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */,
 				775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */,
 				283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */,
 				777B517327129D6500299430 /* CodeBasedProtocol.swift in Sources */,
+				773D61A02719D0D0001528B3 /* SignInViewController.swift in Sources */,
 				06A1ECA32708D21400EA78D8 /* UITableView+.swift in Sources */,
 				067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */,
 				777B517E2714336700299430 /* InitialSettingViewController.swift in Sources */,
@@ -554,6 +628,8 @@
 				06A1ECAC2711828900EA78D8 /* UIColor+.swift in Sources */,
 				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
+				064A960F272185F900939AD5 /* NDToastView.swift in Sources */,
+				775B95AA271F110A004D4540 /* UIImageView+.swift in Sources */,
 				777B5169271197B800299430 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
