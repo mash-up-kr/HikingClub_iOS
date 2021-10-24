@@ -33,6 +33,7 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
         theme.textColor = .gray900
         let button = NDButton(theme: theme)
         button.setTitle("Apple 로그인", for: .normal)
+        button.isHidden = true
         return button
     }()
     
