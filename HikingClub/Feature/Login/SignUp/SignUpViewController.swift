@@ -29,13 +29,18 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
         return label
     }()
     
-    // TODO: CAT Button Component로 교쳬 예정
-    private let agreeButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("동의하기", for: .normal)
-        button.backgroundColor = .gray
+    private let agreeButton: NDCTAButton = {
+        let button = NDCTAButton(buttonStyle: .one)
+        button.setTitle("동의하기", buttonType: .ok)
         return button
     }()
+    
+    // MARK: - Attribute
+    
+    override func attribute() {
+        super.attribute()
+        agreeButton.setGradientColor()
+    }
     
     // MARK: - Layout
   
@@ -62,8 +67,6 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
         agreeButton.snp.makeConstraints {
             $0.bottom.equalTo(view)
             $0.leading.trailing.equalToSuperview()
-            
-            $0.height.equalTo(122)
         }
     }
     
@@ -83,7 +86,7 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
             })
             .disposed(by: disposeBag)
         
-        agreeButton.rx.tap
+        agreeButton.rx.tapOk
             .subscribe(onNext: { [weak self] in
                 self?.navigateToSignUpInputViewController()
             })

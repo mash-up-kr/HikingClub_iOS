@@ -59,11 +59,9 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
         return textfield
     }()
     
-    // TODO: CAT Button Component로 교쳬 예정
-    private let nextButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("다음", for: .normal)
-        button.backgroundColor = .gray
+    private let nextButton: NDCTAButton = {
+        let button = NDCTAButton(buttonStyle: .one)
+        button.setTitle("다음", buttonType: .ok)
         return button
     }()
     
@@ -72,6 +70,7 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
     override func attribute() {
         super.attribute()
         initKeyboardApperance()
+        nextButton.setGradientColor()
     }
     
     // MARK: - Layout
@@ -92,8 +91,6 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
             $0.top.equalTo(scrollView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view)
-            
-            $0.height.equalTo(122)
         }
         scrollView.addSubview(scrollContentsView)
         scrollContentsView.snp.makeConstraints {
@@ -136,7 +133,7 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
             })
             .disposed(by: disposeBag)
         
-        nextButton.rx.tap
+        nextButton.rx.tapOk
             .subscribe(onNext: { [weak self] in
                 self?.navigateToInitialSettingViewController()
             })

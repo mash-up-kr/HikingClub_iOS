@@ -42,11 +42,9 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel>, Scr
         return textfield
     }()
     
-    // TODO: CAT Button Component로 교쳬 예정
-    private let authorizeButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("인증하기", for: .normal)
-        button.backgroundColor = .gray
+    private let authorizeButton: NDCTAButton = {
+        let button = NDCTAButton(buttonStyle: .one)
+        button.setTitle("인증하기", buttonType: .ok)
         return button
     }()
     
@@ -55,6 +53,7 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel>, Scr
     override func attribute() {
         super.attribute()
         initKeyboardApperance()
+        authorizeButton.setGradientColor()
     }
     
     // MARK: - Layout
@@ -119,7 +118,7 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel>, Scr
             })
             .disposed(by: disposeBag)
         
-        authorizeButton.rx.tap
+        authorizeButton.rx.tapOk
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             })

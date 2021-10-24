@@ -68,6 +68,8 @@ private final class SignUpTermView: CodeBasedView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Attribute
+    
     override func attribute() {
         super.attribute()
         switch termType {

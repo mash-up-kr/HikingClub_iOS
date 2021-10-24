@@ -21,11 +21,10 @@ final class InitialCategorySettingViewController: BaseViewController<BaseViewMod
         return view
     }()
     
-    // TODO: CAT Button Component로 교쳬 예정
-    private let twoButtonComponentButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("인증하기", for: .normal)
-        button.backgroundColor = .gray
+    private let bottomCTAButton: NDCTAButton = {
+        let button = NDCTAButton(buttonStyle: .two)
+        button.setTitle("선택완료", buttonType: .ok)
+        button.setTitle("나중에", buttonType: .cancel)
         return button
     }()
 
@@ -33,7 +32,7 @@ final class InitialCategorySettingViewController: BaseViewController<BaseViewMod
     
     override func layout() {
         super.layout()
-        view.addSubViews(navigationBar, categoryCollectionViewArea ,twoButtonComponentButton)
+        view.addSubViews(navigationBar, categoryCollectionViewArea, bottomCTAButton)
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
@@ -45,11 +44,9 @@ final class InitialCategorySettingViewController: BaseViewController<BaseViewMod
             
             $0.height.equalTo(348)
         }
-        twoButtonComponentButton.snp.makeConstraints {
+        bottomCTAButton.snp.makeConstraints {
             $0.bottom.equalTo(view)
             $0.leading.trailing.equalToSuperview()
-            
-            $0.height.equalTo(122)
         }
     }
     
@@ -58,8 +55,8 @@ final class InitialCategorySettingViewController: BaseViewController<BaseViewMod
     override func bind() {
         super.bind()
         // TODO: twoButton CTA 버튼이므로, 컴포넌트 적용 후 액션 나눌것
-        twoButtonComponentButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
+        bottomCTAButton.rx.tapOk
+            .subscribe(onNext: { [weak self] in
                 self?.navigateToHomeViewController()
             })
             .disposed(by: disposeBag)
