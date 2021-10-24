@@ -15,6 +15,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         super.attribute()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.reloadData()
         
         tableView.register(RoadTableViewCell.self)
         tableView.register(headerFooter: HitThemeTableHeaderView.self)
