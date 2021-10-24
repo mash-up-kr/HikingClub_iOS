@@ -34,8 +34,7 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
     
     private lazy var emailTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("이메일")
-        textfield.setPlaceholder("이메일 주소 입력")
+        textfield.setTitle("이메일", description: "이메일 주소 입력", theme: .normal)
         
         textfield.addSubview(emailTextFieldButton)
         emailTextFieldButton.snp.makeConstraints {
@@ -48,16 +47,14 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
     
     private let passwordTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("비밀번호")
-        textfield.setPlaceholder("6~18자의 비밀번호")
+        textfield.setTitle("비밀번호", description: "6~18자의 비밀번호", theme: .normal)
         
         return textfield
     }()
     
     private let passwordConfirmTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("비밀번호 확인")
-        textfield.setPlaceholder("비밀번호를 다시 입력해주세요.")
+        textfield.setTitle("비밀번호 확인", description: "비밀번호를 다시 입력해주세요.", theme: .normal)
         
         return textfield
     }()

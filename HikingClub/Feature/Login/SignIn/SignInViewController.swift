@@ -29,17 +29,15 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
     }()
     
     private let emailInputTextField: NDTextFieldView = {
-        let view = NDTextFieldView(scale: .big)
-        view.setTitle("이메일")
-        view.setPlaceholder("이메일 주소 입력")
-        return view
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.setTitle("이메일", description: "이메일 주소 입력", theme: .normal)
+        return textfield
     }()
     
     private let passwordInputTextField: NDTextFieldView = {
-        let view = NDTextFieldView(scale: .big)
-        view.setTitle("비밀번호")
-        view.setPlaceholder("비밀번호 입력")
-        return view
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.setTitle("비밀번호", description: "비밀번호 입력", theme: .normal)
+        return textfield
     }()
     
     private let signInButtonWrapper = UIView()

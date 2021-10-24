@@ -118,7 +118,7 @@ final class NDTextFieldView: UIView {
             textField.textColor = .red500
         case .selected:
             detailButton.isHidden = false
-            detailButton.setTemplateImage(named: "imgBack")
+            detailButton.setImage(.icon_angleBracket_right_gray500_24)
             textField.isUserInteractionEnabled = false
             fallthrough
         case .normal:
