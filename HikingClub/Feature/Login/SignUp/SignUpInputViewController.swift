@@ -141,7 +141,8 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
     }
     
     private func navigateToEmailAuthorizeViewController() {
-        navigationController?.pushViewController(EmailAuthorizeViewController(BaseViewModel()), animated: true)
+        let viewModel = EmailAuthorizeViewModel(.signUp)
+        navigationController?.pushViewController(EmailAuthorizeViewController(viewModel), animated: true)
     }
     
     private func navigateToInitialSettingViewController() {

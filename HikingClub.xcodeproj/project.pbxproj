@@ -64,6 +64,7 @@
 		775B95A8271F0BD9004D4540 /* AssetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B95A7271F0BD9004D4540 /* AssetImage.swift */; };
 		775B95AA271F110A004D4540 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B95A9271F110A004D4540 /* UIImageView+.swift */; };
 		775B95AC27204D1C004D4540 /* UITabBarItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B95AB27204D1C004D4540 /* UITabBarItem+.swift */; };
+		7760CA8D27252ED2006B39A9 /* EmailAuthorizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA8C27252ED2006B39A9 /* EmailAuthorizeViewModel.swift */; };
 		777B5169271197B800299430 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5168271197B800299430 /* UIView+.swift */; };
 		777B516B2711981400299430 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516A2711981400299430 /* UIStackView+.swift */; };
 		777B516F27119A9200299430 /* CodeBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516E27119A9200299430 /* CodeBasedView.swift */; };
@@ -136,6 +137,7 @@
 		775B95A7271F0BD9004D4540 /* AssetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetImage.swift; sourceTree = "<group>"; };
 		775B95A9271F110A004D4540 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		775B95AB27204D1C004D4540 /* UITabBarItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+.swift"; sourceTree = "<group>"; };
+		7760CA8C27252ED2006B39A9 /* EmailAuthorizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthorizeViewModel.swift; sourceTree = "<group>"; };
 		777B5168271197B800299430 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		777B516A2711981400299430 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		777B516E27119A9200299430 /* CodeBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedView.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				777B517B2712AEB300299430 /* EmailAuthroizeViewController.swift */,
+				7760CA8C27252ED2006B39A9 /* EmailAuthorizeViewModel.swift */,
 			);
 			path = EmailAuthorize;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
 				06A1ECB327180C2F00EA78D8 /* NaviBar.swift in Sources */,
 				06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */,
+				7760CA8D27252ED2006B39A9 /* EmailAuthorizeViewModel.swift in Sources */,
 				06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */,
 				77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */,
 				77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */,

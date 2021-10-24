@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class EmailAuthorizeViewController: BaseViewController<BaseViewModel>, ScrollViewKeyboardApperanceProtocol {
+final class EmailAuthorizeViewController: BaseViewController<EmailAuthorizeViewModel>, ScrollViewKeyboardApperanceProtocol {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("이메일 인증")
@@ -120,7 +120,7 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel>, Scr
         
         authorizeButton.rx.tapOk
             .subscribe(onNext: { [weak self] in
-                self?.navigationController?.popViewController(animated: true)
+                self?.viewModel.requestEmailAuth()
             })
             .disposed(by: disposeBag)
     }
