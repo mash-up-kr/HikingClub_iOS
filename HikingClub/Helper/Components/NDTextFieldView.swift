@@ -34,6 +34,8 @@ final class NDTextFieldView: UIView {
     
     private let disposeBag: DisposeBag = DisposeBag()
     private var scale: Scale = .small
+    private var titles: [Theme: String?] = [:]
+    private var descriptions: [Theme: String?] = [:]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -100,6 +102,11 @@ final class NDTextFieldView: UIView {
     }
     
     fileprivate func setTheme(_ theme: Theme) {
+        titleLabel.isHidden = titles[theme] == nil
+        descriptionLabel.isHidden = descriptions[theme] == nil
+        titleLabel.text = titles[theme] ?? nil
+        descriptionLabel.text = descriptions[theme] ?? nil
+        
         switch theme {
         case .highlight:
             descriptionLabel.textColor = .green500
@@ -121,11 +128,10 @@ final class NDTextFieldView: UIView {
         }
     }
     
-    func setTitle(_ title: String? = nil, description: String? = nil) {
-        titleLabel.text = title
-        titleLabel.isHidden = title == nil
-        descriptionLabel.text = description
-        descriptionLabel.isHidden = description == nil
+    /// 텍스트필드 상황별 설정
+    func setTitle(_ title: String? = nil, description: String? = nil, theme: Theme) {
+        titles[theme] = title
+        descriptions[theme] = description
     }
     
     func setPlaceholder(_ placeholder: String?) {
