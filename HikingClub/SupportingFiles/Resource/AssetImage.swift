@@ -34,7 +34,7 @@ enum AssetImage: String {
     
     case icon_check_circle_deselected_gray300_24
     case icon_check_circle_selected_green500_24
-    
+    case icon_check_green500_24
     // MARK: - tabbar
     
     case icon_tabbar_house_deselected_gray200_28
