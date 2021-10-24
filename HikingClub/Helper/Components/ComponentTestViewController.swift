@@ -29,6 +29,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
     }
     private let ctaButton = NDCTAButton(buttonStyle: .one)
     private let toastView = NDToastView(theme: .red)
+    private let searchTextField = NDSearchTextField()
     
     private let disposeBag = DisposeBag()
     
@@ -44,6 +45,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         testAlert()
         testCTAButton()
         testToast()
+        testSearchTextField()
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -107,6 +109,26 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         toastView.snp.makeConstraints {
             $0.height.equalTo(48)
         }
+    }
+    
+    func testSearchTextField() {
+        searchTextField.setPlaceholder("검색어를 입력하세요")
+        stackView.addArrangedSubview(searchTextField)
+        searchTextField.snp.makeConstraints {
+            $0.height.equalTo(48)
+        }
+
+        Observable<Int>.timer(.seconds(1), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { _ in
+                self.searchTextField.setCancelButtonHidden(false)
+            })
+            .disposed(by: disposeBag)
+        
+        searchTextField.rx.tapCancel
+            .subscribe(onNext: {
+                self.searchTextField.setCancelButtonHidden(true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 #endif
