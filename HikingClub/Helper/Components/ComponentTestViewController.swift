@@ -28,7 +28,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         print("취소")
     }
     private let ctaButton = NDCTAButton(buttonStyle: .one)
-    private let toastView = NDToastView(theme: .red)
+    private let toastButton = UIButton()
     private let searchTextField = NDSearchTextField()
     
     private let disposeBag = DisposeBag()
@@ -39,8 +39,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         setScrollView()
         stackView.addArrangedSubviews(ndTextFieldView,
                                       alertButton,
-                                      ctaButton,
-                                      toastView)
+                                      ctaButton)
         testTextField()
         testAlert()
         testCTAButton()
@@ -105,8 +104,16 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
     }
     
     func testToast() {
-        toastView.setTitle("토스트 메시지")
-        toastView.snp.makeConstraints {
+        stackView.addArrangedSubview(toastButton)
+        toastButton.setTitle("토스트띄우기", for: .normal)
+        toastButton.setTitleColor(.black, for: .normal)
+        toastButton.rx.tap
+            .debug()
+            .map { .green(text: "테스트 토스트!") }
+            .bind(to: NDToastView.shared.rx.showText)
+            .disposed(by: disposeBag)
+        
+        toastButton.snp.makeConstraints {
             $0.height.equalTo(48)
         }
     }
