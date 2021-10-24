@@ -71,8 +71,16 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
     
     func testTextField() {
         ndTextFieldView.setPlaceholder("플레이스 홀더")
-        ndTextFieldView.setTitle("레이블", description: "설명이 들어갑니다")
-        ndTextFieldView.rx.theme.onNext(.selected)
+        ndTextFieldView.setTitle("히히", description: "설명", theme: .normal)
+        ndTextFieldView.setTitle("워닝히히", description: "워닝설명", theme: .warning)
+        ndTextFieldView.rx.theme.onNext(.normal)
+        
+        Observable<Int>.timer(.seconds(1), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { _ in
+                self.ndTextFieldView.rx.theme.onNext(.warning)
+            })
+            .disposed(by: disposeBag)
+        
     }
 
     func testAlert() {
