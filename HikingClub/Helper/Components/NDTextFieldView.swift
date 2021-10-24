@@ -118,7 +118,7 @@ final class NDTextFieldView: UIView {
             textField.textColor = .red500
         case .selected:
             detailButton.isHidden = false
-            detailButton.setTemplateImage(named: "imgBack")
+            detailButton.setImage(.icon_textField_angleBracket_right_gray600_24)
             textField.isUserInteractionEnabled = false
             fallthrough
         case .normal:
@@ -129,7 +129,7 @@ final class NDTextFieldView: UIView {
     }
     
     /// 텍스트필드 상황별 설정
-    func setTitle(_ title: String? = nil, description: String? = nil, theme: Theme) {
+    func setTitle(_ title: String? = nil, description: String? = nil, theme: Theme = .normal) {
         titles[theme] = title
         descriptions[theme] = description
     }

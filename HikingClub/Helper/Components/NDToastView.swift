@@ -60,7 +60,7 @@ final class NDToastView: UIView, CodeBasedProtocol {
         switch theme {
         case let .green(text):
             backgroundColor = .green500
-            iconImageView.image = UIImage(named: "Pin")
+            iconImageView.setImage(.icon_check_circle_selected_green500_24)
             titleLabel.text = text
         case let .red(text):
             backgroundColor = .red500
