@@ -35,6 +35,9 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
         return button
     }()
     
+    private var isPersonalAgree: Bool = false
+    private var isAllAgree: Bool = false
+    
     // MARK: - Attribute
     
     override func attribute() {
@@ -79,6 +82,10 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
+        
+        termStackView.didTapAgreeButton
+            .bind { [weak self] in self?.agree($0) }
+            .disposed(by: disposeBag)
 
         termStackView.didTapDetailButton
             .subscribe(onNext: { [weak self] in
@@ -87,6 +94,10 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
             .disposed(by: disposeBag)
         
         agreeButton.rx.tapOk
+            .filter { [weak self] in
+                guard let self = self else { return false }
+                return self.isAllAgree
+            }
             .subscribe(onNext: { [weak self] in
                 self?.navigateToSignUpInputViewController()
             })
@@ -102,5 +113,23 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
         viewController.termType = termType
         viewController.modalPresentationStyle = .fullScreen
         navigationController?.present(viewController, animated: true, completion: nil)
+    }
+    
+    private func agree(_ termType: SignUpTermsStackView.SignUpTermType) {
+        switch termType {
+        case .personal:
+            isPersonalAgree.toggle()
+        }
+        
+        updateAgreement()
+    }
+    
+    private func updateAgreement() {
+        // TODO: CTA버튼 활성 상태 업데이트하기
+        isAllAgree = false
+        
+        if isPersonalAgree {
+            isAllAgree = true
+        }
     }
 }
