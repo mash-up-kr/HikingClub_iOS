@@ -12,12 +12,14 @@ class CodeBasedView: UIView, CodeBasedProtocol {
         super.init(frame: .zero)
         attribute()
         layout()
+        bind()
     }
     
     init() {
         super.init(frame: .zero)
         attribute()
         layout()
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -27,4 +29,6 @@ class CodeBasedView: UIView, CodeBasedProtocol {
     func attribute() { }
     
     func layout() { }
+    
+    func bind() { }
 }

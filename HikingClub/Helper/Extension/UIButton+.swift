@@ -12,9 +12,7 @@ extension UIButton {
         titleLabel?.font = UIFont.ndFont(type: type)
     }
     
-    func setTemplateImage(named: String, tintColor color: UIColor = .gray700, for state: UIControl.State = .normal) {
-        let image = UIImage(named: named)?.withRenderingMode(.alwaysTemplate)
-        tintColor = color
-        setImage(image, for: state)
+    func setImage(_ asset: AssetImage, for state: UIControl.State = .normal) {
+        setImage(asset.image, for: state)
     }
 }

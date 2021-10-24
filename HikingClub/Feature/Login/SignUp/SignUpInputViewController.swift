@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignUpInputViewController: BaseViewController<BaseViewModel> {
+final class SignUpInputViewController: BaseViewController<BaseViewModel>, ScrollViewKeyboardApperanceProtocol {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("회원가입")
@@ -15,7 +15,11 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
         return view
     }()
     
-    private let scrollView = UIScrollView()
+    var scrollView = UIScrollView()
+    
+    var bottomAreaView: UIView {
+        nextButton
+    }
     
     private let scrollContentsView = UIView()
     
@@ -28,49 +32,34 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
         return stackView
     }()
     
-    private let textFieldComponent: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .blue
-        button.snp.makeConstraints {
-            $0.height.equalTo(77)
-        }
-        button.setTitle("텍스트필드 컴포넌트", for: .normal)
+    private lazy var emailTextfield: NDTextFieldView = {
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.setTitle("이메일")
+        textfield.setPlaceholder("이메일 주소 입력")
         
-        return button
+        textfield.addSubview(emailTextFieldButton)
+        emailTextFieldButton.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        return textfield
     }()
     
-    private let textFieldComponent2: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        view.snp.makeConstraints {
-            $0.height.equalTo(77)
-        }
+    private let emailTextFieldButton = UIButton()
+    
+    private let passwordTextfield: NDTextFieldView = {
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.setTitle("비밀번호")
+        textfield.setPlaceholder("6~18자의 비밀번호")
         
-        let label = UILabel()
-        label.text = "텍스트필드 컴포넌트"
-        view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-        
-        return view
+        return textfield
     }()
     
-    private let textFieldComponent3: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        view.snp.makeConstraints {
-            $0.height.equalTo(77)
-        }
+    private let passwordConfirmTextfield: NDTextFieldView = {
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.setTitle("비밀번호 확인")
+        textfield.setPlaceholder("비밀번호를 다시 입력해주세요.")
         
-        let label = UILabel()
-        label.text = "텍스트필드 컴포넌트"
-        view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-        
-        return view
+        return textfield
     }()
     
     // TODO: CAT Button Component로 교쳬 예정
@@ -80,6 +69,13 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
         button.backgroundColor = .gray
         return button
     }()
+    
+    // MARK: - Attribute
+    
+    override func attribute() {
+        super.attribute()
+        initKeyboardApperance()
+    }
     
     // MARK: - Layout
     
@@ -93,9 +89,10 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
         scrollView.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(nextButton.snp.top)
+            
         }
         nextButton.snp.makeConstraints {
+            $0.top.equalTo(scrollView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view)
             
@@ -123,7 +120,7 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
     }
     
     private func textFieldStackViewLayout() {
-        textFieldStackView.addArrangedSubviews(textFieldComponent, textFieldComponent2, textFieldComponent3)
+        textFieldStackView.addArrangedSubviews(emailTextfield, passwordTextfield, passwordConfirmTextfield)
     }
     
     // MARK: - Bind
@@ -136,7 +133,7 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel> {
             })
             .disposed(by: disposeBag)
 
-        textFieldComponent.rx.tap
+        emailTextFieldButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.navigateToEmailAuthorizeViewController()
             })

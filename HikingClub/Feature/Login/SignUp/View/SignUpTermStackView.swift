@@ -53,8 +53,7 @@ private final class SignUpTermView: CodeBasedView {
     private let agreeButton: SignUpTermAgreeButton = SignUpTermAgreeButton()
     let detailButton: UIButton = {
         let button = UIButton()
-        button.setTitleColor(.black, for: .normal)
-        button.setTitle(">", for: .normal)
+        button.setImage(.icon_angleBracket_right_gray500_24)
         return button
     }()
     
@@ -99,7 +98,7 @@ private final class SignUpTermView: CodeBasedView {
 private final class SignUpTermAgreeButton: UIButton, CodeBasedProtocol {
     private let checkIconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
+        imageView.setImage(.icon_check_circle_deselected_gray300_24)
         return imageView
     }()
     
