@@ -29,17 +29,15 @@ final class ChangePasswordViewController: BaseViewController<BaseViewModel> {
     }()
     
     private let passwordInputTextField: NDTextFieldView = {
-        let view = NDTextFieldView(scale: .big)
-        view.setTitle("새로운 비밀번호")
-        view.setPlaceholder("6-18자의 비밀번호")
-        return view
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.setTitle("새로운 비밀번호", description: "6-18자의 비밀번호", theme: .normal)
+        return textfield
     }()
     
     private let passwordConfirmInputTextField: NDTextFieldView = {
-        let view = NDTextFieldView(scale: .big)
-        view.setTitle("비밀번호 확인")
-        view.setPlaceholder("비밀번호를 다시 입력해주세요.")
-        return view
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.setTitle("비밀번호 확인", description: "비밀번호를 다시 입력해주세요.", theme: .normal)
+        return textfield
     }()
     
     private let signInButtonWrapper = UIView()

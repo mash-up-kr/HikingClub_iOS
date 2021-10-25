@@ -25,9 +25,7 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel>, Scr
     
     private let emailTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("이메일")
-        textfield.setPlaceholder("이메일 주소 입력")
-        
+        textfield.setTitle("이메일", description: "이메일 주소 입력", theme: .normal)
         return textfield
     }()
     
@@ -40,8 +38,7 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel>, Scr
     
     private let authenticationNumberTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("인증번호", description: "입력한 이메일에서 인증번호를 확인해주세요.")
-        
+        textfield.setTitle("인증번호", description: "입력한 이메일에서 인증번호를 확인해주세요.", theme: .normal)
         return textfield
     }()
     

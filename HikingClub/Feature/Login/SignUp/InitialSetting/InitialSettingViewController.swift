@@ -25,16 +25,14 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel>, Scr
     
     private let nickNameTextField: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("닉네임", description: "닉네임은 공백 포함 2-10자로 작성해 주세요.")
-        
+        textfield.setTitle("닉네임", description: "닉네임은 공백 포함 2-10자로 작성해 주세요.", theme: .normal)
         return textfield
     }()
     
     private let townTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
         textfield.rx.theme.onNext(.selected)
-        textfield.setTitle("동네선택", description: "관심있는 동네를 선택해 주세요.")
-        
+        textfield.setTitle("동네선택", description: "관심있는 동네를 선택해 주세요.", theme: .normal)
         return textfield
     }()
     
