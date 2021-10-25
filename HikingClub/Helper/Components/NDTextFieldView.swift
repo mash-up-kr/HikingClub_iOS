@@ -11,6 +11,7 @@ import RxCocoa
 import SnapKit
 
 /// - Note: minHeight: 94 maxHeight: 102
+/// - `setTitle()`후에 `setTheme()`를 호출해주면 테마가 잘 적용됩니다
 final class NDTextFieldView: UIView {
     enum Theme {
         /// 초록색 강조
@@ -101,7 +102,7 @@ final class NDTextFieldView: UIView {
         }
     }
     
-    fileprivate func setTheme(_ theme: Theme) {
+    func setTheme(_ theme: Theme) {
         titleLabel.isHidden = titles[theme] == nil
         descriptionLabel.isHidden = descriptions[theme] == nil
         titleLabel.text = titles[theme] ?? nil

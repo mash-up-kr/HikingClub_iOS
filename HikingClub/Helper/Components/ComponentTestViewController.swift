@@ -73,7 +73,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         ndTextFieldView.setPlaceholder("플레이스 홀더")
         ndTextFieldView.setTitle("히히", description: "설명", theme: .normal)
         ndTextFieldView.setTitle("워닝히히", description: "워닝설명", theme: .warning)
-        ndTextFieldView.rx.theme.onNext(.normal)
+        ndTextFieldView.setTheme(.normal)
         
         Observable<Int>.timer(.seconds(1), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in
@@ -116,7 +116,6 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         toastButton.setTitle("토스트띄우기", for: .normal)
         toastButton.setTitleColor(.black, for: .normal)
         toastButton.rx.tap
-            .debug()
             .map { .green(text: "테스트 토스트!") }
             .bind(to: NDToastView.shared.rx.showText)
             .disposed(by: disposeBag)
