@@ -30,6 +30,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
     private let ctaButton = NDCTAButton(buttonStyle: .one)
     private let toastButton = UIButton()
     private let searchTextField = NDSearchTextField()
+    private let tabButton = NDTabButton()
     
     private let disposeBag = DisposeBag()
     
@@ -45,6 +46,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         testCTAButton()
         testToast()
         testSearchTextField()
+        testTabButton()
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -143,6 +145,34 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
                 self.searchTextField.setCancelButtonHidden(true)
             })
             .disposed(by: disposeBag)
+    }
+    
+    func testTabButton() {
+        let containerView = UIStackView()
+        containerView.axis = .horizontal
+        containerView.spacing = 8
+        containerView.backgroundColor = .lightGray
+        stackView.addArrangedSubview(containerView)
+        containerView.snp.makeConstraints {
+            $0.height.equalTo(33)
+        }
+        containerView.addArrangedSubview(tabButton)
+        tabButton.setTitle("자연")
+        tabButton.tapHandler = {
+            print($0)
+            print("자연클릭")
+        }
+        
+        let tabButton2 = NDTabButton()
+        tabButton2.setTitle(subTitle: "현위치")
+        containerView.addArrangedSubview(tabButton2)
+        
+        let tabButton3 = NDTabButton()
+        tabButton3.setTitle("가락동", subTitle: "현위치")
+        containerView.addArrangedSubview(tabButton3)
+        
+        let spacing = UIView()
+        containerView.addArrangedSubview(spacing)
     }
 }
 #endif
