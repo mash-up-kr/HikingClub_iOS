@@ -41,6 +41,7 @@
 		283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF07527086DA40033ED71 /* RoadTableViewCell.swift */; };
 		283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283AF07627086DA40033ED71 /* RoadTableViewCell.xib */; };
 		283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF0822708B6440033ED71 /* RoadHashTagView.swift */; };
+		771230DC27283EDA003B63E5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771230DB27283EDA003B63E5 /* MyPageViewController.swift */; };
 		77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77169DD0270C8C36000AB1D2 /* BaseViewController.swift */; };
 		77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77213CF72708EF1600994C9A /* BaseWebView.swift */; };
 		773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */; };
@@ -133,6 +134,7 @@
 		283AF07527086DA40033ED71 /* RoadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadTableViewCell.swift; sourceTree = "<group>"; };
 		283AF07627086DA40033ED71 /* RoadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadTableViewCell.xib; sourceTree = "<group>"; };
 		283AF0822708B6440033ED71 /* RoadHashTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadHashTagView.swift; sourceTree = "<group>"; };
+		771230DB27283EDA003B63E5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		77169DD0270C8C36000AB1D2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		77213CF72708EF1600994C9A /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+.swift"; sourceTree = "<group>"; };
@@ -262,6 +264,14 @@
 			path = NDButton;
 			sourceTree = "<group>";
 		};
+		771230DA27283EC3003B63E5 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				771230DB27283EDA003B63E5 /* MyPageViewController.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		77169DBF270ACD58000AB1D2 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +300,7 @@
 				77E5913627115F6D0070F381 /* Login */,
 				77169DC4270AD08B000AB1D2 /* Main */,
 				77169DC5270AD096000AB1D2 /* Home */,
+				771230DA27283EC3003B63E5 /* MyPage */,
 				77B7A1212708A14D008F5530 /* WebView */,
 			);
 			path = Feature;
@@ -649,6 +660,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771230DC27283EDA003B63E5 /* MyPageViewController.swift in Sources */,
 				06A1ECA52708D77900EA78D8 /* UICollectionView+.swift in Sources */,
 				77E59131270DDCFA0070F381 /* BaseViewModel.swift in Sources */,
 				7741F98E27171CC2005B3D88 /* UIViewController+.swift in Sources */,
