@@ -32,6 +32,7 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
     private let agreeButton: NDCTAButton = {
         let button = NDCTAButton(buttonStyle: .one)
         button.setTitle("동의하기", buttonType: .ok)
+        button.setEnabled(false, type: .ok)
         return button
     }()
     
@@ -125,11 +126,16 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
     }
     
     private func updateAgreement() {
-        // TODO: CTA버튼 활성 상태 업데이트하기
         isAllAgree = false
         
         if isPersonalAgree {
             isAllAgree = true
         }
+        
+        updateAgreeButton(isAllAgree)
+    }
+    
+    private func updateAgreeButton(_ isEnable: Bool) {
+        agreeButton.setEnabled(isEnable, type: .ok)
     }
 }
