@@ -82,7 +82,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
                 self.ndTextFieldView.rx.theme.onNext(.warning)
             })
             .disposed(by: disposeBag)
-        
+        ndTextFieldView.setPasswordMode()
     }
 
     func testAlert() {
@@ -144,6 +144,11 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
             .subscribe(onNext: {
                 self.searchTextField.setCancelButtonHidden(true)
             })
+            .disposed(by: disposeBag)
+        
+        searchTextField.rx.text
+            .map { $0.isEmpty }
+            .bind(to: searchTextField.rx.isCancelHidden)
             .disposed(by: disposeBag)
     }
     
