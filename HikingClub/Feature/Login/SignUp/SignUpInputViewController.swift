@@ -50,7 +50,7 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
         let textfield = NDTextFieldView(scale: .big)
         textfield.setTitle("비밀번호", description: "6~18자의 비밀번호", theme: .normal)
         textfield.setTitle("비밀번호", description: "비밀번호는 6~18자로 입력해야합니다.", theme: .warning)
-        
+        textfield.setPasswordMode()
         textfield.setTheme(.normal)
         return textfield
     }()
@@ -58,15 +58,16 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
     private let passwordConfirmTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
         textfield.setTitle("비밀번호 확인", description: "비밀번호를 다시 입력해주세요.", theme: .normal)
-        textfield.setTitle("비밀번호 확인", description: "비밀번호가 일치하지 않습니다.", theme: .normal)
+        textfield.setTitle("비밀번호 확인", description: "비밀번호가 일치하지 않습니다.", theme: .warning)
+        textfield.setPasswordMode()
         textfield.setTheme(.normal)
-        
         return textfield
     }()
     
     private let nextButton: NDCTAButton = {
         let button = NDCTAButton(buttonStyle: .one)
         button.setTitle("다음", buttonType: .ok)
+        button.setEnabled(false, type: .ok)
         return button
     }()
     
@@ -147,9 +148,26 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
             })
             .disposed(by: disposeBag)
         
+        passwordConfirmTextfield.rx.text
+            .skip(1)
+            .filter { !$0.isEmpty }
+            .subscribe(onNext: { [weak self] in
+                guard let isValidate = self?.viewModel.isSamePassword($0, self?.passwordTextfield.text) else { return }
+                self?.passwordConfirmTextfield.setTheme(isValidate ? .normal : .warning)
+            })
+            .disposed(by: disposeBag)
+        
         nextButton.rx.tapOk
             .subscribe(onNext: { [weak self] in
                 self?.navigateToInitialSettingViewController()
+            })
+            .disposed(by: disposeBag)
+        
+        // MARK: - ViewModel Binding
+        
+        viewModel.enableNextStepRelay
+            .subscribe(onNext: { [weak self] in
+                self?.nextButton.setEnabled($0, type: .ok)
             })
             .disposed(by: disposeBag)
     }
