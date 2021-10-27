@@ -37,6 +37,7 @@ final class NDTextFieldView: UIView {
     private var scale: Scale = .small
     private var titles: [Theme: String?] = [:]
     private var descriptions: [Theme: String?] = [:]
+    var text: String? { textField.text }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -141,6 +142,11 @@ final class NDTextFieldView: UIView {
     
     func setDetailButton(_ isHidden: Bool) {
         detailButton.isHidden = isHidden
+    }
+    
+    /// 패스워드 동그라미 설정
+    func setPasswordMode() {
+        textField.isSecureTextEntry = true
     }
 }
 

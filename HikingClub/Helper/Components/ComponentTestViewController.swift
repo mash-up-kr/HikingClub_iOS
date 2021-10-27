@@ -82,7 +82,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
                 self.ndTextFieldView.rx.theme.onNext(.warning)
             })
             .disposed(by: disposeBag)
-        
+        ndTextFieldView.setPasswordMode()
     }
 
     func testAlert() {
