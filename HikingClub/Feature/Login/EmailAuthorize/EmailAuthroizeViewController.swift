@@ -26,25 +26,27 @@ final class EmailAuthorizeViewController: BaseViewController<EmailAuthorizeViewM
     private let emailTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
         textfield.setTitle("이메일", description: "이메일 주소 입력", theme: .normal)
+        textfield.setTheme(.normal)
         return textfield
     }()
     
     private let authenticationEmailReceiveButton: NDButton = {
         let button = NDButton(theme: .init(.strokeGreen))
         button.setTitle("인증 메일 받기", for: .normal)
-        
         return button
     }()
     
     private let authenticationNumberTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
         textfield.setTitle("인증번호", description: "입력한 이메일에서 인증번호를 확인해주세요.", theme: .normal)
+        textfield.setTheme(.normal)
         return textfield
     }()
     
     private let authorizeButton: NDCTAButton = {
         let button = NDCTAButton(buttonStyle: .one)
         button.setTitle("인증하기", buttonType: .ok)
+        button.setEnabled(false, type: .ok)
         return button
     }()
     
