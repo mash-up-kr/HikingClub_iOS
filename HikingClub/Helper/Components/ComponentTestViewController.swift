@@ -145,6 +145,11 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
                 self.searchTextField.setCancelButtonHidden(true)
             })
             .disposed(by: disposeBag)
+        
+        searchTextField.rx.text
+            .map { $0.isEmpty }
+            .bind(to: searchTextField.rx.isCancelHidden)
+            .disposed(by: disposeBag)
     }
     
     func testTabButton() {
