@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignUpViewController: BaseViewController<BaseViewModel> {
+final class SignUpViewController: BaseViewController<SignUpViewModel> {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("회원가입")
@@ -36,8 +36,6 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
         return button
     }()
     
-    private var isPersonalAgree: Bool = false
-    private var isAllAgree: Bool = false
     
     // MARK: - Attribute
     
@@ -85,7 +83,7 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
             .disposed(by: disposeBag)
         
         termStackView.didTapAgreeButton
-            .bind { [weak self] in self?.agree($0) }
+            .bind { [weak self] in self?.viewModel.agree($0) }
             .disposed(by: disposeBag)
 
         termStackView.didTapDetailButton
@@ -95,12 +93,17 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
             .disposed(by: disposeBag)
         
         agreeButton.rx.tapOk
-            .filter { [weak self] in
-                guard let self = self else { return false }
-                return self.isAllAgree
-            }
+            .filter { [weak self] in self?.viewModel.isEnableSignUp ?? false }
             .subscribe(onNext: { [weak self] in
                 self?.navigateToSignUpInputViewController()
+            })
+            .disposed(by: disposeBag)
+        
+        // MARK: - ViewModel Binding
+        viewModel
+            .updateAgreementRelay
+            .subscribe(onNext: { [weak self] in
+                self?.updateAgreeButton($0)
             })
             .disposed(by: disposeBag)
     }
@@ -114,25 +117,6 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
         viewController.termType = termType
         viewController.modalPresentationStyle = .fullScreen
         navigationController?.present(viewController, animated: true, completion: nil)
-    }
-    
-    private func agree(_ termType: SignUpTermsStackView.SignUpTermType) {
-        switch termType {
-        case .personal:
-            isPersonalAgree.toggle()
-        }
-        
-        updateAgreement()
-    }
-    
-    private func updateAgreement() {
-        isAllAgree = false
-        
-        if isPersonalAgree {
-            isAllAgree = true
-        }
-        
-        updateAgreeButton(isAllAgree)
     }
     
     private func updateAgreeButton(_ isEnable: Bool) {

@@ -107,7 +107,7 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
     }
     
     private func navigateToSignUpViewController() {
-        navigationController?.pushViewController(SignUpViewController(BaseViewModel()), animated: true)
+        navigationController?.pushViewController(SignUpViewController(SignUpViewModel()), animated: true)
     }
     
     private func navigateToSignInViewController() {
