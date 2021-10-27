@@ -15,6 +15,9 @@
 		067DC4FF26FF213400650862 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FE26FF213400650862 /* NetworkError.swift */; };
 		067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC50026FF238F00650862 /* NetworkLogging.swift */; };
 		06962E902727FC250021402F /* NDTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06962E8F2727FC250021402F /* NDTabButton.swift */; };
+		06962E93272927770021402F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06962E92272927770021402F /* SearchViewController.swift */; };
+		06962E95272927A00021402F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06962E94272927A00021402F /* Search.storyboard */; };
+		06962E97272928290021402F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06962E96272928290021402F /* SearchViewModel.swift */; };
 		06A1EC8E27088F3E00EA78D8 /* HitThemeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1EC8D27088F3E00EA78D8 /* HitThemeTableHeaderView.swift */; };
 		06A1EC9027088F4400EA78D8 /* HitThemeTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06A1EC8F27088F4400EA78D8 /* HitThemeTableHeaderView.xib */; };
 		06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1EC982708A7F300EA78D8 /* UIFont+.swift */; };
@@ -94,6 +97,9 @@
 		067DC4FE26FF213400650862 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		067DC50026FF238F00650862 /* NetworkLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogging.swift; sourceTree = "<group>"; };
 		06962E8F2727FC250021402F /* NDTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDTabButton.swift; sourceTree = "<group>"; };
+		06962E92272927770021402F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		06962E94272927A00021402F /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		06962E96272928290021402F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		06A1EC8D27088F3E00EA78D8 /* HitThemeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitThemeTableHeaderView.swift; sourceTree = "<group>"; };
 		06A1EC8F27088F4400EA78D8 /* HitThemeTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HitThemeTableHeaderView.xib; sourceTree = "<group>"; };
 		06A1EC982708A7F300EA78D8 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -188,6 +194,16 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		06962E91272926EE0021402F /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				06962E94272927A00021402F /* Search.storyboard */,
+				06962E92272927770021402F /* SearchViewController.swift */,
+				06962E96272928290021402F /* SearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		06A1EC9127089D2700EA78D8 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +278,7 @@
 				77E5913627115F6D0070F381 /* Login */,
 				77169DC4270AD08B000AB1D2 /* Main */,
 				77169DC5270AD096000AB1D2 /* Home */,
+				06962E91272926EE0021402F /* Search */,
 				77B7A1212708A14D008F5530 /* WebView */,
 			);
 			path = Feature;
@@ -563,6 +580,7 @@
 				283AF0502708672C0033ED71 /* Home.storyboard in Resources */,
 				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
 				283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */,
+				06962E95272927A00021402F /* Search.storyboard in Resources */,
 				06A1EC9027088F4400EA78D8 /* HitThemeTableHeaderView.xib in Resources */,
 				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
 				06A1ECA12708CEFA00EA78D8 /* HitThemeHeaderCollectionViewCell.xib in Resources */,
@@ -593,6 +611,7 @@
 				777B517C2712AEB300299430 /* EmailAuthroizeViewController.swift in Sources */,
 				777B51802714472B00299430 /* TermDetailViewController.swift in Sources */,
 				77E59133270DDDA40070F381 /* HomeViewModel.swift in Sources */,
+				06962E97272928290021402F /* SearchViewModel.swift in Sources */,
 				06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */,
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
 				06A1ECB327180C2F00EA78D8 /* NaviBar.swift in Sources */,
@@ -616,6 +635,7 @@
 				06A1EC8E27088F3E00EA78D8 /* HitThemeTableHeaderView.swift in Sources */,
 				06962E902727FC250021402F /* NDTabButton.swift in Sources */,
 				06A1ECB927198ED200EA78D8 /* UITextField+.swift in Sources */,
+				06962E93272927770021402F /* SearchViewController.swift in Sources */,
 				06A1ECA02708CEFA00EA78D8 /* HitThemeHeaderCollectionViewCell.swift in Sources */,
 				06A1ECB5271952B100EA78D8 /* NDTextFieldView.swift in Sources */,
 				06A1EC9D2708C5E800EA78D8 /* UIButton+.swift in Sources */,

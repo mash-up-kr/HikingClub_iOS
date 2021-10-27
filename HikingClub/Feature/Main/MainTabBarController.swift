@@ -17,7 +17,11 @@ final class MainTabBarController: UITabBarController {
     }()
     
     private let searchViewController: UINavigationController = {
-        UIViewController().wrappedByNavigationController()
+        let searchStoryboard = UIStoryboard(name: "Search", bundle: nil)
+        let searchViewController = searchStoryboard.instantiate("SearchViewController") { coder -> SearchViewController? in
+                .init(coder, SearchViewModel())
+        }
+        return searchViewController.wrappedByNavigationController()
     }()
     
     private let writeViewController: UINavigationController = {
