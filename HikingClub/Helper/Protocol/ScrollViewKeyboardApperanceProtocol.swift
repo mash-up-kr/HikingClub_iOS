@@ -41,7 +41,7 @@ extension ScrollViewKeyboardApperanceProtocol where Self: UIViewController {
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: contentInsetValue, right: 0)
         
         bottomAreaView.snp.updateConstraints {
-            $0.bottom.equalTo(view).inset(insetValue)
+            $0.bottom.equalTo(view).inset(insetValue + 20)
         }
         
         UIView.animate(withDuration: keyboardAnimationDuration.doubleValue) { [weak self] in
