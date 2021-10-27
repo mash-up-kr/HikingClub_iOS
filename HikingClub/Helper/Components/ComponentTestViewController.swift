@@ -30,6 +30,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
     private let ctaButton = NDCTAButton(buttonStyle: .one)
     private let toastButton = UIButton()
     private let searchTextField = NDSearchTextField()
+    private let tabButton = NDTabButton()
     
     private let disposeBag = DisposeBag()
     
@@ -45,6 +46,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         testCTAButton()
         testToast()
         testSearchTextField()
+        testTabButton()
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -73,7 +75,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         ndTextFieldView.setPlaceholder("플레이스 홀더")
         ndTextFieldView.setTitle("히히", description: "설명", theme: .normal)
         ndTextFieldView.setTitle("워닝히히", description: "워닝설명", theme: .warning)
-        ndTextFieldView.rx.theme.onNext(.normal)
+        ndTextFieldView.setTheme(.normal)
         
         Observable<Int>.timer(.seconds(1), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in
@@ -116,7 +118,6 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         toastButton.setTitle("토스트띄우기", for: .normal)
         toastButton.setTitleColor(.black, for: .normal)
         toastButton.rx.tap
-            .debug()
             .map { .green(text: "테스트 토스트!") }
             .bind(to: NDToastView.shared.rx.showText)
             .disposed(by: disposeBag)
@@ -144,6 +145,34 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
                 self.searchTextField.setCancelButtonHidden(true)
             })
             .disposed(by: disposeBag)
+    }
+    
+    func testTabButton() {
+        let containerView = UIStackView()
+        containerView.axis = .horizontal
+        containerView.spacing = 8
+        containerView.backgroundColor = .lightGray
+        stackView.addArrangedSubview(containerView)
+        containerView.snp.makeConstraints {
+            $0.height.equalTo(33)
+        }
+        containerView.addArrangedSubview(tabButton)
+        tabButton.setTitle("자연")
+        tabButton.tapHandler = {
+            print($0)
+            print("자연클릭")
+        }
+        
+        let tabButton2 = NDTabButton()
+        tabButton2.setTitle(subTitle: "현위치")
+        containerView.addArrangedSubview(tabButton2)
+        
+        let tabButton3 = NDTabButton()
+        tabButton3.setTitle("가락동", subTitle: "현위치")
+        containerView.addArrangedSubview(tabButton3)
+        
+        let spacing = UIView()
+        containerView.addArrangedSubview(spacing)
     }
 }
 #endif

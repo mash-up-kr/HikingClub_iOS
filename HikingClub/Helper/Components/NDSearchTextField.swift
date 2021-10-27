@@ -53,7 +53,7 @@ final class NDSearchTextField: CodeBasedView {
         setTextField()
         setCancelButton()
         setContainerView()
-        iconImageView.image = UIImage(named: "Pin")
+        iconImageView.setImage(.icon_magnifier_left_gray900_24)
     }
     
     private func setTextField() {

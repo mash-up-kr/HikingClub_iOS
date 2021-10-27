@@ -36,6 +36,7 @@ final class NDToastView: UIView, CodeBasedProtocol {
     func layout() {
         addSubViews(iconImageView, titleLabel)
         iconImageView.snp.makeConstraints {
+            $0.width.height.equalTo(24)
             $0.leading.equalToSuperview().offset(16)
             $0.centerY.equalToSuperview()
         }
@@ -49,6 +50,7 @@ final class NDToastView: UIView, CodeBasedProtocol {
     func attribute() {
         titleLabel.setFont(.semiBold16)
         titleLabel.textColor = .white
+        iconImageView.layer.cornerRadius = 12
         layer.cornerRadius = 8
     }
     
@@ -60,7 +62,8 @@ final class NDToastView: UIView, CodeBasedProtocol {
         switch theme {
         case let .green(text):
             backgroundColor = .green500
-            iconImageView.image = UIImage(named: "Pin")
+            iconImageView.backgroundColor = .white
+            iconImageView.setImage(.icon_check_green500_24)
             titleLabel.text = text
         case let .red(text):
             backgroundColor = .red500
