@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignUpInputViewController: BaseViewController<BaseViewModel>, ScrollViewKeyboardApperanceProtocol {
+final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>, ScrollViewKeyboardApperanceProtocol {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("회원가입")
@@ -35,6 +35,7 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
     private lazy var emailTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
         textfield.setTitle("이메일", description: "이메일 주소 입력", theme: .normal)
+        textfield.setTheme(.normal)
         
         textfield.addSubview(emailTextFieldButton)
         emailTextFieldButton.snp.makeConstraints {
@@ -48,13 +49,17 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
     private let passwordTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
         textfield.setTitle("비밀번호", description: "6~18자의 비밀번호", theme: .normal)
+        textfield.setTitle("비밀번호", description: "비밀번호는 6~18자로 입력해야합니다.", theme: .warning)
         
+        textfield.setTheme(.normal)
         return textfield
     }()
     
     private let passwordConfirmTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
         textfield.setTitle("비밀번호 확인", description: "비밀번호를 다시 입력해주세요.", theme: .normal)
+        textfield.setTitle("비밀번호 확인", description: "비밀번호가 일치하지 않습니다.", theme: .normal)
+        textfield.setTheme(.normal)
         
         return textfield
     }()
@@ -130,6 +135,15 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
         emailTextFieldButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.navigateToEmailAuthorizeViewController()
+            })
+            .disposed(by: disposeBag)
+        
+        passwordTextfield.rx.text
+            .skip(1)
+            .filter { !$0.isEmpty }
+            .subscribe(onNext: { [weak self] in
+                guard let isValidate = self?.viewModel.isValidatePassword($0) else { return }
+                self?.passwordTextfield.setTheme(isValidate ? .normal : .warning)
             })
             .disposed(by: disposeBag)
         

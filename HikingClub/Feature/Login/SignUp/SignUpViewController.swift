@@ -109,7 +109,7 @@ final class SignUpViewController: BaseViewController<SignUpViewModel> {
     }
     
     private func navigateToSignUpInputViewController() {
-        navigationController?.pushViewController(SignUpInputViewController(BaseViewModel()), animated: true)
+        navigationController?.pushViewController(SignUpInputViewController(SignUpInputViewModel()), animated: true)
     }
     
     private func navigateToTermDetailViewController(_ termType: SignUpTermsStackView.SignUpTermType) {

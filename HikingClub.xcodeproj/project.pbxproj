@@ -86,6 +86,7 @@
 		77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7A1242708A1C2008F5530 /* WebViewController.swift */; };
 		77B7A1282708A674008F5530 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77B7A1272708A674008F5530 /* SnapKit */; };
 		77C69BE727294613004C2207 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C69BE627294613004C2207 /* SignUpViewModel.swift */; };
+		77C69BE927294775004C2207 /* SignUpInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C69BE827294775004C2207 /* SignUpInputViewModel.swift */; };
 		77E59131270DDCFA0070F381 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59130270DDCFA0070F381 /* BaseViewModel.swift */; };
 		77E59133270DDDA40070F381 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59132270DDDA40070F381 /* HomeViewModel.swift */; };
 		77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59134270DDFCF0070F381 /* WebViewModel.swift */; };
@@ -166,6 +167,7 @@
 		777B51842714553600299430 /* InitialCategorySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCategorySettingViewController.swift; sourceTree = "<group>"; };
 		77B7A1242708A1C2008F5530 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		77C69BE627294613004C2207 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		77C69BE827294775004C2207 /* SignUpInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputViewModel.swift; sourceTree = "<group>"; };
 		77E59130270DDCFA0070F381 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		77E59132270DDDA40070F381 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		77E59134270DDFCF0070F381 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 				77C69BE627294613004C2207 /* SignUpViewModel.swift */,
 				777B517F2714472B00299430 /* TermDetailViewController.swift */,
 				777B51792712AA2300299430 /* SignUpInputViewController.swift */,
+				77C69BE827294775004C2207 /* SignUpInputViewModel.swift */,
 				777B51862714553900299430 /* InitialSetting */,
 			);
 			path = SignUp;
@@ -647,6 +650,7 @@
 				06A1ECB12712C10A00EA78D8 /* NDButtonTheme.swift in Sources */,
 				06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */,
 				77E5913827115F890070F381 /* LoginNavigationViewController.swift in Sources */,
+				77C69BE927294775004C2207 /* SignUpInputViewModel.swift in Sources */,
 				775B95AC27204D1C004D4540 /* UITabBarItem+.swift in Sources */,
 				06A1EC9B2708B12A00EA78D8 /* UILabel+.swift in Sources */,
 				777B517C2712AEB300299430 /* EmailAuthroizeViewController.swift in Sources */,
