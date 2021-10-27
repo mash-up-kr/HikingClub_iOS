@@ -98,4 +98,10 @@ extension Reactive where Base: NDSearchTextField {
     var text: ControlProperty<String> {
         base.textField.rx.text.orEmpty
     }
+    
+    var isCancelHidden: Binder<Bool> {
+        Binder(base) {
+            $0.setCancelButtonHidden($1)
+        }
+    }
 }
