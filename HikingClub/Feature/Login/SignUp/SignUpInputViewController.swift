@@ -135,6 +135,7 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
 
         emailTextFieldButton.rx.tap
             .subscribe(onNext: { [weak self] in
+                self?.view.endEditing(true)
                 self?.navigateToEmailAuthorizeViewController()
             })
             .disposed(by: disposeBag)
@@ -159,6 +160,7 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
         
         nextButton.rx.tapOk
             .subscribe(onNext: { [weak self] in
+                self?.view.endEditing(true)
                 self?.navigateToInitialSettingViewController()
             })
             .disposed(by: disposeBag)
