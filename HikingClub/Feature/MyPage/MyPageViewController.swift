@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
 
 final class MyPageViewController: BaseViewController<BaseViewModel> {
     private let navigationBar: NaviBar = {
+        // TODO: 아이콘 변경하기
         let view = NaviBar()
         view.setTitle("마이페이지")
-        // TODO: 아이콘 변경하기
         view.setRightItemImage(.icon_magnifier_left_gray900_24)
         return view
     }()
@@ -50,29 +52,19 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
         let view = UIView(frame: CGRect(x: .zero, y: .zero, width: UIScreen.main.bounds.width, height: 46))
         view.backgroundColor = .gray50
         
-        let button1 = UIButton()
-        button1.setFont(.semiBold18)
-        button1.setTitleColor(.green500, for: .normal)
-        button1.setTitle("나들길", for: .normal)
-        
-        let button2 = UIButton()
-        button2.setFont(.semiBold18)
-        button2.setTitleColor(.green500, for: .normal)
-        button2.setTitle("저장한 길", for: .normal)
+        let headerButtonView = MyPageListHeaderButtonView()
+        headerButtonView.setSelected(.myList)
         
         let countLabel = UILabel()
         countLabel.setFont(.semiBold16)
         countLabel.textColor = .green500
         countLabel.text = "1155개"
         
-        view.addSubViews(button1, button2, countLabel)
-        button1.snp.makeConstraints {
+        view.addSubViews(headerButtonView, countLabel)
+        headerButtonView.snp.makeConstraints {
+            $0.top.equalToSuperview()
             $0.leading.equalToSuperview().offset(16)
-            $0.bottom.equalToSuperview().inset(8)
-        }
-        button2.snp.makeConstraints {
-            $0.leading.equalTo(button1.snp.trailing).offset(20)
-            $0.bottom.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview()
         }
         countLabel.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(16)
@@ -115,5 +107,115 @@ extension MyPageViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return tableHeaderView
+    }
+}
+
+final class MyPageListHeaderButtonView: CodeBasedView {
+    enum ButtonType {
+        case myList
+        case savedList
+    }
+    
+    private var currentSelectedButton: ButtonType = .myList
+    
+    private let myListButton: UIButton = {
+        let button = MyPageListHeaderButton("나의 길")
+        return button
+    }()
+    
+    private let savedListButton: UIButton = {
+        let button = MyPageListHeaderButton("저장한 길")
+        return button
+    }()
+    
+    let currentSelctedRelay = PublishRelay<ButtonType>()
+    
+    private let disposeBag = DisposeBag()
+    
+    override func attribute() {
+        super.attribute()
+    }
+    
+    override func layout() {
+        addSubViews(myListButton, savedListButton)
+        myListButton.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
+        savedListButton.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalTo(myListButton.snp.trailing).offset(20)
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
+    }
+    
+    override func bind() {
+        super.bind()
+        myListButton.rx.tap
+            .bind { [weak self] in self?.setSelected(.myList) }
+            .disposed(by: disposeBag)
+        
+        savedListButton.rx.tap
+            .bind { [weak self] in self?.setSelected(.savedList) }
+            .disposed(by: disposeBag)
+    }
+
+    func setSelected(_ type: ButtonType) {
+        switch type {
+        case .myList:
+            myListButton.isSelected = true
+            savedListButton.isSelected = false
+        case .savedList:
+            myListButton.isSelected = false
+            savedListButton.isSelected = true
+        }
+    }
+}
+
+final class MyPageListHeaderButton: UIButton, CodeBasedProtocol {
+    private let barIndicator = UIView()
+    private let contentLabel: UILabel = {
+        let label = UILabel()
+        label.setFont(.semiBold18)
+        return label
+    }()
+    
+    override var isSelected: Bool {
+        didSet {
+            updatedSelectStatus()
+        }
+    }
+    
+    init(_ title: String) {
+        super.init(frame: .zero)
+        contentLabel.text = title
+        barIndicator.isHidden = true
+        layout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+        
+    func layout() {
+        addSubViews(contentLabel, barIndicator)
+        contentLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+        }
+        barIndicator.snp.makeConstraints {
+            $0.top.equalTo(contentLabel.snp.bottom).offset(6)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(2)
+        }
+    }
+    
+    private func updatedSelectStatus() {
+        contentLabel.textColor = isSelected ? .green500 : .gray300
+        barIndicator.backgroundColor = isSelected ? .green500 : .clear
+        barIndicator.isHidden = !isSelected
     }
 }
