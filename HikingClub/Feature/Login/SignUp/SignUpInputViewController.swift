@@ -175,7 +175,12 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
     }
     
     private func navigateToEmailAuthorizeViewController() {
-        let viewModel = EmailAuthorizeViewModel(.signUp)
+        // TODO: 전달받은 이메일 textField에 셋팅하기
+        let viewModel = EmailAuthorizeViewModel()
+        viewModel
+            .authorizedEmailRelay
+            .bind { print($0) }
+            .disposed(by: disposeBag)
         navigationController?.pushViewController(EmailAuthorizeViewController(viewModel), animated: true)
     }
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class EmailAuthorizeViewController: BaseViewController<EmailAuthorizeViewModel>, ScrollViewKeyboardApperanceProtocol {
     private let navigationBar: NaviBar = {
@@ -120,10 +121,31 @@ final class EmailAuthorizeViewController: BaseViewController<EmailAuthorizeViewM
             })
             .disposed(by: disposeBag)
         
-        authorizeButton.rx.tapOk
+        authenticationEmailReceiveButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel.requestEmailAuth()
+                self?.viewModel.requestEmailAuthCode()
             })
             .disposed(by: disposeBag)
+        
+        Observable.combineLatest(emailTextfield.rx.text.asObservable(),
+                         authenticationNumberTextfield.rx.text.asObservable())
+            .filter { !$0.isEmpty && !$1.isEmpty }
+            .bind { [weak self] _ in self?.authorizeButton.setEnabled(true, type: .ok) }
+            .disposed(by: disposeBag)
+            
+        authorizeButton.rx.tapOk
+            .filter { [weak self] in
+                self?.viewModel.isRightAuthCode(self?.authenticationNumberTextfield.text) ?? false
+            }
+            .subscribe(onNext: { [weak self] in
+                self?.popEmailAuthorizeViewController()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func popEmailAuthorizeViewController() {
+        guard let authorizedEmail = emailTextfield.text else { return }
+        viewModel.authorizedEmailRelay.accept(authorizedEmail)
+        navigationController?.popViewController(animated: true)
     }
 }
