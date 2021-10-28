@@ -522,7 +522,6 @@
 		77E5913627115F6D0070F381 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				773D61A42719D8CA001528B3 /* EmailAuthorize */,
 				77E5913D271172090070F381 /* SignUp */,
 				773D619E2719D0C1001528B3 /* SignIn */,
 				77E5913727115F890070F381 /* LoginNavigationViewController.swift */,
@@ -540,6 +539,7 @@
 				777B517F2714472B00299430 /* TermDetailViewController.swift */,
 				777B51792712AA2300299430 /* SignUpInputViewController.swift */,
 				77C69BE827294775004C2207 /* SignUpInputViewModel.swift */,
+				773D61A42719D8CA001528B3 /* EmailAuthorize */,
 				777B51862714553900299430 /* InitialSetting */,
 			);
 			path = SignUp;
