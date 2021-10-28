@@ -18,6 +18,8 @@
 		06962E93272927770021402F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06962E92272927770021402F /* SearchViewController.swift */; };
 		06962E95272927A00021402F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06962E94272927A00021402F /* Search.storyboard */; };
 		06962E97272928290021402F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06962E96272928290021402F /* SearchViewModel.swift */; };
+		06962E9A272A86100021402F /* RecentSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06962E98272A86100021402F /* RecentSearchCollectionViewCell.swift */; };
+		06962E9B272A86100021402F /* RecentSearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06962E99272A86100021402F /* RecentSearchCollectionViewCell.xib */; };
 		06A1EC8E27088F3E00EA78D8 /* HitThemeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1EC8D27088F3E00EA78D8 /* HitThemeTableHeaderView.swift */; };
 		06A1EC9027088F4400EA78D8 /* HitThemeTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06A1EC8F27088F4400EA78D8 /* HitThemeTableHeaderView.xib */; };
 		06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1EC982708A7F300EA78D8 /* UIFont+.swift */; };
@@ -100,6 +102,8 @@
 		06962E92272927770021402F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		06962E94272927A00021402F /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		06962E96272928290021402F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		06962E98272A86100021402F /* RecentSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		06962E99272A86100021402F /* RecentSearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentSearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		06A1EC8D27088F3E00EA78D8 /* HitThemeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitThemeTableHeaderView.swift; sourceTree = "<group>"; };
 		06A1EC8F27088F4400EA78D8 /* HitThemeTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HitThemeTableHeaderView.xib; sourceTree = "<group>"; };
 		06A1EC982708A7F300EA78D8 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -197,11 +201,21 @@
 		06962E91272926EE0021402F /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				06962E9C272A86140021402F /* Cell */,
 				06962E94272927A00021402F /* Search.storyboard */,
 				06962E92272927770021402F /* SearchViewController.swift */,
 				06962E96272928290021402F /* SearchViewModel.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		06962E9C272A86140021402F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				06962E99272A86100021402F /* RecentSearchCollectionViewCell.xib */,
+				06962E98272A86100021402F /* RecentSearchCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		06A1EC9127089D2700EA78D8 /* Extension */ = {
@@ -577,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06A1ECAA2711789500EA78D8 /* Colors.xcassets in Resources */,
+				06962E9B272A86100021402F /* RecentSearchCollectionViewCell.xib in Resources */,
 				283AF0502708672C0033ED71 /* Home.storyboard in Resources */,
 				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
 				283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */,
@@ -641,6 +656,7 @@
 				06A1EC9D2708C5E800EA78D8 /* UIButton+.swift in Sources */,
 				775B959D271C2512004D4540 /* ScrollViewKeyboardApperanceProtocol.swift in Sources */,
 				773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */,
+				06962E9A272A86100021402F /* RecentSearchCollectionViewCell.swift in Sources */,
 				773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */,
 				775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */,
 				283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */,
