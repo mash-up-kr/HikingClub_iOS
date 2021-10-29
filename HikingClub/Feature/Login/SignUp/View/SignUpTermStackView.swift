@@ -10,12 +10,14 @@ import RxSwift
 import RxRelay
 
 final class SignUpTermsStackView: UIStackView, CodeBasedProtocol {
+    /// 회원가입에 필요한 약관 enum, 약관이 추가된다면 case 추가하면됨
     enum SignUpTermType {
         case personal
     }
     
     private let personalInformationTermView: SignUpTermView = SignUpTermView(.personal)
     
+    let didTapAgreeButton = PublishRelay<SignUpTermType>()
     let didTapDetailButton = PublishRelay<SignUpTermType>()
     
     private let disposeBag = DisposeBag()
@@ -42,6 +44,12 @@ final class SignUpTermsStackView: UIStackView, CodeBasedProtocol {
     // MARK: - Bind
     
     func bind() {
+        personalInformationTermView.agreeButton.rx.tap
+            .do { [weak self] _ in self?.personalInformationTermView.agreeButton.toggleImage() }
+            .map { SignUpTermType.personal }
+            .bind(to: didTapAgreeButton)
+            .disposed(by: disposeBag)
+        
         personalInformationTermView.detailButton.rx.tap
             .map { SignUpTermType.personal }
             .bind(to: didTapDetailButton)
@@ -50,7 +58,7 @@ final class SignUpTermsStackView: UIStackView, CodeBasedProtocol {
 }
 
 private final class SignUpTermView: CodeBasedView {
-    private let agreeButton: SignUpTermAgreeButton = SignUpTermAgreeButton()
+    let agreeButton: SignUpTermAgreeButton = SignUpTermAgreeButton()
     let detailButton: UIButton = {
         let button = UIButton()
         button.setImage(.icon_angleBracket_right_gray500_24)
@@ -67,6 +75,8 @@ private final class SignUpTermView: CodeBasedView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Attribute
     
     override func attribute() {
         super.attribute()
@@ -138,5 +148,10 @@ private final class SignUpTermAgreeButton: UIButton, CodeBasedProtocol {
     
     func setContent(_ text: String) {
         contentLabel.text = text
+    }
+    
+    func toggleImage() {
+        isSelected.toggle()
+        checkIconImageView.setImage(isSelected ? .icon_check_circle_selected_green500_24 : .icon_check_circle_deselected_gray300_24)
     }
 }

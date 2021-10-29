@@ -24,15 +24,15 @@ final class HomeService {
 }
  ```
  */
-final class NetworkProvider {
-    private let networkProvider = MoyaProvider<API>(plugins: [NetworkLogging()])
+final class NetworkProvider<Target: TargetType> {
+    private let networkProvider = MoyaProvider<Target>(plugins: [NetworkLogging()])
     
     init() {
         let configure = networkProvider.session.sessionConfiguration
         configure.timeoutIntervalForRequest = 10
     }
     
-    func request<T: Decodable>(_ api: API, type: T.Type) -> Single<T> {
+    func request<T: Decodable>(_ api: Target) -> Single<T> {
         networkProvider.rx.request(api)
             .filter(statusCodes: 200...299)
             .map(T.self)
