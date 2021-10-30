@@ -35,7 +35,11 @@ extension ScrollViewKeyboardApperanceProtocol where Self: UIViewController {
             let keyboardAnimationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber
         else { return }
         
-        let insetValue = isShow ? keyboardFrame.cgRectValue.height - view.safeAreaInsets.bottom + 20: 0
+        var insetValue = isShow ? keyboardFrame.cgRectValue.height - view.safeAreaInsets.bottom : 0
+        if isShow && view.safeAreaInsets.bottom != .zero {
+            insetValue += 20
+        }
+        
         let contentInsetValue: CGFloat = isShow ? 20 : 0
         
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: contentInsetValue, right: 0)
