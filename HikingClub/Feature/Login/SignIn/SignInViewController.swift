@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignInViewController: BaseViewController<BaseViewModel> {
+final class SignInViewController: BaseViewController<SignInViewModel>, ScrollViewKeyboardApperanceProtocol {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("로그인")
@@ -15,7 +15,11 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
         return view
     }()
     
-    private let scrollView = UIScrollView()
+    var scrollView = UIScrollView()
+    
+    var bottomAreaView: UIView {
+        signInButton
+    }
     
     private let scrollContentsView = UIView()
     
@@ -30,17 +34,33 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
     
     private let emailInputTextField: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("이메일", description: "이메일 주소 입력", theme: .normal)
+        textfield.setTitle("이메일", description: nil, theme: .normal)
+        textfield.setPlaceholder("이메일 주소 입력")
+        textfield.setTheme(.normal)
         return textfield
     }()
+    
+    private let passwordWrapper = UIView()
     
     private let passwordInputTextField: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("비밀번호", description: "비밀번호 입력", theme: .normal)
+        textfield.setTitle("비밀번호", description: nil, theme: .normal)
+        textfield.setPlaceholder("비밀번호 입력")
+        textfield.setTheme(.normal)
+        textfield.setPasswordMode()
         return textfield
     }()
     
-    private let signInButtonWrapper = UIView()
+    private let forgotPasswordButton: UIButton = {
+        let button = UIButton()
+        button.setFont(.medium14)
+        button.setTitle("비밀번호 찾기", for: .normal)
+        button.semanticContentAttribute = .forceRightToLeft
+        button.setImage(.icon_angleBracket_right_gray700_16)
+        button.setTitleColor(.gray700, for: .normal)
+        
+        return button
+    }()
     
     private let signInButton: NDCTAButton = {
         let button = NDCTAButton(buttonStyle: .one)
@@ -52,6 +72,7 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
 
     override func attribute() {
         super.attribute()
+        initKeyboardApperance()
         signInButton.setGradientColor()
     }
     
@@ -95,7 +116,21 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
     }
     
     private func textFieldStackViewLayout() {
-        textFieldStackView.addArrangedSubviews(emailInputTextField, passwordInputTextField)
+        textFieldStackView.addArrangedSubviews(emailInputTextField, passwordWrapper)
+        passwordWrapperLayout()
+    }
+    
+    private func passwordWrapperLayout() {
+        passwordWrapper.addSubViews(passwordInputTextField, forgotPasswordButton)
+        passwordInputTextField.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+        }
+        forgotPasswordButton.snp.makeConstraints {
+            $0.top.equalTo(passwordInputTextField.snp.bottom).offset(12)
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
     }
     
     // MARK: - Bind
@@ -110,8 +145,15 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
         
         signInButton.rx.tapOk
             .subscribe(onNext: { [weak self] in
-                self?.navigationController?.dismiss(animated: true, completion: nil)
+                self?.view.endEditing(true)
+                guard let email = self?.emailInputTextField.text,
+                      let password = self?.passwordInputTextField.text else { return }
+                self?.viewModel.requestLogin(email, password)
             })
+            .disposed(by: disposeBag)
+        
+        forgotPasswordButton.rx.tap
+            .bind { [weak self] in self?.navigateToEmailAuthorizeViewController() }
             .disposed(by: disposeBag)
     }
     
