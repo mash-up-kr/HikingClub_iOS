@@ -6,14 +6,23 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class RecentSearchCollectionViewCell: UICollectionViewCell {
-    @IBOutlet private weak var deleteButton: UIButton!
+    @IBOutlet fileprivate weak var deleteButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
+    private(set) var disposeBag: DisposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         attribute()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleLabel.text = nil
+        disposeBag = DisposeBag()
     }
 
     private func attribute() {
@@ -27,5 +36,11 @@ final class RecentSearchCollectionViewCell: UICollectionViewCell {
     
     func configure(with model: String) {
         titleLabel.text = model
+    }
+}
+
+extension Reactive where Base: RecentSearchCollectionViewCell {
+    var tapDelete: ControlEvent<Void> {
+        base.deleteButton.rx.tap
     }
 }
