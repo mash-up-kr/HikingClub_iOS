@@ -155,6 +155,11 @@ final class SignInViewController: BaseViewController<SignInViewModel>, ScrollVie
         forgotPasswordButton.rx.tap
             .bind { [weak self] in self?.navigateToEmailAuthorizeViewController() }
             .disposed(by: disposeBag)
+        
+        // MARK: - ViewModel Binding
+        viewModel.loginSucceededRelay
+            .bind { [weak self] in self?.navigationController?.dismiss(animated: true, completion: nil) }
+            .disposed(by: disposeBag)
     }
     
     private func navigateToEmailAuthorizeViewController() {
