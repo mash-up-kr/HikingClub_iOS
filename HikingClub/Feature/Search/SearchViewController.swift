@@ -142,7 +142,6 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
                     .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
-        recentCollectionView.delegate = self
     }
     
     private func setCategoryCollectionView() {
@@ -186,7 +185,7 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         // TODO: 전체삭제버튼
         recentSearchDeletButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel.removeAllRecentWords()
+                self?.viewModel.removeAllRecentSearchWords()
             })
             .disposed(by: disposeBag)
     }

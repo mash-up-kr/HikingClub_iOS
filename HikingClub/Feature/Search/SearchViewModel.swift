@@ -17,4 +17,8 @@ final class SearchViewModel: BaseViewModel {
     let recentSearchWords: BehaviorRelay<[String]> = BehaviorRelay(value: [])
     /// 카테고리
     let categoryWords: BehaviorRelay<[String]> = BehaviorRelay(value: [])
+    
+    func removeAllRecentSearchWords() {
+        recentSearchWords.accept([])
+    }
 }
