@@ -45,6 +45,7 @@
                     </view>
                     <connections>
                         <outlet property="containerView" destination="Rjj-Yw-NRl" id="lCy-GZ-9jE"/>
+                        <outlet property="scrollView" destination="9Yp-aw-KeZ" id="EDR-En-81R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -10,6 +10,7 @@ import RxCocoa
 import RxSwift
 
 final class SearchViewController: BaseViewController<SearchViewModel> {
+    @IBOutlet private weak var scrollView: UIScrollView!
     private let searchTextField: NDSearchTextField = NDSearchTextField()
     private let recentSearchLabel: UILabel = UILabel()
     private let recentSearchDeletButton: UIButton = UIButton(type: .system)
@@ -17,15 +18,29 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.scrollDirection = .horizontal
-        
+        layout.minimumInteritemSpacing = 8
+        layout.sectionInset = .zero
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     private let spacingView: UIView = UIView()
     private let categoryTitleLabel: UILabel = UILabel()
-    private let categoryCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-    
+    private let categoryCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let spacing: CGFloat = 8
+        let margin: CGFloat = 16
+        let width = ((UIScreen.main.bounds.width - margin * 2) - (spacing * 2)) / 3
+        let height = 96 * width / 109
+        layout.itemSize = .init(width: width, height: height)
+        layout.scrollDirection = .vertical
+        layout.minimumInteritemSpacing = spacing
+        layout.minimumLineSpacing = spacing
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.isScrollEnabled = false
+        return collectionView
+    }()
     @IBOutlet private weak var containerView: UIView!
     
     override func viewDidLoad() {
@@ -36,7 +51,7 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
     
     override func attribute() {
         super.attribute()
-        
+        scrollView.contentInset = .init(top: 0, left: 0, bottom: 100, right: 0)
         recentSearchLabel.setFont(.semiBold16)
         recentSearchLabel.textColor = .gray900
         recentSearchLabel.text = "최근 검색어"
@@ -108,8 +123,8 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
             $0.top.equalTo(categoryTitleLabel.snp.bottom).offset(15)
             $0.leading.equalTo(categoryTitleLabel)
             $0.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(304)
             $0.bottom.equalToSuperview()
+            $0.height.equalTo(304)
         }
     }
     
@@ -118,14 +133,46 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         viewModel.recentSearchWords
             .bind(to: recentCollectionView.rx.items(cellIdentifier: "RecentSearchCollectionViewCell", cellType: RecentSearchCollectionViewCell.self)) { indexPath, cellModel, cell in
                 cell.configure(with: cellModel)
+                
+                // TODO: 최근검색어 삭제기능
+                cell.rx.tapDelete
+                    .subscribe(onNext: {
+                        print("삭제")
+                    })
+                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
-        
-        
+        recentCollectionView.delegate = self
     }
     
     private func setCategoryCollectionView() {
+        categoryCollectionView.register(CategoryCollectionViewCell.self)
+        viewModel.categoryWords
+            .bind(to: categoryCollectionView.rx.items(cellIdentifier: "CategoryCollectionViewCell", cellType: CategoryCollectionViewCell.self)) { indexPath, cellModel, cell in
+                cell.configure(with: cellModel)
+            }
+            .disposed(by: disposeBag)
         
+        // TODO: 터치시 해당 카테고리로 이동
+        categoryCollectionView.rx.itemSelected
+            .subscribe(onNext: {
+                print($0)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    /// 카테고리 내용변경시 호출해주세용
+    private func updateCategoryCollectionViewHeight() {
+        guard let layout = categoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        let row: CGFloat = CGFloat((viewModel.categoryWords.value.count + 2) / 3)
+        let spacing = layout.minimumInteritemSpacing
+        let itemHeight = layout.itemSize.height
+        let height = itemHeight * row + spacing * (row - 1)
+        categoryCollectionView.snp.updateConstraints {
+            $0.height.equalTo(height)
+        }
     }
     
     override func bind() {
@@ -133,5 +180,14 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         
         // FIXME: - Mock삭제
         viewModel.recentSearchWords.accept(["최근검색1", "최근검색122", "최근검색검색하자", "헤에에에에"])
+        viewModel.categoryWords.accept(["자연", "야경","벚꽃","연인","자전거","산악회","먹거리","호수","네글자는","한줄더"])
+        updateCategoryCollectionViewHeight()
+        
+        // TODO: 전체삭제버튼
+        recentSearchDeletButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.removeAllRecentWords()
+            })
+            .disposed(by: disposeBag)
     }
 }

@@ -20,6 +20,8 @@
 		06962E97272928290021402F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06962E96272928290021402F /* SearchViewModel.swift */; };
 		06962E9A272A86100021402F /* RecentSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06962E98272A86100021402F /* RecentSearchCollectionViewCell.swift */; };
 		06962E9B272A86100021402F /* RecentSearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06962E99272A86100021402F /* RecentSearchCollectionViewCell.xib */; };
+		06962E9F272BCD400021402F /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06962E9D272BCD400021402F /* CategoryCollectionViewCell.swift */; };
+		06962EA0272BCD400021402F /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06962E9E272BCD400021402F /* CategoryCollectionViewCell.xib */; };
 		06A1EC8E27088F3E00EA78D8 /* HitThemeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1EC8D27088F3E00EA78D8 /* HitThemeTableHeaderView.swift */; };
 		06A1EC9027088F4400EA78D8 /* HitThemeTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06A1EC8F27088F4400EA78D8 /* HitThemeTableHeaderView.xib */; };
 		06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1EC982708A7F300EA78D8 /* UIFont+.swift */; };
@@ -104,6 +106,8 @@
 		06962E96272928290021402F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		06962E98272A86100021402F /* RecentSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		06962E99272A86100021402F /* RecentSearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentSearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		06962E9D272BCD400021402F /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		06962E9E272BCD400021402F /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		06A1EC8D27088F3E00EA78D8 /* HitThemeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitThemeTableHeaderView.swift; sourceTree = "<group>"; };
 		06A1EC8F27088F4400EA78D8 /* HitThemeTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HitThemeTableHeaderView.xib; sourceTree = "<group>"; };
 		06A1EC982708A7F300EA78D8 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 			children = (
 				06962E99272A86100021402F /* RecentSearchCollectionViewCell.xib */,
 				06962E98272A86100021402F /* RecentSearchCollectionViewCell.swift */,
+				06962E9E272BCD400021402F /* CategoryCollectionViewCell.xib */,
+				06962E9D272BCD400021402F /* CategoryCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -590,6 +596,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06962EA0272BCD400021402F /* CategoryCollectionViewCell.xib in Resources */,
 				06A1ECAA2711789500EA78D8 /* Colors.xcassets in Resources */,
 				06962E9B272A86100021402F /* RecentSearchCollectionViewCell.xib in Resources */,
 				283AF0502708672C0033ED71 /* Home.storyboard in Resources */,
@@ -617,6 +624,7 @@
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				777B517727129EA700299430 /* SignUpTermStackView.swift in Sources */,
 				777B516F27119A9200299430 /* CodeBasedView.swift in Sources */,
+				06962E9F272BCD400021402F /* CategoryCollectionViewCell.swift in Sources */,
 				06A1ECA82711782100EA78D8 /* NDButton.swift in Sources */,
 				06A1ECB12712C10A00EA78D8 /* NDButtonTheme.swift in Sources */,
 				06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */,
