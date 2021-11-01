@@ -71,6 +71,14 @@
 		775B95A8271F0BD9004D4540 /* AssetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B95A7271F0BD9004D4540 /* AssetImage.swift */; };
 		775B95AA271F110A004D4540 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B95A9271F110A004D4540 /* UIImageView+.swift */; };
 		775B95AC27204D1C004D4540 /* UITabBarItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B95AB27204D1C004D4540 /* UITabBarItem+.swift */; };
+		7760CA8D27252ED2006B39A9 /* EmailAuthorizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA8C27252ED2006B39A9 /* EmailAuthorizeViewModel.swift */; };
+		7760CA8F2725313B006B39A9 /* EmailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA8E2725313B006B39A9 /* EmailAPI.swift */; };
+		7760CA91272540B2006B39A9 /* PlaceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA90272540B2006B39A9 /* PlaceAPI.swift */; };
+		7760CA942725411E006B39A9 /* PlaceRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA932725411E006B39A9 /* PlaceRequestModel.swift */; };
+		7760CA96272541D0006B39A9 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA95272541D0006B39A9 /* Encodable+.swift */; };
+		7760CA9927254249006B39A9 /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9827254249006B39A9 /* PlaceService.swift */; };
+		7760CA9B27259C24006B39A9 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9A27259C24006B39A9 /* ResponseModel.swift */; };
+		7760CA9E27259F53006B39A9 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9D27259F53006B39A9 /* PlaceModel.swift */; };
 		777B5169271197B800299430 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5168271197B800299430 /* UIView+.swift */; };
 		777B516B2711981400299430 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516A2711981400299430 /* UIStackView+.swift */; };
 		777B516F27119A9200299430 /* CodeBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516E27119A9200299430 /* CodeBasedView.swift */; };
@@ -84,6 +92,9 @@
 		777B51852714553600299430 /* InitialCategorySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B51842714553600299430 /* InitialCategorySettingViewController.swift */; };
 		77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7A1242708A1C2008F5530 /* WebViewController.swift */; };
 		77B7A1282708A674008F5530 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77B7A1272708A674008F5530 /* SnapKit */; };
+		77C69BE727294613004C2207 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C69BE627294613004C2207 /* SignUpViewModel.swift */; };
+		77C69BE927294775004C2207 /* SignUpInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C69BE827294775004C2207 /* SignUpInputViewModel.swift */; };
+		77C69BEB272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C69BEA272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift */; };
 		77E59131270DDCFA0070F381 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59130270DDCFA0070F381 /* BaseViewModel.swift */; };
 		77E59133270DDDA40070F381 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59132270DDDA40070F381 /* HomeViewModel.swift */; };
 		77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E59134270DDFCF0070F381 /* WebViewModel.swift */; };
@@ -150,6 +161,14 @@
 		775B95A7271F0BD9004D4540 /* AssetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetImage.swift; sourceTree = "<group>"; };
 		775B95A9271F110A004D4540 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		775B95AB27204D1C004D4540 /* UITabBarItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+.swift"; sourceTree = "<group>"; };
+		7760CA8C27252ED2006B39A9 /* EmailAuthorizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthorizeViewModel.swift; sourceTree = "<group>"; };
+		7760CA8E2725313B006B39A9 /* EmailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAPI.swift; sourceTree = "<group>"; };
+		7760CA90272540B2006B39A9 /* PlaceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAPI.swift; sourceTree = "<group>"; };
+		7760CA932725411E006B39A9 /* PlaceRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRequestModel.swift; sourceTree = "<group>"; };
+		7760CA95272541D0006B39A9 /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
+		7760CA9827254249006B39A9 /* PlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
+		7760CA9A27259C24006B39A9 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		7760CA9D27259F53006B39A9 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		777B5168271197B800299430 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		777B516A2711981400299430 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		777B516E27119A9200299430 /* CodeBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedView.swift; sourceTree = "<group>"; };
@@ -162,6 +181,9 @@
 		777B517F2714472B00299430 /* TermDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewController.swift; sourceTree = "<group>"; };
 		777B51842714553600299430 /* InitialCategorySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCategorySettingViewController.swift; sourceTree = "<group>"; };
 		77B7A1242708A1C2008F5530 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		77C69BE627294613004C2207 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		77C69BE827294775004C2207 /* SignUpInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputViewModel.swift; sourceTree = "<group>"; };
+		77C69BEA272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAccessoryToolbar.swift; sourceTree = "<group>"; };
 		77E59130270DDCFA0070F381 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		77E59132270DDDA40070F381 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		77E59134270DDFCF0070F381 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
@@ -194,10 +216,8 @@
 		067DC4EA26FEF38700650862 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				067DC4FA26FF19DE00650862 /* API.swift */,
-				067DC4EF26FEF8A000650862 /* NetworkProvider.swift */,
-				067DC50026FF238F00650862 /* NetworkLogging.swift */,
-				067DC4FE26FF213400650862 /* NetworkError.swift */,
+				7760CA9F27259F9A006B39A9 /* Base */,
+				7760CA972725421B006B39A9 /* PlaceService */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -240,6 +260,7 @@
 				7741F98D27171CC2005B3D88 /* UIViewController+.swift */,
 				773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */,
 				775B95AB27204D1C004D4540 /* UITabBarItem+.swift */,
+				7760CA95272541D0006B39A9 /* Encodable+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -255,6 +276,7 @@
 				064A960E272185F900939AD5 /* NDToastView.swift */,
 				06B68F9627228FF9007174E1 /* NDSearchTextField.swift */,
 				06962E8F2727FC250021402F /* NDTabButton.swift */,
+				77C69BEA272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -420,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				777B517B2712AEB300299430 /* EmailAuthroizeViewController.swift */,
+				7760CA8C27252ED2006B39A9 /* EmailAuthorizeViewModel.swift */,
 			);
 			path = EmailAuthorize;
 			sourceTree = "<group>";
@@ -449,6 +472,46 @@
 				77169DBF270ACD58000AB1D2 /* SupportingFiles */,
 			);
 			path = HikingClub;
+			sourceTree = "<group>";
+		};
+		7760CA922725410E006B39A9 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				7760CA932725411E006B39A9 /* PlaceRequestModel.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		7760CA972725421B006B39A9 /* PlaceService */ = {
+			isa = PBXGroup;
+			children = (
+				7760CA9C27259F37006B39A9 /* Response */,
+				7760CA922725410E006B39A9 /* Request */,
+				7760CA90272540B2006B39A9 /* PlaceAPI.swift */,
+				7760CA9827254249006B39A9 /* PlaceService.swift */,
+			);
+			path = PlaceService;
+			sourceTree = "<group>";
+		};
+		7760CA9C27259F37006B39A9 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				7760CA9D27259F53006B39A9 /* PlaceModel.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		7760CA9F27259F9A006B39A9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				067DC4FA26FF19DE00650862 /* API.swift */,
+				7760CA8E2725313B006B39A9 /* EmailAPI.swift */,
+				067DC4EF26FEF8A000650862 /* NetworkProvider.swift */,
+				067DC50026FF238F00650862 /* NetworkLogging.swift */,
+				067DC4FE26FF213400650862 /* NetworkError.swift */,
+				7760CA9A27259C24006B39A9 /* ResponseModel.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		777B516C27119A5200299430 /* View */ = {
@@ -499,7 +562,6 @@
 		77E5913627115F6D0070F381 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				773D61A42719D8CA001528B3 /* EmailAuthorize */,
 				77E5913D271172090070F381 /* SignUp */,
 				773D619E2719D0C1001528B3 /* SignIn */,
 				77E5913727115F890070F381 /* LoginNavigationViewController.swift */,
@@ -513,8 +575,11 @@
 			children = (
 				777B516C27119A5200299430 /* View */,
 				77E5913F2711723C0070F381 /* SignUpViewController.swift */,
+				77C69BE627294613004C2207 /* SignUpViewModel.swift */,
 				777B517F2714472B00299430 /* TermDetailViewController.swift */,
 				777B51792712AA2300299430 /* SignUpInputViewController.swift */,
+				77C69BE827294775004C2207 /* SignUpInputViewModel.swift */,
+				773D61A42719D8CA001528B3 /* EmailAuthorize */,
 				777B51862714553900299430 /* InitialSetting */,
 			);
 			path = SignUp;
@@ -629,6 +694,7 @@
 				06A1ECB12712C10A00EA78D8 /* NDButtonTheme.swift in Sources */,
 				06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */,
 				77E5913827115F890070F381 /* LoginNavigationViewController.swift in Sources */,
+				77C69BE927294775004C2207 /* SignUpInputViewModel.swift in Sources */,
 				775B95AC27204D1C004D4540 /* UITabBarItem+.swift in Sources */,
 				06A1EC9B2708B12A00EA78D8 /* UILabel+.swift in Sources */,
 				777B517C2712AEB300299430 /* EmailAuthroizeViewController.swift in Sources */,
@@ -639,6 +705,8 @@
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
 				06A1ECB327180C2F00EA78D8 /* NaviBar.swift in Sources */,
 				06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */,
+				7760CA96272541D0006B39A9 /* Encodable+.swift in Sources */,
+				7760CA8D27252ED2006B39A9 /* EmailAuthorizeViewModel.swift in Sources */,
 				06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */,
 				77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */,
 				77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */,
@@ -668,19 +736,27 @@
 				773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */,
 				775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */,
 				283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */,
+				77C69BEB272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift in Sources */,
 				777B517327129D6500299430 /* CodeBasedProtocol.swift in Sources */,
+				7760CA8F2725313B006B39A9 /* EmailAPI.swift in Sources */,
 				773D61A02719D0D0001528B3 /* SignInViewController.swift in Sources */,
+				7760CA91272540B2006B39A9 /* PlaceAPI.swift in Sources */,
 				06A1ECA32708D21400EA78D8 /* UITableView+.swift in Sources */,
 				067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */,
+				7760CA9E27259F53006B39A9 /* PlaceModel.swift in Sources */,
 				777B517E2714336700299430 /* InitialSettingViewController.swift in Sources */,
 				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
 				777B51852714553600299430 /* InitialCategorySettingViewController.swift in Sources */,
+				7760CA9927254249006B39A9 /* PlaceService.swift in Sources */,
 				777B517A2712AA2300299430 /* SignUpInputViewController.swift in Sources */,
 				06A1ECAC2711828900EA78D8 /* UIColor+.swift in Sources */,
+				77C69BE727294613004C2207 /* SignUpViewModel.swift in Sources */,
 				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
+				7760CA942725411E006B39A9 /* PlaceRequestModel.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
 				064A960F272185F900939AD5 /* NDToastView.swift in Sources */,
+				7760CA9B27259C24006B39A9 /* ResponseModel.swift in Sources */,
 				775B95AA271F110A004D4540 /* UIImageView+.swift in Sources */,
 				777B5169271197B800299430 /* UIView+.swift in Sources */,
 			);

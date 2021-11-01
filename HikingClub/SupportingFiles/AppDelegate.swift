@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        configurationKeyboardToolBar()
         return true
     }
 
@@ -34,3 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    private func configurationKeyboardToolBar() {
+        let toolBar = KeyboardAccessoryToolbar()
+        UITextField.appearance().inputAccessoryView = toolBar
+    }
+}

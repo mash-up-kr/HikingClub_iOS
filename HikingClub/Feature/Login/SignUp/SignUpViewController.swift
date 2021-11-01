@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignUpViewController: BaseViewController<BaseViewModel> {
+final class SignUpViewController: BaseViewController<SignUpViewModel> {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("회원가입")
@@ -29,13 +29,20 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
         return label
     }()
     
-    // TODO: CAT Button Component로 교쳬 예정
-    private let agreeButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("동의하기", for: .normal)
-        button.backgroundColor = .gray
+    private let agreeButton: NDCTAButton = {
+        let button = NDCTAButton(buttonStyle: .one)
+        button.setTitle("동의하기", buttonType: .ok)
+        button.setEnabled(false, type: .ok)
         return button
     }()
+    
+    
+    // MARK: - Attribute
+    
+    override func attribute() {
+        super.attribute()
+        agreeButton.setGradientColor()
+    }
     
     // MARK: - Layout
   
@@ -62,8 +69,6 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
         agreeButton.snp.makeConstraints {
             $0.bottom.equalTo(view)
             $0.leading.trailing.equalToSuperview()
-            
-            $0.height.equalTo(122)
         }
     }
     
@@ -76,6 +81,10 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
+        
+        termStackView.didTapAgreeButton
+            .bind { [weak self] in self?.viewModel.agree($0) }
+            .disposed(by: disposeBag)
 
         termStackView.didTapDetailButton
             .subscribe(onNext: { [weak self] in
@@ -83,15 +92,24 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
             })
             .disposed(by: disposeBag)
         
-        agreeButton.rx.tap
+        agreeButton.rx.tapOk
+            .filter { [weak self] in self?.viewModel.isEnableSignUp ?? false }
             .subscribe(onNext: { [weak self] in
                 self?.navigateToSignUpInputViewController()
+            })
+            .disposed(by: disposeBag)
+        
+        // MARK: - ViewModel Binding
+        viewModel
+            .updateAgreementRelay
+            .subscribe(onNext: { [weak self] in
+                self?.updateAgreeButton($0)
             })
             .disposed(by: disposeBag)
     }
     
     private func navigateToSignUpInputViewController() {
-        navigationController?.pushViewController(SignUpInputViewController(BaseViewModel()), animated: true)
+        navigationController?.pushViewController(SignUpInputViewController(SignUpInputViewModel()), animated: true)
     }
     
     private func navigateToTermDetailViewController(_ termType: SignUpTermsStackView.SignUpTermType) {
@@ -99,5 +117,9 @@ final class SignUpViewController: BaseViewController<BaseViewModel> {
         viewController.termType = termType
         viewController.modalPresentationStyle = .fullScreen
         navigationController?.present(viewController, animated: true, completion: nil)
+    }
+    
+    private func updateAgreeButton(_ isEnable: Bool) {
+        agreeButton.setEnabled(isEnable, type: .ok)
     }
 }
