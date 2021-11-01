@@ -21,4 +21,12 @@ final class SearchViewModel: BaseViewModel {
     func removeAllRecentSearchWords() {
         recentSearchWords.accept([])
     }
+    
+    func removeRecentSearchWord(at index: Int) {
+        var currentWords = recentSearchWords.value
+        currentWords.remove(at: index)
+        let newWords = currentWords
+        recentSearchWords.accept(newWords)
+        print(index)
+    }
 }

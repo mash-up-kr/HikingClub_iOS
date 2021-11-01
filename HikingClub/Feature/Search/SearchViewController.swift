@@ -16,7 +16,7 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
     private let recentSearchDeletButton: UIButton = UIButton(type: .system)
     private let recentCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 8
         layout.sectionInset = .zero
@@ -67,6 +67,8 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         categoryTitleLabel.text = "카테고리로 찾아보세요"
         setRecentCollectionView()
         setCategoryCollectionView()
+        
+        searchTextField.setPlaceholder("길 이름, #태그로 검색")
     }
     
     @objc
@@ -130,14 +132,16 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
     
     private func setRecentCollectionView() {
         recentCollectionView.register(RecentSearchCollectionViewCell.self)
+        recentCollectionView.rx
+            .setDelegate(self)
+            .disposed(by: disposeBag)
         viewModel.recentSearchWords
             .bind(to: recentCollectionView.rx.items(cellIdentifier: "RecentSearchCollectionViewCell", cellType: RecentSearchCollectionViewCell.self)) { indexPath, cellModel, cell in
                 cell.configure(with: cellModel)
-                
                 // TODO: 최근검색어 삭제기능
                 cell.rx.tapDelete
-                    .subscribe(onNext: {
-                        print("삭제")
+                    .subscribe(onNext: { [weak self] in
+                        self?.viewModel.removeRecentSearchWord(at: indexPath)
                     })
                     .disposed(by: cell.disposeBag)
             }
@@ -188,5 +192,36 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
                 self?.viewModel.removeAllRecentSearchWords()
             })
             .disposed(by: disposeBag)
+        
+        searchTextField.rx.text
+            .distinctUntilChanged()
+            .skip(1)
+            .map { $0.count > 0 }
+            .bind(to: searchTextField.rx.isCancelHidden)
+            .disposed(by: disposeBag)
+        
+        searchTextField.rx.tapCancel
+            .subscribe(onNext: {
+                // TODO: 텍스트필드 초기화, 취소버튼 hidden
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let word = viewModel.recentSearchWords.value[indexPath.item]
+        let label: UILabel = {
+            let label = UILabel()
+            label.text = word
+            label.setFont(.regular13)
+            label.sizeToFit()
+            return label
+        }()
+        let buttonWidth: CGFloat = 16
+        let buttonMargin: CGFloat = 2 + 6
+        let labelMargin: CGFloat = 8
+        let width = label.bounds.width + buttonWidth + buttonMargin + labelMargin
+        return CGSize(width:  width, height: 29)
     }
 }
