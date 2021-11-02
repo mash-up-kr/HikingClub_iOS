@@ -196,13 +196,14 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         searchTextField.rx.text
             .distinctUntilChanged()
             .skip(1)
-            .map { $0.count > 0 }
+            .map { $0.isEmpty }
             .bind(to: searchTextField.rx.isCancelHidden)
             .disposed(by: disposeBag)
         
         searchTextField.rx.tapCancel
-            .subscribe(onNext: {
-                // TODO: 텍스트필드 초기화, 취소버튼 hidden
+            .subscribe(onNext: { [weak self] in
+                self?.searchTextField.text = ""
+                self?.searchTextField.setCancelButtonHidden(true)
             })
             .disposed(by: disposeBag)
     }
