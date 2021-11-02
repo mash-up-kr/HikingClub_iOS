@@ -21,6 +21,10 @@ final class NDSearchTextField: CodeBasedView {
     fileprivate let textField = UITextField()
     private let iconImageView = UIImageView()
     fileprivate let cancelButton = UIButton()
+    var text: String? {
+        get { textField.text }
+        set { textField.text = newValue }
+    }
     
     override func layout() {
         super.layout()
