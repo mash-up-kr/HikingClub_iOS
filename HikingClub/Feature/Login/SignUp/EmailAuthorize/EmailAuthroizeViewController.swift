@@ -149,3 +149,9 @@ final class EmailAuthorizeViewController: BaseViewController<EmailAuthorizeViewM
         navigationController?.popViewController(animated: true)
     }
 }
+
+extension EmailAuthorizeViewController: FinishEditingProtocol {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}

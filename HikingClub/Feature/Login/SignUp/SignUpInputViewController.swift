@@ -188,3 +188,9 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
         navigationController?.pushViewController(InitialSettingViewController(BaseViewModel()), animated: true)
     }
 }
+
+extension SignUpInputViewController: FinishEditingProtocol {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}

@@ -44,8 +44,4 @@ class BaseViewController<T: BaseViewModel>: UIViewController, CodeBasedProtocol 
     func layout() { }
     
     func bind() { }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-         self.view.endEditing(true)
-   }
 }
