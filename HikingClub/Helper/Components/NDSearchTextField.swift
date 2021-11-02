@@ -109,3 +109,11 @@ extension Reactive where Base: NDSearchTextField {
         }
     }
 }
+
+extension Reactive where Base: NDSearchTextField {
+    func setDelegate(_ delegate: UITextFieldDelegate) -> Disposable {
+        RxTextFieldDelegateProxy.installForwardDelegate(delegate,
+                                                      retainDelegate: false,
+                                                      onProxyForObject: base.textField)
+    }
+}

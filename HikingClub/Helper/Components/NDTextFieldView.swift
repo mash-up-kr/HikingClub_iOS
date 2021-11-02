@@ -167,3 +167,11 @@ extension Reactive where Base: NDTextFieldView {
         }
     }
 }
+
+extension Reactive where Base: NDTextFieldView {
+    func setDelegate(_ delegate: UITextFieldDelegate) -> Disposable {
+        RxTextFieldDelegateProxy.installForwardDelegate(delegate,
+                                                      retainDelegate: false,
+                                                      onProxyForObject: base.textField)
+    }
+}
