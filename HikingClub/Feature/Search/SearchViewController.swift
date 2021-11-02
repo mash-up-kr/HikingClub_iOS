@@ -138,7 +138,6 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         viewModel.recentSearchWords
             .bind(to: recentCollectionView.rx.items(cellIdentifier: "RecentSearchCollectionViewCell", cellType: RecentSearchCollectionViewCell.self)) { indexPath, cellModel, cell in
                 cell.configure(with: cellModel)
-                // TODO: 최근검색어 삭제기능
                 cell.rx.tapDelete
                     .subscribe(onNext: { [weak self] in
                         self?.viewModel.removeRecentSearchWord(at: indexPath)
@@ -186,7 +185,6 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         viewModel.categoryWords.accept(["자연", "야경","벚꽃","연인","자전거","산악회","먹거리","호수","네글자는","한줄더"])
         updateCategoryCollectionViewHeight()
         
-        // TODO: 전체삭제버튼
         recentSearchDeletButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.removeAllRecentSearchWords()
