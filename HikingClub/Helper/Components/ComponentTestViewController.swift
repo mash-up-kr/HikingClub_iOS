@@ -130,6 +130,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
     
     func testSearchTextField() {
         searchTextField.setPlaceholder("검색어를 입력하세요")
+        searchTextField.setReturnKeyType(.done)
         searchTextField.rx.setDelegate(self).disposed(by: disposeBag)
         stackView.addArrangedSubview(searchTextField)
         searchTextField.snp.makeConstraints {

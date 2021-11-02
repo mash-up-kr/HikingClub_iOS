@@ -92,6 +92,10 @@ final class NDSearchTextField: CodeBasedView {
     func setPlaceholder(_ placeholder: String) {
         textField.placeholder = placeholder
     }
+    
+    func setReturnKeyType(_ type: UIReturnKeyType) {
+        textField.returnKeyType = type
+    }
 }
 
 extension Reactive where Base: NDSearchTextField {
