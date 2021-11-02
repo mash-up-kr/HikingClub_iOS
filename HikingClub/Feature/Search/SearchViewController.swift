@@ -204,6 +204,11 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
                 self?.searchTextField.setCancelButtonHidden(true)
             })
             .disposed(by: disposeBag)
+        
+        // TODO: 리턴타입변경
+        // TODO: 리턴시 다음페이지이동
+        // TODO: 리턴시 데이터저장
+        
     }
 }
 
