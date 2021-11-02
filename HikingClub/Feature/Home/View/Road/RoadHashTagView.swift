@@ -19,15 +19,16 @@ class RoadHashTagView: UIView {
             $0.trailing.bottom.equalToSuperview().inset(5)
             $0.top.equalToSuperview().offset(6)
         }
-        
-        backgroundColor = .gray
+        layer.cornerRadius = 4
+        backgroundColor = .gray100
     }
     
     func setText(_ text: String) -> CGFloat {
         hashTagLable.setFont(.regular11)
+        hashTagLable.textColor = .gray700
         hashTagLable.text = text
         hashTagLable.sizeToFit()
-        return hashTagLable.frame.width + 10
+        return hashTagLable.frame.width + 15
     }
 
     required init?(coder: NSCoder) {
