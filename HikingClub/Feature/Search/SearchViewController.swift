@@ -16,7 +16,6 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
     private let recentSearchDeletButton: UIButton = UIButton(type: .system)
     private let recentCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 8
         layout.sectionInset = .zero
@@ -42,12 +41,6 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         return collectionView
     }()
     @IBOutlet private weak var containerView: UIView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        
-    }
     
     override func attribute() {
         super.attribute()

@@ -7,7 +7,6 @@
 
 import Foundation
 import RxRelay
-import RxSwift
 
 final class SearchViewModel: BaseViewModel {
     // MARK: - Input
