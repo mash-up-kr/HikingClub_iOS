@@ -10,7 +10,6 @@ import RxCocoa
 import RxSwift
 
 final class SearchCategoryResultViewController: BaseViewController<SearchCategoryResultViewModel> {
-    
     @IBOutlet private weak var naviBar: NaviBar!
     @IBOutlet private weak var tableView: UITableView!
     private var collectionView: UICollectionView = {
@@ -26,7 +25,19 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         return collectionView
     }()
     private var tableViewHeaderView: UIView?
-    private var tableViewHeaderViewTitleView: UIView?
+    private var tableViewHeaderViewTitleView = UIView()
+    private let tableViewHeaderViewTitleLabel: UILabel = {
+        let label = UILabel()
+        label.setFont(.semiBold24)
+        label.textColor = .gray900
+        return label
+    }()
+    private let backButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(.icon_angleBracket_left_gray900_24)
+        return button
+    }()
+    
     private let headerHeight: CGFloat = 108 + 57
     
     private func setTableHeaderView() {
@@ -39,24 +50,9 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
             $0.height.equalTo(headerHeight)
         }
         
-        let backButton: UIButton = {
-            let button = UIButton(type: .custom)
-            button.setImage(.icon_angleBracket_left_gray900_24)
-            return button
-        }()
-        
-        let titleLabel: UILabel = {
-            let label = UILabel()
-            label.text = "테스트"
-            label.setFont(.semiBold24)
-            label.textColor = .gray900
-            return label
-        }()
-       
-        tableViewHeaderViewTitleView = UIView()
-        tableViewHeaderView?.addSubViews(tableViewHeaderViewTitleView!, collectionView)
-        tableViewHeaderViewTitleView?.addSubViews(backButton, titleLabel)
-        tableViewHeaderViewTitleView?.snp.makeConstraints {
+        tableViewHeaderView?.addSubViews(tableViewHeaderViewTitleView, collectionView)
+        tableViewHeaderViewTitleView.addSubViews(backButton, tableViewHeaderViewTitleLabel)
+        tableViewHeaderViewTitleView.snp.makeConstraints {
             $0.leading.top.trailing.equalToSuperview()
             $0.height.equalTo(108)
         }
@@ -66,7 +62,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
             $0.leading.equalToSuperview().offset(16)
         }
         
-        titleLabel.snp.makeConstraints {
+        tableViewHeaderViewTitleLabel.snp.makeConstraints {
             $0.top.equalTo(backButton.snp.bottom).offset(38)
             $0.leading.equalToSuperview().offset(20)
         }
@@ -79,17 +75,44 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
 
     override func attribute() {
         super.attribute()
-        setTableHeaderView()
         naviBar.setBackItemImage()
-        naviBar.setTitle("테스트")
         naviBar.isHidden = true
+        tableView.contentInset = .init(top: headerHeight, left: 0, bottom: 0, right: 0)
         tableView.register(RoadTableViewCell.self)
+        tableView.separatorStyle = .none
         collectionView.register(CategoryTabCollectionViewCell.self)
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     
+    override func layout() {
+        super.layout()
+        setTableHeaderView()
+    }
+
     override func bind() {
         super.bind()
+        naviBar.rx.tapLeftItem
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        backButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.categoryName
+            .subscribe(onNext: { [weak self] in
+                self?.naviBar.setTitle($0)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.categoryName
+            .bind(to: tableViewHeaderViewTitleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
         // 카테고리 셀
         viewModel.categoryWords
             .bind(to: collectionView.rx.items(cellIdentifier: "CategoryTabCollectionViewCell",
@@ -105,14 +128,13 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
             }.disposed(by: disposeBag)
         
         // 헤더뷰 스크롤 효과
-        tableView.contentInset = .init(top: headerHeight, left: 0, bottom: 0, right: 0)
         tableView.rx.contentOffset
             .subscribe(onNext: { [weak self] in
                 // -165(headerHeight)부터 스크롤시 +
                 guard let self = self else { return }
                 let posY = $0.y + self.headerHeight
                 self.naviBar.isHidden = posY <= 70
-                self.tableViewHeaderViewTitleView?.alpha = 1 - posY / 70
+                self.tableViewHeaderViewTitleView.alpha = 1 - posY / 70
                 self.tableViewHeaderView?.frame.origin.y = posY <= 70 ? 44 - posY : -108 + 40 + 44
             })
             .disposed(by: disposeBag)
