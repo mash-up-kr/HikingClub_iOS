@@ -148,6 +148,10 @@ final class NDTextFieldView: UIView {
     func setPasswordMode() {
         textField.isSecureTextEntry = true
     }
+    
+    func setReturnKeyType(_ type: UIReturnKeyType) {
+        textField.returnKeyType = type
+    }
 }
 
 // MARK: - Rx
@@ -165,5 +169,13 @@ extension Reactive where Base: NDTextFieldView {
         Binder(base) { base, value in
             base.setTheme(value)
         }
+    }
+}
+
+extension Reactive where Base: NDTextFieldView {
+    func setDelegate(_ delegate: UITextFieldDelegate) -> Disposable {
+        RxTextFieldDelegateProxy.installForwardDelegate(delegate,
+                                                      retainDelegate: false,
+                                                      onProxyForObject: base.textField)
     }
 }

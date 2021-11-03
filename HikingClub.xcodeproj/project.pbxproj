@@ -32,6 +32,7 @@
 		06A1ECB5271952B100EA78D8 /* NDTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB4271952B100EA78D8 /* NDTextFieldView.swift */; };
 		06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */; };
 		06A1ECB927198ED200EA78D8 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB827198ED200EA78D8 /* UITextField+.swift */; };
+		06AB8CB827312461007F32AA /* RxTextFieldDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB8CB727312461007F32AA /* RxTextFieldDelegateProxy.swift */; };
 		06B68F9727228FF9007174E1 /* NDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B68F9627228FF9007174E1 /* NDSearchTextField.swift */; };
 		06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC1F73271C1B79001A6584 /* NDAlert.swift */; };
 		283AF0502708672C0033ED71 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283AF04F2708672C0033ED71 /* Home.storyboard */; };
@@ -122,6 +123,7 @@
 		06A1ECB4271952B100EA78D8 /* NDTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDTextFieldView.swift; sourceTree = "<group>"; };
 		06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTestViewController.swift; sourceTree = "<group>"; };
 		06A1ECB827198ED200EA78D8 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		06AB8CB727312461007F32AA /* RxTextFieldDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTextFieldDelegateProxy.swift; sourceTree = "<group>"; };
 		06B68F9627228FF9007174E1 /* NDSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDSearchTextField.swift; sourceTree = "<group>"; };
 		06BC1F73271C1B79001A6584 /* NDAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDAlert.swift; sourceTree = "<group>"; };
 		283AF04F2708672C0033ED71 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				06BC1F73271C1B79001A6584 /* NDAlert.swift */,
 				064A960E272185F900939AD5 /* NDToastView.swift */,
 				06B68F9627228FF9007174E1 /* NDSearchTextField.swift */,
+				06AB8CB727312461007F32AA /* RxTextFieldDelegateProxy.swift */,
 				06962E8F2727FC250021402F /* NDTabButton.swift */,
 				77C69BEA272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift */,
 			);
@@ -709,6 +712,7 @@
 				06A1ECAC2711828900EA78D8 /* UIColor+.swift in Sources */,
 				77C69BE727294613004C2207 /* SignUpViewModel.swift in Sources */,
 				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
+				06AB8CB827312461007F32AA /* RxTextFieldDelegateProxy.swift in Sources */,
 				7760CA942725411E006B39A9 /* PlaceRequestModel.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
 				064A960F272185F900939AD5 /* NDToastView.swift in Sources */,
