@@ -73,6 +73,8 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
         return view
     }()
     
+    // MARK: - Layout
+    
     override func layout() {
         view.addSubViews(navigationBar, tableView)
         navigationBar.snp.makeConstraints {
@@ -84,6 +86,22 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view)
         }
+    }
+    
+    // MARK: - Bind
+    
+    override func bind() {
+        super.bind()
+        navigationBar.rx.tapRightItem
+            .subscribe(onNext: { [weak self] in
+                self?.navigateToSettingViewController()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    
+    private func navigateToSettingViewController() {
+        navigationController?.pushViewController(SettingViewController(BaseViewModel()), animated: true)
     }
 }
 

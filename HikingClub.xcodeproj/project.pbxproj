@@ -75,8 +75,10 @@
 		7760CA9927254249006B39A9 /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9827254249006B39A9 /* PlaceService.swift */; };
 		7760CA9B27259C24006B39A9 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9A27259C24006B39A9 /* ResponseModel.swift */; };
 		7760CA9E27259F53006B39A9 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9D27259F53006B39A9 /* PlaceModel.swift */; };
+		77764FCA2732ABB700A216C8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FC92732ABB700A216C8 /* SettingViewController.swift */; };
 		77764FCD2732AC4200A216C8 /* MyPageListHeaderButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FCC2732AC4200A216C8 /* MyPageListHeaderButtonView.swift */; };
 		77764FCF2732AC6F00A216C8 /* MyPageListHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FCE2732AC6F00A216C8 /* MyPageListHeaderButton.swift */; };
+		77764FD32732DA5800A216C8 /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FD22732DA5800A216C8 /* MenuButtonView.swift */; };
 		777B5169271197B800299430 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5168271197B800299430 /* UIView+.swift */; };
 		777B516B2711981400299430 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516A2711981400299430 /* UIStackView+.swift */; };
 		777B516F27119A9200299430 /* CodeBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516E27119A9200299430 /* CodeBasedView.swift */; };
@@ -163,8 +165,10 @@
 		7760CA9827254249006B39A9 /* PlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
 		7760CA9A27259C24006B39A9 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		7760CA9D27259F53006B39A9 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
+		77764FC92732ABB700A216C8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		77764FCC2732AC4200A216C8 /* MyPageListHeaderButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListHeaderButtonView.swift; sourceTree = "<group>"; };
 		77764FCE2732AC6F00A216C8 /* MyPageListHeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListHeaderButton.swift; sourceTree = "<group>"; };
+		77764FD22732DA5800A216C8 /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		777B5168271197B800299430 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		777B516A2711981400299430 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		777B516E27119A9200299430 /* CodeBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedView.swift; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 				77169DC4270AD08B000AB1D2 /* Main */,
 				77169DC5270AD096000AB1D2 /* Home */,
 				771230DA27283EC3003B63E5 /* MyPage */,
+				77764FC82732AB9D00A216C8 /* Settings */,
 				77B7A1212708A14D008F5530 /* WebView */,
 			);
 			path = Feature;
@@ -499,6 +504,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		77764FC82732AB9D00A216C8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				77764FD12732DA4A00A216C8 /* View */,
+				77764FC92732ABB700A216C8 /* SettingViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		77764FCB2732AC2200A216C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,6 +528,14 @@
 				77764FCE2732AC6F00A216C8 /* MyPageListHeaderButton.swift */,
 			);
 			path = MyPageList;
+			sourceTree = "<group>";
+		};
+		77764FD12732DA4A00A216C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77764FD22732DA5800A216C8 /* MenuButtonView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		777B516C27119A5200299430 /* View */ = {
@@ -717,6 +739,7 @@
 				283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */,
 				77E591402711723C0070F381 /* SignUpViewController.swift in Sources */,
 				06679F07271EB39000D63AE1 /* NDButtons.swift in Sources */,
+				77764FCA2732ABB700A216C8 /* SettingViewController.swift in Sources */,
 				067DC4FF26FF213400650862 /* NetworkError.swift in Sources */,
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
 				06B68F9727228FF9007174E1 /* NDSearchTextField.swift in Sources */,
@@ -731,6 +754,7 @@
 				775B959D271C2512004D4540 /* ScrollViewKeyboardApperanceProtocol.swift in Sources */,
 				773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */,
 				773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */,
+				77764FD32732DA5800A216C8 /* MenuButtonView.swift in Sources */,
 				775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */,
 				283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */,
 				77C69BEB272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift in Sources */,
