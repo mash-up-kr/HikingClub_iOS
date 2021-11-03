@@ -44,6 +44,9 @@ enum AssetImage: String {
     case icon_trashCan_gray900_24
     case icon_footprint_green500_16
     case icon_location_green500_16
+    case icon_camera_gray500_28
+    case icon_threeLines_horizon_gray400_24
+    case icon_threeLines_horizon_gray900_24
     
     // MARK: - tabbar
     
