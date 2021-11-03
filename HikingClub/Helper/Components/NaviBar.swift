@@ -113,4 +113,8 @@ extension Reactive where Base: NaviBar {
     var tapRightItem: ControlEvent<Void> {
         base.rightButton.rx.tap
     }
+    
+    var title: Binder<String> {
+        Binder(base) { $0.setTitle($1) }
+    }
 }
