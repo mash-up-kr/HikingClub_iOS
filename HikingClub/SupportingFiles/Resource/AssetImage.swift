@@ -25,16 +25,26 @@ enum AssetImage: String {
     case icon_crossX_gray500_24
     case icon_crossX_gray900_24
     
-    case icon_magnifier_left_gray900_24
-    case icon_plus_gray900_24
-    case icon_threeDots_horizon_gray900_24
-    
     case icon_bookMark_deselected_gray200_24
     case icon_bookMark_selected_yellow_24
     
     case icon_check_circle_deselected_gray300_24
     case icon_check_circle_selected_green500_24
     case icon_check_green500_24
+    
+    case icon_arrow_left_curved_gray900_24
+    case icon_exclamation_red500_24
+    
+    case icon_star_circle_yellow_24
+    case icon_star_yellow500_16
+    
+    case icon_magnifier_left_gray900_24
+    case icon_plus_gray900_24
+    case icon_threeDots_horizon_gray900_24
+    case icon_trashCan_gray900_24
+    case icon_footprint_green500_16
+    case icon_location_green500_16
+    
     // MARK: - tabbar
     
     case icon_tabbar_house_deselected_gray200_28
@@ -54,6 +64,33 @@ enum AssetImage: String {
     // MARK: - textfield
     
     case icon_textField_angleBracket_right_gray600_24
+    
+    // MARK: - my
+  
+    case icon_my_2location_normal_gray900_24
+    case icon_my_2location_normal_green700_24
+    
+    case icon_my_info_normal_gray900_24
+    case icon_my_info_normal_green700_24
+    
+    case icon_my_lock_normal_gray900_24
+    case icon_my_lock_normal_green700_24
+    
+    case icon_my_loudspeaker_normal_gray900_24
+    case icon_my_loudspeaker_normal_green700_24
+    
+    case icon_my_machine_tool_normal_gray900_24
+    case icon_my_machine_tool_normal_green700_24
+    
+    case icon_my_question_normal_gray900_24
+    case icon_my_question_normal_green700_24
+    
+    case icon_my_trash_normal_gray900_24
+    case icon_my_trash_normal_green700_24
+    
+    case icon_my_unlock_normal_gray900_24
+    case icon_my_unlock_normal_green700_24
+    
     
     var image: UIImage? {
         return UIImage.init(named: self.rawValue)

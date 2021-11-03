@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: 웹뷰로 교체 될 예정
 final class TermDetailViewController: BaseViewController<BaseViewModel> {
     private let navigationArea: UIView = {
         let view = UIView()
@@ -20,7 +21,6 @@ final class TermDetailViewController: BaseViewController<BaseViewModel> {
         return textView
     }()
     
-    // TODO: CAT Button Component로 교쳬 예정
     private let agreeButton: UIButton = {
         let button = UIButton()
         button.setTitle("동의하기", for: .normal)

@@ -43,6 +43,7 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.barTintColor = .white
+        tabBar.backgroundColor = .white
         homeViewController.tabBarItem = homeTabBarItem
         searchViewController.tabBarItem = searchTabBarItem
         writeViewController.tabBarItem = writeTabBarItem
