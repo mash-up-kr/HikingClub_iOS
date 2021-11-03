@@ -157,8 +157,12 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         
         // TODO: 터치시 해당 카테고리로 이동
         categoryCollectionView.rx.itemSelected
-            .subscribe(onNext: {
-                print($0)
+            .subscribe(onNext: { [weak self] _ in
+                let nextViewController = self?.storyboard?.instantiate("SearchCategoryResultViewController") { coder -> SearchCategoryResultViewController? in
+                        .init(coder, SearchCategoryResultViewModel())
+                }
+                guard let nextViewController = nextViewController else { return }
+                self?.navigationController?.pushViewController(nextViewController, animated: true)
             })
             .disposed(by: disposeBag)
     }
