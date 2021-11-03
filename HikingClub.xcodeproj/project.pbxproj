@@ -75,6 +75,8 @@
 		7760CA9927254249006B39A9 /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9827254249006B39A9 /* PlaceService.swift */; };
 		7760CA9B27259C24006B39A9 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9A27259C24006B39A9 /* ResponseModel.swift */; };
 		7760CA9E27259F53006B39A9 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9D27259F53006B39A9 /* PlaceModel.swift */; };
+		77764FCD2732AC4200A216C8 /* MyPageListHeaderButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FCC2732AC4200A216C8 /* MyPageListHeaderButtonView.swift */; };
+		77764FCF2732AC6F00A216C8 /* MyPageListHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FCE2732AC6F00A216C8 /* MyPageListHeaderButton.swift */; };
 		777B5169271197B800299430 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5168271197B800299430 /* UIView+.swift */; };
 		777B516B2711981400299430 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516A2711981400299430 /* UIStackView+.swift */; };
 		777B516F27119A9200299430 /* CodeBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516E27119A9200299430 /* CodeBasedView.swift */; };
@@ -161,6 +163,8 @@
 		7760CA9827254249006B39A9 /* PlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
 		7760CA9A27259C24006B39A9 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		7760CA9D27259F53006B39A9 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
+		77764FCC2732AC4200A216C8 /* MyPageListHeaderButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListHeaderButtonView.swift; sourceTree = "<group>"; };
+		77764FCE2732AC6F00A216C8 /* MyPageListHeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListHeaderButton.swift; sourceTree = "<group>"; };
 		777B5168271197B800299430 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		777B516A2711981400299430 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		777B516E27119A9200299430 /* CodeBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedView.swift; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 		771230DA27283EC3003B63E5 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				77764FCB2732AC2200A216C8 /* View */,
 				771230DB27283EDA003B63E5 /* MyPageViewController.swift */,
 			);
 			path = MyPage;
@@ -494,6 +499,23 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		77764FCB2732AC2200A216C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77764FD02732AC8F00A216C8 /* MyPageList */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		77764FD02732AC8F00A216C8 /* MyPageList */ = {
+			isa = PBXGroup;
+			children = (
+				77764FCC2732AC4200A216C8 /* MyPageListHeaderButtonView.swift */,
+				77764FCE2732AC6F00A216C8 /* MyPageListHeaderButton.swift */,
+			);
+			path = MyPageList;
+			sourceTree = "<group>";
+		};
 		777B516C27119A5200299430 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -699,6 +721,7 @@
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
 				06B68F9727228FF9007174E1 /* NDSearchTextField.swift in Sources */,
 				283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */,
+				77764FCF2732AC6F00A216C8 /* MyPageListHeaderButton.swift in Sources */,
 				06A1EC8E27088F3E00EA78D8 /* HitThemeTableHeaderView.swift in Sources */,
 				06962E902727FC250021402F /* NDTabButton.swift in Sources */,
 				06A1ECB927198ED200EA78D8 /* UITextField+.swift in Sources */,
@@ -730,6 +753,7 @@
 				06AB8CB827312461007F32AA /* RxTextFieldDelegateProxy.swift in Sources */,
 				7760CA942725411E006B39A9 /* PlaceRequestModel.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
+				77764FCD2732AC4200A216C8 /* MyPageListHeaderButtonView.swift in Sources */,
 				064A960F272185F900939AD5 /* NDToastView.swift in Sources */,
 				7760CA9B27259C24006B39A9 /* ResponseModel.swift in Sources */,
 				0684EA5B2734623300FC74D1 /* UITableViewCell+.swift in Sources */,
