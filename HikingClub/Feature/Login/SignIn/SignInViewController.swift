@@ -166,9 +166,3 @@ final class SignInViewController: BaseViewController<SignInViewModel>, ScrollVie
         // TODO: 이메일 인증 화면(EmailAutorizeViewController) -> 비밀번호 변경 화면(ChangePasswordViewController)
     }
 }
-
-extension SignInViewController: FinishEditingProtocol {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-}

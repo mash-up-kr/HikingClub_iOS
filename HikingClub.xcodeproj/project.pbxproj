@@ -72,7 +72,6 @@
 		7760CA9927254249006B39A9 /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9827254249006B39A9 /* PlaceService.swift */; };
 		7760CA9B27259C24006B39A9 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9A27259C24006B39A9 /* ResponseModel.swift */; };
 		7760CA9E27259F53006B39A9 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9D27259F53006B39A9 /* PlaceModel.swift */; };
-		77764FC727304ACD00A216C8 /* FinishEditingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FC627304ACD00A216C8 /* FinishEditingProtocol.swift */; };
 		777B5169271197B800299430 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5168271197B800299430 /* UIView+.swift */; };
 		777B516B2711981400299430 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516A2711981400299430 /* UIStackView+.swift */; };
 		777B516F27119A9200299430 /* CodeBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516E27119A9200299430 /* CodeBasedView.swift */; };
@@ -161,7 +160,6 @@
 		7760CA9827254249006B39A9 /* PlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
 		7760CA9A27259C24006B39A9 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		7760CA9D27259F53006B39A9 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
-		77764FC627304ACD00A216C8 /* FinishEditingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishEditingProtocol.swift; sourceTree = "<group>"; };
 		777B5168271197B800299430 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		777B516A2711981400299430 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		777B516E27119A9200299430 /* CodeBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedView.swift; sourceTree = "<group>"; };
@@ -513,7 +511,6 @@
 			children = (
 				777B517227129D6500299430 /* CodeBasedProtocol.swift */,
 				775B959C271C2512004D4540 /* ScrollViewKeyboardApperanceProtocol.swift */,
-				77764FC627304ACD00A216C8 /* FinishEditingProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -722,7 +719,6 @@
 				77C69BF2272D96F2004C2207 /* SignInAPI.swift in Sources */,
 				283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */,
 				77E591402711723C0070F381 /* SignUpViewController.swift in Sources */,
-				77764FC727304ACD00A216C8 /* FinishEditingProtocol.swift in Sources */,
 				06679F07271EB39000D63AE1 /* NDButtons.swift in Sources */,
 				067DC4FF26FF213400650862 /* NetworkError.swift in Sources */,
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
