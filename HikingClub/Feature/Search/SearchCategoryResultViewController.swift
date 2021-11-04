@@ -81,7 +81,6 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         tableView.register(RoadTableViewCell.self)
         tableView.separatorStyle = .none
         collectionView.register(CategoryTabCollectionViewCell.self)
-        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     
     override func layout() {
@@ -91,6 +90,8 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
 
     override func bind() {
         super.bind()
+        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        
         naviBar.rx.tapLeftItem
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
@@ -104,9 +105,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
             .disposed(by: disposeBag)
         
         viewModel.categoryName
-            .subscribe(onNext: { [weak self] in
-                self?.naviBar.setTitle($0)
-            })
+            .bind(to: naviBar.rx.title)
             .disposed(by: disposeBag)
         
         viewModel.categoryName
@@ -136,6 +135,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
                 self.naviBar.isHidden = posY <= 70
                 self.tableViewHeaderViewTitleView.alpha = 1 - posY / 70
                 self.tableViewHeaderView?.frame.origin.y = posY <= 70 ? 44 - posY : -108 + 40 + 44
+                self.tableView.scrollIndicatorInsets = .init(top: self.headerHeight - posY, left: 0, bottom: 0, right: 0)
             })
             .disposed(by: disposeBag)
         
