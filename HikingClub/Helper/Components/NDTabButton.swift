@@ -19,7 +19,9 @@ final class NDTabButton: CodeBasedView {
     }()
     private let titleLabel: UILabel = UILabel()
     private let subTitleLabel: UILabel = UILabel()
-    private var isSelected: Bool = false
+    private var isSelected: Bool = false {
+        didSet { setSelected() }
+    }
     private var isEnabled: Bool = true
     /// tap할때 isSelected를 넘겨주는 클로져
     var tapHandler: ((Bool) -> Void)?
@@ -55,6 +57,7 @@ final class NDTabButton: CodeBasedView {
             backgroundColor = .green500
             titleLabel.textColor = .white
             subTitleLabel.textColor = .green100
+            tapHandler?(isSelected)
         } else {
             backgroundColor = .white
             titleLabel.textColor = .gray700
@@ -75,17 +78,19 @@ final class NDTabButton: CodeBasedView {
     
     func toggle() {
         isSelected = !isSelected
-        setSelected()
     }
     
     func setEnabledTouch(_ isEnabled: Bool) {
         self.isEnabled = isEnabled
     }
     
+    func setSelected(_ isSelected: Bool) {
+        self.isSelected = isSelected
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         guard isEnabled else { return }
         toggle()
-        tapHandler?(isSelected)
     }
 }
