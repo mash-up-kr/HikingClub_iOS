@@ -9,6 +9,7 @@ import UIKit
 
 class RoadTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var titleStackView: UIStackView!
     @IBOutlet weak var roadImageView: UIImageView!
     @IBOutlet weak var roadTitleLabel: UILabel!
     @IBOutlet weak var roadBookMarkButton: UIButton!
@@ -40,15 +41,10 @@ class RoadTableViewCell: UITableViewCell {
         roadAddressLabel.textColor = .gray600
     }
     
-//    셀간 간격 적용
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0))
-//    }
-    
     func configure(tags: [String]) {
         settingRoadHashTagStackView(tags)
         setRoadTitleLabelTopConstraint()
+        titleStackView.spacing = roadImageView.image == nil ? 0 : 14
     }
     
     private func settingRoadHashTagStackView(_ tags: [String]) {
@@ -61,7 +57,6 @@ class RoadTableViewCell: UITableViewCell {
         for i in 0..<maxCount {
             let tagView = RoadHashTagView()
             width += tagView.setText(tags[i])
-            print("📌\(width)")
             roadHashTagStackView.addArrangedSubview(tagView)
         }
         // 생성된 뷰에 label주입, 폰트 적용, width 재설정

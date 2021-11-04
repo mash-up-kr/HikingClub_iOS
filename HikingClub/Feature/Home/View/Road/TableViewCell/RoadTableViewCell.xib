@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="298" id="KGk-i7-Jjw" customClass="RoadTableViewCell" customModule="HikingClub" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="RoadTableViewCell" customModule="HikingClub" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="408" height="298"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -77,23 +77,23 @@
                             <constraint firstItem="NlF-5A-m1h" firstAttribute="top" secondItem="A6i-oV-Ofn" secondAttribute="top" constant="3" id="ysj-9W-XtW"/>
                         </constraints>
                     </view>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zQk-L4-qRj">
-                        <rect key="frame" x="16" y="16" width="376" height="185"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="zQk-L4-qRj">
+                        <rect key="frame" x="16" y="16" width="376" height="193"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SampleImage" translatesAutoresizingMaskIntoConstraints="NO" id="MiL-Uw-ekf">
-                                <rect key="frame" x="0.0" y="0.0" width="376" height="104"/>
+                                <rect key="frame" x="0.0" y="0.0" width="376" height="155"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLG-Qh-DEx">
-                                <rect key="frame" x="0.0" y="125" width="376" height="60"/>
+                                <rect key="frame" x="0.0" y="169" width="376" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단풍나무 산책길" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0l5-Ra-rbu">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gF-D6-wVH">
-                                        <rect key="frame" x="360" y="22" width="12" height="16"/>
+                                        <rect key="frame" x="360" y="4" width="12" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="12" id="2f4-KT-BmB"/>
                                             <constraint firstAttribute="height" constant="16" id="zZm-My-KLL"/>
@@ -109,6 +109,7 @@
                                     <constraint firstAttribute="bottom" secondItem="0l5-Ra-rbu" secondAttribute="bottom" id="eG6-Fn-x1p"/>
                                     <constraint firstItem="1gF-D6-wVH" firstAttribute="leading" secondItem="0l5-Ra-rbu" secondAttribute="trailing" constant="10" id="s6p-rQ-fv3"/>
                                     <constraint firstItem="0l5-Ra-rbu" firstAttribute="top" secondItem="gLG-Qh-DEx" secondAttribute="top" id="z1i-QK-yBN"/>
+                                    <constraint firstAttribute="height" constant="24" id="zDH-bk-jc9"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -116,7 +117,6 @@
                             <constraint firstAttribute="trailing" secondItem="MiL-Uw-ekf" secondAttribute="trailing" id="MNU-8q-eh6"/>
                             <constraint firstItem="MiL-Uw-ekf" firstAttribute="leading" secondItem="zQk-L4-qRj" secondAttribute="leading" id="MrR-tP-8U6"/>
                             <constraint firstAttribute="trailing" secondItem="gLG-Qh-DEx" secondAttribute="trailing" id="dzS-bm-kKS"/>
-                            <constraint firstAttribute="bottom" secondItem="gLG-Qh-DEx" secondAttribute="bottom" id="kgV-rf-j33"/>
                         </constraints>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jn1-ZO-RIg">
@@ -154,7 +154,7 @@
                     <constraint firstItem="cxs-3c-ioW" firstAttribute="leading" secondItem="9jd-hS-wUh" secondAttribute="leading" constant="19" id="fr8-6v-vhe"/>
                     <constraint firstItem="LoQ-lc-Rid" firstAttribute="centerY" secondItem="ORW-un-ed5" secondAttribute="centerY" id="kLG-dg-hfR"/>
                     <constraint firstItem="ORW-un-ed5" firstAttribute="leading" secondItem="9jd-hS-wUh" secondAttribute="leading" constant="19" id="kW0-ON-rgB"/>
-                    <constraint firstItem="A6i-oV-Ofn" firstAttribute="top" secondItem="zQk-L4-qRj" secondAttribute="bottom" constant="9" id="kfF-SI-5xb"/>
+                    <constraint firstItem="A6i-oV-Ofn" firstAttribute="top" secondItem="zQk-L4-qRj" secondAttribute="bottom" constant="1" id="kfF-SI-5xb"/>
                     <constraint firstItem="ORW-un-ed5" firstAttribute="top" secondItem="cxs-3c-ioW" secondAttribute="bottom" constant="10" id="kfL-i4-PiO"/>
                     <constraint firstItem="4wV-JM-f4g" firstAttribute="centerY" secondItem="cxs-3c-ioW" secondAttribute="centerY" id="nno-Nx-r7P"/>
                     <constraint firstAttribute="trailing" secondItem="9jd-hS-wUh" secondAttribute="trailing" id="rzh-Wn-Jig"/>
@@ -175,6 +175,7 @@
                 <outlet property="roadSpotBackgroundView" destination="A6i-oV-Ofn" id="DrF-Vg-3Kx"/>
                 <outlet property="roadSpotLabel" destination="UgW-yf-jkZ" id="Atd-Pt-xO8"/>
                 <outlet property="roadTitleLabel" destination="0l5-Ra-rbu" id="a4Y-3v-abl"/>
+                <outlet property="titleStackView" destination="zQk-L4-qRj" id="uBk-wZ-yYJ"/>
             </connections>
             <point key="canvasLocation" x="201.44927536231884" y="198.88392857142856"/>
         </tableViewCell>
