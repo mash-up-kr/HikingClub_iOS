@@ -47,6 +47,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         testToast()
         testSearchTextField()
         testTabButton()
+        naviBar()
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -72,6 +73,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
     }
     
     func testTextField() {
+        ndTextFieldView.rx.setDelegate(self).disposed(by: disposeBag)
         ndTextFieldView.setPlaceholder("플레이스 홀더")
         ndTextFieldView.setTitle("히히", description: "설명", theme: .normal)
         ndTextFieldView.setTitle("워닝히히", description: "워닝설명", theme: .warning)
@@ -129,6 +131,8 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
     
     func testSearchTextField() {
         searchTextField.setPlaceholder("검색어를 입력하세요")
+        searchTextField.setReturnKeyType(.done)
+        searchTextField.rx.setDelegate(self).disposed(by: disposeBag)
         stackView.addArrangedSubview(searchTextField)
         searchTextField.snp.makeConstraints {
             $0.height.equalTo(48)
@@ -178,6 +182,23 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         
         let spacing = UIView()
         containerView.addArrangedSubview(spacing)
+    }
+    
+    func naviBar() {
+        let navi = NaviBar()
+        stackView.addArrangedSubviews(navi)
+        navi.setBackItemImage()
+        Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
+            .map { "\($0)" }
+            .bind(to: navi.rx.title)
+            .disposed(by: disposeBag)
+    }
+}
+
+extension ComponentTestViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(textField.text)
+        return true
     }
 }
 #endif
