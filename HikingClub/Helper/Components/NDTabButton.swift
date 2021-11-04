@@ -20,7 +20,10 @@ final class NDTabButton: CodeBasedView {
     private let titleLabel: UILabel = UILabel()
     private let subTitleLabel: UILabel = UILabel()
     private var isSelected: Bool = false {
-        didSet { setSelected() }
+        didSet {
+            setSelected()
+            tapHandler?(isSelected)
+        }
     }
     private var isEnabled: Bool = true
     /// tap할때 isSelected를 넘겨주는 클로져
@@ -57,7 +60,6 @@ final class NDTabButton: CodeBasedView {
             backgroundColor = .green500
             titleLabel.textColor = .white
             subTitleLabel.textColor = .green100
-            tapHandler?(isSelected)
         } else {
             backgroundColor = .white
             titleLabel.textColor = .gray700
