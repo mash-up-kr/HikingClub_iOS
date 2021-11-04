@@ -119,9 +119,10 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
                 cell.configure(with: cellModel)
             }.disposed(by: disposeBag)
         
+        // 카테고리 텝버튼 클릭시
         collectionView.rx.itemSelected
             .compactMap { [weak self] in self?.viewModel.categoryWords.value[$0.item] }
-            .bind(to: viewModel.categoryName)
+            .bind(to: viewModel._categoryName)
             .disposed(by: disposeBag)
         
         // 길정보 셀
@@ -143,10 +144,6 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
                 self.tableView.scrollIndicatorInsets = .init(top: self.headerHeight - posY, left: 0, bottom: 0, right: 0)
             })
             .disposed(by: disposeBag)
-        
-        // FIXME: - mock데이터 삭제
-        viewModel.roadDatas.accept(["1","1","1","1"])
-        viewModel.categoryWords.accept(["가가가가나나나나다다다다라라라라","12","13","14","12345","하하하하하하하하하하ㅏ"])
     }
 }
 
