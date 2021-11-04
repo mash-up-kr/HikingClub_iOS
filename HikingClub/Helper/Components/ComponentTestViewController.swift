@@ -120,7 +120,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         toastButton.setTitle("토스트띄우기", for: .normal)
         toastButton.setTitleColor(.black, for: .normal)
         toastButton.rx.tap
-            .map { .green(text: "테스트 토스트!") }
+            .map { .red(text: "테스트 토스트!") }
             .bind(to: NDToastView.shared.rx.showText)
             .disposed(by: disposeBag)
         
