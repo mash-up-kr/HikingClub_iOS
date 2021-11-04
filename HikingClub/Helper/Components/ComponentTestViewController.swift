@@ -47,6 +47,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         testToast()
         testSearchTextField()
         testTabButton()
+        naviBar()
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -181,6 +182,16 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
         
         let spacing = UIView()
         containerView.addArrangedSubview(spacing)
+    }
+    
+    func naviBar() {
+        let navi = NaviBar()
+        stackView.addArrangedSubviews(navi)
+        navi.setBackItemImage()
+        Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
+            .map { "\($0)" }
+            .bind(to: navi.rx.title)
+            .disposed(by: disposeBag)
     }
 }
 
