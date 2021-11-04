@@ -197,7 +197,7 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
 
 extension ComponentTestViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(textField.text)
+        print(textField.text!)
         return true
     }
 }
