@@ -90,6 +90,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
 
     override func bind() {
         super.bind()
+        tableView.rx.setDelegate(self).disposed(by: disposeBag)
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
         naviBar.rx.tapLeftItem
@@ -131,6 +132,17 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
                                          cellType: RoadTableViewCell.self)) { row, cellModel, cell in
                 cell.configure(tags: [cellModel])
             }.disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] in
+                // TODO: 길상세페이지 넘기기
+                print($0)
+                let webViewController = WebViewController(WebViewModel())
+                webViewController.hidesBottomBarWhenPushed = true
+                self?.tableView.deselectRow(at: $0, animated: true)
+                self?.navigationController?.pushViewController(webViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
         
         // 헤더뷰 스크롤 효과
         tableView.rx.contentOffset

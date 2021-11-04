@@ -30,6 +30,7 @@ final class SearchCategoryResultViewModel: BaseViewModel {
         _categoryName
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] in
+                // TODO: 카테고리 통신
                 print("기능처리")
                 self?.categoryName.accept($0)
             })
