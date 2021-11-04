@@ -43,6 +43,7 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.barTintColor = .white
+        tabBar.backgroundColor = .white
         homeViewController.tabBarItem = homeTabBarItem
         searchViewController.tabBarItem = searchTabBarItem
         writeViewController.tabBarItem = writeTabBarItem
@@ -51,10 +52,13 @@ final class MainTabBarController: UITabBarController {
         setViewControllers([homeViewController, searchViewController, writeViewController, myPageViewController], animated: false)
     }
     
+#if DEBUG
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         super.motionEnded(motion, with: event)
         if event?.subtype == .motionShake {
-            present(ComponentTestViewController(), animated: true)
+            let testVC = ComponentTestViewController()
+            present(testVC, animated: true)
         }
     }
+#endif
 }

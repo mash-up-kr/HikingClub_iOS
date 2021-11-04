@@ -23,14 +23,14 @@
                         <rect key="frame" x="0.0" y="4" width="408" height="290"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pin" translatesAutoresizingMaskIntoConstraints="NO" id="cxs-3c-ioW">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_footprint_green500_16" translatesAutoresizingMaskIntoConstraints="NO" id="cxs-3c-ioW">
                         <rect key="frame" x="19" y="213.5" width="12" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="12" id="VLl-YK-gNc"/>
                             <constraint firstAttribute="height" constant="13" id="biz-fS-tyl"/>
                         </constraints>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pin" translatesAutoresizingMaskIntoConstraints="NO" id="ORW-un-ed5">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location_green500_16" translatesAutoresizingMaskIntoConstraints="NO" id="ORW-un-ed5">
                         <rect key="frame" x="19" y="236.5" width="12" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="12" id="ppE-b1-2AC"/>
@@ -181,9 +181,10 @@
     </objects>
     <resources>
         <image name="BookMark" width="15" height="18"/>
-        <image name="Pin" width="18" height="18"/>
         <image name="SampleImage" width="343" height="104"/>
         <image name="Star" width="12" height="11"/>
+        <image name="icon_footprint_green500_16" width="16" height="16"/>
+        <image name="icon_location_green500_16" width="16" height="16"/>
         <namedColor name="gray100">
             <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

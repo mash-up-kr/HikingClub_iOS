@@ -82,6 +82,14 @@ final class NDCTAButton: UIView, CodeBasedProtocol {
         }
     }
     
+    func setEnabled(_ isEnabled: Bool, type: ButtonType) {
+        if type == .ok {
+            okButton.rx.isEnabled.onNext(isEnabled)
+        } else {
+            cancelButton.rx.isEnabled.onNext(isEnabled)
+        }
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

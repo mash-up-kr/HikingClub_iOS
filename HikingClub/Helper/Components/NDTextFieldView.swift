@@ -11,6 +11,7 @@ import RxCocoa
 import SnapKit
 
 /// - Note: minHeight: 94 maxHeight: 102
+/// - `setTitle()`후에 `setTheme()`를 호출해주면 테마가 잘 적용됩니다
 final class NDTextFieldView: UIView {
     enum Theme {
         /// 초록색 강조
@@ -34,6 +35,9 @@ final class NDTextFieldView: UIView {
     
     private let disposeBag: DisposeBag = DisposeBag()
     private var scale: Scale = .small
+    private var titles: [Theme: String?] = [:]
+    private var descriptions: [Theme: String?] = [:]
+    var text: String? { textField.text }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -99,7 +103,12 @@ final class NDTextFieldView: UIView {
         }
     }
     
-    fileprivate func setTheme(_ theme: Theme) {
+    func setTheme(_ theme: Theme) {
+        titleLabel.isHidden = titles[theme] == nil
+        descriptionLabel.isHidden = descriptions[theme] == nil
+        titleLabel.text = titles[theme] ?? nil
+        descriptionLabel.text = descriptions[theme] ?? nil
+        
         switch theme {
         case .highlight:
             descriptionLabel.textColor = .green500
@@ -111,7 +120,7 @@ final class NDTextFieldView: UIView {
             textField.textColor = .red500
         case .selected:
             detailButton.isHidden = false
-//            detailButton.setTemplateImage(named: "imgBack")
+            detailButton.setImage(.icon_textField_angleBracket_right_gray600_24)
             textField.isUserInteractionEnabled = false
             fallthrough
         case .normal:
@@ -121,11 +130,10 @@ final class NDTextFieldView: UIView {
         }
     }
     
-    func setTitle(_ title: String? = nil, description: String? = nil) {
-        titleLabel.text = title
-        titleLabel.isHidden = title == nil
-        descriptionLabel.text = description
-        descriptionLabel.isHidden = description == nil
+    /// 텍스트필드 상황별 설정
+    func setTitle(_ title: String? = nil, description: String? = nil, theme: Theme = .normal) {
+        titles[theme] = title
+        descriptions[theme] = description
     }
     
     func setPlaceholder(_ placeholder: String?) {
@@ -134,6 +142,11 @@ final class NDTextFieldView: UIView {
     
     func setDetailButton(_ isHidden: Bool) {
         detailButton.isHidden = isHidden
+    }
+    
+    /// 패스워드 동그라미 설정
+    func setPasswordMode() {
+        textField.isSecureTextEntry = true
     }
 }
 

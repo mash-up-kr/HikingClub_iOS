@@ -29,28 +29,31 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
     }()
     
     private let emailInputTextField: NDTextFieldView = {
-        let view = NDTextFieldView(scale: .big)
-        view.setTitle("이메일")
-        view.setPlaceholder("이메일 주소 입력")
-        return view
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.setTitle("이메일", description: "이메일 주소 입력", theme: .normal)
+        return textfield
     }()
     
     private let passwordInputTextField: NDTextFieldView = {
-        let view = NDTextFieldView(scale: .big)
-        view.setTitle("비밀번호")
-        view.setPlaceholder("비밀번호 입력")
-        return view
+        let textfield = NDTextFieldView(scale: .big)
+        textfield.setTitle("비밀번호", description: "비밀번호 입력", theme: .normal)
+        return textfield
     }()
     
     private let signInButtonWrapper = UIView()
     
-    // TODO: CAT Button Component로 교쳬 예정
-    private let signInButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("로그인", for: .normal)
-        button.backgroundColor = .gray
+    private let signInButton: NDCTAButton = {
+        let button = NDCTAButton(buttonStyle: .one)
+        button.setTitle("로그인", buttonType: .ok)
         return button
     }()
+    
+    // MARK: - Attribute
+
+    override func attribute() {
+        super.attribute()
+        signInButton.setGradientColor()
+    }
     
     // MARK: - Layout
     
@@ -69,8 +72,6 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
             $0.top.equalTo(scrollView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view)
-            
-            $0.height.equalTo(122)
         }
         scrollView.addSubview(scrollContentsView)
         scrollContentsView.snp.makeConstraints {
@@ -107,7 +108,7 @@ final class SignInViewController: BaseViewController<BaseViewModel> {
             })
             .disposed(by: disposeBag)
         
-        signInButton.rx.tap
+        signInButton.rx.tapOk
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.dismiss(animated: true, completion: nil)
             })

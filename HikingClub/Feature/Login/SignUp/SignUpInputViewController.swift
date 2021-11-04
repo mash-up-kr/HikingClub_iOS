@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignUpInputViewController: BaseViewController<BaseViewModel>, ScrollViewKeyboardApperanceProtocol {
+final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>, ScrollViewKeyboardApperanceProtocol {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("회원가입")
@@ -34,8 +34,8 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
     
     private lazy var emailTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("이메일")
-        textfield.setPlaceholder("이메일 주소 입력")
+        textfield.setTitle("이메일", description: "이메일 주소 입력", theme: .normal)
+        textfield.setTheme(.normal)
         
         textfield.addSubview(emailTextFieldButton)
         emailTextFieldButton.snp.makeConstraints {
@@ -48,25 +48,26 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
     
     private let passwordTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("비밀번호")
-        textfield.setPlaceholder("6~18자의 비밀번호")
-        
+        textfield.setTitle("비밀번호", description: "6~18자의 비밀번호", theme: .normal)
+        textfield.setTitle("비밀번호", description: "비밀번호는 6~18자로 입력해야합니다.", theme: .warning)
+        textfield.setPasswordMode()
+        textfield.setTheme(.normal)
         return textfield
     }()
     
     private let passwordConfirmTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("비밀번호 확인")
-        textfield.setPlaceholder("비밀번호를 다시 입력해주세요.")
-        
+        textfield.setTitle("비밀번호 확인", description: "비밀번호를 다시 입력해주세요.", theme: .normal)
+        textfield.setTitle("비밀번호 확인", description: "비밀번호가 일치하지 않습니다.", theme: .warning)
+        textfield.setPasswordMode()
+        textfield.setTheme(.normal)
         return textfield
     }()
     
-    // TODO: CAT Button Component로 교쳬 예정
-    private let nextButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("다음", for: .normal)
-        button.backgroundColor = .gray
+    private let nextButton: NDCTAButton = {
+        let button = NDCTAButton(buttonStyle: .one)
+        button.setTitle("다음", buttonType: .ok)
+        button.setEnabled(false, type: .ok)
         return button
     }()
     
@@ -75,6 +76,7 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
     override func attribute() {
         super.attribute()
         initKeyboardApperance()
+        nextButton.setGradientColor()
     }
     
     // MARK: - Layout
@@ -95,8 +97,6 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
             $0.top.equalTo(scrollView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view)
-            
-            $0.height.equalTo(122)
         }
         scrollView.addSubview(scrollContentsView)
         scrollContentsView.snp.makeConstraints {
@@ -135,19 +135,53 @@ final class SignUpInputViewController: BaseViewController<BaseViewModel>, Scroll
 
         emailTextFieldButton.rx.tap
             .subscribe(onNext: { [weak self] in
+                self?.view.endEditing(true)
                 self?.navigateToEmailAuthorizeViewController()
             })
             .disposed(by: disposeBag)
         
-        nextButton.rx.tap
+        passwordTextfield.rx.text
+            .skip(1)
+            .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] in
+                guard let isValidate = self?.viewModel.isValidatePassword($0) else { return }
+                self?.passwordTextfield.setTheme(isValidate ? .normal : .warning)
+            })
+            .disposed(by: disposeBag)
+        
+        passwordConfirmTextfield.rx.text
+            .skip(1)
+            .filter { !$0.isEmpty }
+            .subscribe(onNext: { [weak self] in
+                guard let isValidate = self?.viewModel.isSamePassword($0, self?.passwordTextfield.text) else { return }
+                self?.passwordConfirmTextfield.setTheme(isValidate ? .normal : .warning)
+            })
+            .disposed(by: disposeBag)
+        
+        nextButton.rx.tapOk
+            .subscribe(onNext: { [weak self] in
+                self?.view.endEditing(true)
                 self?.navigateToInitialSettingViewController()
+            })
+            .disposed(by: disposeBag)
+        
+        // MARK: - ViewModel Binding
+        
+        viewModel.enableNextStepRelay
+            .subscribe(onNext: { [weak self] in
+                self?.nextButton.setEnabled($0, type: .ok)
             })
             .disposed(by: disposeBag)
     }
     
     private func navigateToEmailAuthorizeViewController() {
-        navigationController?.pushViewController(EmailAuthorizeViewController(BaseViewModel()), animated: true)
+        // TODO: 전달받은 이메일 textField에 셋팅하기
+        let viewModel = EmailAuthorizeViewModel()
+        viewModel
+            .authorizedEmailRelay
+            .bind { print($0) }
+            .disposed(by: disposeBag)
+        navigationController?.pushViewController(EmailAuthorizeViewController(viewModel), animated: true)
     }
     
     private func navigateToInitialSettingViewController() {

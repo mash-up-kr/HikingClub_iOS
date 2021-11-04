@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import RxSwift
 
-final class EmailAuthorizeViewController: BaseViewController<BaseViewModel>, ScrollViewKeyboardApperanceProtocol {
+final class EmailAuthorizeViewController: BaseViewController<EmailAuthorizeViewModel>, ScrollViewKeyboardApperanceProtocol {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("이메일 인증")
@@ -25,31 +26,28 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel>, Scr
     
     private let emailTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("이메일")
-        textfield.setPlaceholder("이메일 주소 입력")
-        
+        textfield.setTitle("이메일", description: "이메일 주소 입력", theme: .normal)
+        textfield.setTheme(.normal)
         return textfield
     }()
     
     private let authenticationEmailReceiveButton: NDButton = {
         let button = NDButton(theme: .init(.strokeGreen))
         button.setTitle("인증 메일 받기", for: .normal)
-        
         return button
     }()
     
     private let authenticationNumberTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("인증번호", description: "입력한 이메일에서 인증번호를 확인해주세요.")
-        
+        textfield.setTitle("인증번호", description: "입력한 이메일에서 인증번호를 확인해주세요.", theme: .normal)
+        textfield.setTheme(.normal)
         return textfield
     }()
     
-    // TODO: CAT Button Component로 교쳬 예정
-    private let authorizeButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("인증하기", for: .normal)
-        button.backgroundColor = .gray
+    private let authorizeButton: NDCTAButton = {
+        let button = NDCTAButton(buttonStyle: .one)
+        button.setTitle("인증하기", buttonType: .ok)
+        button.setEnabled(false, type: .ok)
         return button
     }()
     
@@ -58,6 +56,7 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel>, Scr
     override func attribute() {
         super.attribute()
         initKeyboardApperance()
+        authorizeButton.setGradientColor()
     }
     
     // MARK: - Layout
@@ -122,10 +121,31 @@ final class EmailAuthorizeViewController: BaseViewController<BaseViewModel>, Scr
             })
             .disposed(by: disposeBag)
         
-        authorizeButton.rx.tap
+        authenticationEmailReceiveButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.navigationController?.popViewController(animated: true)
+                self?.viewModel.requestEmailAuthCode()
             })
             .disposed(by: disposeBag)
+        
+        Observable.combineLatest(emailTextfield.rx.text.asObservable(),
+                         authenticationNumberTextfield.rx.text.asObservable())
+            .filter { !$0.isEmpty && !$1.isEmpty }
+            .bind { [weak self] _ in self?.authorizeButton.setEnabled(true, type: .ok) }
+            .disposed(by: disposeBag)
+            
+        authorizeButton.rx.tapOk
+            .filter { [weak self] in
+                self?.viewModel.isRightAuthCode(self?.authenticationNumberTextfield.text) ?? false
+            }
+            .subscribe(onNext: { [weak self] in
+                self?.popEmailAuthorizeViewController()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func popEmailAuthorizeViewController() {
+        guard let authorizedEmail = emailTextfield.text else { return }
+        viewModel.authorizedEmailRelay.accept(authorizedEmail)
+        navigationController?.popViewController(animated: true)
     }
 }

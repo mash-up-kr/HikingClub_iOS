@@ -18,23 +18,21 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel>, Scr
     var scrollView = UIScrollView()
     
     var bottomAreaView: UIView {
-        compelteButton
+        completeButton
     }
     
     private let scrollContentsView = UIView()
     
     private let nickNameTextField: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("닉네임", description: "닉네임은 공백 포함 2-10자로 작성해 주세요.")
-        
+        textfield.setTitle("닉네임", description: "닉네임은 공백 포함 2-10자로 작성해 주세요.", theme: .normal)
         return textfield
     }()
     
     private let townTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
         textfield.rx.theme.onNext(.selected)
-        textfield.setTitle("동네선택", description: "관심있는 동네를 선택해 주세요.")
-        
+        textfield.setTitle("동네선택", description: "관심있는 동네를 선택해 주세요.", theme: .normal)
         return textfield
     }()
     
@@ -49,19 +47,24 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel>, Scr
         return button
     }()
     
-    // TODO: CAT Button Component로 교쳬 예정
-    private let compelteButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("완료", for: .normal)
-        button.backgroundColor = .gray
+    private let completeButton: NDCTAButton = {
+        let button = NDCTAButton(buttonStyle: .one)
+        button.setTitle("완료", buttonType: .ok)
         return button
     }()
+    
+    // MARK: - Attribute
+    
+    override func attribute() {
+        super.attribute()
+        completeButton.setGradientColor()
+    }
     
     // MARK: - Layout
     
     override func layout() {
         super.layout()
-        view.addSubViews(navigationBar, scrollView, compelteButton)
+        view.addSubViews(navigationBar, scrollView, completeButton)
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
@@ -69,13 +72,11 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel>, Scr
         scrollView.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(compelteButton.snp.top)
+            $0.bottom.equalTo(completeButton.snp.top)
         }
-        compelteButton.snp.makeConstraints {
+        completeButton.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view)
-            
-            $0.height.equalTo(122)
         }
         scrollView.addSubview(scrollContentsView)
         scrollContentsView.snp.makeConstraints {
@@ -118,7 +119,7 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel>, Scr
             })
             .disposed(by: disposeBag)
         
-        compelteButton.rx.tap
+        completeButton.rx.tapOk
             .subscribe(onNext: { [weak self] _ in
                 self?.navigateToCategorySettingViewController()
             })
