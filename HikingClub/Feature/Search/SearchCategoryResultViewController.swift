@@ -119,6 +119,11 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
                 cell.configure(with: cellModel)
             }.disposed(by: disposeBag)
         
+        collectionView.rx.itemSelected
+            .compactMap { [weak self] in self?.viewModel.categoryWords.value[$0.item] }
+            .bind(to: viewModel.categoryName)
+            .disposed(by: disposeBag)
+        
         // 길정보 셀
         viewModel.roadDatas
             .bind(to: tableView.rx.items(cellIdentifier: "RoadTableViewCell",
@@ -134,7 +139,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
                 let posY = $0.y + self.headerHeight
                 self.naviBar.isHidden = posY <= 70
                 self.tableViewHeaderViewTitleView.alpha = 1 - posY / 70
-                self.tableViewHeaderView?.frame.origin.y = posY <= 70 ? 44 - posY : -108 + 40 + 44
+                self.tableViewHeaderView?.transform = .init(translationX: 0, y:  posY <= 70 ? -posY : 40 - 108)
                 self.tableView.scrollIndicatorInsets = .init(top: self.headerHeight - posY, left: 0, bottom: 0, right: 0)
             })
             .disposed(by: disposeBag)

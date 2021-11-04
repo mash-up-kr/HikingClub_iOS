@@ -10,6 +10,11 @@ import UIKit
 final class CategoryTabCollectionViewCell: UICollectionViewCell {
 
     private let tabButton: NDTabButton = NDTabButton()
+    override var isSelected: Bool {
+        didSet {
+            tabButton.setSelected(isSelected)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,6 +22,7 @@ final class CategoryTabCollectionViewCell: UICollectionViewCell {
         tabButton.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
+        tabButton.setEnabledTouch(false)
     }
     
     override func prepareForReuse() {
@@ -27,6 +33,4 @@ final class CategoryTabCollectionViewCell: UICollectionViewCell {
     func configure(with model: String) {
         tabButton.setTitle(model)
     }
-    
-    // TODO: - 버튼 선택상태초기화가능하도록 구현하기
 }
