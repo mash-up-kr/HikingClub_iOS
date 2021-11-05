@@ -14,6 +14,7 @@
 		067DC4FB26FF19DE00650862 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FA26FF19DE00650862 /* API.swift */; };
 		067DC4FF26FF213400650862 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4FE26FF213400650862 /* NetworkError.swift */; };
 		067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC50026FF238F00650862 /* NetworkLogging.swift */; };
+		0684EA5B2734623300FC74D1 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684EA5A2734623300FC74D1 /* UITableViewCell+.swift */; };
 		06962E902727FC250021402F /* NDTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06962E8F2727FC250021402F /* NDTabButton.swift */; };
 		06962E93272927770021402F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06962E92272927770021402F /* SearchViewController.swift */; };
 		06962E95272927A00021402F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06962E94272927A00021402F /* Search.storyboard */; };
@@ -39,6 +40,7 @@
 		06A1ECB5271952B100EA78D8 /* NDTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB4271952B100EA78D8 /* NDTextFieldView.swift */; };
 		06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */; };
 		06A1ECB927198ED200EA78D8 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB827198ED200EA78D8 /* UITextField+.swift */; };
+		06AB8CB827312461007F32AA /* RxTextFieldDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB8CB727312461007F32AA /* RxTextFieldDelegateProxy.swift */; };
 		06B68F9727228FF9007174E1 /* NDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B68F9627228FF9007174E1 /* NDSearchTextField.swift */; };
 		06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC1F73271C1B79001A6584 /* NDAlert.swift */; };
 		283AF0502708672C0033ED71 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283AF04F2708672C0033ED71 /* Home.storyboard */; };
@@ -111,6 +113,7 @@
 		067DC4FA26FF19DE00650862 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		067DC4FE26FF213400650862 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		067DC50026FF238F00650862 /* NetworkLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogging.swift; sourceTree = "<group>"; };
+		0684EA5A2734623300FC74D1 /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
 		06962E8F2727FC250021402F /* NDTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDTabButton.swift; sourceTree = "<group>"; };
 		06962E92272927770021402F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		06962E94272927A00021402F /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 		06A1ECB4271952B100EA78D8 /* NDTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDTextFieldView.swift; sourceTree = "<group>"; };
 		06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTestViewController.swift; sourceTree = "<group>"; };
 		06A1ECB827198ED200EA78D8 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		06AB8CB727312461007F32AA /* RxTextFieldDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTextFieldDelegateProxy.swift; sourceTree = "<group>"; };
 		06B68F9627228FF9007174E1 /* NDSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDSearchTextField.swift; sourceTree = "<group>"; };
 		06BC1F73271C1B79001A6584 /* NDAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDAlert.swift; sourceTree = "<group>"; };
 		283AF04F2708672C0033ED71 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 				773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */,
 				775B95AB27204D1C004D4540 /* UITabBarItem+.swift */,
 				7760CA95272541D0006B39A9 /* Encodable+.swift */,
+				0684EA5A2734623300FC74D1 /* UITableViewCell+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				06BC1F73271C1B79001A6584 /* NDAlert.swift */,
 				064A960E272185F900939AD5 /* NDToastView.swift */,
 				06B68F9627228FF9007174E1 /* NDSearchTextField.swift */,
+				06AB8CB727312461007F32AA /* RxTextFieldDelegateProxy.swift */,
 				06962E8F2727FC250021402F /* NDTabButton.swift */,
 				77C69BEA272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift */,
 			);
@@ -753,10 +759,12 @@
 				06A1ECAC2711828900EA78D8 /* UIColor+.swift in Sources */,
 				77C69BE727294613004C2207 /* SignUpViewModel.swift in Sources */,
 				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
+				06AB8CB827312461007F32AA /* RxTextFieldDelegateProxy.swift in Sources */,
 				7760CA942725411E006B39A9 /* PlaceRequestModel.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
 				064A960F272185F900939AD5 /* NDToastView.swift in Sources */,
 				7760CA9B27259C24006B39A9 /* ResponseModel.swift in Sources */,
+				0684EA5B2734623300FC74D1 /* UITableViewCell+.swift in Sources */,
 				775B95AA271F110A004D4540 /* UIImageView+.swift in Sources */,
 				777B5169271197B800299430 /* UIView+.swift in Sources */,
 			);

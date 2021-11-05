@@ -51,6 +51,7 @@ final class NDToastView: UIView, CodeBasedProtocol {
         titleLabel.setFont(.semiBold16)
         titleLabel.textColor = .white
         iconImageView.layer.cornerRadius = 12
+        iconImageView.backgroundColor = .white
         layer.cornerRadius = 8
     }
     
@@ -62,12 +63,11 @@ final class NDToastView: UIView, CodeBasedProtocol {
         switch theme {
         case let .green(text):
             backgroundColor = .green500
-            iconImageView.backgroundColor = .white
             iconImageView.setImage(.icon_check_green500_24)
             titleLabel.text = text
         case let .red(text):
             backgroundColor = .red500
-            iconImageView.image = UIImage(named: "Pin")
+            iconImageView.setImage(.icon_exclamation_red500_24)
             titleLabel.text = text
         }
     }

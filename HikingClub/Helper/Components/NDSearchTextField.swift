@@ -92,6 +92,10 @@ final class NDSearchTextField: CodeBasedView {
     func setPlaceholder(_ placeholder: String) {
         textField.placeholder = placeholder
     }
+    
+    func setReturnKeyType(_ type: UIReturnKeyType) {
+        textField.returnKeyType = type
+    }
 }
 
 extension Reactive where Base: NDSearchTextField {
@@ -107,5 +111,13 @@ extension Reactive where Base: NDSearchTextField {
         Binder(base) {
             $0.setCancelButtonHidden($1)
         }
+    }
+}
+
+extension Reactive where Base: NDSearchTextField {
+    func setDelegate(_ delegate: UITextFieldDelegate) -> Disposable {
+        RxTextFieldDelegateProxy.installForwardDelegate(delegate,
+                                                      retainDelegate: false,
+                                                      onProxyForObject: base.textField)
     }
 }
