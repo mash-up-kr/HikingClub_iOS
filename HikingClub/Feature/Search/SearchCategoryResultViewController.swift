@@ -12,7 +12,7 @@ import RxSwift
 final class SearchCategoryResultViewController: BaseViewController<SearchCategoryResultViewModel> {
     @IBOutlet private weak var naviBar: NaviBar!
     @IBOutlet private weak var tableView: UITableView!
-    private var collectionView: UICollectionView = {
+    private let collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumInteritemSpacing = 6
