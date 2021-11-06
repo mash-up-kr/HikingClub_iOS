@@ -12,7 +12,7 @@ import RxSwift
 final class SearchCategoryResultViewController: BaseViewController<SearchCategoryResultViewModel> {
     @IBOutlet private weak var naviBar: NaviBar!
     @IBOutlet private weak var tableView: UITableView!
-    private let collectionView: UICollectionView = {
+    private let categoryCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumInteritemSpacing = 6
@@ -40,6 +40,12 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
     
     private let headerHeight: CGFloat = 108 + 57
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // 초기선택설정
+        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
+    }
+    
     private func setTableHeaderView() {
         tableViewHeaderView = UIView(frame: .init(x: 0, y: 0, width: tableView.frame.width, height: headerHeight))
         view.addSubview(tableViewHeaderView!)
@@ -50,7 +56,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
             $0.height.equalTo(headerHeight)
         }
         
-        tableViewHeaderView?.addSubViews(tableViewHeaderViewTitleView, collectionView)
+        tableViewHeaderView?.addSubViews(tableViewHeaderViewTitleView, categoryCollectionView)
         tableViewHeaderViewTitleView.addSubViews(backButton, tableViewHeaderViewTitleLabel)
         tableViewHeaderViewTitleView.snp.makeConstraints {
             $0.leading.top.trailing.equalToSuperview()
@@ -67,7 +73,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
             $0.leading.equalToSuperview().offset(20)
         }
         
-        collectionView.snp.makeConstraints {
+        categoryCollectionView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
             $0.height.equalTo(57)
         }
@@ -80,7 +86,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         tableView.contentInset = .init(top: headerHeight, left: 0, bottom: 0, right: 0)
         tableView.register(RoadTableViewCell.self)
         tableView.separatorStyle = .none
-        collectionView.register(CategoryTabCollectionViewCell.self)
+        categoryCollectionView.register(CategoryTabCollectionViewCell.self)
     }
     
     override func layout() {
@@ -91,7 +97,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
     override func bind() {
         super.bind()
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
-        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        categoryCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
         naviBar.rx.tapLeftItem
             .subscribe(onNext: { [weak self] in
@@ -115,15 +121,15 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         
         // 카테고리 셀
         viewModel.categoryWords
-            .bind(to: collectionView.rx.items(cellIdentifier: "CategoryTabCollectionViewCell",
+            .bind(to: categoryCollectionView.rx.items(cellIdentifier: "CategoryTabCollectionViewCell",
                                               cellType: CategoryTabCollectionViewCell.self)) { item, cellModel, cell in
                 cell.configure(with: cellModel)
             }.disposed(by: disposeBag)
         
         // 카테고리 텝버튼 클릭시
-        collectionView.rx.itemSelected
-            .compactMap { [weak self] in self?.viewModel.categoryWords.value[$0.item] }
-            .bind(to: viewModel._categoryName)
+        categoryCollectionView.rx.itemSelected
+            .map { $0.item }
+            .bind(to: viewModel.selectedCategory)
             .disposed(by: disposeBag)
         
         // 길정보 셀
