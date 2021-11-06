@@ -11,10 +11,9 @@ import RxRelay
 
 final class MyPageViewController: BaseViewController<BaseViewModel> {
     private let navigationBar: NaviBar = {
-        // TODO: 아이콘 변경하기
         let view = NaviBar()
         view.setTitle("마이페이지")
-        view.setRightItemImage(.icon_magnifier_left_gray900_24)
+        view.setRightItemImage(.icon_threeLines_horizon_gray900_24)
         return view
     }()
     
@@ -98,7 +97,6 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
             })
             .disposed(by: disposeBag)
     }
-    
     
     private func navigateToSettingViewController() {
         navigationController?.pushViewController(SettingViewController(BaseViewModel()), animated: true)
