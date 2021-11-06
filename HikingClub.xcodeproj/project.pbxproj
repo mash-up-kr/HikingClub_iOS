@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		064A960F272185F900939AD5 /* NDToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064A960E272185F900939AD5 /* NDToastView.swift */; };
+		0654DFEE273682CE00B96F15 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654DFED273682CE00B96F15 /* SearchResultViewController.swift */; };
+		0654DFF02736848700B96F15 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654DFEF2736848700B96F15 /* SearchResultViewModel.swift */; };
 		06679F07271EB39000D63AE1 /* NDButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06679F06271EB39000D63AE1 /* NDButtons.swift */; };
 		06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06679F08271EB3E400D63AE1 /* NDCTAButton.swift */; };
 		067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC4EF26FEF8A000650862 /* NetworkProvider.swift */; };
@@ -40,11 +42,11 @@
 		06A1ECB5271952B100EA78D8 /* NDTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB4271952B100EA78D8 /* NDTextFieldView.swift */; };
 		06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */; };
 		06A1ECB927198ED200EA78D8 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1ECB827198ED200EA78D8 /* UITextField+.swift */; };
+		06AB8CB827312461007F32AA /* RxTextFieldDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB8CB727312461007F32AA /* RxTextFieldDelegateProxy.swift */; };
 		06AB8CBA273136F7007F32AA /* SearchCategoryResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB8CB9273136F7007F32AA /* SearchCategoryResultViewController.swift */; };
 		06AB8CBC27326A3C007F32AA /* SearchCategoryResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB8CBB27326A3C007F32AA /* SearchCategoryResultViewModel.swift */; };
 		06AB8CBF273287B4007F32AA /* CategoryTabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB8CBD273287B4007F32AA /* CategoryTabCollectionViewCell.swift */; };
 		06AB8CC0273287B4007F32AA /* CategoryTabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AB8CBE273287B4007F32AA /* CategoryTabCollectionViewCell.xib */; };
-		06AB8CB827312461007F32AA /* RxTextFieldDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB8CB727312461007F32AA /* RxTextFieldDelegateProxy.swift */; };
 		06B68F9727228FF9007174E1 /* NDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B68F9627228FF9007174E1 /* NDSearchTextField.swift */; };
 		06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC1F73271C1B79001A6584 /* NDAlert.swift */; };
 		283AF0502708672C0033ED71 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283AF04F2708672C0033ED71 /* Home.storyboard */; };
@@ -111,6 +113,8 @@
 
 /* Begin PBXFileReference section */
 		064A960E272185F900939AD5 /* NDToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDToastView.swift; sourceTree = "<group>"; };
+		0654DFED273682CE00B96F15 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		0654DFEF2736848700B96F15 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 		06679F06271EB39000D63AE1 /* NDButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDButtons.swift; sourceTree = "<group>"; };
 		06679F08271EB3E400D63AE1 /* NDCTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDCTAButton.swift; sourceTree = "<group>"; };
 		067DC4EF26FEF8A000650862 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
@@ -143,11 +147,11 @@
 		06A1ECB4271952B100EA78D8 /* NDTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDTextFieldView.swift; sourceTree = "<group>"; };
 		06A1ECB6271967E600EA78D8 /* ComponentTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTestViewController.swift; sourceTree = "<group>"; };
 		06A1ECB827198ED200EA78D8 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		06AB8CB727312461007F32AA /* RxTextFieldDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTextFieldDelegateProxy.swift; sourceTree = "<group>"; };
 		06AB8CB9273136F7007F32AA /* SearchCategoryResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryResultViewController.swift; sourceTree = "<group>"; };
 		06AB8CBB27326A3C007F32AA /* SearchCategoryResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryResultViewModel.swift; sourceTree = "<group>"; };
 		06AB8CBD273287B4007F32AA /* CategoryTabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTabCollectionViewCell.swift; sourceTree = "<group>"; };
 		06AB8CBE273287B4007F32AA /* CategoryTabCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTabCollectionViewCell.xib; sourceTree = "<group>"; };
-		06AB8CB727312461007F32AA /* RxTextFieldDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTextFieldDelegateProxy.swift; sourceTree = "<group>"; };
 		06B68F9627228FF9007174E1 /* NDSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDSearchTextField.swift; sourceTree = "<group>"; };
 		06BC1F73271C1B79001A6584 /* NDAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDAlert.swift; sourceTree = "<group>"; };
 		283AF04F2708672C0033ED71 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 				06962E96272928290021402F /* SearchViewModel.swift */,
 				06AB8CB9273136F7007F32AA /* SearchCategoryResultViewController.swift */,
 				06AB8CBB27326A3C007F32AA /* SearchCategoryResultViewModel.swift */,
+				0654DFED273682CE00B96F15 /* SearchResultViewController.swift */,
+				0654DFEF2736848700B96F15 /* SearchResultViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -714,6 +720,7 @@
 				06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */,
 				77E5913827115F890070F381 /* LoginNavigationViewController.swift in Sources */,
 				77C69BE927294775004C2207 /* SignUpInputViewModel.swift in Sources */,
+				0654DFEE273682CE00B96F15 /* SearchResultViewController.swift in Sources */,
 				06AB8CBF273287B4007F32AA /* CategoryTabCollectionViewCell.swift in Sources */,
 				775B95AC27204D1C004D4540 /* UITabBarItem+.swift in Sources */,
 				06A1EC9B2708B12A00EA78D8 /* UILabel+.swift in Sources */,
@@ -778,6 +785,7 @@
 				06AB8CB827312461007F32AA /* RxTextFieldDelegateProxy.swift in Sources */,
 				7760CA942725411E006B39A9 /* PlaceRequestModel.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
+				0654DFF02736848700B96F15 /* SearchResultViewModel.swift in Sources */,
 				064A960F272185F900939AD5 /* NDToastView.swift in Sources */,
 				7760CA9B27259C24006B39A9 /* ResponseModel.swift in Sources */,
 				0684EA5B2734623300FC74D1 /* UITableViewCell+.swift in Sources */,
