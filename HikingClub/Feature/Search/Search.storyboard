@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="Y6W-OH-hqX" customClass="SearchViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Yp-aw-KeZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rjj-Yw-NRl">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Rjj-Yw-NRl" secondAttribute="trailing" id="2jO-xf-AdP"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rjj-Yw-NRl" secondAttribute="bottom" id="3um-KM-dbG"/>
+                                    <constraint firstItem="Rjj-Yw-NRl" firstAttribute="top" secondItem="9Yp-aw-KeZ" secondAttribute="top" id="Feo-qL-lQ2"/>
+                                    <constraint firstItem="Rjj-Yw-NRl" firstAttribute="width" secondItem="9Yp-aw-KeZ" secondAttribute="width" id="OGp-7q-LaW"/>
+                                    <constraint firstItem="Rjj-Yw-NRl" firstAttribute="leading" secondItem="9Yp-aw-KeZ" secondAttribute="leading" id="dLY-Gt-wUn"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9Yp-aw-KeZ" secondAttribute="trailing" id="A12-VV-52q"/>
+                            <constraint firstItem="9Yp-aw-KeZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="OIK-aZ-Z6r"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="9Yp-aw-KeZ" secondAttribute="bottom" id="vPF-uh-t5Y"/>
+                            <constraint firstItem="9Yp-aw-KeZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="z6G-sG-fvK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="Rjj-Yw-NRl" id="lCy-GZ-9jE"/>
+                        <outlet property="scrollView" destination="9Yp-aw-KeZ" id="EDR-En-81R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239" y="128"/>
+        </scene>
+        <!--Search Category Result View Controller-->
+        <scene sceneID="JNC-S6-euR">
+            <objects>
+                <viewController storyboardIdentifier="SearchCategoryResultViewController" id="qze-1t-ZUz" customClass="SearchCategoryResultViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="as3-7X-YEJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Loo-4G-gz0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ejM-T2-q4A" customClass="NaviBar" customModule="HikingClub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="qD4-wR-t3U"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="44h-Mh-yO8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ejM-T2-q4A" firstAttribute="leading" secondItem="44h-Mh-yO8" secondAttribute="leading" id="1sf-Xl-pOq"/>
+                            <constraint firstItem="Loo-4G-gz0" firstAttribute="top" secondItem="44h-Mh-yO8" secondAttribute="top" id="20b-lG-PaP"/>
+                            <constraint firstItem="44h-Mh-yO8" firstAttribute="trailing" secondItem="Loo-4G-gz0" secondAttribute="trailing" id="4aY-o4-rhP"/>
+                            <constraint firstItem="44h-Mh-yO8" firstAttribute="bottom" secondItem="Loo-4G-gz0" secondAttribute="bottom" id="J3W-Fd-6QN"/>
+                            <constraint firstItem="44h-Mh-yO8" firstAttribute="trailing" secondItem="ejM-T2-q4A" secondAttribute="trailing" id="KRr-zI-6fm"/>
+                            <constraint firstItem="ejM-T2-q4A" firstAttribute="top" secondItem="44h-Mh-yO8" secondAttribute="top" id="Vap-jG-9sf"/>
+                            <constraint firstItem="Loo-4G-gz0" firstAttribute="leading" secondItem="44h-Mh-yO8" secondAttribute="leading" id="uqT-1R-c5X"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="naviBar" destination="ejM-T2-q4A" id="IYN-s9-gdd"/>
+                        <outlet property="tableView" destination="Loo-4G-gz0" id="Fcy-9Y-bdY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Xj-ua-5hm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447.82608695652175" y="132.58928571428572"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
