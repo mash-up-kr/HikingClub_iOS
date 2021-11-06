@@ -79,6 +79,7 @@
 		77764FCD2732AC4200A216C8 /* MyPageListHeaderButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FCC2732AC4200A216C8 /* MyPageListHeaderButtonView.swift */; };
 		77764FCF2732AC6F00A216C8 /* MyPageListHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FCE2732AC6F00A216C8 /* MyPageListHeaderButton.swift */; };
 		77764FD32732DA5800A216C8 /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FD22732DA5800A216C8 /* MenuButtonView.swift */; };
+		7776BEE527366666009EC168 /* MypageListSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7776BEE427366666009EC168 /* MypageListSectionHeaderView.swift */; };
 		777B5169271197B800299430 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5168271197B800299430 /* UIView+.swift */; };
 		777B516B2711981400299430 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516A2711981400299430 /* UIStackView+.swift */; };
 		777B516F27119A9200299430 /* CodeBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516E27119A9200299430 /* CodeBasedView.swift */; };
@@ -169,6 +170,7 @@
 		77764FCC2732AC4200A216C8 /* MyPageListHeaderButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListHeaderButtonView.swift; sourceTree = "<group>"; };
 		77764FCE2732AC6F00A216C8 /* MyPageListHeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListHeaderButton.swift; sourceTree = "<group>"; };
 		77764FD22732DA5800A216C8 /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
+		7776BEE427366666009EC168 /* MypageListSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageListSectionHeaderView.swift; sourceTree = "<group>"; };
 		777B5168271197B800299430 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		777B516A2711981400299430 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		777B516E27119A9200299430 /* CodeBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedView.swift; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 			children = (
 				77764FCC2732AC4200A216C8 /* MyPageListHeaderButtonView.swift */,
 				77764FCE2732AC6F00A216C8 /* MyPageListHeaderButton.swift */,
+				7776BEE427366666009EC168 /* MypageListSectionHeaderView.swift */,
 			);
 			path = MyPageList;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				77C69BEB272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift in Sources */,
 				777B517327129D6500299430 /* CodeBasedProtocol.swift in Sources */,
 				7760CA8F2725313B006B39A9 /* EmailAPI.swift in Sources */,
+				7776BEE527366666009EC168 /* MypageListSectionHeaderView.swift in Sources */,
 				773D61A02719D0D0001528B3 /* SignInViewController.swift in Sources */,
 				7760CA91272540B2006B39A9 /* PlaceAPI.swift in Sources */,
 				06A1ECA32708D21400EA78D8 /* UITableView+.swift in Sources */,

@@ -16,7 +16,6 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
         view.setRightItemImage(.icon_threeLines_horizon_gray900_24)
         return view
     }()
-    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -28,7 +27,6 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
         }
         return tableView
     }()
-    
     // TODO: Component로 분리하기
     private let nickNameHeaderView: UIView = {
         let view = UIView(frame: CGRect(x: .zero, y: .zero, width: UIScreen.main.bounds.width, height: 68))
@@ -45,36 +43,20 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
         }
         return view
     }()
+    private let tableHeaderView = MypageListSectionHeaderView()
     
-    // TODO: Component로 분리하기
-    private let tableHeaderView: UIView = {
-        let view = UIView(frame: CGRect(x: .zero, y: .zero, width: UIScreen.main.bounds.width, height: 46))
-        view.backgroundColor = .gray50
-        
-        let headerButtonView = MyPageListHeaderButtonView()
-        headerButtonView.setSelected(.myList)
-        
-        let countLabel = UILabel()
-        countLabel.setFont(.semiBold16)
-        countLabel.textColor = .green500
-        countLabel.text = "1155개"
-        
-        view.addSubViews(headerButtonView, countLabel)
-        headerButtonView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.equalToSuperview().offset(16)
-            $0.bottom.equalToSuperview()
-        }
-        countLabel.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().inset(7)
-        }
-        return view
-    }()
+    // MARK: - Attribute
+    
+    override func attribute() {
+        super.attribute()
+        // FIXME: Mock Data Remove
+        tableHeaderView.setCount(11235)
+    }
     
     // MARK: - Layout
     
     override func layout() {
+        super.layout()
         view.addSubViews(navigationBar, tableView)
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
