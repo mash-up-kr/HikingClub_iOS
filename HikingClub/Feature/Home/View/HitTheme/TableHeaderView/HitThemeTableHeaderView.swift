@@ -25,7 +25,7 @@ final class HitThemeTableHeaderView: UITableViewHeaderFooterView {
         currentLocationButton.setTitle("현위치", for: .normal)
         currentLocationButton.setFont(.semiBold20)
         currentLocationButton.setTitleColor(.black, for: .normal)
-        currentLocationButton.setImage(UIImage(named: "downArrow"), for: .normal)
+        currentLocationButton.setImage(.icon_angleBracket_down_gray900_24)
     }
     
     func setCollectionView() {
