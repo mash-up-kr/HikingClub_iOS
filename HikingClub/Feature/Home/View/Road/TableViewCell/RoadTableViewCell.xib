@@ -50,17 +50,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6i-oV-Ofn">
-                        <rect key="frame" x="126.5" y="210" width="103" height="20"/>
+                        <rect key="frame" x="126.5" y="210" width="104" height="20"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_star_yellow500_16" translatesAutoresizingMaskIntoConstraints="NO" id="NlF-5A-m1h">
-                                <rect key="frame" x="3" y="3" width="13" height="12"/>
+                                <rect key="frame" x="2" y="2" width="16" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="12" id="Zx2-gj-f4t"/>
-                                    <constraint firstAttribute="width" constant="13" id="qv7-XS-Mmc"/>
+                                    <constraint firstAttribute="height" constant="16" id="Zx2-gj-f4t"/>
+                                    <constraint firstAttribute="width" constant="16" id="qv7-XS-Mmc"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2개의 스페셜 스팟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UgW-yf-jkZ">
-                                <rect key="frame" x="19" y="5" width="80" height="11"/>
+                                <rect key="frame" x="20" y="3.5" width="80" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -68,13 +68,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
-                            <constraint firstItem="UgW-yf-jkZ" firstAttribute="leading" secondItem="NlF-5A-m1h" secondAttribute="trailing" constant="3" id="7Hj-uR-P8X"/>
-                            <constraint firstAttribute="bottom" secondItem="UgW-yf-jkZ" secondAttribute="bottom" constant="4" id="Er8-B6-ETk"/>
+                            <constraint firstAttribute="bottom" secondItem="NlF-5A-m1h" secondAttribute="bottom" constant="2" id="D8d-Vf-EDE"/>
+                            <constraint firstItem="NlF-5A-m1h" firstAttribute="top" secondItem="A6i-oV-Ofn" secondAttribute="top" constant="2" id="IoK-Fs-yUT"/>
+                            <constraint firstAttribute="trailing" secondItem="UgW-yf-jkZ" secondAttribute="trailing" constant="4" id="PQ8-jP-IFs"/>
                             <constraint firstAttribute="height" constant="20" id="YAB-zb-u4A"/>
-                            <constraint firstItem="UgW-yf-jkZ" firstAttribute="top" secondItem="A6i-oV-Ofn" secondAttribute="top" constant="5" id="fub-kw-mOa"/>
-                            <constraint firstItem="NlF-5A-m1h" firstAttribute="leading" secondItem="A6i-oV-Ofn" secondAttribute="leading" constant="3" id="kfs-UM-GBa"/>
-                            <constraint firstAttribute="width" constant="103" id="u9k-Vi-9Yu"/>
-                            <constraint firstItem="NlF-5A-m1h" firstAttribute="top" secondItem="A6i-oV-Ofn" secondAttribute="top" constant="3" id="ysj-9W-XtW"/>
+                            <constraint firstItem="UgW-yf-jkZ" firstAttribute="leading" secondItem="NlF-5A-m1h" secondAttribute="trailing" constant="2" id="fF5-Ac-DeB"/>
+                            <constraint firstItem="UgW-yf-jkZ" firstAttribute="centerY" secondItem="NlF-5A-m1h" secondAttribute="centerY" id="kO3-R3-mEz"/>
+                            <constraint firstItem="NlF-5A-m1h" firstAttribute="leading" secondItem="A6i-oV-Ofn" secondAttribute="leading" constant="2" id="wbO-If-aBK"/>
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="zQk-L4-qRj">
