@@ -23,28 +23,25 @@ class RoadTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // 북마크, 좋아요 뱃지 히든처리
         hiddenView()
-        // 이미지, 스페셜 스팟 cornerRadius적용
-        roadImageView.layer.cornerRadius = 8
-        roadSpotBackgroundView.layer.cornerRadius = 4
-        // UIView Color적용
-        roadSpotBackgroundView.backgroundColor = .green50
-        // fontSize, color 적용
-        roadTitleLabel.setFont(.semiBold16)
-        roadTitleLabel.textColor = .gray900
-        roadDistanceLabel.setFont(.semiBold13)
-        roadDistanceLabel.textColor = .green700
-        roadSpotLabel.setFont(.semiBold11)
-        roadSpotLabel.textColor = .green700
-        roadAddressLabel.setFont(.semiBold13)
-        roadAddressLabel.textColor = .gray600
+        customText()
+        customBackground()
+        customCornerRadius()
     }
     
     func configure(tags: [String]) {
-        settingRoadHashTagStackView(tags)
         setRoadTitleLabelTopConstraint()
+        settingRoadHashTagStackView(tags)
         titleStackView.spacing = roadImageView.image == nil ? 0 : 14
+    }
+    
+    private func setRoadTitleLabelTopConstraint() {
+        roadImageView.isHidden = true
+        if roadImageView.image == nil {
+            roadImageView.isHidden = true
+        } else {
+            roadImageView.isHidden = false
+        }
     }
     
     private func settingRoadHashTagStackView(_ tags: [String]) {
@@ -71,18 +68,33 @@ class RoadTableViewCell: UITableViewCell {
         }
         roadHashTagStackViewWidth.constant = width
     }
+}
+//MARK: UICoustomize
+extension RoadTableViewCell {
     
-    private func setRoadTitleLabelTopConstraint() {
-        roadImageView.isHidden = true
-        if roadImageView.image == nil {
-            roadImageView.isHidden = true
-        } else {
-            roadImageView.isHidden = false
-        }
+    private func customCornerRadius() {
+        roadImageView.layer.cornerRadius = 8
+        roadSpotBackgroundView.layer.cornerRadius = 4
+    }
+    
+    private func customBackground() {
+        roadSpotBackgroundView.backgroundColor = .green50
+    }
+    
+    private func customText() {
+        roadTitleLabel.setFont(.semiBold16)
+        roadTitleLabel.textColor = .gray900
+        roadDistanceLabel.setFont(.semiBold13)
+        roadDistanceLabel.textColor = .green700
+        roadSpotLabel.setFont(.semiBold11)
+        roadSpotLabel.textColor = .green700
+        roadAddressLabel.setFont(.semiBold13)
+        roadAddressLabel.textColor = .gray600
     }
 }
-
+//MARK: SomeViewHidden
 extension RoadTableViewCell {
+    
     func hiddenView() {
         roadBookMarkButton.isHidden = true
         roadLikeBadgeView.isHidden = true
