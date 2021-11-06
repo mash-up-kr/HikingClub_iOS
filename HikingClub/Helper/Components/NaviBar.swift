@@ -81,8 +81,9 @@ final class NaviBar: UIView {
     }
     
     /// 오른쪽버튼버튼 설정
-    func setRightItemImage(_ asset: AssetImage) {
+    func setRightItemImage(_ asset: AssetImage, tintColor: UIColor = .gray900) {
         rightButton.setImage(asset)
+        rightButton.tintColor = tintColor
         rightButton.isHidden = false
     }
     
