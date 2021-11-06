@@ -52,7 +52,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6i-oV-Ofn">
                         <rect key="frame" x="126.5" y="210" width="103" height="20"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="NlF-5A-m1h">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_star_yellow500_16" translatesAutoresizingMaskIntoConstraints="NO" id="NlF-5A-m1h">
                                 <rect key="frame" x="3" y="3" width="13" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="Zx2-gj-f4t"/>
@@ -98,7 +98,7 @@
                                             <constraint firstAttribute="width" constant="12" id="2f4-KT-BmB"/>
                                             <constraint firstAttribute="height" constant="16" id="zZm-My-KLL"/>
                                         </constraints>
-                                        <state key="normal" image="BookMark"/>
+                                        <state key="normal" image="icon_contentList_bookMark_selected_yellow_24"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -181,11 +181,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="BookMark" width="15" height="18"/>
         <image name="SampleImage" width="343" height="104"/>
-        <image name="Star" width="12" height="11"/>
+        <image name="icon_contentList_bookMark_selected_yellow_24" width="24" height="24"/>
         <image name="icon_footprint_green500_16" width="16" height="16"/>
         <image name="icon_location_green500_16" width="16" height="16"/>
+        <image name="icon_star_yellow500_16" width="16" height="16"/>
         <namedColor name="gray100">
             <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
