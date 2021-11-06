@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class RoadHashTagView: UIView {
-    let hashTagLable = UILabel()
+    private let hashTagLable = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,13 +19,16 @@ class RoadHashTagView: UIView {
             $0.trailing.bottom.equalToSuperview().inset(5)
             $0.top.equalToSuperview().offset(6)
         }
-        
-        backgroundColor = .gray
+        layer.cornerRadius = 4
+        backgroundColor = .gray100
     }
     
-    func setText(_ text: String) {
+    func setText(_ text: String) -> CGFloat {
         hashTagLable.setFont(.regular11)
+        hashTagLable.textColor = .gray700
         hashTagLable.text = text
+        hashTagLable.sizeToFit()
+        return hashTagLable.frame.width + 15
     }
 
     required init?(coder: NSCoder) {
