@@ -21,28 +21,13 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(RoadTableViewCell.self)
-        tableView.tableHeaderView = nickNameHeaderView
+        tableView.tableHeaderView = nicknameHeaderView
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = .zero
         }
         return tableView
     }()
-    // TODO: Component로 분리하기
-    private let nickNameHeaderView: UIView = {
-        let view = UIView(frame: CGRect(x: .zero, y: .zero, width: UIScreen.main.bounds.width, height: 68))
-        view.backgroundColor = .gray50
-        
-        let label = UILabel()
-        label.text = "둘레길 마스터"
-        label.setFont(.semiBold24)
-        
-        view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(16)
-            $0.bottom.equalToSuperview().inset(7)
-        }
-        return view
-    }()
+    private let nicknameHeaderView = MypageListNicknameHeaderView()
     private let tableHeaderView = MypageListSectionHeaderView()
     
     // MARK: - Attribute
@@ -50,6 +35,7 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
     override func attribute() {
         super.attribute()
         // FIXME: Mock Data Remove
+        nicknameHeaderView.setNickname("둘레길마스터")
         tableHeaderView.setCount(11235)
     }
     
@@ -105,5 +91,39 @@ extension MyPageViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return tableHeaderView
+    }
+}
+
+final class MypageListNicknameHeaderView: CodeBasedView {
+    private let nicknameLabel: UILabel = {
+        let label = UILabel()
+        label.setFont(.semiBold24)
+        return label
+    }()
+    
+    override init() {
+        super.init(frame: CGRect(x: .zero, y: .zero, width: UIScreen.main.bounds.width, height: 68))
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func attribute() {
+        super.attribute()
+        backgroundColor = .gray50
+    }
+    
+    override func layout() {
+        super.layout()
+        addSubview(nicknameLabel)
+        nicknameLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
+            $0.bottom.equalToSuperview().inset(7)
+        }
+    }
+    
+    func setNickname(_ nickname: String) {
+        nicknameLabel.text = nickname
     }
 }
