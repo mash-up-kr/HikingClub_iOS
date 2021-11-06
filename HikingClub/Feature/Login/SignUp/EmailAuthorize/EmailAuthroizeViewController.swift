@@ -128,9 +128,11 @@ final class EmailAuthorizeViewController: BaseViewController<EmailAuthorizeViewM
             .disposed(by: disposeBag)
         
         Observable.combineLatest(emailTextfield.rx.text.asObservable(),
-                         authenticationNumberTextfield.rx.text.asObservable())
+                                 authenticationNumberTextfield.rx.text.asObservable())
             .filter { !$0.isEmpty && !$1.isEmpty }
-            .bind { [weak self] _ in self?.authorizeButton.setEnabled(true, type: .ok) }
+            .subscribe(onNext: { [weak self] _ in
+                 self?.authorizeButton.setEnabled(true, type: .ok)
+            })
             .disposed(by: disposeBag)
             
         authorizeButton.rx.tapOk
