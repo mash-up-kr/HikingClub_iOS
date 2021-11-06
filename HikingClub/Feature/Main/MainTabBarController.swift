@@ -25,7 +25,7 @@ final class MainTabBarController: UITabBarController {
     }()
     
     private let myPageViewController: UINavigationController = {
-        UIViewController().wrappedByNavigationController()
+        MyPageViewController(BaseViewModel()).wrappedByNavigationController()
     }()
     
     private let homeTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_house_deselected_gray200_28,
