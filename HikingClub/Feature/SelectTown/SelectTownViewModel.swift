@@ -9,10 +9,23 @@ import UIKit
 import RxRelay
 
 final class SelectTownViewModel: BaseViewModel {
+    private let placeService = PlaceService()
     
-    let searchedTownRelay = BehaviorRelay<[String]>(value: ["1동","2동","3동","5동","6동","7동","8동","10동","11동","12동","13동","14동"])
+    let searchedTownListRelay = BehaviorRelay<[PlaceModel]>(value: [])
+    let selectedTownRelay = PublishRelay<PlaceModel>()
 
-    func fetchTown(_ keyword: String) {
-        
+    func searchTown(_ keyword: String) {
+        placeService.search(keyword)
+            .subscribe(onSuccess: { [weak self] in
+                self?.searchedTownListRelay.accept($0.listData)
+            }, onFailure: { [weak self] error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func selectTown(_ indexPath: IndexPath) {
+        let placeModel = searchedTownListRelay.value[indexPath.row]
+        selectedTownRelay.accept(placeModel)
     }
 }

@@ -44,7 +44,7 @@ final class SelectTownViewController: BaseViewController<SelectTownViewModel> {
         return view
     }()
     private lazy var tableView: UITableView = {
-       let tableView = UITableView()
+        let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(SelectTownTableViewCell.self)
@@ -103,10 +103,24 @@ final class SelectTownViewController: BaseViewController<SelectTownViewModel> {
             .do(onNext: { [weak self] in
                 self?.searchTextfield.rx.isCancelHidden.onNext($0.isEmpty)
             })
-            .debounce(.milliseconds(150), scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(350), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
-                // TODO: API Request
-                print($0)
+                self?.viewModel.searchTown($0)
+                
+            })
+            .disposed(by: disposeBag)
+          
+        // MARK: - ViewModel Binding
+        
+        viewModel.searchedTownListRelay
+            .subscribe(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+                
+        viewModel.selectedTownRelay
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -120,18 +134,20 @@ extension SelectTownViewController: UITextFieldDelegate {
 }
 
 extension SelectTownViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectTown(indexPath)
+    }
 }
 
 extension SelectTownViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.searchedTownListRelay.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(SelectTownTableViewCell.self, for: indexPath)
-        let townName = viewModel.searchedTownRelay.value[indexPath.row]
-        cell.setTownName(townName)
+        let townAddress = viewModel.searchedTownListRelay.value[indexPath.row].fullAddress
+        cell.setTownName(townAddress)
         return cell
     }
 }
