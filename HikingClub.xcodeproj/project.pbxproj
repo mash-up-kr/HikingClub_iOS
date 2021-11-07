@@ -47,6 +47,7 @@
 		773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */; };
 		773D61A02719D0D0001528B3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D619F2719D0D0001528B3 /* SignInViewController.swift */; };
 		773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D61A22719D872001528B3 /* ChangePasswordViewController.swift */; };
+		773DF08C2737A2600025DC91 /* SelectTownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */; };
 		7741F98E27171CC2005B3D88 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741F98D27171CC2005B3D88 /* UIViewController+.swift */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
@@ -152,6 +153,7 @@
 		773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+.swift"; sourceTree = "<group>"; };
 		773D619F2719D0D0001528B3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		773D61A22719D872001528B3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTownTableViewCell.swift; sourceTree = "<group>"; };
 		7741F98D27171CC2005B3D88 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -456,6 +458,14 @@
 			path = EmailAuthorize;
 			sourceTree = "<group>";
 		};
+		773DF08A2737A2490025DC91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		775507EA26F842E5005B8763 = {
 			isa = PBXGroup;
 			children = (
@@ -562,6 +572,7 @@
 		7776BEE8273682D7009EC168 /* SelectTown */ = {
 			isa = PBXGroup;
 			children = (
+				773DF08A2737A2490025DC91 /* View */,
 				7776BEE927368343009EC168 /* SelectTownViewController.swift */,
 			);
 			path = SelectTown;
@@ -795,6 +806,7 @@
 				77C69BF0272D96A3004C2207 /* SignInReqeustModel.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				777B516B2711981400299430 /* UIStackView+.swift in Sources */,
+				773DF08C2737A2600025DC91 /* SelectTownTableViewCell.swift in Sources */,
 				77C69BF6272D9803004C2207 /* SignInResponseModel.swift in Sources */,
 				77C69BF2272D96F2004C2207 /* SignInAPI.swift in Sources */,
 				283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */,
