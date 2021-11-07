@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-final class SelectTownViewController: BaseViewController<BaseViewModel> {
+final class SelectTownViewController: BaseViewController<SelectTownViewModel> {
     private let navigationBar: NaviBar = {
         let view = NaviBar()
         view.setTitle("동네설정")
@@ -128,13 +128,10 @@ extension SelectTownViewController: UITableViewDataSource {
         return 10
     }
     
-    var mockData: [String] {
-        ["1동","2동","3동","5동","6동","7동","8동","10동","11동","12동","13동","14동"]
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(SelectTownTableViewCell.self, for: indexPath)
-        cell.setTownName(mockData[indexPath.row])
+        let townName = viewModel.searchedTownRelay.value[indexPath.row]
+        cell.setTownName(townName)
         return cell
     }
 }

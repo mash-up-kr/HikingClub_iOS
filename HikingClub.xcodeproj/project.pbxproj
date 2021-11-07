@@ -48,6 +48,7 @@
 		773D61A02719D0D0001528B3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D619F2719D0D0001528B3 /* SignInViewController.swift */; };
 		773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D61A22719D872001528B3 /* ChangePasswordViewController.swift */; };
 		773DF08C2737A2600025DC91 /* SelectTownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */; };
+		773DF08E2737A2AB0025DC91 /* SelectTownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DF08D2737A2AB0025DC91 /* SelectTownViewModel.swift */; };
 		7741F98E27171CC2005B3D88 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741F98D27171CC2005B3D88 /* UIViewController+.swift */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
@@ -154,6 +155,7 @@
 		773D619F2719D0D0001528B3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		773D61A22719D872001528B3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTownTableViewCell.swift; sourceTree = "<group>"; };
+		773DF08D2737A2AB0025DC91 /* SelectTownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTownViewModel.swift; sourceTree = "<group>"; };
 		7741F98D27171CC2005B3D88 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -574,6 +576,7 @@
 			children = (
 				773DF08A2737A2490025DC91 /* View */,
 				7776BEE927368343009EC168 /* SelectTownViewController.swift */,
+				773DF08D2737A2AB0025DC91 /* SelectTownViewModel.swift */,
 			);
 			path = SelectTown;
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 				06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */,
 				7760CA96272541D0006B39A9 /* Encodable+.swift in Sources */,
 				7760CA8D27252ED2006B39A9 /* EmailAuthorizeViewModel.swift in Sources */,
+				773DF08E2737A2AB0025DC91 /* SelectTownViewModel.swift in Sources */,
 				06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */,
 				77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */,
 				77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */,
