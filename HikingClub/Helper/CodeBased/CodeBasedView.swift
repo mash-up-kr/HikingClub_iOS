@@ -9,7 +9,7 @@ import UIKit
 
 class CodeBasedView: UIView, CodeBasedProtocol {
     override init(frame: CGRect) {
-        super.init(frame: .zero)
+        super.init(frame: frame)
         attribute()
         layout()
         bind()
