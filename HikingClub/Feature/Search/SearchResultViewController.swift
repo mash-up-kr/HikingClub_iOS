@@ -13,7 +13,7 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
 
     @IBOutlet private weak var naviBar: NaviBar!
     @IBOutlet private weak var tableView: UITableView!
-    private let categoryCollectionView: UICollectionView = {
+    private let locationCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumInteritemSpacing = 6
@@ -29,12 +29,12 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // 초기선택설정
-        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
+        locationCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
     }
     
     private func setTableHeaderView() {
-        view.addSubview(categoryCollectionView)
-        categoryCollectionView.snp.makeConstraints {
+        view.addSubview(locationCollectionView)
+        locationCollectionView.snp.makeConstraints {
             $0.leading.trailing.equalTo(naviBar)
             $0.top.equalTo(naviBar.snp.bottom)
             $0.height.equalTo(57)
@@ -47,7 +47,7 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
         tableView.contentInset = .init(top: 57, left: 0, bottom: 0, right: 0)
         tableView.register(RoadTableViewCell.self)
         tableView.separatorStyle = .none
-        categoryCollectionView.register(CategoryTabCollectionViewCell.self)
+        locationCollectionView.register(CategoryTabCollectionViewCell.self)
     }
     
     override func layout() {
@@ -58,7 +58,7 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
     override func bind() {
         super.bind()
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
-        categoryCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        locationCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
         naviBar.rx.tapLeftItem
             .subscribe(onNext: { [weak self] in
@@ -66,7 +66,7 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
             })
             .disposed(by: disposeBag)
         
-        viewModel.categoryName
+        viewModel.searchWord
             .bind(to: naviBar.rx.title)
             .disposed(by: disposeBag)
         
@@ -89,16 +89,16 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
             .disposed(by: disposeBag)
         
         // 카테고리 셀
-        viewModel.categoryWords
-            .bind(to: categoryCollectionView.rx.items(cellIdentifier: "CategoryTabCollectionViewCell",
+        viewModel.locations
+            .bind(to: locationCollectionView.rx.items(cellIdentifier: "CategoryTabCollectionViewCell",
                                               cellType: CategoryTabCollectionViewCell.self)) { item, cellModel, cell in
                 cell.configure(with: cellModel)
             }.disposed(by: disposeBag)
         
         // 카테고리 텝버튼 클릭시
-        categoryCollectionView.rx.itemSelected
+        locationCollectionView.rx.itemSelected
             .map { $0.item }
-            .bind(to: viewModel.selectedCategory)
+            .bind(to: viewModel.selectedLocationIndex)
             .disposed(by: disposeBag)
         
     }
@@ -107,10 +107,10 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
 
 extension SearchResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let word = viewModel.categoryWords.value[indexPath.item]
+        let location = viewModel.locations.value[indexPath.item]
         let tab: NDTabButton = {
             let tab = NDTabButton()
-            tab.setTitle(word)
+            tab.setTitle(location)
             return tab
         }()
         tab.layoutIfNeeded()

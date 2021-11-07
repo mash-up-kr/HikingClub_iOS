@@ -234,7 +234,7 @@ extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let title = textField.text else { return true }
         let nextViewController = storyboard?.instantiate("SearchResultViewController") { coder -> SearchResultViewController? in
-            return .init(coder, SearchResultViewModel(categoryName: title))
+            return .init(coder, SearchResultViewModel(searchWord: title))
         }
         guard let nextViewController = nextViewController else { return true }
         navigationController?.pushViewController(nextViewController, animated: true)
