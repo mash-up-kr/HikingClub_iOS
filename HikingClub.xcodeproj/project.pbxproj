@@ -49,6 +49,8 @@
 		06AB8CC0273287B4007F32AA /* CategoryTabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AB8CBE273287B4007F32AA /* CategoryTabCollectionViewCell.xib */; };
 		06B68F9727228FF9007174E1 /* NDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B68F9627228FF9007174E1 /* NDSearchTextField.swift */; };
 		06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC1F73271C1B79001A6584 /* NDAlert.swift */; };
+		06D4FF2A27390A8400300AE5 /* UserDefault+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FF2927390A8400300AE5 /* UserDefault+.swift */; };
+		06D4FF2C27390F3900300AE5 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FF2B27390F3900300AE5 /* UserDefaultManager.swift */; };
 		283AF0502708672C0033ED71 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283AF04F2708672C0033ED71 /* Home.storyboard */; };
 		283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF06C27086B940033ED71 /* HomeViewController.swift */; };
 		283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF07527086DA40033ED71 /* RoadTableViewCell.swift */; };
@@ -166,6 +168,8 @@
 		06AB8CBE273287B4007F32AA /* CategoryTabCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTabCollectionViewCell.xib; sourceTree = "<group>"; };
 		06B68F9627228FF9007174E1 /* NDSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDSearchTextField.swift; sourceTree = "<group>"; };
 		06BC1F73271C1B79001A6584 /* NDAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDAlert.swift; sourceTree = "<group>"; };
+		06D4FF2927390A8400300AE5 /* UserDefault+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+.swift"; sourceTree = "<group>"; };
+		06D4FF2B27390F3900300AE5 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		283AF04F2708672C0033ED71 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		283AF06C27086B940033ED71 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		283AF07527086DA40033ED71 /* RoadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadTableViewCell.swift; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 				06AB8CBB27326A3C007F32AA /* SearchCategoryResultViewModel.swift */,
 				0654DFED273682CE00B96F15 /* SearchResultViewController.swift */,
 				0654DFEF2736848700B96F15 /* SearchResultViewModel.swift */,
+				06D4FF2B27390F3900300AE5 /* UserDefaultManager.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				775B95AB27204D1C004D4540 /* UITabBarItem+.swift */,
 				7760CA95272541D0006B39A9 /* Encodable+.swift */,
 				0684EA5A2734623300FC74D1 /* UITableViewCell+.swift */,
+				06D4FF2927390A8400300AE5 /* UserDefault+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -836,6 +842,7 @@
 				06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */,
 				7760CA96272541D0006B39A9 /* Encodable+.swift in Sources */,
 				7760CA8D27252ED2006B39A9 /* EmailAuthorizeViewModel.swift in Sources */,
+				06D4FF2A27390A8400300AE5 /* UserDefault+.swift in Sources */,
 				06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */,
 				77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */,
 				77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */,
@@ -860,6 +867,7 @@
 				77764FCF2732AC6F00A216C8 /* MyPageListHeaderButton.swift in Sources */,
 				06A1EC8E27088F3E00EA78D8 /* HitThemeTableHeaderView.swift in Sources */,
 				06962E902727FC250021402F /* NDTabButton.swift in Sources */,
+				06D4FF2C27390F3900300AE5 /* UserDefaultManager.swift in Sources */,
 				06A1ECB927198ED200EA78D8 /* UITextField+.swift in Sources */,
 				06962E93272927770021402F /* SearchViewController.swift in Sources */,
 				06A1ECA02708CEFA00EA78D8 /* HitThemeHeaderCollectionViewCell.swift in Sources */,

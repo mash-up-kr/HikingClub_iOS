@@ -17,6 +17,13 @@ final class SearchViewModel: BaseViewModel {
     /// 카테고리
     let categoryWords: BehaviorRelay<[String]> = BehaviorRelay(value: [])
     
+    private let userDefaultManager: UserDefaultManager = UserDefaultManager()
+    
+    override init() {
+        super.init()
+        bind()
+    }
+    
     func removeAllRecentSearchWords() {
         recentSearchWords.accept([])
     }
@@ -26,6 +33,34 @@ final class SearchViewModel: BaseViewModel {
         currentWords.remove(at: index)
         let newWords = currentWords
         recentSearchWords.accept(newWords)
-        print(index)
+    }
+    
+    func bind() {
+        UserDefaults.standard.rx
+            .observe([String].self, UserDefaults.Name.recentSearch.rawValue)
+            .debug()
+            .distinctUntilChanged()
+            .compactMap { element -> [String] in element?.reversed() ?? [] }
+            .bind(to: recentSearchWords)
+            .disposed(by: disposeBag)
+    }
+    
+    func saveRecentWords(_ word: String, key: UserDefaults.Name) {
+        if userDefaultManager.isEmpty(key: key) {
+            userDefaultManager.save([word], key: key)
+        } else {
+            guard var currentWords: [String] = userDefaultManager.value(key: key) else {
+                return
+            }
+            
+            if currentWords.contains(word),
+               let index: Int = currentWords.firstIndex(of: word) {
+                currentWords.remove(at: index)
+            }
+            currentWords.append(word)
+            
+            let newWords: [String] = currentWords
+            userDefaultManager.save(newWords, key: key)
+        }
     }
 }

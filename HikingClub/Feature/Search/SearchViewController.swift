@@ -181,7 +181,6 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         super.bind()
         
         // FIXME: - Mock삭제
-        viewModel.recentSearchWords.accept(["최근검색1", "최근검색122", "최근검색검색하자", "헤에에에에"])
         viewModel.categoryWords.accept(["자연", "야경","벚꽃","연인","자전거","산악회","먹거리","호수","네글자는","한줄더"])
         updateCategoryCollectionViewHeight()
         
@@ -206,9 +205,6 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
             .disposed(by: disposeBag)
         
         searchTextField.rx.setDelegate(self).disposed(by: disposeBag)
-        
-        // TODO: 리턴시 데이터저장
-        
     }
 }
 
@@ -233,6 +229,8 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let title = textField.text else { return true }
+        viewModel.saveRecentWords(title, key: .recentSearch)
+        
         let nextViewController = storyboard?.instantiate("SearchResultViewController") { coder -> SearchResultViewController? in
             return .init(coder, SearchResultViewModel(searchWord: title))
         }
