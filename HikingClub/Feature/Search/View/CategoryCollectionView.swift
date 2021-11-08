@@ -28,8 +28,8 @@ final class CategoryCollectionView: UICollectionView {
         register(CategoryCollectionViewCell.self)
     }
     
-    /// 카테고리 내용변경시 호출해주세용
-    /// 컬랙션뷰 자체높이 재계산
+    /// - Note: 카테고리 내용변경시 호출
+    /// - 컬랙션뷰 자체높이 재계산
     func updateCollectionViewHeight() {
         guard let layout = self.collectionViewLayout as? UICollectionViewFlowLayout else {
             return
