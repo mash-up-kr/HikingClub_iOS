@@ -7,16 +7,11 @@
 
 import Foundation
 
-struct UserDefaultManager {
-    func save<T>(_ value: T, key: UserDefaults.Name) {
-        UserDefaults.standard.set(value, forKey: key.rawValue)
-    }
+protocol UserDefaultManager {
+    associatedtype T
     
-    func value<T>(key: UserDefaults.Name) -> T? {
-        return UserDefaults.standard.value(forKey: key.rawValue) as? T
-    }
-    
-    func isEmpty(key: UserDefaults.Name) -> Bool {
-        return UserDefaults.standard.value(forKey: key.rawValue) == nil
-    }
+    var value: T? { get }
+    var isEmpty: Bool { get }
+    func save<T>(_ value: T)
+    func removeAll()
 }
