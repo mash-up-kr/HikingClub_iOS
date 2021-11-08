@@ -17,22 +17,12 @@ final class SearchViewModel: BaseViewModel {
     /// 카테고리
     let categoryWords: BehaviorRelay<[String]> = BehaviorRelay(value: [])
     
-    private let userDefaultManager: UserDefaultManager = UserDefaultManager()
-    
+    // MARK: - Property
+    private let userDefaultManager: RecentSearchUserDefault = RecentSearchUserDefault(key: .recentSearch)
+   
     override init() {
         super.init()
         bind()
-    }
-    
-    func removeAllRecentSearchWords() {
-        recentSearchWords.accept([])
-    }
-    
-    func removeRecentSearchWord(at index: Int) {
-        var currentWords = recentSearchWords.value
-        currentWords.remove(at: index)
-        let newWords = currentWords
-        recentSearchWords.accept(newWords)
     }
     
     func bind() {
@@ -40,27 +30,41 @@ final class SearchViewModel: BaseViewModel {
             .observe([String].self, UserDefaults.Name.recentSearch.rawValue)
             .debug()
             .distinctUntilChanged()
-            .compactMap { element -> [String] in element?.reversed() ?? [] }
+            .compactMap { $0 }
             .bind(to: recentSearchWords)
             .disposed(by: disposeBag)
     }
     
-    func saveRecentWords(_ word: String, key: UserDefaults.Name) {
-        if userDefaultManager.isEmpty(key: key) {
-            userDefaultManager.save([word], key: key)
+    /// 전체삭제
+    func removeAllRecentSearchWords() {
+        if recentSearchWords.value.isEmpty {
+            return
+        }
+        userDefaultManager.removeAll()
+    }
+    
+    /// 검색어 개별 삭제
+    func removeRecentSearchWord(at index: Int) {
+        print("삭제: \(recentSearchWords.value)")
+        var currentWords: [String] = recentSearchWords.value
+        currentWords.remove(at: index)
+        let newWords = currentWords
+        userDefaultManager.save(newWords)
+    }
+    
+    /// 검색어 저장
+    func saveRecentWords(_ word: String) {
+        if userDefaultManager.isEmpty {
+            userDefaultManager.save([word])
         } else {
-            guard var currentWords: [String] = userDefaultManager.value(key: key) else {
-                return
-            }
-            
+            var currentWords: [String] = recentSearchWords.value
             if currentWords.contains(word),
                let index: Int = currentWords.firstIndex(of: word) {
                 currentWords.remove(at: index)
             }
-            currentWords.append(word)
-            
+            currentWords.insert(word, at: 0)
             let newWords: [String] = currentWords
-            userDefaultManager.save(newWords, key: key)
+            userDefaultManager.save(newWords)
         }
     }
 }
