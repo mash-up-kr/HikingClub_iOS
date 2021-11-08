@@ -62,6 +62,7 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         setCategoryCollectionView()
         
         searchTextField.setPlaceholder("길 이름, #태그로 검색")
+        searchTextField.setReturnKeyType(.go)
     }
     
     @objc
@@ -204,8 +205,8 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
             })
             .disposed(by: disposeBag)
         
-        // TODO: 리턴타입변경
-        // TODO: 리턴시 다음페이지이동
+        searchTextField.rx.setDelegate(self).disposed(by: disposeBag)
+        
         // TODO: 리턴시 데이터저장
         
     }
@@ -226,5 +227,17 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         let labelMargin: CGFloat = 8
         let width = label.bounds.width + buttonWidth + buttonMargin + labelMargin
         return CGSize(width:  width, height: 29)
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let title = textField.text else { return true }
+        let nextViewController = storyboard?.instantiate("SearchResultViewController") { coder -> SearchResultViewController? in
+            return .init(coder, SearchResultViewModel(searchWord: title))
+        }
+        guard let nextViewController = nextViewController else { return true }
+        navigationController?.pushViewController(nextViewController, animated: true)
+        return true
     }
 }
