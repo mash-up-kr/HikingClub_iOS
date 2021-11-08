@@ -270,6 +270,7 @@
 		06962E91272926EE0021402F /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				06D4FF2D27392A1000300AE5 /* Manager */,
 				06962E9C272A86140021402F /* Cell */,
 				06962E94272927A00021402F /* Search.storyboard */,
 				06962E92272927770021402F /* SearchViewController.swift */,
@@ -278,7 +279,6 @@
 				06AB8CBB27326A3C007F32AA /* SearchCategoryResultViewModel.swift */,
 				0654DFED273682CE00B96F15 /* SearchResultViewController.swift */,
 				0654DFEF2736848700B96F15 /* SearchResultViewModel.swift */,
-				06D4FF2B27390F3900300AE5 /* UserDefaultManager.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -345,6 +345,14 @@
 				06A1ECB02712C10A00EA78D8 /* NDButtonTheme.swift */,
 			);
 			path = NDButton;
+			sourceTree = "<group>";
+		};
+		06D4FF2D27392A1000300AE5 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				06D4FF2B27390F3900300AE5 /* UserDefaultManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		771230DA27283EC3003B63E5 /* MyPage */ = {
