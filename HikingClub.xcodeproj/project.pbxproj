@@ -53,6 +53,7 @@
 		06D4FF2C27390F3900300AE5 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FF2B27390F3900300AE5 /* UserDefaultManager.swift */; };
 		06D4FF2F273939C100300AE5 /* RecentSearchUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FF2E273939C100300AE5 /* RecentSearchUserDefault.swift */; };
 		06D4FF322739452200300AE5 /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FF312739452200300AE5 /* CategoryCollectionView.swift */; };
+		06D4FF362739494100300AE5 /* CategoryTabCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FF352739494100300AE5 /* CategoryTabCollectionView.swift */; };
 		283AF0502708672C0033ED71 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283AF04F2708672C0033ED71 /* Home.storyboard */; };
 		283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF06C27086B940033ED71 /* HomeViewController.swift */; };
 		283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF07527086DA40033ED71 /* RoadTableViewCell.swift */; };
@@ -174,6 +175,7 @@
 		06D4FF2B27390F3900300AE5 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		06D4FF2E273939C100300AE5 /* RecentSearchUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchUserDefault.swift; sourceTree = "<group>"; };
 		06D4FF312739452200300AE5 /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
+		06D4FF352739494100300AE5 /* CategoryTabCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTabCollectionView.swift; sourceTree = "<group>"; };
 		283AF04F2708672C0033ED71 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		283AF06C27086B940033ED71 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		283AF07527086DA40033ED71 /* RoadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadTableViewCell.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				06D4FF312739452200300AE5 /* CategoryCollectionView.swift */,
+				06D4FF352739494100300AE5 /* CategoryTabCollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -878,6 +881,7 @@
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				777B516B2711981400299430 /* UIStackView+.swift in Sources */,
 				77C69BF6272D9803004C2207 /* SignInResponseModel.swift in Sources */,
+				06D4FF362739494100300AE5 /* CategoryTabCollectionView.swift in Sources */,
 				77C69BF2272D96F2004C2207 /* SignInAPI.swift in Sources */,
 				283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */,
 				77E591402711723C0070F381 /* SignUpViewController.swift in Sources */,

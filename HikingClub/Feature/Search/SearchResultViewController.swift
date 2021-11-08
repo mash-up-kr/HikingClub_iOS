@@ -13,18 +13,7 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
 
     @IBOutlet private weak var naviBar: NaviBar!
     @IBOutlet private weak var tableView: UITableView!
-    private let locationCollectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumInteritemSpacing = 6
-        flowLayout.sectionInset = .zero
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 0)
-        collectionView.backgroundColor = .gray100
-        return collectionView
-    }()
+    private let locationCollectionView: CategoryTabCollectionView = CategoryTabCollectionView()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -57,7 +46,6 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
     
     override func bind() {
         super.bind()
-        tableView.rx.setDelegate(self).disposed(by: disposeBag)
         locationCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
         naviBar.rx.tapLeftItem
@@ -90,7 +78,7 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
         
         // 카테고리 셀
         viewModel.locations
-            .bind(to: locationCollectionView.rx.items(cellIdentifier: "CategoryTabCollectionViewCell",
+            .bind(to: locationCollectionView.rx.items(cellIdentifier: CategoryTabCollectionView.cellIdentifier,
                                               cellType: CategoryTabCollectionViewCell.self)) { item, cellModel, cell in
                 cell.configure(with: cellModel)
             }.disposed(by: disposeBag)
@@ -107,13 +95,7 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
 
 extension SearchResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let location = viewModel.locations.value[indexPath.item]
-        let tab: NDTabButton = {
-            let tab = NDTabButton()
-            tab.setTitle(location)
-            return tab
-        }()
-        tab.layoutIfNeeded()
-        return CGSize(width: tab.bounds.width, height: 33)
+        let word = viewModel.locations.value[indexPath.item]
+        return locationCollectionView.cellSize(text: word)
     }
 }

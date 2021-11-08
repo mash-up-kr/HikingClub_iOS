@@ -12,18 +12,7 @@ import RxSwift
 final class SearchCategoryResultViewController: BaseViewController<SearchCategoryResultViewModel> {
     @IBOutlet private weak var naviBar: NaviBar!
     @IBOutlet private weak var tableView: UITableView!
-    private let categoryCollectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumInteritemSpacing = 6
-        flowLayout.sectionInset = .zero
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 0)
-        collectionView.backgroundColor = .gray100
-        return collectionView
-    }()
+    private let categoryCollectionView: CategoryTabCollectionView = CategoryTabCollectionView()
     private var tableViewHeaderView: UIView?
     private var tableViewHeaderViewTitleView = UIView()
     private let tableViewHeaderViewTitleLabel: UILabel = {
@@ -86,7 +75,6 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         tableView.contentInset = .init(top: headerHeight, left: 0, bottom: 0, right: 0)
         tableView.register(RoadTableViewCell.self)
         tableView.separatorStyle = .none
-        categoryCollectionView.register(CategoryTabCollectionViewCell.self)
     }
     
     override func layout() {
@@ -96,7 +84,6 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
 
     override func bind() {
         super.bind()
-        tableView.rx.setDelegate(self).disposed(by: disposeBag)
         categoryCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
         naviBar.rx.tapLeftItem
@@ -121,7 +108,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         
         // 카테고리 셀
         viewModel.categoryWords
-            .bind(to: categoryCollectionView.rx.items(cellIdentifier: "CategoryTabCollectionViewCell",
+            .bind(to: categoryCollectionView.rx.items(cellIdentifier: CategoryTabCollectionView.cellIdentifier,
                                               cellType: CategoryTabCollectionViewCell.self)) { item, cellModel, cell in
                 cell.configure(with: cellModel)
             }.disposed(by: disposeBag)
@@ -168,12 +155,6 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
 extension SearchCategoryResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let word = viewModel.categoryWords.value[indexPath.item]
-        let tab: NDTabButton = {
-            let tab = NDTabButton()
-            tab.setTitle(word)
-            return tab
-        }()
-        tab.layoutIfNeeded()
-        return CGSize(width: tab.bounds.width, height: 33)
+        return categoryCollectionView.cellSize(text: word)
     }
 }
