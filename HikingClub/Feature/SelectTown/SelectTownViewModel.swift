@@ -13,6 +13,8 @@ final class SelectTownViewModel: BaseViewModel {
     
     let searchedTownListRelay = BehaviorRelay<[PlaceModel]>(value: [])
     let selectedTownRelay = PublishRelay<PlaceModel>()
+    
+    let currentCoordinateRelay = BehaviorRelay<(Double, Double)?>(value: nil)
 
     func searchTown(_ keyword: String) {
         placeService.search(keyword)
@@ -27,5 +29,10 @@ final class SelectTownViewModel: BaseViewModel {
     func selectTown(_ indexPath: IndexPath) {
         let placeModel = searchedTownListRelay.value[indexPath.row]
         selectedTownRelay.accept(placeModel)
+    }
+    
+    func searchTownWithCurrentLocation() {
+        guard let currentCoordinate = currentCoordinateRelay.value else { return }
+        
     }
 }
