@@ -25,21 +25,8 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
     }()
     private let spacingView: UIView = UIView()
     private let categoryTitleLabel: UILabel = UILabel()
-    private let categoryCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 8
-        let margin: CGFloat = 16
-        let width = ((UIScreen.main.bounds.width - margin * 2) - (spacing * 2)) / 3
-        let height = 96 * width / 109
-        layout.itemSize = .init(width: width, height: height)
-        layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = spacing
-        layout.minimumLineSpacing = spacing
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.isScrollEnabled = false
-        return collectionView
-    }()
+    private let categoryCollectionView = CategoryCollectionView()
+    
     @IBOutlet private weak var containerView: UIView!
     
     override func attribute() {
@@ -142,9 +129,8 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
     }
     
     private func setCategoryCollectionView() {
-        categoryCollectionView.register(CategoryCollectionViewCell.self)
         viewModel.categoryWords
-            .bind(to: categoryCollectionView.rx.items(cellIdentifier: "CategoryCollectionViewCell", cellType: CategoryCollectionViewCell.self)) { indexPath, cellModel, cell in
+            .bind(to: categoryCollectionView.rx.items(cellIdentifier: CategoryCollectionView.cellIdentifier, cellType: CategoryCollectionViewCell.self)) { indexPath, cellModel, cell in
                 cell.configure(with: cellModel)
             }
             .disposed(by: disposeBag)
@@ -163,26 +149,12 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
             .disposed(by: disposeBag)
     }
     
-    /// 카테고리 내용변경시 호출해주세용
-    private func updateCategoryCollectionViewHeight() {
-        guard let layout = categoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
-            return
-        }
-        let row: CGFloat = CGFloat((viewModel.categoryWords.value.count + 2) / 3)
-        let spacing = layout.minimumInteritemSpacing
-        let itemHeight = layout.itemSize.height
-        let height = itemHeight * row + spacing * (row - 1)
-        categoryCollectionView.snp.updateConstraints {
-            $0.height.equalTo(height)
-        }
-    }
-    
     override func bind() {
         super.bind()
         
         // FIXME: - Mock삭제
         viewModel.categoryWords.accept(["자연", "야경","벚꽃","연인","자전거","산악회","먹거리","호수","네글자는","한줄더"])
-        updateCategoryCollectionViewHeight()
+        categoryCollectionView.updateCollectionViewHeight()
         
         recentSearchDeletButton.rx.tap
             .subscribe(onNext: { [weak self] in
