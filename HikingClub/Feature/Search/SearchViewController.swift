@@ -200,7 +200,8 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let title = textField.text else { return true }
+        guard textField.hasText,
+              let title = textField.text else { return false }
         viewModel.saveRecentWords(title)
         view.endEditing(true)
         let nextViewController = storyboard?.instantiate("SearchResultViewController") { coder -> SearchResultViewController? in
@@ -209,5 +210,14 @@ extension SearchViewController: UITextFieldDelegate {
         guard let nextViewController = nextViewController else { return true }
         navigationController?.pushViewController(nextViewController, animated: true)
         return true
+    }
+    
+    // 글자수제한 20
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let curString = textField.text else { return false }
+               guard let stringRange = Range(range, in: curString) else { return false }
+               
+               let updateText = curString.replacingCharacters(in: stringRange, with: string)
+               return updateText.count < 20
     }
 }
