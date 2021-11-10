@@ -14,7 +14,7 @@ final class SelectTownViewModel: BaseViewModel {
     let searchedTownListRelay = BehaviorRelay<[PlaceModel]>(value: [])
     let selectedTownRelay = PublishRelay<PlaceModel>()
     
-    let currentCoordinateRelay = BehaviorRelay<(Double, Double)?>(value: nil)
+    var currentCoordinate:(Double, Double)? = nil
 
     func searchTown(_ keyword: String) {
         placeService.search(keyword)
@@ -32,7 +32,7 @@ final class SelectTownViewModel: BaseViewModel {
     }
     
     func searchTownWithCurrentLocation() {
-        guard let currentCoordinate = currentCoordinateRelay.value else { return }
-        
+        guard let currentCoordinate = currentCoordinate else { return }
+        // TODO: lat, long 보내는 API 추가 할 것
     }
 }

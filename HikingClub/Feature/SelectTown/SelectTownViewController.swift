@@ -74,7 +74,7 @@ final class SelectTownViewController: BaseViewController<SelectTownViewModel> {
     
     private func locationManagerAtrribute() {
         locationManager.delegate = self
-        locationManager.desiredAccuracy = .leastNormalMagnitude
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
     }
     
@@ -174,7 +174,11 @@ final class SelectTownViewController: BaseViewController<SelectTownViewModel> {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .denied:
+            // TODO: 권한 거부 상태일때의 처리 추가해야함
             break
+        default:
+            // TODO: 추가된 상태에 대한 처리 추가해야함
+            print(locationAuthStatus)
         }
     }
 }
@@ -208,6 +212,6 @@ extension SelectTownViewController: UITableViewDataSource {
 extension SelectTownViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let coordinate = locations.last?.coordinate else { return }
-        viewModel.currentCoordinateRelay.accept((coordinate.latitude, coordinate.longitude))
+        viewModel.currentCoordinate = (coordinate.latitude, coordinate.longitude)
     }
 }
