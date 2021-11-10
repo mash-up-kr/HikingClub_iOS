@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecentSearchCollectionViewCell" id="gTV-IL-0wX" customClass="RecentSearchCollectionViewCell" customModule="HikingClub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="128" height="29"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="128" height="29"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TmA-K8-T5T">
+                        <rect key="frame" x="8" y="4.5" width="96" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22B-NL-m3k">
+                        <rect key="frame" x="106" y="6.5" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="Z1o-7b-Gy8"/>
+                            <constraint firstAttribute="width" constant="16" id="g0I-GY-pIe"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="TmA-K8-T5T" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="58E-hC-WKt"/>
+                <constraint firstAttribute="bottom" secondItem="22B-NL-m3k" secondAttribute="bottom" constant="6.5" id="IoD-Rz-HVp"/>
+                <constraint firstItem="TmA-K8-T5T" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Oxz-ef-Sws"/>
+                <constraint firstAttribute="trailing" secondItem="22B-NL-m3k" secondAttribute="trailing" constant="6" id="bs7-61-3V3"/>
+                <constraint firstItem="22B-NL-m3k" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6.5" id="dtr-Ek-qME"/>
+                <constraint firstItem="22B-NL-m3k" firstAttribute="leading" secondItem="TmA-K8-T5T" secondAttribute="trailing" constant="2" id="uJ9-xY-Amx"/>
+            </constraints>
+            <size key="customSize" width="128" height="33"/>
+            <connections>
+                <outlet property="deleteButton" destination="22B-NL-m3k" id="yln-gh-6YP"/>
+                <outlet property="titleLabel" destination="TmA-K8-T5T" id="Zwa-4e-qbp"/>
+            </connections>
+            <point key="canvasLocation" x="194.20289855072465" y="136.27232142857142"/>
+        </collectionViewCell>
+    </objects>
+</document>
