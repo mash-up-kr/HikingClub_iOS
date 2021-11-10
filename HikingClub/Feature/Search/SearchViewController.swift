@@ -25,21 +25,8 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
     }()
     private let spacingView: UIView = UIView()
     private let categoryTitleLabel: UILabel = UILabel()
-    private let categoryCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 8
-        let margin: CGFloat = 16
-        let width = ((UIScreen.main.bounds.width - margin * 2) - (spacing * 2)) / 3
-        let height = 96 * width / 109
-        layout.itemSize = .init(width: width, height: height)
-        layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = spacing
-        layout.minimumLineSpacing = spacing
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.isScrollEnabled = false
-        return collectionView
-    }()
+    private let categoryCollectionView = CategoryCollectionView()
+    
     @IBOutlet private weak var containerView: UIView!
     
     override func attribute() {
@@ -62,6 +49,7 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
         setCategoryCollectionView()
         
         searchTextField.setPlaceholder("길 이름, #태그로 검색")
+        searchTextField.setReturnKeyType(.go)
     }
     
     @objc
@@ -141,9 +129,8 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
     }
     
     private func setCategoryCollectionView() {
-        categoryCollectionView.register(CategoryCollectionViewCell.self)
         viewModel.categoryWords
-            .bind(to: categoryCollectionView.rx.items(cellIdentifier: "CategoryCollectionViewCell", cellType: CategoryCollectionViewCell.self)) { indexPath, cellModel, cell in
+            .bind(to: categoryCollectionView.rx.items(cellIdentifier: CategoryCollectionView.cellIdentifier, cellType: CategoryCollectionViewCell.self)) { indexPath, cellModel, cell in
                 cell.configure(with: cellModel)
             }
             .disposed(by: disposeBag)
@@ -162,27 +149,12 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
             .disposed(by: disposeBag)
     }
     
-    /// 카테고리 내용변경시 호출해주세용
-    private func updateCategoryCollectionViewHeight() {
-        guard let layout = categoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
-            return
-        }
-        let row: CGFloat = CGFloat((viewModel.categoryWords.value.count + 2) / 3)
-        let spacing = layout.minimumInteritemSpacing
-        let itemHeight = layout.itemSize.height
-        let height = itemHeight * row + spacing * (row - 1)
-        categoryCollectionView.snp.updateConstraints {
-            $0.height.equalTo(height)
-        }
-    }
-    
     override func bind() {
         super.bind()
         
         // FIXME: - Mock삭제
-        viewModel.recentSearchWords.accept(["최근검색1", "최근검색122", "최근검색검색하자", "헤에에에에"])
         viewModel.categoryWords.accept(["자연", "야경","벚꽃","연인","자전거","산악회","먹거리","호수","네글자는","한줄더"])
-        updateCategoryCollectionViewHeight()
+        categoryCollectionView.updateCollectionViewHeight()
         
         recentSearchDeletButton.rx.tap
             .subscribe(onNext: { [weak self] in
@@ -204,10 +176,7 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
             })
             .disposed(by: disposeBag)
         
-        // TODO: 리턴타입변경
-        // TODO: 리턴시 다음페이지이동
-        // TODO: 리턴시 데이터저장
-        
+        searchTextField.rx.setDelegate(self).disposed(by: disposeBag)
     }
 }
 
@@ -226,5 +195,29 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         let labelMargin: CGFloat = 8
         let width = label.bounds.width + buttonWidth + buttonMargin + labelMargin
         return CGSize(width:  width, height: 29)
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard textField.hasText,
+              let title = textField.text else { return false }
+        viewModel.saveRecentWords(title)
+        view.endEditing(true)
+        let nextViewController = storyboard?.instantiate("SearchResultViewController") { coder -> SearchResultViewController? in
+            return .init(coder, SearchResultViewModel(searchWord: title))
+        }
+        guard let nextViewController = nextViewController else { return true }
+        navigationController?.pushViewController(nextViewController, animated: true)
+        return true
+    }
+    
+    // 글자수제한 20
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let curString = textField.text else { return false }
+               guard let stringRange = Range(range, in: curString) else { return false }
+               
+               let updateText = curString.replacingCharacters(in: stringRange, with: string)
+               return updateText.count < 20
     }
 }
