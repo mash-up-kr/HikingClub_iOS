@@ -18,6 +18,19 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         tabbar.rx.setDelegate(self).disposed(by: disposeBag)
         return tabbar
     }()
+    private lazy var locationMoreButtonContainerView: UIView = {
+        let view = UIView(frame: .init(x: 0, y: 0, width: 68, height: 57))
+        let leftColor = UIColor.gray100.withAlphaComponent(0).cgColor
+        let rightColor = UIColor.gray100.cgColor
+        view.addGradientXColor(colors: [leftColor, rightColor])
+        return view
+    }()
+    private lazy var locationMoreButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .gray900
+        button.setImage(.icon_plus_gray900_24)
+        return button
+    }()
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +69,12 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
             })
             .disposed(by: disposeBag)
         
+        locationMoreButton.rx.tap
+            .subscribe(onNext: {
+                print("more 클릭")
+            })
+            .disposed(by: disposeBag)
+        
         // FIXME: - 목데이터 삭제
         viewModel.mockData()
     }
@@ -74,17 +93,32 @@ extension HomeViewController: UITableViewDelegate {
             return nil
         }
         
-        containerView.addSubViews(headerView, locationTabbar)
+        containerView.addSubViews(headerView, locationTabbar, locationMoreButtonContainerView)
         headerView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(174)
         }
+        
         locationTabbar.snp.remakeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(57)
             $0.bottom.equalToSuperview()
+        }
+        
+        locationMoreButtonContainerView.snp.remakeConstraints {
+            $0.trailing.equalTo(locationTabbar)
+            $0.height.equalTo(locationTabbar)
+            $0.width.equalTo(68)
+            $0.centerY.equalTo(locationTabbar)
+        }
+        
+        locationMoreButtonContainerView.addSubview(locationMoreButton)
+        locationMoreButton.snp.remakeConstraints {
+            $0.trailing.equalToSuperview().inset(16)
+            $0.centerY.equalToSuperview()
+            $0.width.height.equalTo(24)
         }
         
         return containerView
