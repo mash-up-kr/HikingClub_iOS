@@ -18,9 +18,9 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         tabbar.rx.setDelegate(self).disposed(by: disposeBag)
         return tabbar
     }()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+ 
+    override func viewDidLoad() {
+        super.viewDidLoad()
         // 초기선택설정
         locationTabbar.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
     }

@@ -15,8 +15,8 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
     @IBOutlet private weak var tableView: UITableView!
     private let locationCollectionView: CategoryTabCollectionView = CategoryTabCollectionView()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         // 초기선택설정
         locationCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
     }
