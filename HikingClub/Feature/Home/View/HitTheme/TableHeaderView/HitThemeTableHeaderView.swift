@@ -25,11 +25,13 @@ final class HitThemeTableHeaderView: UIView {
     
     func setCollectionView() {
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 0)
         collectionView.register(HitThemeHeaderCollectionViewCell.self)
     }
 }
 
+// TODO: - 데이터모델만들고 rx로 변환하기
 extension HitThemeTableHeaderView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 6
@@ -44,5 +46,12 @@ extension HitThemeTableHeaderView: UICollectionViewDataSource {
 extension HitThemeTableHeaderView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: 144, height: 104)
+    }
+}
+
+extension HitThemeTableHeaderView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // TODO: 클릭시 화면이동
+        print("\(#function) select: \(indexPath)")
     }
 }
