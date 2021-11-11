@@ -95,6 +95,7 @@
 		7760CA9927254249006B39A9 /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9827254249006B39A9 /* PlaceService.swift */; };
 		7760CA9B27259C24006B39A9 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9A27259C24006B39A9 /* ResponseModel.swift */; };
 		7760CA9E27259F53006B39A9 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760CA9D27259F53006B39A9 /* PlaceModel.swift */; };
+		7761AC0B273D641E0029BCF2 /* InitialCategorySettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7761AC0A273D641E0029BCF2 /* InitialCategorySettingViewModel.swift */; };
 		77764FCA2732ABB700A216C8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FC92732ABB700A216C8 /* SettingViewController.swift */; };
 		77764FCD2732AC4200A216C8 /* MyPageListHeaderButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FCC2732AC4200A216C8 /* MyPageListHeaderButtonView.swift */; };
 		77764FCF2732AC6F00A216C8 /* MyPageListHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FCE2732AC6F00A216C8 /* MyPageListHeaderButton.swift */; };
@@ -213,6 +214,7 @@
 		7760CA9827254249006B39A9 /* PlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
 		7760CA9A27259C24006B39A9 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		7760CA9D27259F53006B39A9 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
+		7761AC0A273D641E0029BCF2 /* InitialCategorySettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCategorySettingViewModel.swift; sourceTree = "<group>"; };
 		77764FC92732ABB700A216C8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		77764FCC2732AC4200A216C8 /* MyPageListHeaderButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListHeaderButtonView.swift; sourceTree = "<group>"; };
 		77764FCE2732AC6F00A216C8 /* MyPageListHeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListHeaderButton.swift; sourceTree = "<group>"; };
@@ -698,6 +700,7 @@
 			children = (
 				777B517D2714336700299430 /* InitialSettingViewController.swift */,
 				777B51842714553600299430 /* InitialCategorySettingViewController.swift */,
+				7761AC0A273D641E0029BCF2 /* InitialCategorySettingViewModel.swift */,
 			);
 			path = InitialSetting;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 				06D4FF2A27390A8400300AE5 /* UserDefault+.swift in Sources */,
 				06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */,
 				77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */,
+				7761AC0B273D641E0029BCF2 /* InitialCategorySettingViewModel.swift in Sources */,
 				77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */,
 				77C69BF4272D977B004C2207 /* SignInService.swift in Sources */,
 				77E5913C271170860070F381 /* LoginNavigationViewModel.swift in Sources */,

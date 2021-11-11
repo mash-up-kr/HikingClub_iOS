@@ -131,7 +131,7 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel>, Scr
     }
     
     private func navigateToCategorySettingViewController() {
-        let viewController = InitialCategorySettingViewController(BaseViewModel())
+        let viewController = InitialCategorySettingViewController(InitialCategorySettingViewModel())
         viewController.modalPresentationStyle = .fullScreen
         // TODO: ViewModel에 dismiss relay 구독하기
         present(viewController, animated: true)
