@@ -22,7 +22,6 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     override func attribute() {
         super.attribute()
         
-        
         setTableView()
     }
     
@@ -50,7 +49,6 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     
     func setTableView() {
         tableView.register(RoadTableViewCell.self)
-        tableView.register(headerFooter: HitThemeTableHeaderView.self)
     }
 }
 
@@ -59,10 +57,9 @@ extension HomeViewController: UITableViewDelegate {
         let containerView = UIView()
         containerView.backgroundColor = .white
         
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HitThemeTableHeaderView") else {
+        guard let headerView = Bundle.main.loadNibNamed("HitThemeTableHeaderView", owner: nil, options: nil)?.first as? UIView else {
             return nil
         }
-        headerView.backgroundColor = .white
         
         containerView.addSubViews(headerView, tabbar)
         headerView.snp.makeConstraints {

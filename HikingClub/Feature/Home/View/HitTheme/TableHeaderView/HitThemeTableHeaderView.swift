@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HitThemeTableHeaderView: UITableViewHeaderFooterView {
+final class HitThemeTableHeaderView: UIView {
     @IBOutlet private weak var hitThemeLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
     
