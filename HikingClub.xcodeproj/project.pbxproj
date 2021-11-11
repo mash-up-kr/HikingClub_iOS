@@ -65,6 +65,8 @@
 		773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */; };
 		773D61A02719D0D0001528B3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D619F2719D0D0001528B3 /* SignInViewController.swift */; };
 		773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D61A22719D872001528B3 /* ChangePasswordViewController.swift */; };
+		773DF08C2737A2600025DC91 /* SelectTownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */; };
+		773DF08E2737A2AB0025DC91 /* SelectTownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DF08D2737A2AB0025DC91 /* SelectTownViewModel.swift */; };
 		7741F98E27171CC2005B3D88 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741F98D27171CC2005B3D88 /* UIViewController+.swift */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
@@ -99,6 +101,7 @@
 		77764FD32732DA5800A216C8 /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77764FD22732DA5800A216C8 /* MenuButtonView.swift */; };
 		7776BEE527366666009EC168 /* MypageListSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7776BEE427366666009EC168 /* MypageListSectionHeaderView.swift */; };
 		7776BEE727366D36009EC168 /* MypageListNicknameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7776BEE627366D36009EC168 /* MypageListNicknameHeaderView.swift */; };
+		7776BEEA27368343009EC168 /* SelectTownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7776BEE927368343009EC168 /* SelectTownViewController.swift */; };
 		777B5169271197B800299430 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5168271197B800299430 /* UIView+.swift */; };
 		777B516B2711981400299430 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516A2711981400299430 /* UIStackView+.swift */; };
 		777B516F27119A9200299430 /* CodeBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B516E27119A9200299430 /* CodeBasedView.swift */; };
@@ -187,6 +190,8 @@
 		773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+.swift"; sourceTree = "<group>"; };
 		773D619F2719D0D0001528B3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		773D61A22719D872001528B3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTownTableViewCell.swift; sourceTree = "<group>"; };
+		773DF08D2737A2AB0025DC91 /* SelectTownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTownViewModel.swift; sourceTree = "<group>"; };
 		7741F98D27171CC2005B3D88 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +219,7 @@
 		77764FD22732DA5800A216C8 /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		7776BEE427366666009EC168 /* MypageListSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageListSectionHeaderView.swift; sourceTree = "<group>"; };
 		7776BEE627366D36009EC168 /* MypageListNicknameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageListNicknameHeaderView.swift; sourceTree = "<group>"; };
+		7776BEE927368343009EC168 /* SelectTownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTownViewController.swift; sourceTree = "<group>"; };
 		777B5168271197B800299430 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		777B516A2711981400299430 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		777B516E27119A9200299430 /* CodeBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedView.swift; sourceTree = "<group>"; };
@@ -412,6 +418,7 @@
 				06962E91272926EE0021402F /* Search */,
 				771230DA27283EC3003B63E5 /* MyPage */,
 				77764FC82732AB9D00A216C8 /* Settings */,
+				7776BEE8273682D7009EC168 /* SelectTown */,
 				77B7A1212708A14D008F5530 /* WebView */,
 			);
 			path = Feature;
@@ -539,6 +546,14 @@
 			path = EmailAuthorize;
 			sourceTree = "<group>";
 		};
+		773DF08A2737A2490025DC91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		775507EA26F842E5005B8763 = {
 			isa = PBXGroup;
 			children = (
@@ -640,6 +655,16 @@
 				77764FD22732DA5800A216C8 /* MenuButtonView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7776BEE8273682D7009EC168 /* SelectTown */ = {
+			isa = PBXGroup;
+			children = (
+				773DF08A2737A2490025DC91 /* View */,
+				7776BEE927368343009EC168 /* SelectTownViewController.swift */,
+				773DF08D2737A2AB0025DC91 /* SelectTownViewModel.swift */,
+			);
+			path = SelectTown;
 			sourceTree = "<group>";
 		};
 		777B516C27119A5200299430 /* View */ = {
@@ -868,6 +893,7 @@
 				06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */,
 				7760CA96272541D0006B39A9 /* Encodable+.swift in Sources */,
 				7760CA8D27252ED2006B39A9 /* EmailAuthorizeViewModel.swift in Sources */,
+				773DF08E2737A2AB0025DC91 /* SelectTownViewModel.swift in Sources */,
 				06D4FF2A27390A8400300AE5 /* UserDefault+.swift in Sources */,
 				06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */,
 				77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */,
@@ -880,6 +906,7 @@
 				77C69BF0272D96A3004C2207 /* SignInReqeustModel.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				777B516B2711981400299430 /* UIStackView+.swift in Sources */,
+				773DF08C2737A2600025DC91 /* SelectTownTableViewCell.swift in Sources */,
 				77C69BF6272D9803004C2207 /* SignInResponseModel.swift in Sources */,
 				06D4FF362739494100300AE5 /* CategoryTabCollectionView.swift in Sources */,
 				77C69BF2272D96F2004C2207 /* SignInAPI.swift in Sources */,
@@ -887,6 +914,7 @@
 				77E591402711723C0070F381 /* SignUpViewController.swift in Sources */,
 				06679F07271EB39000D63AE1 /* NDButtons.swift in Sources */,
 				77764FCA2732ABB700A216C8 /* SettingViewController.swift in Sources */,
+				7776BEEA27368343009EC168 /* SelectTownViewController.swift in Sources */,
 				067DC4FF26FF213400650862 /* NetworkError.swift in Sources */,
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
 				06B68F9727228FF9007174E1 /* NDSearchTextField.swift in Sources */,
