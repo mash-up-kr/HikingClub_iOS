@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
 
-final class InitialSettingViewController: BaseViewController<BaseViewModel>, ScrollViewKeyboardApperanceProtocol {
+final class InitialSettingViewController: BaseViewController<InitialSettingViewModel>, ScrollViewKeyboardApperanceProtocol {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("기본설정")
@@ -26,32 +28,34 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel>, Scr
     private let nickNameTextField: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
         textfield.setTitle("닉네임", description: "닉네임은 공백 포함 2-10자로 작성해 주세요.", theme: .normal)
+        textfield.setTitle("닉네임", description: "닉네임을 올바르게 입력해 주세요.", theme: .warning)
+        textfield.setTheme(.normal)
         return textfield
     }()
     
-    private let townTextfield: NDTextFieldView = {
+    private lazy var townTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.rx.theme.onNext(.selected)
-        textfield.setTitle("동네선택", description: "관심있는 동네를 선택해 주세요.", theme: .normal)
+        textfield.setTitle("동네선택", description: "관심있는 동네를 선택해 주세요.", theme: .selected)
+        textfield.setTheme(.selected)
+        
+        textfield.addSubview(townTextFieldButton)
+        townTextFieldButton.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         return textfield
     }()
     
-    private let textFieldComponent2: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .blue
-        button.snp.makeConstraints {
-            $0.height.equalTo(77)
-        }
-        button.setTitle("동네 선택 텍스트필드 컴포넌트", for: .normal)
-        
-        return button
-    }()
+    private let townTextFieldButton = UIButton()
     
     private let completeButton: NDCTAButton = {
         let button = NDCTAButton(buttonStyle: .one)
         button.setTitle("완료", buttonType: .ok)
+        button.setEnabled(false, type: .ok)
         return button
     }()
+    
+    // TODO: MOVE TO ViewModel
+    private var isVaildateNickname: Bool = false
     
     // MARK: - Attribute
     
@@ -113,27 +117,90 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel>, Scr
             })
             .disposed(by: disposeBag)
 
-        townTextfield.rx.tapDetailButton
+        townTextFieldButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
+                self?.view.endEditing(true)
                 self?.navigateToLocationSelectViewController()
+            })
+            .disposed(by: disposeBag)
+        
+        nickNameTextField.rx.text
+            .skip(1)
+            .subscribe(onNext: { [weak self] in
+                if false == self?.isValidteNickname($0) ?? false {
+                    self?.nickNameTextField.setTheme(.warning)
+                    self?.isVaildateNickname = false
+                } else {
+                    self?.nickNameTextField.setTheme(.normal)
+                    self?.isVaildateNickname = true
+                }
+                self?.updateCompleteButton()
             })
             .disposed(by: disposeBag)
         
         completeButton.rx.tapOk
             .subscribe(onNext: { [weak self] _ in
-                self?.navigateToCategorySettingViewController()
+                guard let nickname = self?.nickNameTextField.text,
+                      let place = self?.viewModel.townRelay.value
+                else { return }
+                self?.viewModel.signUp(nickname, place.code)
+            })
+            .disposed(by: disposeBag)
+        
+        // MARK: ViewModel Binding
+        viewModel.signUpSucceedRelay
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigateToHomeViewController()
             })
             .disposed(by: disposeBag)
     }
     
     private func navigateToLocationSelectViewController() {
-        print("동네설정 화면 푸시해주세요!")
+        let viewModel = SelectTownViewModel()
+        viewModel.selectedTownRelay
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.townRelay.accept($0)
+                self?.setTown()
+            })
+            .disposed(by: disposeBag)
+        navigationController?.pushViewController(SelectTownViewController(viewModel), animated: true)
     }
     
     private func navigateToCategorySettingViewController() {
-        let viewController = InitialCategorySettingViewController(BaseViewModel())
+        // TODO: 초기 카테고리 설정 화면 연결하기
+        let viewController = InitialCategorySettingViewController(InitialCategorySettingViewModel())
         viewController.modalPresentationStyle = .fullScreen
         // TODO: ViewModel에 dismiss relay 구독하기
         present(viewController, animated: true)
+    }
+    
+    private func navigateToHomeViewController() {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    private func setTown() {
+        guard let place = viewModel.townRelay.value else { return }
+        townTextfield.text = place.fullAddress
+        updateCompleteButton()
+    }
+    
+    private func isValidteNickname(_ nickname: String) -> Bool {
+        if nickname.count < 2 || nickname.count > 11 {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    private func updateCompleteButton() {
+        guard let town = townTextfield.text else {
+            completeButton.setEnabled(false, type: .ok)
+            return
+        }
+        if isVaildateNickname && !town.isEmpty {
+            completeButton.setEnabled(true, type: .ok)
+        } else {
+            completeButton.setEnabled(false, type: .ok)
+        }
     }
 }
