@@ -23,11 +23,11 @@ final class WebViewModel: BaseViewModel {
     lazy var webURL: URL = {
         switch page {
         case .write:
-            return .init(string: "https://nadeulgil.com/edit/new")!
+            return .init(string: "https://nadeulgil.com/edit.html?roadId=new")!
         case .detail(let roadId):
-            return .init(string: "https://nadeulgil.com/detail/\(roadId)")!
+            return .init(string: "https://nadeulgil.com/detail.html?roadId=\(roadId)")!
         case .update(let roadId):
-            return .init(string: "https://nadeulgil.com/edit/\(roadId)")!
+            return .init(string: "https://nadeulgil.com/edit.html?roadID=\(roadId)")!
         }
     }()
     

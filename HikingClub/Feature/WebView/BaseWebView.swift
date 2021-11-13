@@ -9,6 +9,11 @@ import WebKit
 
 // WkWebView가 동일한 contentController를 사용하기 위한 BaseWebView
 class BaseWebView: WKWebView {
+    // js에서 보내준 message를 구별하기 위한 key
+    enum WebMessageFunction: String {
+        case close
+        case share
+    }
     // js에서 messsage를 호출하기 위해 필요한 키워드
     static var contentHandlerName: String {
         "handler"

@@ -35,7 +35,22 @@ extension WebViewController: WKUIDelegate, WKNavigationDelegate { }
 
 extension WebViewController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        // TODO: Refactor
-        print(message)
+        // TODO: REFACTOR
+        guard
+            let body = message.body as? [String: Any],
+            let functionString = body["function"] as? String,
+            let function = BaseWebView.WebMessageFunction(rawValue: functionString)
+        else { return }
+        
+        switch function {
+        case .close:
+            navigationController?.popViewController(animated: true)
+        case .share:
+            guard let data = body as? [String: String],
+                  let shareURL = data["url"]
+            else { return }
+            // TODO: REFACTOR
+            print("share url\(shareURL)")
+        }
     }
 }
