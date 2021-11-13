@@ -26,7 +26,8 @@ final class EmailAuthorizeViewController: BaseViewController<EmailAuthorizeViewM
     
     private let emailTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("이메일", description: "이메일 주소 입력", theme: .normal)
+        textfield.setTitle("이메일", description: nil, theme: .normal)
+        textfield.setPlaceholder("이메일 주소 입력")
         textfield.setTheme(.normal)
         return textfield
     }()
@@ -123,7 +124,8 @@ final class EmailAuthorizeViewController: BaseViewController<EmailAuthorizeViewM
         
         authenticationEmailReceiveButton.rx.tap
             .subscribe(onNext: { [weak self] in
-            guard let email = self?.emailTextfield.text, !email.isEmpty else { return }
+                self?.view.endEditing(true)
+                guard let email = self?.emailTextfield.text, !email.isEmpty else { return }
                 self?.viewModel.requestEmailAuthCode(email)
             })
             .disposed(by: disposeBag)
