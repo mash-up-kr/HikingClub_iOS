@@ -29,8 +29,8 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
     
     private let headerHeight: CGFloat = 108 + 57
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         // 초기선택설정
         categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
     }

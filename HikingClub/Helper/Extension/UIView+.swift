@@ -23,4 +23,14 @@ extension UIView {
         gradientLayer.frame = bounds
         layer.addSublayer(gradientLayer)
     }
+    
+    func addGradientXColor(colors: [CGColor]) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = colors
+        gradientLayer.locations = [0.0, 0.25]
+        gradientLayer.startPoint = .init(x: 0, y: 0)
+        gradientLayer.endPoint = .init(x: 1, y: 0)
+        gradientLayer.frame = bounds
+        layer.addSublayer(gradientLayer)
+    }
 }
