@@ -32,18 +32,9 @@ enum CategoryIcon: String, Decodable {
         }
     }
     
-    var title: String {
-        switch self {
-        case .cherryBlossom: return "벚꽃"
-        case .children: return "어린이"
-        case .couple: return "연인"
-        case .exercise: return "운동"
-        case .food: return "먹거리"
-        case .lake: return "호수"
-        case .nature: return "자연"
-        case .nightView: return "야경"
-        case .pet: return "반려견"
-        }
+    var themeImage: UIImage? {
+        let num = Int.random(in: 1...4)
+        return UIImage(named: "sample_\(num)")
     }
 }
 
@@ -61,8 +52,7 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
     private func attribute() {
         titleLabel.setFont(.semiBold16)
         titleLabel.textColor = .green700
-        imageView.setImage(.icon_crossX_gray700_16)
-        backgroundColor = .gray100
+        backgroundColor = .gray50
         layer.cornerRadius = 8
     }
     
