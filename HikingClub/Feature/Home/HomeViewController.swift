@@ -85,6 +85,18 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
 }
 
 extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = LoginNavigationViewController(LoginNavigationViewModel())
+        
+        let wrappedNavigationController = UINavigationController(rootViewController: viewController)
+        wrappedNavigationController.modalPresentationStyle = .fullScreen
+        wrappedNavigationController.hidesBottomBarWhenPushed = true
+        wrappedNavigationController.interactivePopGestureRecognizer?.delegate = nil
+        wrappedNavigationController.setNavigationBarHidden(true, animated: false)
+        
+        navigationController?.present(wrappedNavigationController, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let containerView = UIView()
         containerView.backgroundColor = .white

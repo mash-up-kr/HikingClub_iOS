@@ -62,7 +62,10 @@
 		771230DC27283EDA003B63E5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771230DB27283EDA003B63E5 /* MyPageViewController.swift */; };
 		77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77169DD0270C8C36000AB1D2 /* BaseViewController.swift */; };
 		77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77213CF72708EF1600994C9A /* BaseWebView.swift */; };
+
 		7722136F27401F1400A42CCA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7722136E27401F1400A42CCA /* Kingfisher */; };
+		77238834273FDC2200F3AA84 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77238833273FDC2200F3AA84 /* SignUpAPI.swift */; };
+		77238836273FDC2B00F3AA84 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77238835273FDC2B00F3AA84 /* SignUpService.swift */; };
 		773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */; };
 		773D61A02719D0D0001528B3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D619F2719D0D0001528B3 /* SignInViewController.swift */; };
 		773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D61A22719D872001528B3 /* ChangePasswordViewController.swift */; };
@@ -188,6 +191,8 @@
 		771230DB27283EDA003B63E5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		77169DD0270C8C36000AB1D2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		77213CF72708EF1600994C9A /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
+		77238833273FDC2200F3AA84 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
+		77238835273FDC2B00F3AA84 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+.swift"; sourceTree = "<group>"; };
 		773D619F2719D0D0001528B3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		773D61A22719D872001528B3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +282,7 @@
 				7760CA9F27259F9A006B39A9 /* Base */,
 				7760CA972725421B006B39A9 /* PlaceService */,
 				77C69BEC272D967A004C2207 /* SignInService */,
+				77238832273FDC0900F3AA84 /* SignUpService */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -519,6 +525,15 @@
 				77E59130270DDCFA0070F381 /* BaseViewModel.swift */,
 			);
 			path = BaseArchitecture;
+			sourceTree = "<group>";
+		};
+		77238832273FDC0900F3AA84 /* SignUpService */ = {
+			isa = PBXGroup;
+			children = (
+				77238833273FDC2200F3AA84 /* SignUpAPI.swift */,
+				77238835273FDC2B00F3AA84 /* SignUpService.swift */,
+			);
+			path = SignUpService;
 			sourceTree = "<group>";
 		};
 		773D619E2719D0C1001528B3 /* SignIn */ = {
@@ -875,6 +890,7 @@
 				06D4FF322739452200300AE5 /* CategoryCollectionView.swift in Sources */,
 				777B517727129EA700299430 /* SignUpTermStackView.swift in Sources */,
 				777B516F27119A9200299430 /* CodeBasedView.swift in Sources */,
+				77238834273FDC2200F3AA84 /* SignUpAPI.swift in Sources */,
 				06962E9F272BCD400021402F /* CategoryCollectionViewCell.swift in Sources */,
 				06A1ECA82711782100EA78D8 /* NDButton.swift in Sources */,
 				06A1ECB12712C10A00EA78D8 /* NDButtonTheme.swift in Sources */,
@@ -886,6 +902,7 @@
 				775B95AC27204D1C004D4540 /* UITabBarItem+.swift in Sources */,
 				06A1EC9B2708B12A00EA78D8 /* UILabel+.swift in Sources */,
 				777B517C2712AEB300299430 /* EmailAuthroizeViewController.swift in Sources */,
+				77238836273FDC2B00F3AA84 /* SignUpService.swift in Sources */,
 				7776BEE727366D36009EC168 /* MypageListNicknameHeaderView.swift in Sources */,
 				777B51802714472B00299430 /* TermDetailViewController.swift in Sources */,
 				77E59133270DDDA40070F381 /* HomeViewModel.swift in Sources */,

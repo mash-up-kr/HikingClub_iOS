@@ -123,31 +123,36 @@ final class EmailAuthorizeViewController: BaseViewController<EmailAuthorizeViewM
         
         authenticationEmailReceiveButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel.requestEmailAuthCode()
+            guard let email = self?.emailTextfield.text, !email.isEmpty else { return }
+                self?.viewModel.requestEmailAuthCode(email)
             })
             .disposed(by: disposeBag)
         
-        Observable.combineLatest(emailTextfield.rx.text.asObservable(),
-                                 authenticationNumberTextfield.rx.text.asObservable())
-            .filter { !$0.isEmpty && !$1.isEmpty }
+        authenticationNumberTextfield.rx.text
+            .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] _ in
-                 self?.authorizeButton.setEnabled(true, type: .ok)
+                self?.authorizeButton.setEnabled(true, type: .ok)
             })
             .disposed(by: disposeBag)
             
         authorizeButton.rx.tapOk
-            .filter { [weak self] in
-                self?.viewModel.isRightAuthCode(self?.authenticationNumberTextfield.text) ?? false
-            }
             .subscribe(onNext: { [weak self] in
-                self?.popEmailAuthorizeViewController()
+                guard
+                    let self = self,
+                    let email = self.emailTextfield.text,
+                    let code = self.authenticationNumberTextfield.text
+                else { return }
+                if !email.isEmpty && !code.isEmpty {
+                    self.viewModel.isRightAuthCode(email, code)
+                }
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func popEmailAuthorizeViewController() {
-        guard let authorizedEmail = emailTextfield.text else { return }
-        viewModel.authorizedEmailRelay.accept(authorizedEmail)
-        navigationController?.popViewController(animated: true)
+        
+        // MARK: ViewModel Binding
+        viewModel.authorizedEmailRelay
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
