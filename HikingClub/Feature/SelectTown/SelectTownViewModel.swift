@@ -18,8 +18,9 @@ final class SelectTownViewModel: BaseViewModel {
 
     func searchTown(_ keyword: String) {
         placeService.search(keyword)
-            .subscribe(onSuccess: { [weak self] in
-                self?.searchedTownListRelay.accept($0.listData)
+            .subscribe(onSuccess: { [weak self] response in
+                guard let place = response.listData else { return }
+                self?.searchedTownListRelay.accept(place)
             }, onFailure: { [weak self] error in
                 print(error)
             })
