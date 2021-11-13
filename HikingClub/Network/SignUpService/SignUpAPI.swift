@@ -10,6 +10,7 @@ import Moya
 enum SignUpAPI {
     case sendToken(SignUpRequestModel.SendTokenModel)
     case verificationEmail(SignUpRequestModel.EmailVerificationModel)
+    case singUp(SignUpRequestModel.SignUpModel)
 }
 
 extension SignUpAPI: TargetType {
@@ -20,6 +21,8 @@ extension SignUpAPI: TargetType {
             return "/v1/apis/users/token/signUp"
         case .verificationEmail:
             return "/v1/apis/users/verification/token"
+        case .singUp:
+            return "/v1/apis/users/create"
         }
     }
     
@@ -29,6 +32,8 @@ extension SignUpAPI: TargetType {
         case .sendToken:
             return .post
         case .verificationEmail:
+            return .post
+        case .singUp:
             return .post
         }
     }
@@ -40,10 +45,13 @@ extension SignUpAPI: TargetType {
             return .requestJSONEncodable(body)
         case .verificationEmail(let body):
             return .requestJSONEncodable(body)
+        case .singUp(let body):
+            return .requestJSONEncodable(body)
         }
     }
 }
 
+// TODO: REFACTOR
 
 enum SignUpRequestModel {
     struct SendTokenModel: Encodable {
@@ -59,6 +67,13 @@ enum SignUpRequestModel {
             case signUp
             case forgotPassword
         }
+    }
+    
+    struct SignUpModel: Encodable {
+        var email: String = ""
+        var password: String = ""
+        var nickname: String = ""
+        var placeCode: String = ""
     }
 }
 

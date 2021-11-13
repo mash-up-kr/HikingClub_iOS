@@ -16,7 +16,11 @@ struct SignUpService {
         provider.request(.sendToken(SignUpRequestModel.SendTokenModel(email: email)))
     }
     
-    func verificationEmail(_ model: SignUpRequestModel.EmailVerificationModel) -> Single<ResponseModel<Bool>> {
+    func verificationEmail(_ model: SignUpRequestModel.EmailVerificationModel) -> Single<BaseResponseModel> {
         provider.request(.verificationEmail(model))
+    }
+    
+    func signUp(_ model: SignUpRequestModel.SignUpModel) -> Single<BaseResponseModel> {
+        provider.request(.singUp(model))
     }
 }

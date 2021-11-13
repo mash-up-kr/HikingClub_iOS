@@ -190,6 +190,12 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
     }
     
     private func navigateToInitialSettingViewController() {
-        navigationController?.pushViewController(InitialSettingViewController(BaseViewModel()), animated: true)
+        let viewModel = InitialSettingViewModel()
+        guard let email = emailTextfield.text,
+              let password = passwordConfirmTextfield.text
+        else { return }
+        viewModel.signUpModelRelay.accept(SignUpRequestModel.SignUpModel(email: email,
+                                                                             password: password))
+        navigationController?.pushViewController(InitialSettingViewController(viewModel), animated: true)
     }
 }
