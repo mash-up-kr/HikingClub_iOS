@@ -47,6 +47,25 @@ enum AssetImage: String {
     case icon_camera_gray500_28
     case icon_threeLines_horizon_gray400_24
     case icon_threeLines_horizon_gray900_24
+    case icon_category_bungeoppang_24
+    case icon_category_bungeoppang_28
+    case icon_category_cherryBlossoms_24
+    case icon_category_cherryBlossoms_28
+    case icon_category_dog_24
+    case icon_category_dog_28
+    case icon_category_heart_24
+    case icon_category_heart_28
+    case icon_category_kindergartenHat_24
+    case icon_category_kindergartenHat_28
+    case icon_category_lake_24
+    case icon_category_lake_28
+    case icon_category_moonStar_24
+    case icon_category_moonStar_28
+    case icon_category_sneakers_24
+    case icon_category_sneakers_28
+    case icon_category_trees_24
+    case icon_category_trees_28
+    case icon_symbol_gray_24
     
     // MARK: - tabbar
     
