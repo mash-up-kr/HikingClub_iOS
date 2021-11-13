@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Version Info View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="VersionInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="VersionInfoViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최신 버전을 사용중입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqF-Uq-ehN">
+                                <rect key="frame" x="114.5" y="354" width="185.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재버전 1.0.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdZ-1z-9a3">
+                                <rect key="frame" x="165.5" y="391" width="83" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9f-5v-2nU" customClass="NDButton" customModule="HikingClub" customModuleProvider="target">
+                                <rect key="frame" x="35.5" y="808" width="343" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="J98-D9-PVm"/>
+                                    <constraint firstAttribute="height" constant="54" id="kbb-BF-K6c"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fqF-Uq-ehN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Lkt-1T-JlM"/>
+                            <constraint firstItem="Z9f-5v-2nU" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="MUY-zq-wew"/>
+                            <constraint firstItem="fqF-Uq-ehN" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="354" id="SBT-l0-pND"/>
+                            <constraint firstItem="FdZ-1z-9a3" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Vfs-0S-hAr"/>
+                            <constraint firstAttribute="bottom" secondItem="Z9f-5v-2nU" secondAttribute="bottom" constant="34" id="WN7-aF-kW8"/>
+                            <constraint firstItem="FdZ-1z-9a3" firstAttribute="top" secondItem="fqF-Uq-ehN" secondAttribute="bottom" constant="16" id="xP0-Tw-y6S"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="presentVersionLable" destination="FdZ-1z-9a3" id="BFN-w1-2mY"/>
+                        <outlet property="versionCommentLabel" destination="fqF-Uq-ehN" id="WmJ-iw-GxC"/>
+                        <outlet property="versionUpdateButtonView" destination="Z9f-5v-2nU" id="rJT-fG-XDd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13" y="76"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
