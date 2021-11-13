@@ -65,6 +65,7 @@ final class NDSearchTextField: CodeBasedView {
         textField.textColor = .gray800
         textField.setPlaceholder(font: .semiBold16, color: .gray300)
         textField.clearButtonMode = .whileEditing
+        textField.autocapitalizationType = .none
     }
     
     private func setCancelButton() {

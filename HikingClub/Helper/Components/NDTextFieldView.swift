@@ -37,7 +37,10 @@ final class NDTextFieldView: UIView {
     private var scale: Scale = .small
     private var titles: [Theme: String?] = [:]
     private var descriptions: [Theme: String?] = [:]
-    var text: String? { textField.text }
+    var text: String? {
+        get { textField.text }
+        set { textField.text = newValue }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -66,6 +69,7 @@ final class NDTextFieldView: UIView {
         textField.setFont(.semiBold16)
         textField.backgroundColor = .gray50
         textField.textColor = .gray800
+        textField.autocapitalizationType = .none
         
         titleLabel.setFont(.semiBold13)
         titleLabel.textColor = .gray700

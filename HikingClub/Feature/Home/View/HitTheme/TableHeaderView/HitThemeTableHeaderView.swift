@@ -20,7 +20,7 @@ final class HitThemeTableHeaderView: UIView {
     func configureUI() {
         hitThemeLabel.text = "인기 테마"
         hitThemeLabel.setFont(.semiBold20)
-        hitThemeLabel.textColor = .gray900
+        hitThemeLabel.textColor = .gray400
     }
     
     func setCollectionView() {
