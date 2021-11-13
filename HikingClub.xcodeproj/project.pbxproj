@@ -59,6 +59,14 @@
 		283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF07527086DA40033ED71 /* RoadTableViewCell.swift */; };
 		283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283AF07627086DA40033ED71 /* RoadTableViewCell.xib */; };
 		283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF0822708B6440033ED71 /* RoadHashTagView.swift */; };
+		28B86D3E273FE67100E962A8 /* VersionInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D3D273FE67100E962A8 /* VersionInfoViewModel.swift */; };
+		28B86D49273FE8AF00E962A8 /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D48273FE8AF00E962A8 /* PersonalInformationViewController.swift */; };
+		28B86D4D273FE8C300E962A8 /* PersonalInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D4C273FE8C300E962A8 /* PersonalInformationViewModel.swift */; };
+		28B86D502740399800E962A8 /* InquiryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D4F2740399800E962A8 /* InquiryViewController.swift */; };
+		28B86D52274039BA00E962A8 /* inquiryMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D51274039BA00E962A8 /* inquiryMenuViewModel.swift */; };
+		28B86D5427403C9100E962A8 /* InquiryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D5327403C9100E962A8 /* InquiryListCell.swift */; };
+		28ED07F5273681C700D33354 /* VersionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED07F4273681C700D33354 /* VersionInfoViewController.swift */; };
+		28ED07FD2736833500D33354 /* VersionInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28ED07FC2736833500D33354 /* VersionInfo.storyboard */; };
 		771230DC27283EDA003B63E5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771230DB27283EDA003B63E5 /* MyPageViewController.swift */; };
 		77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77169DD0270C8C36000AB1D2 /* BaseViewController.swift */; };
 		77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77213CF72708EF1600994C9A /* BaseWebView.swift */; };
@@ -188,6 +196,14 @@
 		283AF07527086DA40033ED71 /* RoadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadTableViewCell.swift; sourceTree = "<group>"; };
 		283AF07627086DA40033ED71 /* RoadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadTableViewCell.xib; sourceTree = "<group>"; };
 		283AF0822708B6440033ED71 /* RoadHashTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadHashTagView.swift; sourceTree = "<group>"; };
+		28B86D3D273FE67100E962A8 /* VersionInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoViewModel.swift; sourceTree = "<group>"; };
+		28B86D48273FE8AF00E962A8 /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
+		28B86D4C273FE8C300E962A8 /* PersonalInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewModel.swift; sourceTree = "<group>"; };
+		28B86D4F2740399800E962A8 /* InquiryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryViewController.swift; sourceTree = "<group>"; };
+		28B86D51274039BA00E962A8 /* inquiryMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inquiryMenuViewModel.swift; sourceTree = "<group>"; };
+		28B86D5327403C9100E962A8 /* InquiryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryListCell.swift; sourceTree = "<group>"; };
+		28ED07F4273681C700D33354 /* VersionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoViewController.swift; sourceTree = "<group>"; };
+		28ED07FC2736833500D33354 /* VersionInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VersionInfo.storyboard; sourceTree = "<group>"; };
 		771230DB27283EDA003B63E5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		77169DD0270C8C36000AB1D2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		77213CF72708EF1600994C9A /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
@@ -385,6 +401,25 @@
 				06D4FF352739494100300AE5 /* CategoryTabCollectionView.swift */,
 			);
 			path = View;
+            sourceTree = "<group>";
+        };
+		28B86D3F273FE6F800E962A8 /* VersionInfoMenu */ = {
+			isa = PBXGroup;
+			children = (
+				28ED07FC2736833500D33354 /* VersionInfo.storyboard */,
+				28ED07F4273681C700D33354 /* VersionInfoViewController.swift */,
+				28B86D3D273FE67100E962A8 /* VersionInfoViewModel.swift */,
+			);
+			path = VersionInfoMenu;
+			sourceTree = "<group>";
+		};
+		28B86D4E2740282B00E962A8 /* PersonalInformationMenu */ = {
+			isa = PBXGroup;
+			children = (
+				28B86D48273FE8AF00E962A8 /* PersonalInformationViewController.swift */,
+				28B86D4C273FE8C300E962A8 /* PersonalInformationViewModel.swift */,
+			);
+			path = PersonalInformationMenu;
 			sourceTree = "<group>";
 		};
 		771230DA27283EC3003B63E5 /* MyPage */ = {
@@ -644,6 +679,11 @@
 			children = (
 				77764FD12732DA4A00A216C8 /* View */,
 				77764FC92732ABB700A216C8 /* SettingViewController.swift */,
+				28B86D5327403C9100E962A8 /* InquiryListCell.swift */,
+				28B86D4F2740399800E962A8 /* InquiryViewController.swift */,
+				28B86D51274039BA00E962A8 /* inquiryMenuViewModel.swift */,
+				28B86D4E2740282B00E962A8 /* PersonalInformationMenu */,
+				28B86D3F273FE6F800E962A8 /* VersionInfoMenu */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -864,6 +904,7 @@
 				06962EA0272BCD400021402F /* CategoryCollectionViewCell.xib in Resources */,
 				06A1ECAA2711789500EA78D8 /* Colors.xcassets in Resources */,
 				06962E9B272A86100021402F /* RecentSearchCollectionViewCell.xib in Resources */,
+				28ED07FD2736833500D33354 /* VersionInfo.storyboard in Resources */,
 				283AF0502708672C0033ED71 /* Home.storyboard in Resources */,
 				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
 				283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */,
@@ -902,6 +943,7 @@
 				77C69BE927294775004C2207 /* SignUpInputViewModel.swift in Sources */,
 				0654DFEE273682CE00B96F15 /* SearchResultViewController.swift in Sources */,
 				06AB8CBF273287B4007F32AA /* CategoryTabCollectionViewCell.swift in Sources */,
+				28B86D3E273FE67100E962A8 /* VersionInfoViewModel.swift in Sources */,
 				775B95AC27204D1C004D4540 /* UITabBarItem+.swift in Sources */,
 				06A1EC9B2708B12A00EA78D8 /* UILabel+.swift in Sources */,
 				777B517C2712AEB300299430 /* EmailAuthroizeViewController.swift in Sources */,
@@ -967,19 +1009,25 @@
 				7776BEE527366666009EC168 /* MypageListSectionHeaderView.swift in Sources */,
 				773D61A02719D0D0001528B3 /* SignInViewController.swift in Sources */,
 				7760CA91272540B2006B39A9 /* PlaceAPI.swift in Sources */,
+				28B86D5427403C9100E962A8 /* InquiryListCell.swift in Sources */,
+				28B86D52274039BA00E962A8 /* inquiryMenuViewModel.swift in Sources */,
 				06A1ECA32708D21400EA78D8 /* UITableView+.swift in Sources */,
 				067DC4F026FEF8A000650862 /* NetworkProvider.swift in Sources */,
 				06AB8CBC27326A3C007F32AA /* SearchCategoryResultViewModel.swift in Sources */,
 				7760CA9E27259F53006B39A9 /* PlaceModel.swift in Sources */,
 				77C69BF8272D9DE3004C2207 /* SignInViewModel.swift in Sources */,
 				777B517E2714336700299430 /* InitialSettingViewController.swift in Sources */,
+				28B86D4D273FE8C300E962A8 /* PersonalInformationViewModel.swift in Sources */,
 				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
 				067DC4FB26FF19DE00650862 /* API.swift in Sources */,
 				777B51852714553600299430 /* InitialCategorySettingViewController.swift in Sources */,
 				7760CA9927254249006B39A9 /* PlaceService.swift in Sources */,
+				28B86D502740399800E962A8 /* InquiryViewController.swift in Sources */,
 				777B517A2712AA2300299430 /* SignUpInputViewController.swift in Sources */,
+				28B86D49273FE8AF00E962A8 /* PersonalInformationViewController.swift in Sources */,
 				06A1ECAC2711828900EA78D8 /* UIColor+.swift in Sources */,
 				77C69BE727294613004C2207 /* SignUpViewModel.swift in Sources */,
+				28ED07F5273681C700D33354 /* VersionInfoViewController.swift in Sources */,
 				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
 				06AB8CB827312461007F32AA /* RxTextFieldDelegateProxy.swift in Sources */,
 				7760CA942725411E006B39A9 /* PlaceRequestModel.swift in Sources */,
