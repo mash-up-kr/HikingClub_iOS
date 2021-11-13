@@ -15,7 +15,6 @@ final class HitThemeHeaderCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         titleLabel.setFont(.semiBold16)
         titleLabel.text = "단풍길"
-        backgroundColor = .gray100
         layer.cornerRadius = 12
     }
 }

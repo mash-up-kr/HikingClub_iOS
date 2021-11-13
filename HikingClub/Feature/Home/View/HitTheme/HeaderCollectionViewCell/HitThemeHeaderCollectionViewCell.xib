@@ -18,9 +18,8 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SampleImage" translatesAutoresizingMaskIntoConstraints="NO" id="KVk-nx-1MK">
-                        <rect key="frame" x="37" y="4" width="106" height="94"/>
+                        <rect key="frame" x="0.0" y="4" width="143" height="94"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="106" id="Qb3-w7-GdS"/>
                             <constraint firstAttribute="height" constant="94" id="a11-rT-WMj"/>
                         </constraints>
                     </imageView>
@@ -39,7 +38,7 @@
                 <constraint firstItem="5aY-FN-HGU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="Gnw-dL-8iC"/>
                 <constraint firstItem="KVk-nx-1MK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="aA5-BT-WFW"/>
                 <constraint firstAttribute="bottom" secondItem="KVk-nx-1MK" secondAttribute="bottom" constant="6" id="ak1-jC-9c9"/>
-                <constraint firstItem="KVk-nx-1MK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="37" id="y2P-Es-VW9"/>
+                <constraint firstItem="KVk-nx-1MK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="y2P-Es-VW9"/>
             </constraints>
             <size key="customSize" width="300" height="140"/>
             <connections>

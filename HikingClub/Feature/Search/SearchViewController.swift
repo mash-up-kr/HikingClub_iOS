@@ -131,7 +131,7 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
     private func setCategoryCollectionView() {
         viewModel.categoryWords
             .bind(to: categoryCollectionView.rx.items(cellIdentifier: CategoryCollectionView.cellIdentifier, cellType: CategoryCollectionViewCell.self)) { indexPath, cellModel, cell in
-                cell.configure(with: cellModel)
+                cell.configure(with: cellModel, icon: .nature)
             }
             .disposed(by: disposeBag)
         
