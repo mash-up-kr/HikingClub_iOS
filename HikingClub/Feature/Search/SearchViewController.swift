@@ -135,13 +135,11 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
             }
             .disposed(by: disposeBag)
         
-        // TODO: 터치시 해당 카테고리로 이동
         categoryCollectionView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 let item = indexPath.item
                 let nextViewController = self?.storyboard?.instantiate("SearchCategoryResultViewController") { [weak self] coder -> SearchCategoryResultViewController? in
-                    guard let word = self?.viewModel.categoryWords.value[item] else { return nil }
-                    return .init(coder, SearchCategoryResultViewModel(categoryName: word))
+                    return .init(coder, SearchCategoryResultViewModel(selectedIndex: item, categories: self?.viewModel.categoryWords.value ?? []))
                 }
                 guard let nextViewController = nextViewController else { return }
                 self?.navigationController?.pushViewController(nextViewController, animated: true)
@@ -152,8 +150,6 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
     override func bind() {
         super.bind()
         
-        // FIXME: - Mock삭제
-        viewModel.categoryWords.accept(["자연", "야경","벚꽃","연인","자전거","산악회","먹거리","호수","네글자는","한줄더"])
         categoryCollectionView.updateCollectionViewHeight()
         
         recentSearchDeletButton.rx.tap

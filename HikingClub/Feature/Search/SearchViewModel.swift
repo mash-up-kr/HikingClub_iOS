@@ -15,23 +15,34 @@ final class SearchViewModel: BaseViewModel {
     /// 최근검색어
     let recentSearchWords: BehaviorRelay<[String]> = BehaviorRelay(value: [])
     /// 카테고리
-    let categoryWords: BehaviorRelay<[String]> = BehaviorRelay(value: [])
+    let categoryWords: BehaviorRelay<[CategoryModel]> = BehaviorRelay(value: [])
     
     // MARK: - Property
     private let userDefaultManager: RecentSearchUserDefault = RecentSearchUserDefault(key: .recentSearch)
-   
+    private let placeService = PlaceService()
+    let error: PublishRelay<NetworkError> = PublishRelay()
+    
     override init() {
         super.init()
         bind()
+        requestCategories()
     }
     
     func bind() {
         UserDefaults.standard.rx
             .observe([String].self, UserDefaults.Name.recentSearch.rawValue)
-            .debug()
             .distinctUntilChanged()
             .compactMap { $0 }
             .bind(to: recentSearchWords)
+            .disposed(by: disposeBag)
+    }
+    
+    /// 카테고리 리스트
+    func requestCategories() {
+        placeService.categories()
+            .subscribe(onSuccess: { [weak self] in
+                self?.categoryWords.accept($0.listData)
+            })
             .disposed(by: disposeBag)
     }
     

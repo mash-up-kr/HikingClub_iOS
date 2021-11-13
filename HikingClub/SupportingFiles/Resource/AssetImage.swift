@@ -65,8 +65,8 @@ enum AssetImage: String {
     case icon_category_sneakers_28
     case icon_category_trees_24
     case icon_category_trees_28
-    case icon_symbol_gray_24
-    
+    case logo_gray
+    case img_empty
     // MARK: - tabbar
     
     case icon_tabbar_house_deselected_gray200_28
