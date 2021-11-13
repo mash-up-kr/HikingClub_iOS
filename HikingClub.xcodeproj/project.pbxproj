@@ -50,6 +50,7 @@
 		06B68F9727228FF9007174E1 /* NDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B68F9627228FF9007174E1 /* NDSearchTextField.swift */; };
 		06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC1F73271C1B79001A6584 /* NDAlert.swift */; };
 		06BE34932740225400F4917A /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE34922740225400F4917A /* CategoryModel.swift */; };
+		06BE349527403FFB00F4917A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE349427403FFB00F4917A /* EmptyView.swift */; };
 		06D4FF2A27390A8400300AE5 /* UserDefault+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FF2927390A8400300AE5 /* UserDefault+.swift */; };
 		06D4FF2C27390F3900300AE5 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FF2B27390F3900300AE5 /* UserDefaultManager.swift */; };
 		06D4FF2F273939C100300AE5 /* RecentSearchUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FF2E273939C100300AE5 /* RecentSearchUserDefault.swift */; };
@@ -176,6 +177,7 @@
 		06B68F9627228FF9007174E1 /* NDSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDSearchTextField.swift; sourceTree = "<group>"; };
 		06BC1F73271C1B79001A6584 /* NDAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDAlert.swift; sourceTree = "<group>"; };
 		06BE34922740225400F4917A /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		06BE349427403FFB00F4917A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		06D4FF2927390A8400300AE5 /* UserDefault+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+.swift"; sourceTree = "<group>"; };
 		06D4FF2B27390F3900300AE5 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		06D4FF2E273939C100300AE5 /* RecentSearchUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchUserDefault.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 			children = (
 				06D4FF312739452200300AE5 /* CategoryCollectionView.swift */,
 				06D4FF352739494100300AE5 /* CategoryTabCollectionView.swift */,
+				06BE349427403FFB00F4917A /* EmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -928,6 +931,7 @@
 				06A1EC8E27088F3E00EA78D8 /* HitThemeTableHeaderView.swift in Sources */,
 				06962E902727FC250021402F /* NDTabButton.swift in Sources */,
 				06D4FF2C27390F3900300AE5 /* UserDefaultManager.swift in Sources */,
+				06BE349527403FFB00F4917A /* EmptyView.swift in Sources */,
 				06A1ECB927198ED200EA78D8 /* UITextField+.swift in Sources */,
 				06962E93272927770021402F /* SearchViewController.swift in Sources */,
 				06A1ECA02708CEFA00EA78D8 /* HitThemeHeaderCollectionViewCell.swift in Sources */,

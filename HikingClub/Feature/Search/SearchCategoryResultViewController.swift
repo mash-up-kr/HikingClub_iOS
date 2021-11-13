@@ -42,11 +42,17 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
     private let titleHeaderViewHeight: CGFloat = 152
     private let tabbarHeight: CGFloat = 57
     private lazy var headerViewHeight: CGFloat = titleHeaderViewHeight + tabbarHeight
+    private lazy var emptyView: EmptyView = EmptyView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // 초기선택설정
         categoryCollectionView.selectItem(at: IndexPath(item: viewModel.selectedCategory.value, section: 0), animated: false, scrollPosition: .left)
+        
+        view.addSubview(emptyView)
+        emptyView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -156,6 +162,17 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
                                               cellType: CategoryTabCollectionViewCell.self)) { item, cellModel, cell in
                 cell.configure(with: cellModel.name)
             }.disposed(by: disposeBag)
+        
+        let isCategoryEmpty = viewModel.categoryWords
+            .map { $0.isEmpty }
+        
+        isCategoryEmpty
+            .bind(to: emptyView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        isCategoryEmpty
+            .bind(to: tableView.rx.isScrollEnabled)
+            .disposed(by: disposeBag)
         
         // 카테고리 텝버튼 클릭시
         categoryCollectionView.rx.itemSelected
