@@ -69,7 +69,8 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
             .subscribe(onNext: { [weak self] in
                 // TODO: 길상세페이지 넘기기
                 print($0)
-                let webViewController = WebViewController(WebViewModel())
+                // TODO: MOCK 데이터 지우기
+                let webViewController = WebViewController(WebViewModel(for: .detail(roadId: "198")))
                 webViewController.hidesBottomBarWhenPushed = true
                 self?.tableView.deselectRow(at: $0, animated: true)
                 self?.navigationController?.pushViewController(webViewController, animated: true)

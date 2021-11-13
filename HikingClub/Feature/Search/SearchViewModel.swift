@@ -41,7 +41,8 @@ final class SearchViewModel: BaseViewModel {
     func requestCategories() {
         placeService.categories()
             .subscribe(onSuccess: { [weak self] in
-                self?.categoryWords.accept($0.listData)
+                guard let list = $0.listData else { return }
+                self?.categoryWords.accept(list)
             })
             .disposed(by: disposeBag)
     }

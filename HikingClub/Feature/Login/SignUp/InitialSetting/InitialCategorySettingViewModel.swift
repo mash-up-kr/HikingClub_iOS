@@ -8,9 +8,9 @@
 import RxRelay
 
 final class InitialCategorySettingViewModel: BaseViewModel {
-    let categoryWords: BehaviorRelay<[String]> = BehaviorRelay(value: [])
+    let categoryWords: BehaviorRelay<[CategoryModel]> = BehaviorRelay(value: [])
     
     override init() {
-        categoryWords.accept(["자연", "야경","벚꽃","연인","자전거","산악회","먹거리","호수","네글자는","한줄더"])
+        categoryWords.accept([CategoryModel(id: 1, key: .nightView, name: "야경"), CategoryModel(id: 2, key: .couple, name: "연인")])
     }
 }
