@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import RxSwift
 
+/// emptyView
 final class EmptyView: CodeBasedView {
     private let emptyImageView: UIImageView = {
         let imageView = UIImageView()

@@ -50,6 +50,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         categoryCollectionView.selectItem(at: IndexPath(item: viewModel.selectedCategory.value, section: 0), animated: false, scrollPosition: .left)
         
         view.addSubview(emptyView)
+        emptyView.isHidden = true
         emptyView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
@@ -163,14 +164,13 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
                 cell.configure(with: cellModel.name)
             }.disposed(by: disposeBag)
         
-        let isCategoryEmpty = viewModel.categoryWords
+         viewModel.categoryWords
             .map { $0.isEmpty }
-        
-        isCategoryEmpty
             .bind(to: emptyView.rx.isHidden)
             .disposed(by: disposeBag)
         
-        isCategoryEmpty
+        viewModel.categoryWords
+            .map { !$0.isEmpty }
             .bind(to: tableView.rx.isScrollEnabled)
             .disposed(by: disposeBag)
         

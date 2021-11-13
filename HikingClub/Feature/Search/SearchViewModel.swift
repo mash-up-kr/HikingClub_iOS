@@ -31,7 +31,6 @@ final class SearchViewModel: BaseViewModel {
     func bind() {
         UserDefaults.standard.rx
             .observe([String].self, UserDefaults.Name.recentSearch.rawValue)
-            .debug()
             .distinctUntilChanged()
             .compactMap { $0 }
             .bind(to: recentSearchWords)

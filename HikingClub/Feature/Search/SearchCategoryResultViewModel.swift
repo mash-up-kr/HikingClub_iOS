@@ -29,7 +29,6 @@ final class SearchCategoryResultViewModel: BaseViewModel {
     
     private func bind() {
         selectedCategory
-            .debug()
             .filter { [weak self] in 0 <= $0 && $0 < self?.categoryWords.value.count ?? 0 }
             .subscribe(onNext: { [weak self] index in
                 guard let category = self?.categoryWords.value[index] else { return }
