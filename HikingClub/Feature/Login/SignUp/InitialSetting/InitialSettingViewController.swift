@@ -26,26 +26,23 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel>, Scr
     private let nickNameTextField: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
         textfield.setTitle("닉네임", description: "닉네임은 공백 포함 2-10자로 작성해 주세요.", theme: .normal)
+        textfield.setTheme(.normal)
         return textfield
     }()
     
-    private let townTextfield: NDTextFieldView = {
+    private lazy var townTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.rx.theme.onNext(.selected)
-        textfield.setTitle("동네선택", description: "관심있는 동네를 선택해 주세요.", theme: .normal)
+        textfield.setTitle("동네선택", description: "관심있는 동네를 선택해 주세요.", theme: .selected)
+        textfield.setTheme(.selected)
+        
+        textfield.addSubview(townTextFieldButton)
+        townTextFieldButton.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         return textfield
     }()
     
-    private let textFieldComponent2: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .blue
-        button.snp.makeConstraints {
-            $0.height.equalTo(77)
-        }
-        button.setTitle("동네 선택 텍스트필드 컴포넌트", for: .normal)
-        
-        return button
-    }()
+    private let townTextFieldButton = UIButton()
     
     private let completeButton: NDCTAButton = {
         let button = NDCTAButton(buttonStyle: .one)
@@ -113,7 +110,7 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel>, Scr
             })
             .disposed(by: disposeBag)
 
-        townTextfield.rx.tapDetailButton
+        townTextFieldButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.navigateToLocationSelectViewController()
             })
@@ -127,7 +124,13 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel>, Scr
     }
     
     private func navigateToLocationSelectViewController() {
-        print("동네설정 화면 푸시해주세요!")
+        let viewModel = SelectTownViewModel()
+        viewModel.selectedTownRelay
+            .subscribe(onNext: { [weak self] in
+                self?.setTown($0)
+            })
+            .disposed(by: disposeBag)
+        navigationController?.pushViewController(SelectTownViewController(viewModel), animated: true)
     }
     
     private func navigateToCategorySettingViewController() {
@@ -135,5 +138,9 @@ final class InitialSettingViewController: BaseViewController<BaseViewModel>, Scr
         viewController.modalPresentationStyle = .fullScreen
         // TODO: ViewModel에 dismiss relay 구독하기
         present(viewController, animated: true)
+    }
+    
+    private func setTown(_ place: PlaceModel) {
+        townTextfield.text = place.fullAddress
     }
 }
