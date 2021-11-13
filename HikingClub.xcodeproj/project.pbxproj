@@ -62,6 +62,7 @@
 		771230DC27283EDA003B63E5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771230DB27283EDA003B63E5 /* MyPageViewController.swift */; };
 		77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77169DD0270C8C36000AB1D2 /* BaseViewController.swift */; };
 		77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77213CF72708EF1600994C9A /* BaseWebView.swift */; };
+		7722136F27401F1400A42CCA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7722136E27401F1400A42CCA /* Kingfisher */; };
 		773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */; };
 		773D61A02719D0D0001528B3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D619F2719D0D0001528B3 /* SignInViewController.swift */; };
 		773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D61A22719D872001528B3 /* ChangePasswordViewController.swift */; };
@@ -77,7 +78,6 @@
 		7755080C26F84DA0005B8763 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7755080B26F84DA0005B8763 /* RxSwift */; };
 		7755081026F84DA0005B8763 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7755080F26F84DA0005B8763 /* RxRelay */; };
 		7755081226F84DA0005B8763 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081126F84DA0005B8763 /* RxCocoa */; };
-		7755081726F84DCF005B8763 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081626F84DCF005B8763 /* Kingfisher */; };
 		7755081A26F84E03005B8763 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081926F84E03005B8763 /* Lottie */; };
 		7755081D26F84E52005B8763 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081C26F84E52005B8763 /* ReactiveMoya */; };
 		7755081F26F84E52005B8763 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7755081E26F84E52005B8763 /* CombineMoya */; };
@@ -254,10 +254,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7755082126F84E52005B8763 /* RxMoya in Frameworks */,
-				7755081726F84DCF005B8763 /* Kingfisher in Frameworks */,
 				7755081A26F84E03005B8763 /* Lottie in Frameworks */,
 				7755081F26F84E52005B8763 /* CombineMoya in Frameworks */,
 				7755081026F84DA0005B8763 /* RxRelay in Frameworks */,
+				7722136F27401F1400A42CCA /* Kingfisher in Frameworks */,
 				7755082326F84E52005B8763 /* Moya in Frameworks */,
 				7755081226F84DA0005B8763 /* RxCocoa in Frameworks */,
 				7755081D26F84E52005B8763 /* ReactiveMoya in Frameworks */,
@@ -785,13 +785,13 @@
 				7755080B26F84DA0005B8763 /* RxSwift */,
 				7755080F26F84DA0005B8763 /* RxRelay */,
 				7755081126F84DA0005B8763 /* RxCocoa */,
-				7755081626F84DCF005B8763 /* Kingfisher */,
 				7755081926F84E03005B8763 /* Lottie */,
 				7755081C26F84E52005B8763 /* ReactiveMoya */,
 				7755081E26F84E52005B8763 /* CombineMoya */,
 				7755082026F84E52005B8763 /* RxMoya */,
 				7755082226F84E52005B8763 /* Moya */,
 				77B7A1272708A674008F5530 /* SnapKit */,
+				7722136E27401F1400A42CCA /* Kingfisher */,
 			);
 			productName = HikingClub;
 			productReference = 775507F326F842E5005B8763 /* HikingClub.app */;
@@ -822,10 +822,10 @@
 			mainGroup = 775507EA26F842E5005B8763;
 			packageReferences = (
 				7755080A26F84DA0005B8763 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				7755081526F84DCF005B8763 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				7755081826F84E03005B8763 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				7755081B26F84E52005B8763 /* XCRemoteSwiftPackageReference "Moya" */,
 				77B7A1262708A674008F5530 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				7722136D27401F1400A42CCA /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 775507F426F842E5005B8763 /* Products */;
 			projectDirPath = "";
@@ -1176,20 +1176,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7722136D27401F1400A42CCA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		7755080A26F84DA0005B8763 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 6.2.0;
-			};
-		};
-		7755081526F84DCF005B8763 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.3.1;
 			};
 		};
 		7755081826F84E03005B8763 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
@@ -1219,6 +1219,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7722136E27401F1400A42CCA /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7722136D27401F1400A42CCA /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		7755080B26F84DA0005B8763 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7755080A26F84DA0005B8763 /* XCRemoteSwiftPackageReference "RxSwift" */;
@@ -1233,11 +1238,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7755080A26F84DA0005B8763 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
-		};
-		7755081626F84DCF005B8763 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7755081526F84DCF005B8763 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 		7755081926F84E03005B8763 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
