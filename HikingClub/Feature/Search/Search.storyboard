@@ -60,8 +60,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Loo-4G-gz0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Loo-4G-gz0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ejM-T2-q4A" customClass="NaviBar" customModule="HikingClub" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="40"/>
@@ -75,7 +75,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ejM-T2-q4A" firstAttribute="leading" secondItem="44h-Mh-yO8" secondAttribute="leading" id="1sf-Xl-pOq"/>
-                            <constraint firstItem="Loo-4G-gz0" firstAttribute="top" secondItem="44h-Mh-yO8" secondAttribute="top" id="20b-lG-PaP"/>
+                            <constraint firstItem="Loo-4G-gz0" firstAttribute="top" secondItem="as3-7X-YEJ" secondAttribute="top" id="20b-lG-PaP"/>
                             <constraint firstItem="44h-Mh-yO8" firstAttribute="trailing" secondItem="Loo-4G-gz0" secondAttribute="trailing" id="4aY-o4-rhP"/>
                             <constraint firstItem="44h-Mh-yO8" firstAttribute="bottom" secondItem="Loo-4G-gz0" secondAttribute="bottom" id="J3W-Fd-6QN"/>
                             <constraint firstItem="44h-Mh-yO8" firstAttribute="trailing" secondItem="ejM-T2-q4A" secondAttribute="trailing" id="KRr-zI-6fm"/>

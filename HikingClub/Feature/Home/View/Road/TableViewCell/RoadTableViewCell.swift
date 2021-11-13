@@ -30,6 +30,8 @@ class RoadTableViewCell: UITableViewCell {
     }
     
     func configure(tags: [String]) {
+        let num = Int.random(in: 1...4)
+        roadImageView.image = UIImage(named: "sample_\(num)")
         setRoadTitleLabelTopConstraint()
         settingRoadHashTagStackView(tags)
         titleStackView.spacing = roadImageView.image == nil ? 0 : 14

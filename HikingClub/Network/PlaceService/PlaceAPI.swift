@@ -9,6 +9,7 @@ import Moya
 
 enum PlaceAPI {
     case search(PlaceRequestModel.SearchModel)
+    case categories
 }
 
 extension PlaceAPI: TargetType {
@@ -17,6 +18,8 @@ extension PlaceAPI: TargetType {
         switch self {
         case .search:
             return "/v1/apis/places"
+        case .categories:
+            return "/v1/apis/categories"
         }
     }
     
@@ -24,6 +27,8 @@ extension PlaceAPI: TargetType {
     var method: Moya.Method {
         switch self {
         case .search:
+            return .get
+        case .categories:
             return .get
         }
     }
@@ -33,6 +38,8 @@ extension PlaceAPI: TargetType {
         switch self {
         case .search(let model):
             return .requestParameters(parameters: model.dictionary, encoding: URLEncoding.default)
+        case .categories:
+            return .requestPlain
         }
     }
 }
