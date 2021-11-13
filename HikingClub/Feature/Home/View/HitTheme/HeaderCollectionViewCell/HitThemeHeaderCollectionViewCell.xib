@@ -17,11 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="144" height="104"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SampleImage" translatesAutoresizingMaskIntoConstraints="NO" id="KVk-nx-1MK">
-                        <rect key="frame" x="0.0" y="4" width="143" height="94"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="94" id="a11-rT-WMj"/>
-                        </constraints>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KVk-nx-1MK">
+                        <rect key="frame" x="0.0" y="0.0" width="144" height="104"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aY-FN-HGU">
                         <rect key="frame" x="12" y="71" width="42" height="21"/>
@@ -34,10 +31,10 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="5aY-FN-HGU" secondAttribute="bottom" constant="12" id="3rt-HU-lo6"/>
-                <constraint firstAttribute="trailing" secondItem="KVk-nx-1MK" secondAttribute="trailing" constant="1" id="EU1-ae-FDG"/>
+                <constraint firstAttribute="trailing" secondItem="KVk-nx-1MK" secondAttribute="trailing" id="EU1-ae-FDG"/>
                 <constraint firstItem="5aY-FN-HGU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="Gnw-dL-8iC"/>
-                <constraint firstItem="KVk-nx-1MK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="aA5-BT-WFW"/>
-                <constraint firstAttribute="bottom" secondItem="KVk-nx-1MK" secondAttribute="bottom" constant="6" id="ak1-jC-9c9"/>
+                <constraint firstItem="KVk-nx-1MK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aA5-BT-WFW"/>
+                <constraint firstAttribute="bottom" secondItem="KVk-nx-1MK" secondAttribute="bottom" id="ak1-jC-9c9"/>
                 <constraint firstItem="KVk-nx-1MK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="y2P-Es-VW9"/>
             </constraints>
             <size key="customSize" width="300" height="140"/>
@@ -48,7 +45,4 @@
             <point key="canvasLocation" x="-43.478260869565219" y="87.053571428571431"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="SampleImage" width="343" height="104"/>
-    </resources>
 </document>

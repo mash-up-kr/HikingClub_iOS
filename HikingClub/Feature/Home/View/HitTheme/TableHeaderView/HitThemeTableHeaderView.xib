@@ -15,12 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="218"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Kd-bi-zpX">
-                    <rect key="frame" x="50" y="60" width="42" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gxv-oE-nAa">
                     <rect key="frame" x="0.0" y="94" width="414" height="104"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -34,11 +28,11 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AKX-42-I0j">
-                    <rect key="frame" x="16" y="58" width="24" height="24"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AKX-42-I0j">
+                    <rect key="frame" x="16" y="58" width="81.5" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="8MH-8o-QYV"/>
-                        <constraint firstAttribute="width" constant="24" id="bEq-x7-iez"/>
+                        <constraint firstAttribute="width" constant="81.5" id="NOS-zB-SLm"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -47,9 +41,7 @@
             <constraints>
                 <constraint firstItem="AKX-42-I0j" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="8fF-eF-7EG"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gxv-oE-nAa" secondAttribute="trailing" id="9XB-g5-7bv"/>
-                <constraint firstItem="4Kd-bi-zpX" firstAttribute="leading" secondItem="AKX-42-I0j" secondAttribute="trailing" constant="10" id="FpL-dX-fwP"/>
                 <constraint firstItem="gxv-oE-nAa" firstAttribute="top" secondItem="AKX-42-I0j" secondAttribute="bottom" constant="12" id="KI3-il-5Qw"/>
-                <constraint firstItem="4Kd-bi-zpX" firstAttribute="centerY" secondItem="AKX-42-I0j" secondAttribute="centerY" id="cYf-FG-bhU"/>
                 <constraint firstItem="gxv-oE-nAa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="f1e-VE-a98"/>
                 <constraint firstItem="AKX-42-I0j" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="14" id="pfW-gO-pF2"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="gxv-oE-nAa" secondAttribute="bottom" constant="20" id="qEy-Yv-oSV"/>
@@ -57,7 +49,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="collectionView" destination="gxv-oE-nAa" id="Wdr-70-VlC"/>
-                <outlet property="hitThemeLabel" destination="4Kd-bi-zpX" id="tmC-54-mqy"/>
+                <outlet property="iconImageView" destination="AKX-42-I0j" id="GjW-RJ-xaf"/>
             </connections>
             <point key="canvasLocation" x="128.98550724637681" y="-49.888392857142854"/>
         </view>

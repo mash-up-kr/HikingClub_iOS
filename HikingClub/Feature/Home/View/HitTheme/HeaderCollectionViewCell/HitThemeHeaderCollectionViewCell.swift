@@ -16,5 +16,6 @@ final class HitThemeHeaderCollectionViewCell: UICollectionViewCell {
         titleLabel.setFont(.semiBold16)
         titleLabel.text = "단풍길"
         layer.cornerRadius = 12
+        imageView.image = CategoryIcon(rawValue: "FOOD")?.themeImage
     }
 }

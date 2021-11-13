@@ -8,8 +8,8 @@
 import UIKit
 
 final class HitThemeTableHeaderView: UIView {
-    @IBOutlet private weak var hitThemeLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var iconImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,9 +18,7 @@ final class HitThemeTableHeaderView: UIView {
     }
     
     func configureUI() {
-        hitThemeLabel.text = "인기 테마"
-        hitThemeLabel.setFont(.semiBold20)
-        hitThemeLabel.textColor = .gray400
+        iconImageView.setImage(.logo_gray)
     }
     
     func setCollectionView() {
