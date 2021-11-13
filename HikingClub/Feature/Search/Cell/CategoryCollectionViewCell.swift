@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum CategoryIcon: String {
+enum CategoryIcon: String, Decodable {
     case nature = "NATURE"
     case nightView = "NIGHT_VIEW"
     case lake = "LAKE"
@@ -31,6 +31,20 @@ enum CategoryIcon: String {
         case .pet: return AssetImage.icon_category_dog_28.image
         }
     }
+    
+    var title: String {
+        switch self {
+        case .cherryBlossom: return "벚꽃"
+        case .children: return "어린이"
+        case .couple: return "연인"
+        case .exercise: return "운동"
+        case .food: return "먹거리"
+        case .lake: return "호수"
+        case .nature: return "자연"
+        case .nightView: return "야경"
+        case .pet: return "반려견"
+        }
+    }
 }
 
 // TODO: 카테고리별 키값에맞게 이미지 넣어주기
@@ -52,9 +66,8 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = 8
     }
     
-    // TODO: 서버통신에따른 테마이미지 넣기
-    func configure(with model: String, icon: CategoryIcon) {
-        titleLabel.text = model
-        imageView.image = icon.image
+    func configure(with model: CategoryModel) {
+        titleLabel.text = model.name
+        imageView.image = model.key.image
     }
 }
