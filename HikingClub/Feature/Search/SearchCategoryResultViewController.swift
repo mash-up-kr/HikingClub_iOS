@@ -32,7 +32,12 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
     override func viewDidLoad() {
         super.viewDidLoad()
         // 초기선택설정
-        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
+        categoryCollectionView.selectItem(at: IndexPath(item: viewModel.selectedCategory.value, section: 0), animated: false, scrollPosition: .left)
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        categoryCollectionView.scrollToItem(at: IndexPath(item: viewModel.selectedCategory.value, section: 0), at: .centeredHorizontally, animated: true)
     }
     
     private func setTableHeaderView() {
@@ -110,7 +115,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         viewModel.categoryWords
             .bind(to: categoryCollectionView.rx.items(cellIdentifier: CategoryTabCollectionView.cellIdentifier,
                                               cellType: CategoryTabCollectionViewCell.self)) { item, cellModel, cell in
-                cell.configure(with: cellModel)
+                cell.configure(with: cellModel.name)
             }.disposed(by: disposeBag)
         
         // 카테고리 텝버튼 클릭시
@@ -154,7 +159,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
 
 extension SearchCategoryResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let word = viewModel.categoryWords.value[indexPath.item]
+        let word = viewModel.categoryWords.value[indexPath.item].name
         return categoryCollectionView.cellSize(text: word)
     }
 }

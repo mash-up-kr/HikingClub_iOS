@@ -18,7 +18,7 @@ enum CategoryIcon: String, Decodable {
     case children = "CHILD"
     case pet = "PET_DOG"
     
-    var image: UIImage? {
+    var icon: UIImage? {
         switch self {
         case .nature: return AssetImage.icon_category_trees_28.image
         case .nightView: return AssetImage.icon_category_moonStar_28.image
@@ -68,6 +68,6 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
     
     func configure(with model: CategoryModel) {
         titleLabel.text = model.name
-        imageView.image = model.key.image
+        imageView.image = model.key.icon
     }
 }

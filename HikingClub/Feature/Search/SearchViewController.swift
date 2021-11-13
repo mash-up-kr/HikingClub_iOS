@@ -139,8 +139,7 @@ final class SearchViewController: BaseViewController<SearchViewModel> {
             .subscribe(onNext: { [weak self] indexPath in
                 let item = indexPath.item
                 let nextViewController = self?.storyboard?.instantiate("SearchCategoryResultViewController") { [weak self] coder -> SearchCategoryResultViewController? in
-                    guard let word = self?.viewModel.categoryWords.value[item].name else { return nil }
-                    return .init(coder, SearchCategoryResultViewModel(categoryName: word))
+                    return .init(coder, SearchCategoryResultViewModel(selectedIndex: item, categories: self?.viewModel.categoryWords.value ?? []))
                 }
                 guard let nextViewController = nextViewController else { return }
                 self?.navigationController?.pushViewController(nextViewController, animated: true)
