@@ -204,30 +204,3 @@ final class InitialSettingViewController: BaseViewController<InitialSettingViewM
         }
     }
 }
-
-class InitialSettingViewModel: BaseViewModel {
-    private let service = SignUpService()
-    
-    let townRelay = BehaviorRelay<PlaceModel?>(value: nil)
-    let signUpModelRelay = BehaviorRelay<SignUpRequestModel.SignUpModel?>(value: nil)
-    let signUpSucceedRelay = PublishRelay<Void>()
-    
-    func signUp(_ nickname: String, _ placeCode: String) {
-        guard var signUpModel = signUpModelRelay.value else { return }
-        signUpModel.nickname = nickname
-        signUpModel.placeCode = placeCode
-        
-        service.signUp(signUpModel)
-            .subscribe(onSuccess: { [weak self] response in
-                let message = response.message
-                let toastMessage: NDToastView.Theme = {
-                    return response.responseCode == "SUCCESS_SIGN_UP" ? .green(text: message) : .red(text: message)
-                }()
-                self?.signUpSucceedRelay.accept(Void())
-                NDToastView.shared.rx.showText.onNext(toastMessage)
-            }, onFailure: { _ in
-                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
-            })
-            .disposed(by: disposeBag)
-    }
-}

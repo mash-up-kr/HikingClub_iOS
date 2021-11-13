@@ -62,8 +62,8 @@
 		771230DC27283EDA003B63E5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771230DB27283EDA003B63E5 /* MyPageViewController.swift */; };
 		77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77169DD0270C8C36000AB1D2 /* BaseViewController.swift */; };
 		77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77213CF72708EF1600994C9A /* BaseWebView.swift */; };
-
 		7722136F27401F1400A42CCA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7722136E27401F1400A42CCA /* Kingfisher */; };
+		77221371274040C900A42CCA /* InitialSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77221370274040C900A42CCA /* InitialSettingViewModel.swift */; };
 		77238834273FDC2200F3AA84 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77238833273FDC2200F3AA84 /* SignUpAPI.swift */; };
 		77238836273FDC2B00F3AA84 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77238835273FDC2B00F3AA84 /* SignUpService.swift */; };
 		773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */; };
@@ -191,6 +191,7 @@
 		771230DB27283EDA003B63E5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		77169DD0270C8C36000AB1D2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		77213CF72708EF1600994C9A /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
+		77221370274040C900A42CCA /* InitialSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingViewModel.swift; sourceTree = "<group>"; };
 		77238833273FDC2200F3AA84 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		77238835273FDC2B00F3AA84 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+.swift"; sourceTree = "<group>"; };
@@ -714,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				777B517D2714336700299430 /* InitialSettingViewController.swift */,
+				77221370274040C900A42CCA /* InitialSettingViewModel.swift */,
 				777B51842714553600299430 /* InitialCategorySettingViewController.swift */,
 				7761AC0A273D641E0029BCF2 /* InitialCategorySettingViewModel.swift */,
 			);
@@ -896,6 +898,7 @@
 				06A1ECB12712C10A00EA78D8 /* NDButtonTheme.swift in Sources */,
 				06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */,
 				77E5913827115F890070F381 /* LoginNavigationViewController.swift in Sources */,
+				77221371274040C900A42CCA /* InitialSettingViewModel.swift in Sources */,
 				77C69BE927294775004C2207 /* SignUpInputViewModel.swift in Sources */,
 				0654DFEE273682CE00B96F15 /* SearchResultViewController.swift in Sources */,
 				06AB8CBF273287B4007F32AA /* CategoryTabCollectionViewCell.swift in Sources */,
