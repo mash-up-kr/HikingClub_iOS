@@ -35,6 +35,7 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
     private lazy var emailTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
         textfield.setTitle("이메일", description: "이메일 주소 입력", theme: .normal)
+        textfield.setTitle("이메일", description: "이메일이 인증 되었습니다", theme: .highlight)
         textfield.setTheme(.normal)
         
         textfield.addSubview(emailTextFieldButton)
@@ -174,17 +175,27 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
             .disposed(by: disposeBag)
     }
     
+    private func setAuthedEmail(_ email: String) {
+        emailTextfield.text = email
+        emailTextfield.setTheme(.highlight)
+    }
+    
     private func navigateToEmailAuthorizeViewController() {
-        // TODO: 전달받은 이메일 textField에 셋팅하기
         let viewModel = EmailAuthorizeViewModel()
         viewModel
             .authorizedEmailRelay
-            .bind { print($0) }
+            .bind { [weak self] in self?.setAuthedEmail($0) }
             .disposed(by: disposeBag)
         navigationController?.pushViewController(EmailAuthorizeViewController(viewModel), animated: true)
     }
     
     private func navigateToInitialSettingViewController() {
-        navigationController?.pushViewController(InitialSettingViewController(BaseViewModel()), animated: true)
+        let viewModel = InitialSettingViewModel()
+        guard let email = emailTextfield.text,
+              let password = passwordConfirmTextfield.text
+        else { return }
+        viewModel.signUpModelRelay.accept(SignUpRequestModel.SignUpModel(email: email,
+                                                                             password: password))
+        navigationController?.pushViewController(InitialSettingViewController(viewModel), animated: true)
     }
 }

@@ -191,7 +191,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
             .subscribe(onNext: { [weak self] in
                 // TODO: 길상세페이지 넘기기
                 print($0)
-                let webViewController = WebViewController(WebViewModel())
+                let webViewController = WebViewController(WebViewModel(for: .write))
                 webViewController.hidesBottomBarWhenPushed = true
                 self?.tableView.deselectRow(at: $0, animated: true)
                 self?.navigationController?.pushViewController(webViewController, animated: true)

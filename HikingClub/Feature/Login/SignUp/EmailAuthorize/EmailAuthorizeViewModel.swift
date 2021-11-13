@@ -11,16 +11,37 @@ import RxRelay
 class EmailAuthorizeViewModel: BaseViewModel {
     let authorizedEmailRelay = PublishRelay<String>()
     
-    func requestEmailAuthCode() {
-        // TODO: 이메일 발송 API 작성하기
+    private let service = SignUpService()
+    
+    func requestEmailAuthCode(_ email: String) {
+        service.sendToken(email)
+            .subscribe(onSuccess: { response in
+                if response.responseCode == "SUCCESS_SEND_MAIL_SIGN_UP_TOKEN" {
+                    NDToastView.shared.rx.showText.onNext(.green(text: "인증메일이 전송되었습니다."))
+                } else {
+                    let message = response.message
+                    NDToastView.shared.rx.showText.onNext(.red(text: message))
+                }
+            }, onFailure: { _ in
+                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            })
+            .disposed(by: disposeBag)
     }
     
-    func isRightAuthCode(_ inputCode: String?) -> Bool {
-        // TODO: 서버에 입력된 코드 넘기고, 인증 결과 받아서 처리 로직으로 변경하기
-        guard let inputCode = inputCode, inputCode == "1234" else {
-            return false
-        }
-        
-        return true
+    func isRightAuthCode(_ email: String, _ code: String) {
+        service.verificationEmail(.init(email: email,
+                                        token: code,
+                                        tokenType: .signUp))
+            .subscribe(onSuccess: { [weak self] response in
+                if response.responseCode == "SUCCESS_VERIFYING" {
+                    self?.authorizedEmailRelay.accept(email)
+                } else {
+                    let message = response.message
+                    NDToastView.shared.rx.showText.onNext(.red(text: message))
+                }
+            }, onFailure: { _ in
+                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            })
+            .disposed(by: disposeBag)
     }
 }

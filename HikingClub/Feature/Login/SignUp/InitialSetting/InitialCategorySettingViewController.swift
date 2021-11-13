@@ -7,17 +7,16 @@
 
 import UIKit
 
-final class InitialCategorySettingViewController: BaseViewController<BaseViewModel> {
+final class InitialCategorySettingViewController: BaseViewController<InitialCategorySettingViewModel> {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("카테고리 설정")
-        // TODO: 오른쪽 닫기 icon 적용하기
+        view.setRightItemImage(.icon_crossX_gray900_24, tintColor: .gray900)
         return view
     }()
     
-    private let categoryCollectionViewArea: UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
+    private let categoryCollectionView: CategoryCollectionView = {
+        let view = CategoryCollectionView()
         return view
     }()
     
@@ -27,26 +26,41 @@ final class InitialCategorySettingViewController: BaseViewController<BaseViewMod
         button.setTitle("나중에", buttonType: .cancel)
         return button
     }()
+    
+    // MARK: - Attribute
+    
+    override func attribute() {
+        super.attribute()
+        setupCategoryCollectionView()
+    }
+    
+    private func setupCategoryCollectionView() {
+        viewModel.categoryWords
+            .bind(to: categoryCollectionView.rx.items(cellIdentifier: CategoryCollectionView.cellIdentifier, cellType: CategoryCollectionViewCell.self)) { indexPath, cellModel, cell in
+                cell.configure(with: cellModel)
+            }
+            .disposed(by: disposeBag)
+    }
 
     // MARK: - Layout
     
     override func layout() {
         super.layout()
-        view.addSubViews(navigationBar, categoryCollectionViewArea, bottomCTAButton)
+        view.addSubViews(navigationBar, categoryCollectionView, bottomCTAButton)
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
         }
-        categoryCollectionViewArea.snp.makeConstraints {
+        categoryCollectionView.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom).offset(48)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
             
-            $0.height.equalTo(348)
+            $0.height.equalTo(304)
         }
         bottomCTAButton.snp.makeConstraints {
-            $0.bottom.equalTo(view)
             $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view)
         }
     }
     
