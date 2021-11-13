@@ -12,6 +12,17 @@ protocol ResponseProtocol {
     var message: String { get }
 }
 
+/// data가 확실하게 없는 ResponseModel
+struct BaseResponseModel: ResponseProtocol, Decodable {
+    var responseCode: String
+    let message: String
+    
+    enum CodingKeys: String, CodingKey {
+        case responseCode = "resCode"
+        case message
+    }
+}
+
 /// 단일 모델 Response Wrapepr
 struct ResponseModel<T: Decodable>: ResponseProtocol, Decodable {
     var responseCode: String
