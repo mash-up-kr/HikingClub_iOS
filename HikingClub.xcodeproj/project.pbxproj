@@ -406,8 +406,8 @@
 				06BE349427403FFB00F4917A /* EmptyView.swift */,
 			);
 			path = View;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		28B86D3F273FE6F800E962A8 /* VersionInfoMenu */ = {
 			isa = PBXGroup;
 			children = (
