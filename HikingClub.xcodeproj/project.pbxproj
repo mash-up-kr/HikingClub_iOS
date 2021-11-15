@@ -74,6 +74,7 @@
 		77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77213CF72708EF1600994C9A /* BaseWebView.swift */; };
 		7722136F27401F1400A42CCA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7722136E27401F1400A42CCA /* Kingfisher */; };
 		77221371274040C900A42CCA /* InitialSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77221370274040C900A42CCA /* InitialSettingViewModel.swift */; };
+		772213742742A3C400A42CCA /* lottie_start.json in Resources */ = {isa = PBXBuildFile; fileRef = 772213732742A3C400A42CCA /* lottie_start.json */; };
 		77238834273FDC2200F3AA84 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77238833273FDC2200F3AA84 /* SignUpAPI.swift */; };
 		77238836273FDC2B00F3AA84 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77238835273FDC2B00F3AA84 /* SignUpService.swift */; };
 		773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */; };
@@ -212,6 +213,7 @@
 		77169DD0270C8C36000AB1D2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		77213CF72708EF1600994C9A /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		77221370274040C900A42CCA /* InitialSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingViewModel.swift; sourceTree = "<group>"; };
+		772213732742A3C400A42CCA /* lottie_start.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_start.json; sourceTree = "<group>"; };
 		77238833273FDC2200F3AA84 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		77238835273FDC2B00F3AA84 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+.swift"; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 		77169DC0270ACFEE000AB1D2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				772213722742A39E00A42CCA /* Lottie */,
 				775507FF26F842E6005B8763 /* Assets.xcassets */,
 				775B95A7271F0BD9004D4540 /* AssetImage.swift */,
 				06A1ECA92711789500EA78D8 /* Colors.xcassets */,
@@ -566,6 +569,14 @@
 				77E59130270DDCFA0070F381 /* BaseViewModel.swift */,
 			);
 			path = BaseArchitecture;
+			sourceTree = "<group>";
+		};
+		772213722742A39E00A42CCA /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				772213732742A3C400A42CCA /* lottie_start.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		77238832273FDC0900F3AA84 /* SignUpService */ = {
@@ -911,6 +922,7 @@
 				06A1ECAA2711789500EA78D8 /* Colors.xcassets in Resources */,
 				06962E9B272A86100021402F /* RecentSearchCollectionViewCell.xib in Resources */,
 				28ED07FD2736833500D33354 /* VersionInfo.storyboard in Resources */,
+				772213742742A3C400A42CCA /* lottie_start.json in Resources */,
 				283AF0502708672C0033ED71 /* Home.storyboard in Resources */,
 				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
 				283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */,
