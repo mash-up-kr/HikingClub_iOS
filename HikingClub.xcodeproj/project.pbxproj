@@ -75,6 +75,7 @@
 		7722136F27401F1400A42CCA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7722136E27401F1400A42CCA /* Kingfisher */; };
 		77221371274040C900A42CCA /* InitialSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77221370274040C900A42CCA /* InitialSettingViewModel.swift */; };
 		772213742742A3C400A42CCA /* lottie_start.json in Resources */ = {isa = PBXBuildFile; fileRef = 772213732742A3C400A42CCA /* lottie_start.json */; };
+		772213772742B02500A42CCA /* UserInformationUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772213762742B02500A42CCA /* UserInformationUserDefault.swift */; };
 		77238834273FDC2200F3AA84 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77238833273FDC2200F3AA84 /* SignUpAPI.swift */; };
 		77238836273FDC2B00F3AA84 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77238835273FDC2B00F3AA84 /* SignUpService.swift */; };
 		773C1D902718562A001AB7EB /* UIStoryBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */; };
@@ -214,6 +215,7 @@
 		77213CF72708EF1600994C9A /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		77221370274040C900A42CCA /* InitialSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingViewModel.swift; sourceTree = "<group>"; };
 		772213732742A3C400A42CCA /* lottie_start.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_start.json; sourceTree = "<group>"; };
+		772213762742B02500A42CCA /* UserInformationUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationUserDefault.swift; sourceTree = "<group>"; };
 		77238833273FDC2200F3AA84 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		77238835273FDC2B00F3AA84 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		773C1D8F2718562A001AB7EB /* UIStoryBoard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+.swift"; sourceTree = "<group>"; };
@@ -579,6 +581,14 @@
 			path = Lottie;
 			sourceTree = "<group>";
 		};
+		772213752742B01000A42CCA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				772213762742B02500A42CCA /* UserInformationUserDefault.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		77238832273FDC0900F3AA84 /* SignUpService */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +601,7 @@
 		773D619E2719D0C1001528B3 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				772213752742B01000A42CCA /* Manager */,
 				773D619F2719D0D0001528B3 /* SignInViewController.swift */,
 				77C69BF7272D9DE3004C2207 /* SignInViewModel.swift */,
 				773D61A12719D85A001528B3 /* ForgotPassword */,
@@ -947,6 +958,7 @@
 				06A1ECA52708D77900EA78D8 /* UICollectionView+.swift in Sources */,
 				77E59131270DDCFA0070F381 /* BaseViewModel.swift in Sources */,
 				7741F98E27171CC2005B3D88 /* UIViewController+.swift in Sources */,
+				772213772742B02500A42CCA /* UserInformationUserDefault.swift in Sources */,
 				775507FB26F842E5005B8763 /* MainTabBarController.swift in Sources */,
 				06D4FF322739452200300AE5 /* CategoryCollectionView.swift in Sources */,
 				777B517727129EA700299430 /* SignUpTermStackView.swift in Sources */,
