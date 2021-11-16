@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class MainTabBarController: UITabBarController {
     private let homeViewController: UINavigationController = {
@@ -32,6 +33,13 @@ final class MainTabBarController: UITabBarController {
         MyPageViewController(BaseViewModel()).wrappedByNavigationController()
     }()
     
+    enum TabBarIndex: Int {
+        case home
+        case search
+        case write
+        case myPage
+    }
+    
     private let homeTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_house_deselected_gray200_28,
                                               selectedAsset: .icon_tabbar_house_selected_green900_28)
     
@@ -43,7 +51,10 @@ final class MainTabBarController: UITabBarController {
     
     private let mypageTabBarItem = UITabBarItem(normalAsset: .icon_tabbar_person_deselected_gray200_28,
                                                 selectedAsset: .icon_tabbar_person_selected_green900_28)
-        
+    private let disposeBag = DisposeBag()
+    
+    private var previousTabIndex: Int = .zero
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.barTintColor = .white
@@ -54,6 +65,40 @@ final class MainTabBarController: UITabBarController {
         myPageViewController.tabBarItem = mypageTabBarItem
         
         setViewControllers([homeViewController, searchViewController, writeViewController, myPageViewController], animated: false)
+        
+        bind()
+    }
+    
+    func bind() {
+        self.rx.didSelect
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.selectedIndexProcess(self.selectedIndex)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func checkLogin() -> Bool {
+        // FIXME: UserInformationUsesrDefault로 변경하기
+        return UserDefaults.standard.string(forKey: "TOKEN") != nil
+    }
+    
+    private func selectedIndexProcess(_ index: Int) {
+        if index == TabBarIndex.write.rawValue {
+            selectedIndex = previousTabIndex
+            
+            let viewController: UIViewController = {
+                if checkLogin() {
+                    return WebViewController(WebViewModel(for: .write))
+                } else {
+                    return LoginNavigationViewController(LoginNavigationViewModel()).wrappedByNavigationController()
+                }
+            }()
+            viewController.modalPresentationStyle = .fullScreen
+            present(viewController, animated: true, completion: nil)
+        } else {
+            previousTabIndex = index
+        }
     }
     
 #if DEBUG

@@ -44,7 +44,11 @@ extension WebViewController: WKScriptMessageHandler {
         
         switch function {
         case .close:
-            navigationController?.popViewController(animated: true)
+            if modalPresentationStyle == .fullScreen {
+                dismiss(animated: true, completion: nil)
+            } else {
+                navigationController?.popViewController(animated: true)
+            }
         case .share:
             guard let data = body as? [String: String],
                   let shareURL = data["url"]
