@@ -129,6 +129,7 @@
 		777B517E2714336700299430 /* InitialSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517D2714336700299430 /* InitialSettingViewController.swift */; };
 		777B51802714472B00299430 /* TermDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517F2714472B00299430 /* TermDetailViewController.swift */; };
 		777B51852714553600299430 /* InitialCategorySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B51842714553600299430 /* InitialCategorySettingViewController.swift */; };
+		779B94FB2745557100325353 /* TermDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B94FA2745557100325353 /* TermDetailViewModel.swift */; };
 		77B7A1252708A1C2008F5530 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7A1242708A1C2008F5530 /* WebViewController.swift */; };
 		77B7A1282708A674008F5530 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77B7A1272708A674008F5530 /* SnapKit */; };
 		77C69BE727294613004C2207 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C69BE627294613004C2207 /* SignUpViewModel.swift */; };
@@ -263,6 +264,7 @@
 		777B517D2714336700299430 /* InitialSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingViewController.swift; sourceTree = "<group>"; };
 		777B517F2714472B00299430 /* TermDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewController.swift; sourceTree = "<group>"; };
 		777B51842714553600299430 /* InitialCategorySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCategorySettingViewController.swift; sourceTree = "<group>"; };
+		779B94FA2745557100325353 /* TermDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewModel.swift; sourceTree = "<group>"; };
 		77B7A1242708A1C2008F5530 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		77C69BE627294613004C2207 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		77C69BE827294775004C2207 /* SignUpInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputViewModel.swift; sourceTree = "<group>"; };
@@ -790,6 +792,15 @@
 			path = InitialSetting;
 			sourceTree = "<group>";
 		};
+		779B94F92745556400325353 /* Term */ = {
+			isa = PBXGroup;
+			children = (
+				777B517F2714472B00299430 /* TermDetailViewController.swift */,
+				779B94FA2745557100325353 /* TermDetailViewModel.swift */,
+			);
+			path = Term;
+			sourceTree = "<group>";
+		};
 		77B7A1212708A14D008F5530 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,9 +855,9 @@
 				777B516C27119A5200299430 /* View */,
 				77E5913F2711723C0070F381 /* SignUpViewController.swift */,
 				77C69BE627294613004C2207 /* SignUpViewModel.swift */,
-				777B517F2714472B00299430 /* TermDetailViewController.swift */,
 				777B51792712AA2300299430 /* SignUpInputViewController.swift */,
 				77C69BE827294775004C2207 /* SignUpInputViewModel.swift */,
+				779B94F92745556400325353 /* Term */,
 				773D61A42719D8CA001528B3 /* EmailAuthorize */,
 				777B51862714553900299430 /* InitialSetting */,
 			);
@@ -1057,6 +1068,7 @@
 				28B86D502740399800E962A8 /* InquiryViewController.swift in Sources */,
 				777B517A2712AA2300299430 /* SignUpInputViewController.swift in Sources */,
 				28B86D49273FE8AF00E962A8 /* PersonalInformationViewController.swift in Sources */,
+				779B94FB2745557100325353 /* TermDetailViewModel.swift in Sources */,
 				06A1ECAC2711828900EA78D8 /* UIColor+.swift in Sources */,
 				77C69BE727294613004C2207 /* SignUpViewModel.swift in Sources */,
 				28ED07F5273681C700D33354 /* VersionInfoViewController.swift in Sources */,

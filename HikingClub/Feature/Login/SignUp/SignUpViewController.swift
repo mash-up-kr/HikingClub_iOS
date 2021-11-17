@@ -113,10 +113,15 @@ final class SignUpViewController: BaseViewController<SignUpViewModel> {
     }
     
     private func navigateToTermDetailViewController(_ termType: SignUpTermsStackView.SignUpTermType) {
-        let viewController = TermDetailViewController(BaseViewModel())
+        let viewModel = TermDetailViewModel()
+        viewModel.agreementRelay
+            .subscribe(onNext: { [weak self] _ in
+                self?.termStackView.didAgree.accept(.personal)
+            })
+            .disposed(by: disposeBag)
+        let viewController = TermDetailViewController(viewModel)
         viewController.termType = termType
-        viewController.modalPresentationStyle = .fullScreen
-        navigationController?.present(viewController, animated: true, completion: nil)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func updateAgreeButton(_ isEnable: Bool) {
