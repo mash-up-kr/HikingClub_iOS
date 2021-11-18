@@ -10,9 +10,6 @@ import Foundation
 extension UserDefaults {
     enum Name: String {
         case recentSearch
-    }
-    
-    enum User: String {
         case token
     }
 }

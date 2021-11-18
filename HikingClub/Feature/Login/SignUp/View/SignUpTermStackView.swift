@@ -59,7 +59,9 @@ final class SignUpTermsStackView: UIStackView, CodeBasedProtocol {
             .disposed(by: disposeBag)
         
         didAgree
-            .bind { [weak self] in self?.setAgree($0) }
+            .subscribe(onNext: { [weak self] in
+                self?.setAgree($0)
+            })
             .disposed(by: disposeBag)
     }
     

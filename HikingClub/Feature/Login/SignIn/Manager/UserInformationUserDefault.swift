@@ -11,7 +11,7 @@ struct UserInformationUserDefault: UserDefaultManager {
     
     private let key: String
     
-    init(key: UserDefaults.User) {
+    init(key: UserDefaults.Name) {
         self.key = key.rawValue
     }
     
