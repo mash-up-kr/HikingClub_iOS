@@ -14,6 +14,7 @@ struct PlaceService {
     
     typealias PlaceSearchListResponse = ListResponseModel<PlaceModel>
     typealias CategoriesResponse = ListResponseModel<CategoryModel>
+    typealias RoadsResponse = ResponseModel<RoadResponse>
     
     func search(_ keyword: String) -> Single<PlaceSearchListResponse> {
         provider.request(.search(PlaceRequestModel.SearchModel(keyword: keyword)))
@@ -21,5 +22,9 @@ struct PlaceService {
     
     func categories() -> Single<CategoriesResponse> {
         provider.request(.categories)
+    }
+    
+    func roads(model: PlaceRequestModel.RoadListModel) -> Single<RoadsResponse> {
+        provider.request(.roadList(model))
     }
 }

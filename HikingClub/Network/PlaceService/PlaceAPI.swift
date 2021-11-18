@@ -10,6 +10,7 @@ import Moya
 enum PlaceAPI {
     case search(PlaceRequestModel.SearchModel)
     case categories
+    case roadList(PlaceRequestModel.RoadListModel)
 }
 
 extension PlaceAPI: TargetType {
@@ -20,6 +21,8 @@ extension PlaceAPI: TargetType {
             return "/v1/apis/places"
         case .categories:
             return "/v1/apis/categories"
+        case .roadList:
+            return "/v1/apis/roads"
         }
     }
     
@@ -29,6 +32,8 @@ extension PlaceAPI: TargetType {
         case .search:
             return .get
         case .categories:
+            return .get
+        case .roadList:
             return .get
         }
     }
@@ -40,6 +45,8 @@ extension PlaceAPI: TargetType {
             return .requestParameters(parameters: model.dictionary, encoding: URLEncoding.default)
         case .categories:
             return .requestPlain
+        case .roadList(let model):
+            return .requestParameters(parameters: model.dictionary, encoding: URLEncoding.queryString)
         }
     }
 }

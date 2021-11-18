@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RoadResponse {
+struct RoadResponse: Decodable {
     let roads: [Road]
 }
 
