@@ -6,20 +6,24 @@
 //
 
 import UIKit
+import Kingfisher
 
-class RoadTableViewCell: UITableViewCell {
+final class RoadTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var titleStackView: UIStackView!
-    @IBOutlet weak var roadImageView: UIImageView!
-    @IBOutlet weak var roadTitleLabel: UILabel!
-    @IBOutlet weak var roadBookMarkButton: UIButton!
-    @IBOutlet weak var roadDistanceLabel: UILabel!
-    @IBOutlet weak var roadSpotBackgroundView: UIView!
-    @IBOutlet weak var roadSpotLabel: UILabel!
-    @IBOutlet weak var roadAddressLabel: UILabel!
-    @IBOutlet weak var roadHashTagStackView: UIStackView!
-    @IBOutlet weak var roadHashTagStackViewWidth: NSLayoutConstraint!
-    @IBOutlet weak var roadLikeBadgeView: UIView!
+    @IBOutlet private weak var titleStackView: UIStackView!
+    @IBOutlet private weak var roadImageView: UIImageView!
+    @IBOutlet private weak var roadTitleLabel: UILabel!
+    @IBOutlet private weak var roadBookMarkButton: UIButton!
+    @IBOutlet private weak var roadDistanceLabel: UILabel!
+    @IBOutlet private weak var roadSpotBackgroundView: UIView!
+    @IBOutlet private weak var roadSpotLabel: UILabel!
+    @IBOutlet private weak var roadAddressLabel: UILabel!
+    @IBOutlet private weak var roadHashTagStackView: UIStackView!
+    @IBOutlet private weak var roadHashTagStackViewWidth: NSLayoutConstraint!
+    @IBOutlet private weak var roadLikeBadgeView: UIView!
+
+    var model: Road?
+    private let workCaculator = WorkCalculator()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,23 +31,42 @@ class RoadTableViewCell: UITableViewCell {
         customText()
         customBackground()
         customCornerRadius()
+        setRoadImageViewHidden(true)
     }
     
-    func configure(tags: [String]) {
-        let num = Int.random(in: 1...4)
-        roadImageView.image = UIImage(named: "sample_\(num)")
-        setRoadTitleLabelTopConstraint()
-        settingRoadHashTagStackView(tags)
-        titleStackView.spacing = roadImageView.image == nil ? 0 : 14
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        roadImageView.image = nil
+        setRoadImageViewHidden(true)
     }
     
-    private func setRoadTitleLabelTopConstraint() {
-        roadImageView.isHidden = true
-        if roadImageView.image == nil {
-            roadImageView.isHidden = true
+    func configure(model: Road) {
+        self.model = model
+        roadTitleLabel.text = model.title
+        let time = workCaculator.costTime(distance: model.distance)
+        if time > 60 {
+            let hour = time / 60
+            let min = time % 60
+            roadDistanceLabel.text = "\(model.distance)km (\(hour)시간 \(min)분)"
         } else {
-            roadImageView.isHidden = false
+            roadDistanceLabel.text = "\(model.distance)km (\(time))분"
         }
+        roadSpotLabel.text = "\(model.spots.count)개의 스페셜 스팟"
+        roadAddressLabel.text = model.place
+        
+        if let imageString = model.images.first,
+        let imageURL = URL(string: imageString) {
+            setRoadImageViewHidden(false)
+            roadImageView.kf.indicatorType = .activity
+            roadImageView.kf.setImage(with: imageURL, options: [.cacheOriginalImage])
+        }
+        
+        settingRoadHashTagStackView(model.hashtags)
+    }
+    
+    private func setRoadImageViewHidden(_ isHidden: Bool) {
+        roadImageView.isHidden = isHidden
+        titleStackView.spacing = isHidden ? 0 : 17
     }
     
     private func settingRoadHashTagStackView(_ tags: [String]) {
