@@ -51,6 +51,9 @@
 		06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC1F73271C1B79001A6584 /* NDAlert.swift */; };
 		06BE34932740225400F4917A /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE34922740225400F4917A /* CategoryModel.swift */; };
 		06BE349527403FFB00F4917A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE349427403FFB00F4917A /* EmptyView.swift */; };
+		06BE34982746024500F4917A /* RoadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE34972746024500F4917A /* RoadModel.swift */; };
+		06BE349A2746037D00F4917A /* RoadListRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE34992746037D00F4917A /* RoadListRequestModel.swift */; };
+		06BE349C2746105B00F4917A /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE349B2746105B00F4917A /* Dictionary+.swift */; };
 		06D4FF2A27390A8400300AE5 /* UserDefault+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FF2927390A8400300AE5 /* UserDefault+.swift */; };
 		06D4FF2C27390F3900300AE5 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FF2B27390F3900300AE5 /* UserDefaultManager.swift */; };
 		06D4FF2F273939C100300AE5 /* RecentSearchUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FF2E273939C100300AE5 /* RecentSearchUserDefault.swift */; };
@@ -190,6 +193,9 @@
 		06BC1F73271C1B79001A6584 /* NDAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDAlert.swift; sourceTree = "<group>"; };
 		06BE34922740225400F4917A /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		06BE349427403FFB00F4917A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		06BE34972746024500F4917A /* RoadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadModel.swift; sourceTree = "<group>"; };
+		06BE34992746037D00F4917A /* RoadListRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadListRequestModel.swift; sourceTree = "<group>"; };
+		06BE349B2746105B00F4917A /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 		06D4FF2927390A8400300AE5 /* UserDefault+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+.swift"; sourceTree = "<group>"; };
 		06D4FF2B27390F3900300AE5 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		06D4FF2E273939C100300AE5 /* RecentSearchUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchUserDefault.swift; sourceTree = "<group>"; };
@@ -357,6 +363,7 @@
 				7760CA95272541D0006B39A9 /* Encodable+.swift */,
 				0684EA5A2734623300FC74D1 /* UITableViewCell+.swift */,
 				06D4FF2927390A8400300AE5 /* UserDefault+.swift */,
+				06BE349B2746105B00F4917A /* Dictionary+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -643,6 +650,7 @@
 			isa = PBXGroup;
 			children = (
 				7760CA932725411E006B39A9 /* PlaceRequestModel.swift */,
+				06BE34992746037D00F4917A /* RoadListRequestModel.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -663,6 +671,7 @@
 			children = (
 				7760CA9D27259F53006B39A9 /* PlaceModel.swift */,
 				06BE34922740225400F4917A /* CategoryModel.swift */,
+				06BE34972746024500F4917A /* RoadModel.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -958,6 +967,7 @@
 				7776BEE727366D36009EC168 /* MypageListNicknameHeaderView.swift in Sources */,
 				777B51802714472B00299430 /* TermDetailViewController.swift in Sources */,
 				77E59133270DDDA40070F381 /* HomeViewModel.swift in Sources */,
+				06BE349A2746037D00F4917A /* RoadListRequestModel.swift in Sources */,
 				06962E97272928290021402F /* SearchViewModel.swift in Sources */,
 				06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */,
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
@@ -969,6 +979,7 @@
 				06D4FF2A27390A8400300AE5 /* UserDefault+.swift in Sources */,
 				06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */,
 				77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */,
+				06BE349C2746105B00F4917A /* Dictionary+.swift in Sources */,
 				7761AC0B273D641E0029BCF2 /* InitialCategorySettingViewModel.swift in Sources */,
 				77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */,
 				77C69BF4272D977B004C2207 /* SignInService.swift in Sources */,
@@ -1012,6 +1023,7 @@
 				283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */,
 				77C69BEB272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift in Sources */,
 				06AB8CBA273136F7007F32AA /* SearchCategoryResultViewController.swift in Sources */,
+				06BE34982746024500F4917A /* RoadModel.swift in Sources */,
 				777B517327129D6500299430 /* CodeBasedProtocol.swift in Sources */,
 				7760CA8F2725313B006B39A9 /* EmailAPI.swift in Sources */,
 				7776BEE527366666009EC168 /* MypageListSectionHeaderView.swift in Sources */,
