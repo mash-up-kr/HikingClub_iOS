@@ -58,6 +58,18 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
             }
                                          .disposed(by: disposeBag)
         
+        // 길 리스트 클릭
+        tableView.rx.itemSelected
+            .asDriver()
+            .debounce(.milliseconds(300))
+            .compactMap { [weak self] in self?.viewModel.roadDatas.value[$0.row].id }
+            .drive(onNext: { [weak self] in
+                let viewModel = WebViewModel(for: .detail(roadId: $0))
+                let viewController = WebViewController(viewModel)
+                self?.navigationController?.pushViewController(viewController, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         // 상단 탭바
         viewModel.locations
             .bind(to: locationTabbar.rx.items(cellIdentifier: CategoryTabCollectionView.cellIdentifier,
