@@ -49,7 +49,7 @@ final class RoadTableViewCell: UITableViewCell {
             let min = time % 60
             roadDistanceLabel.text = "\(model.distance)km (\(hour)시간 \(min)분)"
         } else {
-            roadDistanceLabel.text = "\(model.distance)km (\(time))분"
+            roadDistanceLabel.text = "\(model.distance)km (\(time)분)"
         }
         roadSpotLabel.text = "\(model.spots.count)개의 스페셜 스팟"
         roadAddressLabel.text = model.place

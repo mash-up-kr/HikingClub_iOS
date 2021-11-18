@@ -14,10 +14,10 @@ struct RoadResponse: Decodable {
         let id: String
         let title: String
         let content: String
-        let distance: Int
+        let distance: Float
         let place: String
         let category: CategoryIcon
-        let routes: [[Int]]
+        let routes: [[Float]]
         let spots: [Spot]
         let images: [String]
         let hashtags: [String]
@@ -25,7 +25,7 @@ struct RoadResponse: Decodable {
         struct Spot: Decodable {
             let title: String
             let content: String
-            let point: [Int]
+            let point: [Float]
         }
     }    
 }

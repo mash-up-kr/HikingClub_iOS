@@ -12,10 +12,10 @@ struct Road {
     let id: String
     let title: String
     let content: String
-    let distance: Int
+    let distance: Float
     let place: String
     let category: CategoryIcon
-    let routes: [[Int]]
+    let routes: [[Float]]
     let spots: [Spot]
     let images: [String]
     let hashtags: [String]
@@ -23,9 +23,9 @@ struct Road {
     struct Spot {
         let title: String
         let content: String
-        let point: [Int]
+        let point: [Float]
         
-        init(title: String, content: String, point: [Int]) {
+        init(title: String, content: String, point: [Float]) {
             self.title = title
             self.content = content
             self.point = point
@@ -41,10 +41,10 @@ struct Road {
     init(id: String,
          title: String,
          content: String,
-         distance: Int,
+         distance: Float,
          place: String,
          category: CategoryIcon,
-         routes: [[Int]],
+         routes: [[Float]],
          spots: [Road.Spot],
          images: [String],
          hashtags: [String]) {

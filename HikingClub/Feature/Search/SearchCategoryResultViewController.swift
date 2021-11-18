@@ -117,6 +117,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.register(RoadTableViewCell.self)
         tableView.separatorStyle = .none
+        categoryCollectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 5)
     }
     
     override func layout() {

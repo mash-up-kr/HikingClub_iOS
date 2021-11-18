@@ -20,6 +20,7 @@ final class HomeViewModel: BaseViewModel {
         locations.accept(["송파구", "문정동", "가락동", "삼전동", "잠실동", "남양주", "서울시 송파구"])
     }
     
+    /// 주소별 길 리스트 조회
     func requestRoads() {
         let model = PlaceRequestModel.RoadListModel(placeCode: 1123068, lastId: "", direction: .forward)
         placeService.roads(model: model)

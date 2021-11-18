@@ -19,11 +19,4 @@ struct WorkCalculator {
     func costTime(distance: Float) -> Int {
         Int((distance * 1000.0 / speed))
     }
-    
-    /// - Parameters:
-    ///     - distance: km 단위
-    /// - Returns: 분 단위
-    func costTime(distance: Int) -> Int {
-        Int((Float(distance) * 1000.0 / speed))
-    }
 }

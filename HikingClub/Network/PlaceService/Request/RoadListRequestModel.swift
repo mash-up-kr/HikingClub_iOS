@@ -9,7 +9,7 @@ import Foundation
 
 extension PlaceRequestModel {
     struct RoadListModel: Encodable {
-        var categoryId: String?
+        var categoryId: Int?
         var placeCode: Int?
         let limit: Int
         let lastId: String
@@ -21,7 +21,7 @@ extension PlaceRequestModel {
         }
       
         /// 카테고리별 필터시
-        init(categoryId: String?, limit: Int = 20, lastId: String, direction: Direction) {
+        init(categoryId: Int?, limit: Int = 20, lastId: String, direction: Direction) {
             self.categoryId = categoryId
             self.limit = limit
             self.lastId = lastId
