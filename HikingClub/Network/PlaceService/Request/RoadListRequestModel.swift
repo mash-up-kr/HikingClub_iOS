@@ -45,11 +45,5 @@ extension PlaceRequestModel {
             self.direction = direction.rawValue
             self.filter = .place
         }
-        
-        var queryString: String {
-            var queries = self.dictionary
-            queries.removeValue(forKey: "filter")
-            return queries.queryString
-        }
     }
 }
