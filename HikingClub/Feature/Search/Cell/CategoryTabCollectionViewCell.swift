@@ -30,7 +30,7 @@ final class CategoryTabCollectionViewCell: UICollectionViewCell {
         tabButton.setTitle("")
     }
 
-    func configure(with model: String) {
-        tabButton.setTitle(model)
+    func configure(with title: String, subTitle: String? = nil) {
+        tabButton.setTitle(title, subTitle: subTitle)
     }
 }

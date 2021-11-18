@@ -37,6 +37,8 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         super.viewDidLoad()
         // 초기선택설정
         locationTabbar.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
+        
+        viewModel.requestRoads()
     }
     
     override func attribute() {
@@ -52,7 +54,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         viewModel.roadDatas
             .bind(to: tableView.rx.items(cellIdentifier: "RoadTableViewCell",
                                          cellType: RoadTableViewCell.self)) { row, cellModel, cell in
-                cell.configure(tags: cellModel)
+                cell.configure(model: cellModel)
             }
                                          .disposed(by: disposeBag)
         
@@ -60,7 +62,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         viewModel.locations
             .bind(to: locationTabbar.rx.items(cellIdentifier: CategoryTabCollectionView.cellIdentifier,
                                       cellType: CategoryTabCollectionViewCell.self)) { item, cellModel, cell in
-                cell.configure(with: cellModel)
+                cell.configure(with: cellModel, subTitle: item == 0 ? "현위치" : nil)
             }.disposed(by: disposeBag)
         
         // TODO: - 선택시 통신
@@ -134,6 +136,6 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let word = viewModel.locations.value[indexPath.item]
-        return locationTabbar.cellSize(text: word)
+        return locationTabbar.cellSize(title: word, subTitle: indexPath.item == 0 ? "현위치" : nil)
     }
 }

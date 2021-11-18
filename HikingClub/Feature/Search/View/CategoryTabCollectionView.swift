@@ -27,10 +27,10 @@ final class CategoryTabCollectionView: UICollectionView {
     }
     
     /// 텍스트 길이에 맞는 셀크기 반환
-    func cellSize(text: String) -> CGSize {
+    func cellSize(title: String, subTitle: String? = nil) -> CGSize {
         let tab: NDTabButton = {
             let tab = NDTabButton()
-            tab.setTitle(text)
+            tab.setTitle(title, subTitle: subTitle)
             return tab
         }()
         tab.layoutIfNeeded()

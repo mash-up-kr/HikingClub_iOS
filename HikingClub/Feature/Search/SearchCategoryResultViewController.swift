@@ -217,6 +217,6 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
 extension SearchCategoryResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let word = viewModel.categoryWords.value[indexPath.item].name
-        return categoryCollectionView.cellSize(text: word)
+        return categoryCollectionView.cellSize(title: word)
     }
 }
