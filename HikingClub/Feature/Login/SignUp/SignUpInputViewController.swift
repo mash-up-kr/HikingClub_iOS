@@ -181,7 +181,7 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
     }
     
     private func navigateToEmailAuthorizeViewController() {
-        let viewModel = EmailAuthorizeViewModel()
+        let viewModel = EmailAuthorizeViewModel(.singUp)
         viewModel
             .authorizedEmailRelay
             .bind { [weak self] in self?.setAuthedEmail($0) }

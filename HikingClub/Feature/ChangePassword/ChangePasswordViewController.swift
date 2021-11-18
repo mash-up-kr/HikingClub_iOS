@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ChangePasswordViewController: BaseViewController<BaseViewModel> {
+final class ChangePasswordViewController: BaseViewController<ChangePasswordViewModel> {
     private let navigationBar: NaviBar = {
         let view = NaviBar(frame: .zero)
         view.setTitle("비밀번호 변경")
@@ -28,25 +28,28 @@ final class ChangePasswordViewController: BaseViewController<BaseViewModel> {
         return stackView
     }()
     
-    private let passwordInputTextField: NDTextFieldView = {
+    private let passwordTextField: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("새로운 비밀번호", description: "6-18자의 비밀번호", theme: .normal)
+        textfield.setTitle("새로운 비밀번호", description: "6~18자의 비밀번호", theme: .normal)
+        textfield.setTitle("새로운 비밀번호", description: "비밀번호는 6~18자로 입력해야합니다.", theme: .warning)
+        textfield.setPasswordMode()
+        textfield.setTheme(.normal)
         return textfield
     }()
     
-    private let passwordConfirmInputTextField: NDTextFieldView = {
+    private let passwordConfirmTextField: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
         textfield.setTitle("비밀번호 확인", description: "비밀번호를 다시 입력해주세요.", theme: .normal)
+        textfield.setTitle("비밀번호 확인", description: "비밀번호가 일치하지 않습니다.", theme: .warning)
+        textfield.setPasswordMode()
+        textfield.setTheme(.normal)
         return textfield
     }()
     
-    private let signInButtonWrapper = UIView()
-    
-    // TODO: CAT Button Component로 교쳬 예정
-    private let completeButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("완료", for: .normal)
-        button.backgroundColor = .gray
+    private let completeButton: NDCTAButton = {
+        let button = NDCTAButton(buttonStyle: .one)
+        button.setTitle("완료", buttonType: .ok)
+        button.setEnabled(false, type: .ok)
         return button
     }()
     
@@ -67,8 +70,6 @@ final class ChangePasswordViewController: BaseViewController<BaseViewModel> {
             $0.top.equalTo(scrollView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view)
-            
-            $0.height.equalTo(122)
         }
         scrollView.addSubview(scrollContentsView)
         scrollContentsView.snp.makeConstraints {
@@ -92,7 +93,7 @@ final class ChangePasswordViewController: BaseViewController<BaseViewModel> {
     }
     
     private func textFieldStackViewLayout() {
-        textFieldStackView.addArrangedSubviews(passwordInputTextField, passwordConfirmInputTextField)
+        textFieldStackView.addArrangedSubviews(passwordTextField, passwordConfirmTextField)
     }
     
     // MARK: - Bind
@@ -105,19 +106,43 @@ final class ChangePasswordViewController: BaseViewController<BaseViewModel> {
             })
             .disposed(by: disposeBag)
         
-        completeButton.rx.tap
+        passwordTextField.rx.text
+            .skip(1)
+            .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] in
-                self?.navigateToSignInViewController()
+                guard let isValidate = self?.viewModel.isValidatePassword($0) else { return }
+                self?.passwordTextField.setTheme(isValidate ? .normal : .warning)
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func navigateToSignInViewController() {
-        // TODO: 이메일 인증 화면 후 로그인 화면으로 돌아가야 하므로 필요한 로직
-        guard let navigationController = navigationController,
-              let signInViewController = navigationController.viewControllers.filter({ $0 is SignInViewController }).first
-        else { return }
         
-        navigationController.popToViewController(signInViewController, animated: true)
+        passwordConfirmTextField.rx.text
+            .skip(1)
+            .filter { !$0.isEmpty }
+            .subscribe(onNext: { [weak self] in
+                guard let isValidate = self?.viewModel.isSamePassword($0, self?.passwordTextField.text) else { return }
+                self?.passwordConfirmTextField.setTheme(isValidate ? .normal : .warning)
+            })
+            .disposed(by: disposeBag)
+        
+        completeButton.rx.tapOk
+            .subscribe(onNext: { [weak self] in
+                guard let password = self?.passwordConfirmTextField.text else { return }
+                self?.viewModel.changePassword(password)
+            })
+            .disposed(by: disposeBag)
+        
+        // MARK: ViewModel Binding
+        
+        viewModel.enableNextStepRelay
+            .subscribe(onNext: { [weak self] in
+                self?.completeButton.setEnabled($0, type: .ok)
+            })
+            .disposed(by: disposeBag)
+            
+        viewModel.changePasswordSucceedRelay
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }

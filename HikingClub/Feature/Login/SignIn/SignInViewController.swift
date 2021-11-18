@@ -167,18 +167,19 @@ final class SignInViewController: BaseViewController<SignInViewModel>, ScrollVie
     }
     
     private func navigateToEmailAuthorizeViewController() {
-        let viewModel = EmailAuthorizeViewModel()
+        let viewModel = EmailAuthorizeViewModel(.forgotPassword)
         viewModel.authorizedEmailRelay
-            .subscribe(onNext: { [weak self] _ in
-                self?.navigateToChangePasswordViewController()
+            .subscribe(onNext: { [weak self] in
+                self?.navigateToChangePasswordViewController($0)
             })
             .disposed(by: disposeBag)
         let viewController = EmailAuthorizeViewController(viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    private func navigateToChangePasswordViewController() {
-        let viewController = ChangePasswordViewController(BaseViewModel())
+    private func navigateToChangePasswordViewController(_ authroizedEmail: String) {
+        let viewModel = ChangePasswordViewModel(authroizedEmail)
+        let viewController = ChangePasswordViewController(viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
