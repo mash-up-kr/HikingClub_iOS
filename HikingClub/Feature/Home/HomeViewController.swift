@@ -103,7 +103,7 @@ extension HomeViewController: UITableViewDelegate {
         let containerView = UIView()
         containerView.backgroundColor = .white
         
-        guard let headerView = Bundle.main.loadNibNamed("HitThemeTableHeaderView", owner: nil, options: nil)?.first as? UIView else {
+        guard let headerView = Bundle.main.loadNibNamed("HitThemeTableHeaderView", owner: nil, options: nil)?.first as? HitThemeTableHeaderView else {
             return nil
         }
         
@@ -134,6 +134,22 @@ extension HomeViewController: UITableViewDelegate {
             $0.centerY.equalToSuperview()
             $0.width.height.equalTo(24)
         }
+        
+        viewModel.categoryWords
+            .bind(to: headerView.rx.categories)
+            .disposed(by: headerView.disposeBag)
+        
+        headerView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                print(indexPath)
+                let item = indexPath.item
+                let searchStoryboard = UIStoryboard(name: "Search", bundle: nil)
+                let nextViewController = searchStoryboard.instantiate("SearchCategoryResultViewController") { [weak self] coder -> SearchCategoryResultViewController? in
+                    return .init(coder, SearchCategoryResultViewModel(selectedIndex: item, categories: self?.viewModel.categoryWords.value ?? []))
+                }
+                self?.navigationController?.pushViewController(nextViewController, animated: true)
+            })
+            .disposed(by: headerView.disposeBag)
         
         return containerView
     }
