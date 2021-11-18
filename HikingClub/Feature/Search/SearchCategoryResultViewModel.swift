@@ -10,7 +10,7 @@ import RxRelay
 
 final class SearchCategoryResultViewModel: BaseViewModel {
     // MARK: - Output
-    let roadDatas: BehaviorRelay<[String]> = BehaviorRelay(value: [])
+    let roadDatas: BehaviorRelay<[Road]> = BehaviorRelay(value: [])
     let categoryWords: BehaviorRelay<[CategoryModel]>
     let currentCategory: BehaviorRelay<CategoryModel>
     
@@ -22,8 +22,6 @@ final class SearchCategoryResultViewModel: BaseViewModel {
         selectedCategory = BehaviorRelay(value: selectedIndex)
         currentCategory = BehaviorRelay(value: categories[selectedIndex])
         super.init()
-        // FIXME: - mock데이터 삭제
-        roadDatas.accept(["1","1","1","1"])
         bind()
     }
     

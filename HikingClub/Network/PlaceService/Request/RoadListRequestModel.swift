@@ -15,35 +15,25 @@ extension PlaceRequestModel {
         let lastId: String
         let direction: String
         
-        /// 필터종류
-        var filter: Filter
-        
         enum Direction: String, Encodable {
             case backward
             case forward
         }
-        
-        enum Filter: Encodable {
-            case category
-            case place
-        }
-        
+      
         /// 카테고리별 필터시
-        init(categoryId: String?, limit: Int = 10, lastId: String, direction: Direction) {
+        init(categoryId: String?, limit: Int = 20, lastId: String, direction: Direction) {
             self.categoryId = categoryId
             self.limit = limit
             self.lastId = lastId
             self.direction = direction.rawValue
-            self.filter = .category
         }
         
         /// 주소별 필터시
-        init(placeCode: Int?, limit: Int = 10, lastId: String, direction: Direction) {
+        init(placeCode: Int?, limit: Int = 20, lastId: String, direction: Direction) {
             self.placeCode = placeCode
             self.limit = limit
             self.lastId = lastId
             self.direction = direction.rawValue
-            self.filter = .place
         }
     }
 }

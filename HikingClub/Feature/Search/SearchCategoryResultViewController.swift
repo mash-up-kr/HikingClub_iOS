@@ -184,7 +184,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         viewModel.roadDatas
             .bind(to: tableView.rx.items(cellIdentifier: "RoadTableViewCell",
                                          cellType: RoadTableViewCell.self)) { row, cellModel, cell in
-                cell.configure(tags: [cellModel])
+                cell.configure(model: cellModel)
             }.disposed(by: disposeBag)
         
         tableView.rx.itemSelected
