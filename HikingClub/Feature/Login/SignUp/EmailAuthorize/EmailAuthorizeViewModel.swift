@@ -11,6 +11,8 @@ import RxRelay
 class EmailAuthorizeViewModel: BaseViewModel {
     let authorizedEmailRelay = PublishRelay<String>()
     
+    let authorizeSucceedRelay = PublishRelay<String>()
+    
     private let service = SignUpService()
     
     func requestEmailAuthCode(_ email: String) {
@@ -34,7 +36,7 @@ class EmailAuthorizeViewModel: BaseViewModel {
                                         tokenType: .signUp))
             .subscribe(onSuccess: { [weak self] response in
                 if response.responseCode == "SUCCESS_VERIFYING" {
-                    self?.authorizedEmailRelay.accept(email)
+                    self?.authorizeSucceedRelay.accept(email)
                 } else {
                     let message = response.message
                     NDToastView.shared.rx.showText.onNext(.red(text: message))
