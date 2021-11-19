@@ -113,6 +113,10 @@ final class ComponentTestViewController: UIViewController, UIScrollViewDelegate 
                 print("오케이!")
             })
             .disposed(by: disposeBag)
+        
+        Observable.just(true)
+            .bind(to: ctaButton.rx.isEnabled)
+            .disposed(by: disposeBag)
     }
     
     func testToast() {

@@ -103,4 +103,9 @@ extension Reactive where Base: NDCTAButton {
     var tapCancel: ControlEvent<Void> {
         base.cancelButton.rx.tap
     }
+    
+    // ok버튼만 활성/비활성 됩니다.
+    var isEnabled: Binder<Bool> {
+        Binder(base) { $0.setEnabled($1, type: .ok) }
+    }
 }
