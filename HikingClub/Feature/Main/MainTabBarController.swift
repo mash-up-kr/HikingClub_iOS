@@ -85,27 +85,25 @@ final class MainTabBarController: UITabBarController {
     private func selectedIndexProcess(_ index: Int) {
         if index == TabBarIndex.write.rawValue {
             selectedIndex = previousTabIndex
-            
-            let viewController: UIViewController = {
-                if checkLogin() {
-                    return WebViewController(WebViewModel(for: .write))
-                } else {
-                    return LoginNavigationViewController(LoginNavigationViewModel()).wrappedByNavigationController()
-                }
-            }()
-            viewController.modalPresentationStyle = .fullScreen
-            present(viewController, animated: true, completion: nil)
+            if checkLogin() {
+                present(WebViewController(WebViewModel(for: .write)), animated: true, completion: nil)
+            } else {
+                presentLoginViewController()
+            }
         } else if index == TabBarIndex.myPage.rawValue {
             if false == checkLogin() {
                 selectedIndex = previousTabIndex
-                
-                let viewController = LoginNavigationViewController(LoginNavigationViewModel()).wrappedByNavigationController()
-                viewController.modalPresentationStyle = .fullScreen
-                present(viewController, animated: true, completion: nil)
+                presentLoginViewController()
             }
         } else {
             previousTabIndex = index
         }
+    }
+    
+    private func presentLoginViewController() {
+        let viewController = LoginNavigationViewController(LoginNavigationViewModel()).wrappedByNavigationController()
+        viewController.modalPresentationStyle = .fullScreen
+        present(viewController, animated: true, completion: nil)
     }
     
 #if DEBUG
