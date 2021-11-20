@@ -28,7 +28,6 @@ final class InitialSettingViewModel: BaseViewModel {
                 } else {
                     NDToastView.shared.rx.showText.onNext(.red(text: message))
                 }
-                
             }, onFailure: { _ in
                 NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
             })
