@@ -16,8 +16,12 @@ final class HomeViewModel: BaseViewModel {
     let locations: BehaviorRelay<[String]> = BehaviorRelay(value: [])
     /// 카테고리
     let categoryWords: BehaviorRelay<[CategoryModel]> = BehaviorRelay(value: [])
+    let isLoading: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
     private let placeService = PlaceService()
+    private var placeCode: Int = 1123068
+    /// 페이징 가능한지체크
+    private var isMorePage: Bool = true
     
     // FIXME: 더미용 나중에 삭제할것
     func mockData() {
@@ -30,11 +34,35 @@ final class HomeViewModel: BaseViewModel {
     
     /// 주소별 길 리스트 조회
     func requestRoads() {
-        let model = PlaceRequestModel.RoadListModel(placeCode: 1123068, lastId: "", direction: .forward)
+        let model = PlaceRequestModel.RoadListModel(placeCode: placeCode, lastId: nil, direction: .forward)
         placeService.roads(model: model)
             .compactMap { $0.data?.roads.map { Road(road: $0) } }
             .subscribe(onSuccess: { [weak self] in
                 self?.roadDatas.accept($0)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    /// 주소별 길 리스트 페이징요청
+    func requestMoreRoads() {
+        if isLoading.value || !isMorePage {
+            return
+        }
+        isLoading.accept(true)
+        
+        var newModel = roadDatas.value
+        guard let lastID = newModel.last?.id else { return }
+        
+        let model = PlaceRequestModel.RoadListModel(placeCode: placeCode, lastId: lastID, direction: .forward)
+        placeService.roads(model: model)
+            .compactMap { $0.data?.roads.map { Road(road: $0) } }
+            .subscribe(onSuccess: { [weak self] in
+                self?.isMorePage = !$0.isEmpty
+                $0.forEach { newModel.append($0) }
+                self?.roadDatas.accept(newModel)
+                self?.isLoading.accept(false)
+            }, onError: { [weak self] _ in
+                self?.isLoading.accept(false)
             })
             .disposed(by: disposeBag)
     }

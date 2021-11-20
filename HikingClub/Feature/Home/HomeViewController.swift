@@ -48,14 +48,14 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     
     override func bind() {
         super.bind()
+        tableView.prefetchDataSource = self
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
         // 길 리스트
         viewModel.roadDatas
             .bind(to: tableView.rx.items(cellIdentifier: "RoadTableViewCell",
                                          cellType: RoadTableViewCell.self)) { row, cellModel, cell in
                 cell.configure(model: cellModel)
-            }
-                                         .disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
         
         // 길 리스트 클릭
         tableView.rx.itemSelected
@@ -159,6 +159,15 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
+extension HomeViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if indexPath.row == viewModel.roadDatas.value.count - 1 {
+                viewModel.requestMoreRoads()
+            }
+        }
+    }
+}
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
