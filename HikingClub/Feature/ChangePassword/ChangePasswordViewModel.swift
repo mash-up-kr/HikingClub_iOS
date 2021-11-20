@@ -6,11 +6,11 @@
 //
 
 import RxRelay
+import RxSwift
 
 final class ChangePasswordViewModel: BaseViewModel {
-    private var isAllValidate: Bool = false
-    private var passwordValidate: Bool = false
-    private var passwordConfirmValidate: Bool = false
+    let passwordValidateRelay = BehaviorRelay<Bool>(value: false)
+    let passwordConfirmRelay = BehaviorRelay<Bool>(value: false)
     
     var enableNextStepRelay = PublishRelay<Bool>()
     let changePasswordSucceedRelay = PublishRelay<Void>()
@@ -21,52 +21,48 @@ final class ChangePasswordViewModel: BaseViewModel {
     
     init(_ email: String) {
         userEamil = email
+        super.init()
+        baseBinding()
     }
     
-    func isValidatePassword(_ text: String?) -> Bool {
-        guard let text = text else {
-            passwordValidate = false
-            return passwordValidate
-        }
-        
-        // 자리수 검사
-        guard text.count >= 6 && text.count < 18 else {
-            passwordValidate = false
-            return passwordValidate
-        }
-        
-        passwordValidate = true
-        
+    private func baseBinding() {
         updateStatus()
-        return passwordValidate
     }
     
-    func isSamePassword(_ text: String?, _ standardPassword: String?) -> Bool {
-        guard let text = text, let standardPassword = standardPassword, text == standardPassword else {
-            passwordConfirmValidate = false
-            return passwordConfirmValidate
+    func validatePassword(_ text: String?) {
+        guard
+            let text = text, false == text.isEmpty,
+            text.count >= 6, text.count < 18
+        else {
+            passwordValidateRelay.accept(false)
+            return
         }
-        passwordConfirmValidate = true
-        
-        updateStatus()
-        return passwordConfirmValidate
+        passwordValidateRelay.accept(true)
+    }
+   
+    func confirmPassword(_ text: String?, _ standardPassword: String?) {
+        guard
+            let text = text, false == text.isEmpty,
+            let standardPassword = standardPassword, false == standardPassword.isEmpty,
+            text == standardPassword
+        else {
+            passwordConfirmRelay.accept(false)
+            return
+        }
+        passwordConfirmRelay.accept(true)
     }
     
     private func updateStatus() {
-        isAllValidate = false
-        
-        guard passwordValidate else {
-            enableNextStepRelay.accept(isAllValidate)
-            return
-        }
-        
-        guard passwordConfirmValidate else {
-            enableNextStepRelay.accept(isAllValidate)
-            return
-        }
-        
-        isAllValidate = true
-        enableNextStepRelay.accept(isAllValidate)
+        Observable.combineLatest(passwordValidateRelay.asObservable(),
+                                 passwordConfirmRelay.asObservable())
+            .subscribe(onNext: { [weak self] in
+                guard $0.0, $0.1 else {
+                    self?.enableNextStepRelay.accept(false)
+                    return
+                }
+                self?.enableNextStepRelay.accept(true)
+            })
+            .disposed(by: disposeBag)
     }
     
     func changePassword(_ password: String) {

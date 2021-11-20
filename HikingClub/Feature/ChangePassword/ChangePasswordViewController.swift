@@ -108,30 +108,43 @@ final class ChangePasswordViewController: BaseViewController<ChangePasswordViewM
         
         passwordTextField.rx.text
             .skip(1)
-            .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] in
-                guard let isValidate = self?.viewModel.isValidatePassword($0) else { return }
-                self?.passwordTextField.setTheme(isValidate ? .normal : .warning)
+                self?.viewModel.validatePassword($0)
             })
             .disposed(by: disposeBag)
         
         passwordConfirmTextField.rx.text
             .skip(1)
-            .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] in
-                guard let isValidate = self?.viewModel.isSamePassword($0, self?.passwordTextField.text) else { return }
-                self?.passwordConfirmTextField.setTheme(isValidate ? .normal : .warning)
+                self?.viewModel.confirmPassword($0, self?.passwordTextField.text)
             })
             .disposed(by: disposeBag)
         
         completeButton.rx.tapOk
+            .withLatestFrom(passwordConfirmTextField.rx.text)
             .subscribe(onNext: { [weak self] in
-                guard let password = self?.passwordConfirmTextField.text else { return }
-                self?.viewModel.changePassword(password)
+                self?.viewModel.changePassword($0)
             })
             .disposed(by: disposeBag)
         
         // MARK: ViewModel Binding
+        
+        viewModel.passwordValidateRelay
+            .skip(1)
+            .subscribe(onNext: { [weak self] isValidate in
+                self?.passwordTextField.setTheme(isValidate ? .normal : .warning)
+                if isValidate {
+                    self?.checkWithPasswordConfirm()
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.passwordConfirmRelay
+            .skip(1)
+            .subscribe(onNext: { [weak self] isValidate in
+                self?.passwordConfirmTextField.setTheme(isValidate ? .normal : .warning)
+            })
+            .disposed(by: disposeBag)
         
         viewModel.enableNextStepRelay
             .subscribe(onNext: { [weak self] in
@@ -144,5 +157,13 @@ final class ChangePasswordViewController: BaseViewController<ChangePasswordViewM
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func checkWithPasswordConfirm() {
+        guard let checkPassword = passwordConfirmTextField.text, false == checkPassword.isEmpty else {
+            return 
+        }
+        let standardPassword = passwordTextField.text
+        viewModel.confirmPassword(checkPassword, standardPassword)
     }
 }
