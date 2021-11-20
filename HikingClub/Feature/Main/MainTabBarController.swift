@@ -79,8 +79,7 @@ final class MainTabBarController: UITabBarController {
     }
     
     private func checkLogin() -> Bool {
-        // FIXME: UserInformationUsesrDefault로 변경하기
-        return UserDefaults.standard.string(forKey: "TOKEN") != nil
+        return false == UserInformationUserDefault(key: .token).isEmpty
     }
     
     private func selectedIndexProcess(_ index: Int) {
