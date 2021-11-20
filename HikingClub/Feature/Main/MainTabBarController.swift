@@ -96,6 +96,14 @@ final class MainTabBarController: UITabBarController {
             }()
             viewController.modalPresentationStyle = .fullScreen
             present(viewController, animated: true, completion: nil)
+        } else if index == TabBarIndex.myPage.rawValue {
+            if false == checkLogin() {
+                selectedIndex = previousTabIndex
+                
+                let viewController = LoginNavigationViewController(LoginNavigationViewModel()).wrappedByNavigationController()
+                viewController.modalPresentationStyle = .fullScreen
+                present(viewController, animated: true, completion: nil)
+            }
         } else {
             previousTabIndex = index
         }
