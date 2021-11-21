@@ -20,6 +20,9 @@ final class SignUpTermsStackView: UIStackView, CodeBasedProtocol {
     let didTapAgreeButton = PublishRelay<SignUpTermType>()
     let didTapDetailButton = PublishRelay<SignUpTermType>()
     
+    /// 외부에서 강제로 약관에 대한 상태를 설정하기 위해 사용
+    let didAgree = PublishRelay<SignUpTermType>()
+    
     private let disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
@@ -54,6 +57,20 @@ final class SignUpTermsStackView: UIStackView, CodeBasedProtocol {
             .map { SignUpTermType.personal }
             .bind(to: didTapDetailButton)
             .disposed(by: disposeBag)
+        
+        didAgree
+            .subscribe(onNext: { [weak self] in
+                self?.setAgree($0)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func setAgree(_ type: SignUpTermType) {
+        switch type {
+        case .personal:
+            personalInformationTermView.agreeButton.setState(true)
+        }
+        didTapAgreeButton.accept(type)
     }
 }
 
@@ -153,5 +170,10 @@ private final class SignUpTermAgreeButton: UIButton, CodeBasedProtocol {
     func toggleImage() {
         isSelected.toggle()
         checkIconImageView.setImage(isSelected ? .icon_check_circle_selected_green500_24 : .icon_check_circle_deselected_gray300_24)
+    }
+    
+    func setState(_ isAgree: Bool) {
+        isSelected = isAgree
+        checkIconImageView.setImage(isAgree ? .icon_check_circle_selected_green500_24 : .icon_check_circle_deselected_gray300_24)
     }
 }

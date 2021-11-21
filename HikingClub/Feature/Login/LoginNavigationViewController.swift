@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 final class LoginNavigationViewController: BaseViewController<LoginNavigationViewModel> {
     private let navigationButtonStackView: UIStackView = {
@@ -14,6 +15,17 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
         stackView.spacing = 12
         
         return stackView
+    }()
+    
+    private let lottieView: UIView = {
+        let view = UIView()
+        let animationView = AnimationView(name: "lottie_start")
+        view.addSubview(animationView)
+        animationView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        animationView.play()
+        return view
     }()
     
     private let signUpButton: NDButton = {
@@ -51,8 +63,13 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
     
     override func layout() {
         super.layout()
-        view.addSubview(navigationButtonStackView)
+        view.addSubViews(lottieView, navigationButtonStackView)
+        lottieView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(30)
+            $0.leading.trailing.equalToSuperview()
+        }
         navigationButtonStackView.snp.makeConstraints {
+            $0.top.equalTo(lottieView.snp.bottom).offset(24)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(38)

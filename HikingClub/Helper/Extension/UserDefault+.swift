@@ -10,5 +10,6 @@ import Foundation
 extension UserDefaults {
     enum Name: String {
         case recentSearch
+        case token
     }
 }
