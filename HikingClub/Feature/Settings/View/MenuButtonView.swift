@@ -14,7 +14,7 @@ final class MenuButtonView: UIButton, CodeBasedProtocol {
         case version
         case notice
         case inquiry
-        case logout
+        case signOut
         case withdraw
         case opensource
     }
@@ -25,12 +25,14 @@ final class MenuButtonView: UIButton, CodeBasedProtocol {
        let view = UIStackView()
         view.axis = .vertical
         view.spacing = 13
+        view.isUserInteractionEnabled = false
         return view
     }()
     
     private let contentLabel: UILabel = {
         let label = UILabel()
         label.setFont(.semiBold16)
+        label.isUserInteractionEnabled = false
         return label
     }()
     
@@ -38,6 +40,7 @@ final class MenuButtonView: UIButton, CodeBasedProtocol {
         let label = UILabel()
         label.setFont(.medium12)
         label.textColor = .gray500
+        label.isUserInteractionEnabled = false
         return label
     }()
     
@@ -82,7 +85,7 @@ final class MenuButtonView: UIButton, CodeBasedProtocol {
         case .inquiry:
             title = "문의하기"
             icon = .icon_my_question_normal_gray900_24
-        case .logout:
+        case .signOut:
             title = "로그아웃"
             icon = .icon_my_unlock_normal_gray900_24
         case .withdraw:
