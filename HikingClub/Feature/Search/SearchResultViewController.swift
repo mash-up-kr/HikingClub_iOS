@@ -62,7 +62,7 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
         viewModel.roadDatas
             .bind(to: tableView.rx.items(cellIdentifier: "RoadTableViewCell",
                                          cellType: RoadTableViewCell.self)) { row, cellModel, cell in
-                cell.configure(tags: [cellModel])
+                cell.configure(model: cellModel)
             }.disposed(by: disposeBag)
         
         tableView.rx.itemSelected
@@ -81,7 +81,7 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
         viewModel.locations
             .bind(to: locationCollectionView.rx.items(cellIdentifier: CategoryTabCollectionView.cellIdentifier,
                                               cellType: CategoryTabCollectionViewCell.self)) { item, cellModel, cell in
-                cell.configure(with: cellModel)
+                cell.configure(with: cellModel, subTitle: item == 0 ? "현위치" : nil)
             }.disposed(by: disposeBag)
         
         // 카테고리 텝버튼 클릭시
@@ -97,6 +97,6 @@ final class SearchResultViewController: BaseViewController<SearchResultViewModel
 extension SearchResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let word = viewModel.locations.value[indexPath.item]
-        return locationCollectionView.cellSize(text: word)
+        return locationCollectionView.cellSize(title: word, subTitle: indexPath.item == 0 ? "현위치" : nil)
     }
 }

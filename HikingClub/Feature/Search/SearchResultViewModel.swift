@@ -10,7 +10,7 @@ import RxRelay
 
 final class SearchResultViewModel: BaseViewModel {
     // MARK: - Output
-    let roadDatas: BehaviorRelay<[String]> = BehaviorRelay(value: [])
+    let roadDatas: BehaviorRelay<[Road]> = BehaviorRelay(value: [])
     let locations: BehaviorRelay<[String]> = BehaviorRelay(value: [])
     let searchWord: BehaviorRelay<String> = BehaviorRelay(value: "")
     
@@ -21,7 +21,6 @@ final class SearchResultViewModel: BaseViewModel {
     init(searchWord: String) {
         super.init()
         // FIXME: - mock데이터 삭제
-        roadDatas.accept(["1","1","1","1"])
         locations.accept(["현위치","가락동","송파구","서울","12345","하하하하하하하하하하ㅏ"])
         self.searchWord.accept(searchWord)
         bind()

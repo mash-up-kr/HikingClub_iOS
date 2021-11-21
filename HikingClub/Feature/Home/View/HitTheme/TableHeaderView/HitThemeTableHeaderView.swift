@@ -6,15 +6,23 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class HitThemeTableHeaderView: UIView {
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet fileprivate weak var collectionView: UICollectionView!
     @IBOutlet private weak var iconImageView: UIImageView!
+    
+    /// 카테고리
+    fileprivate let categoryWords: BehaviorRelay<[CategoryModel]> = BehaviorRelay(value: [])
+    var categories: [CategoryModel] { categoryWords.value }
+    let disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         configureUI()
         setCollectionView()
+        bind()
     }
     
     func configureUI() {
@@ -22,24 +30,21 @@ final class HitThemeTableHeaderView: UIView {
     }
     
     func setCollectionView() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 0)
+        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
         collectionView.register(HitThemeHeaderCollectionViewCell.self)
+    }
+    
+    func bind() {
+        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        
+        categoryWords
+            .bind(to: collectionView.rx.items(cellIdentifier: "HitThemeHeaderCollectionViewCell",
+                                              cellType: HitThemeHeaderCollectionViewCell.self)) { item, cellModel, cell in
+                cell.configure(cellModel)
+            }.disposed(by: disposeBag)
     }
 }
 
-// TODO: - 데이터모델만들고 rx로 변환하기
-extension HitThemeTableHeaderView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: HitThemeHeaderCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-        return cell
-    }
-}
 
 extension HitThemeTableHeaderView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -47,9 +52,14 @@ extension HitThemeTableHeaderView: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension HitThemeTableHeaderView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: 클릭시 화면이동
-        print("\(#function) select: \(indexPath)")
+extension Reactive where Base: HitThemeTableHeaderView {
+    var itemSelected: ControlEvent<IndexPath> {
+        base.collectionView.rx.itemSelected
+    }
+    
+    var categories: Binder<[CategoryModel]> {
+        Binder(base) {
+            base.categoryWords.accept($1)
+        }
     }
 }

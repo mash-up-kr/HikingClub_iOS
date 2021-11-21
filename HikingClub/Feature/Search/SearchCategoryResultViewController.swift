@@ -48,14 +48,8 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         super.viewDidLoad()
         // 초기선택설정
         categoryCollectionView.selectItem(at: IndexPath(item: viewModel.selectedCategory.value, section: 0), animated: false, scrollPosition: .left)
-        
-        view.addSubview(emptyView)
-        emptyView.isHidden = true
-        emptyView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-        
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         categoryCollectionView.scrollToItem(at: IndexPath(item: viewModel.selectedCategory.value, section: 0), at: .centeredHorizontally, animated: true)
@@ -117,11 +111,20 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.register(RoadTableViewCell.self)
         tableView.separatorStyle = .none
+        categoryCollectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 5)
+        
+        emptyView.isHidden = true
+        emptyView.backgroundColor = .clear
     }
     
     override func layout() {
         super.layout()
         setTableHeaderView()
+        view.addSubview(emptyView)
+        emptyView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
     }
 
     override func bind() {
@@ -164,12 +167,12 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
                 cell.configure(with: cellModel.name)
             }.disposed(by: disposeBag)
         
-         viewModel.categoryWords
-            .map { $0.isEmpty }
+        viewModel.roadDatas
+            .map { !$0.isEmpty }
             .bind(to: emptyView.rx.isHidden)
             .disposed(by: disposeBag)
         
-        viewModel.categoryWords
+        viewModel.roadDatas
             .map { !$0.isEmpty }
             .bind(to: tableView.rx.isScrollEnabled)
             .disposed(by: disposeBag)
@@ -184,7 +187,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         viewModel.roadDatas
             .bind(to: tableView.rx.items(cellIdentifier: "RoadTableViewCell",
                                          cellType: RoadTableViewCell.self)) { row, cellModel, cell in
-                cell.configure(tags: [cellModel])
+                cell.configure(model: cellModel)
             }.disposed(by: disposeBag)
         
         tableView.rx.itemSelected
@@ -217,6 +220,6 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
 extension SearchCategoryResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let word = viewModel.categoryWords.value[indexPath.item].name
-        return categoryCollectionView.cellSize(text: word)
+        return categoryCollectionView.cellSize(title: word)
     }
 }
