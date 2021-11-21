@@ -43,14 +43,7 @@ final class RoadTableViewCell: UITableViewCell {
     func configure(model: Road) {
         self.model = model
         roadTitleLabel.text = model.title
-        let time = walkCalculator.costTime(distance: model.distance)
-        if time > 60 {
-            let hour = time / 60
-            let min = time % 60
-            roadDistanceLabel.text = "\(model.distance)km (\(hour)시간 \(min)분)"
-        } else {
-            roadDistanceLabel.text = "\(model.distance)km (\(time)분)"
-        }
+        setRoadDistanceLabel(distance: model.distance)
         roadSpotLabel.text = "\(model.spots.count)개의 스페셜 스팟"
         roadAddressLabel.text = model.place
         
@@ -62,6 +55,20 @@ final class RoadTableViewCell: UITableViewCell {
         }
         
         settingRoadHashTagStackView(model.hashtags)
+    }
+    
+    private func setRoadDistanceLabel(distance: Float) {
+        let time = walkCalculator.costTime(distance: distance)
+        let hour = time / 60
+        let min = time % 60
+        
+        if time > 60 {
+            roadDistanceLabel.text = "\(distance)km (\(hour)시간 \(min)분)"
+        } else if time == 60 {
+            roadDistanceLabel.text = "\(distance)km (\(hour)시간"
+        } else {
+            roadDistanceLabel.text = "\(distance)km (\(time)분)"
+        }
     }
     
     private func setRoadImageViewHidden(_ isHidden: Bool) {
