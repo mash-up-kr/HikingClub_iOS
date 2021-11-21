@@ -114,6 +114,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         categoryCollectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 5)
         
         emptyView.isHidden = true
+        emptyView.backgroundColor = .clear
     }
     
     override func layout() {
@@ -171,7 +172,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
             .bind(to: emptyView.rx.isHidden)
             .disposed(by: disposeBag)
         
-        viewModel.categoryWords
+        viewModel.roadDatas
             .map { !$0.isEmpty }
             .bind(to: tableView.rx.isScrollEnabled)
             .disposed(by: disposeBag)

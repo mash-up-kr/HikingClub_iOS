@@ -46,6 +46,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         
         setTableView()
         emptyView.isHidden = true
+        emptyView.backgroundColor = .clear
     }
     
     override func layout() {
@@ -71,6 +72,11 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         viewModel.roadDatas
             .map { !$0.isEmpty }
             .bind(to: emptyView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.roadDatas
+            .map { !$0.isEmpty }
+            .bind(to: tableView.rx.isScrollEnabled)
             .disposed(by: disposeBag)
         
         // 길 리스트 클릭
