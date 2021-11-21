@@ -21,7 +21,7 @@ final class HomeViewModel: BaseViewModel {
     private let placeService = PlaceService()
     private var placeCode: Int = 1123068
     /// 페이징 가능한지체크
-    private var isMorePage: Bool = true
+    private var isRequestMoreRoads: Bool = true
     
     // FIXME: 더미용 나중에 삭제할것
     func mockData() {
@@ -45,7 +45,7 @@ final class HomeViewModel: BaseViewModel {
     
     /// 주소별 길 리스트 페이징요청
     func requestMoreRoads() {
-        if isLoading.value || !isMorePage {
+        if isLoading.value || !isRequestMoreRoads {
             return
         }
         isLoading.accept(true)
@@ -57,7 +57,7 @@ final class HomeViewModel: BaseViewModel {
         placeService.roads(model: model)
             .compactMap { $0.data?.roads.map { Road(road: $0) } }
             .subscribe(onSuccess: { [weak self] in
-                self?.isMorePage = !$0.isEmpty
+                self?.isRequestMoreRoads = !$0.isEmpty
                 $0.forEach { newModel.append($0) }
                 self?.roadDatas.accept(newModel)
                 self?.isLoading.accept(false)
