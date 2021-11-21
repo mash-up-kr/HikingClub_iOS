@@ -151,9 +151,10 @@ final class EmailAuthorizeViewController: BaseViewController<EmailAuthorizeViewM
             .disposed(by: disposeBag)
         
         // MARK: ViewModel Binding
-        viewModel.authorizedEmailRelay
-            .subscribe(onNext: { [weak self] _ in
+        viewModel.authorizeSucceedRelay
+            .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
+                self?.viewModel.authorizedEmailRelay.accept($0)
             })
             .disposed(by: disposeBag)
     }

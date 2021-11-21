@@ -11,10 +11,33 @@ import RxRelay
 class EmailAuthorizeViewModel: BaseViewModel {
     let authorizedEmailRelay = PublishRelay<String>()
     
-    private let service = SignUpService()
+    let authorizeSucceedRelay = PublishRelay<String>()
+    
+    private let emailService = EmailVerifiactionService()
+    private let userService = UserService()
+    
+    private let authType: EmailAuthType
+    
+    enum EmailAuthType {
+        case singUp
+        case forgotPassword
+    }
+    
+    init(_ authType: EmailAuthType) {
+        self.authType = authType
+    }
     
     func requestEmailAuthCode(_ email: String) {
-        service.sendToken(email)
+        switch authType {
+        case .singUp:
+            sendEmailForSingUp(email)
+        case .forgotPassword:
+            sendEmailForChangePassword(email)
+        }
+    }
+    
+    private func sendEmailForSingUp(_ email: String) {
+        emailService.sendToken(email)
             .subscribe(onSuccess: { response in
                 if response.responseCode == "SUCCESS_SEND_MAIL_SIGN_UP_TOKEN" {
                     NDToastView.shared.rx.showText.onNext(.green(text: "인증메일이 전송되었습니다."))
@@ -28,13 +51,28 @@ class EmailAuthorizeViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
     
+    private func sendEmailForChangePassword(_ email: String) {
+        userService.requestChangePassword(for: email)
+            .subscribe(onSuccess: { response in
+                if response.responseCode == "SUCCESS_REQUEST_RESET_PASSWORD" {
+                    NDToastView.shared.rx.showText.onNext(.green(text: "인증메일이 전송되었습니다."))
+                } else {
+                    let message = response.message
+                    NDToastView.shared.rx.showText.onNext(.red(text: message))
+                }
+            }, onFailure: { _ in
+                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            })
+            .disposed(by: disposeBag)
+    }
+    
     func isRightAuthCode(_ email: String, _ code: String) {
-        service.verificationEmail(.init(email: email,
+        emailService.verificationEmail(.init(email: email,
                                         token: code,
-                                        tokenType: .signUp))
+                                        tokenType: authType == .singUp ? .signUp : .forgotPassword))
             .subscribe(onSuccess: { [weak self] response in
                 if response.responseCode == "SUCCESS_VERIFYING" {
-                    self?.authorizedEmailRelay.accept(email)
+                    self?.authorizeSucceedRelay.accept(email)
                 } else {
                     let message = response.message
                     NDToastView.shared.rx.showText.onNext(.red(text: message))

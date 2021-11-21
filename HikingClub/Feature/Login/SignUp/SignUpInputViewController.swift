@@ -169,9 +169,7 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
         // MARK: - ViewModel Binding
         
         viewModel.enableNextStepRelay
-            .subscribe(onNext: { [weak self] in
-                self?.nextButton.setEnabled($0, type: .ok)
-            })
+            .bind { [weak self] in self?.nextButton.rx.isEnabled.onNext($0) }
             .disposed(by: disposeBag)
     }
     
@@ -181,7 +179,7 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
     }
     
     private func navigateToEmailAuthorizeViewController() {
-        let viewModel = EmailAuthorizeViewModel()
+        let viewModel = EmailAuthorizeViewModel(.singUp)
         viewModel
             .authorizedEmailRelay
             .bind { [weak self] in self?.setAuthedEmail($0) }

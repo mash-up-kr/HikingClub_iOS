@@ -9,15 +9,11 @@ import UIKit
 import RxRelay
 
 final class SignUpInputViewModel: BaseViewModel {
-    
     private var isAllValidate: Bool = false
     private var passwordValidate: Bool = false
     private var passwordConfirmValidate: Bool = false
     
     var enableNextStepRelay = PublishRelay<Bool>()
-    var isEnableNextStep: Bool {
-        isAllValidate
-    }
     
     func isValidatePassword(_ text: String?) -> Bool {
         guard let text = text else {
