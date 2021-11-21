@@ -18,19 +18,24 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         tabbar.rx.setDelegate(self).disposed(by: disposeBag)
         return tabbar
     }()
-    private lazy var locationMoreButtonContainerView: UIView = {
-        let view = UIView(frame: .init(x: 0, y: 0, width: 68, height: 57))
-        let leftColor = UIColor.gray100.withAlphaComponent(0).cgColor
-        let rightColor = UIColor.gray100.cgColor
-        view.addGradientXColor(colors: [leftColor, rightColor])
-        return view
-    }()
-    private lazy var locationMoreButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.tintColor = .gray900
-        button.setImage(.icon_plus_gray900_24)
-        return button
-    }()
+    // TODO: - 추후 추가해야할 기능
+    /// 위치 추가버튼 그라데이션 배경
+//    private lazy var locationMoreButtonContainerView: UIView = {
+//        let view = UIView(frame: .init(x: 0, y: 0, width: 68, height: 57))
+//        let leftColor = UIColor.gray100.withAlphaComponent(0).cgColor
+//        let rightColor = UIColor.gray100.cgColor
+//        view.addGradientXColor(colors: [leftColor, rightColor])
+//        return view
+//    }()
+    
+    // TODO: - 추후 추가해야할 기능
+    /// 위치 추가 버튼
+//    private lazy var locationMoreButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.tintColor = .gray900
+//        button.setImage(.icon_plus_gray900_24)
+//        return button
+//    }()
     private lazy var emptyView: EmptyView = EmptyView()
  
     override func viewDidLoad() {
@@ -104,12 +109,12 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
                 print($0)
             })
             .disposed(by: disposeBag)
-        
-        locationMoreButton.rx.tap
-            .subscribe(onNext: {
-                print("more 클릭")
-            })
-            .disposed(by: disposeBag)
+        // TODO: - 추후 추가해야할 기능
+//        locationMoreButton.rx.tap
+//            .subscribe(onNext: {
+//                print("more 클릭")
+//            })
+//            .disposed(by: disposeBag)
         
         // FIXME: - 목데이터 삭제
         viewModel.mockData()
@@ -129,7 +134,9 @@ extension HomeViewController: UITableViewDelegate {
             return nil
         }
         
-        containerView.addSubViews(headerView, locationTabbar, locationMoreButtonContainerView)
+        // TODO: - 추후 추가해야할 기능
+        // locationMoreButtonContainerView 추가하기
+        containerView.addSubViews(headerView, locationTabbar)
         headerView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
@@ -142,20 +149,20 @@ extension HomeViewController: UITableViewDelegate {
             $0.height.equalTo(57)
             $0.bottom.equalToSuperview()
         }
-        
-        locationMoreButtonContainerView.snp.remakeConstraints {
-            $0.trailing.equalTo(locationTabbar)
-            $0.height.equalTo(locationTabbar)
-            $0.width.equalTo(68)
-            $0.centerY.equalTo(locationTabbar)
-        }
-        
-        locationMoreButtonContainerView.addSubview(locationMoreButton)
-        locationMoreButton.snp.remakeConstraints {
-            $0.trailing.equalToSuperview().inset(16)
-            $0.centerY.equalToSuperview()
-            $0.width.height.equalTo(24)
-        }
+        // TODO: - 추후 추가해야할 기능
+//        locationMoreButtonContainerView.snp.remakeConstraints {
+//            $0.trailing.equalTo(locationTabbar)
+//            $0.height.equalTo(locationTabbar)
+//            $0.width.equalTo(68)
+//            $0.centerY.equalTo(locationTabbar)
+//        }
+        // TODO: - 추후 추가해야할 기능
+//        locationMoreButtonContainerView.addSubview(locationMoreButton)
+//        locationMoreButton.snp.remakeConstraints {
+//            $0.trailing.equalToSuperview().inset(16)
+//            $0.centerY.equalToSuperview()
+//            $0.width.height.equalTo(24)
+//        }
         
         viewModel.categoryWords
             .bind(to: headerView.rx.categories)
