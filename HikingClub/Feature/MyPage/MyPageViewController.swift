@@ -67,7 +67,9 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
     }
     
     private func navigateToSettingViewController() {
-        navigationController?.pushViewController(SettingViewController(BaseViewModel()), animated: true)
+        let viewController = SettingViewController(SettingViewModel())
+        viewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

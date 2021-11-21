@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingViewController: BaseViewController<BaseViewModel> {
+final class SettingViewController: BaseViewController<SettingViewModel> {
     private let navigationBar: NaviBar = {
         let view = NaviBar()
         view.setTitle("설정")
@@ -36,11 +36,22 @@ final class SettingViewController: BaseViewController<BaseViewModel> {
     
     private let inquiryMenu = MenuButtonView(.inquiry)
     
-    private let logoutMenu = MenuButtonView(.logout)
+    private let signOutMenu = MenuButtonView(.signOut)
     
     private let withdrawMenu = MenuButtonView(.withdraw)
     
     private let opensourceMenu = MenuButtonView(.opensource)
+    
+    private lazy var signOutAlert: NDAlert = {
+        let alert = NDAlert(buttonStyle: .two,
+                            title: "로그아웃 하시겠습니까?",
+                            description: "나들길은 당신을 기다리고 있을게요.",
+                            okTitle: "로그아웃",
+                            okHandler: { [weak self] in self?.viewModel.signOut() },
+                            cancelTitle: "취소",
+                            cancelHandler: nil)
+        return alert
+    }()
     
     // MARK: - Layout
     
@@ -79,7 +90,7 @@ final class SettingViewController: BaseViewController<BaseViewModel> {
                                           personalInformationMenu,
                                           versionMenu,
                                           inquiryMenu,
-                                          logoutMenu,
+                                          signOutMenu,
                                           withdrawMenu,
                                           opensourceMenu)
     }
@@ -111,10 +122,37 @@ final class SettingViewController: BaseViewController<BaseViewModel> {
             })
             .disposed(by: disposeBag)
         
+        signOutMenu.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.showSignOutAlert()
+            })
+            .disposed(by: disposeBag)
+        
+        // MARK: - ViewModel Binding
+        
+        viewModel.signOutSucceedRelay
+            .subscribe(onNext: { [weak self] in
+                NDToastView.shared.rx.showText.onNext(.green(text: "로그아웃 되었습니다."))
+                self?.navigateToHomeViewController()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func navigateToPersonalInformationMenu() {
         navigationController?.pushViewController(PersonalInformationViewController(PersonalInformationViewModel()), animated: true)
     }
     
+    private func navigateToHomeViewController() {
+        guard let tabBarController = UIApplication.shared.windows.first?.rootViewController as? MainTabBarController else { return }
+        tabBarController.selectTab.accept(.home)
+        
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    private func showSignOutAlert() {
+        view.addSubview(signOutAlert)
+        signOutAlert.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
 }
