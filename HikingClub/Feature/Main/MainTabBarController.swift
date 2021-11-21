@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxRelay
 
 final class MainTabBarController: UITabBarController {
     private let homeViewController: UINavigationController = {
@@ -55,6 +56,8 @@ final class MainTabBarController: UITabBarController {
     
     private var previousTabIndex: Int = .zero
     
+    let selectTab = PublishRelay<TabBarIndex>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.barTintColor = .white
@@ -74,6 +77,13 @@ final class MainTabBarController: UITabBarController {
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 self.selectedIndexProcess(self.selectedIndex)
+            })
+            .disposed(by: disposeBag)
+        
+        selectTab
+            .subscribe(onNext: { [weak self] in
+                self?.selectedIndex = $0.rawValue
+                self?.selectedIndexProcess($0.rawValue)
             })
             .disposed(by: disposeBag)
     }
