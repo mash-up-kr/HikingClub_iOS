@@ -21,7 +21,7 @@ extension PlaceRequestModel {
         }
       
         /// 카테고리별 필터시
-        init(categoryId: Int?, limit: Int = 20, lastId: String?, direction: Direction) {
+        init(categoryId: Int?, limit: Int = 15, lastId: String?, direction: Direction) {
             self.categoryId = categoryId
             self.limit = limit
             self.lastId = lastId
@@ -29,7 +29,7 @@ extension PlaceRequestModel {
         }
         
         /// 주소별 필터시
-        init(placeCode: Int?, limit: Int = 20, lastId: String?, direction: Direction) {
+        init(placeCode: Int?, limit: Int = 15, lastId: String?, direction: Direction) {
             self.placeCode = placeCode
             self.limit = limit
             self.lastId = lastId

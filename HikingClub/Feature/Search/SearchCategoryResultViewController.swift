@@ -48,14 +48,8 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         super.viewDidLoad()
         // 초기선택설정
         categoryCollectionView.selectItem(at: IndexPath(item: viewModel.selectedCategory.value, section: 0), animated: false, scrollPosition: .left)
-        
-        view.addSubview(emptyView)
-        emptyView.isHidden = true
-        emptyView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-        
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         categoryCollectionView.scrollToItem(at: IndexPath(item: viewModel.selectedCategory.value, section: 0), at: .centeredHorizontally, animated: true)
@@ -118,11 +112,18 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         tableView.register(RoadTableViewCell.self)
         tableView.separatorStyle = .none
         categoryCollectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 5)
+        
+        emptyView.isHidden = true
     }
     
     override func layout() {
         super.layout()
         setTableHeaderView()
+        view.addSubview(emptyView)
+        emptyView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
     }
 
     override func bind() {
@@ -165,8 +166,8 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
                 cell.configure(with: cellModel.name)
             }.disposed(by: disposeBag)
         
-         viewModel.categoryWords
-            .map { $0.isEmpty }
+        viewModel.roadDatas
+            .map { !$0.isEmpty }
             .bind(to: emptyView.rx.isHidden)
             .disposed(by: disposeBag)
         

@@ -31,6 +31,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         button.setImage(.icon_plus_gray900_24)
         return button
     }()
+    private lazy var emptyView: EmptyView = EmptyView()
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,16 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         super.attribute()
         
         setTableView()
+        emptyView.isHidden = true
+    }
+    
+    override func layout() {
+        super.layout()
+        
+        view.addSubview(emptyView)
+        emptyView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
     }
     
     override func bind() {
@@ -56,6 +67,11 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
                                          cellType: RoadTableViewCell.self)) { row, cellModel, cell in
                 cell.configure(model: cellModel)
             }.disposed(by: disposeBag)
+        
+        viewModel.roadDatas
+            .map { !$0.isEmpty }
+            .bind(to: emptyView.rx.isHidden)
+            .disposed(by: disposeBag)
         
         // 길 리스트 클릭
         tableView.rx.itemSelected
