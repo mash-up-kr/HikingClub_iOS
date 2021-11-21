@@ -23,7 +23,7 @@ final class RoadTableViewCell: UITableViewCell {
     @IBOutlet private weak var roadLikeBadgeView: UIView!
 
     var model: Road?
-    private let workCaculator = WorkCalculator()
+    private let walkCalculator = WalkCalculator()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,7 +43,7 @@ final class RoadTableViewCell: UITableViewCell {
     func configure(model: Road) {
         self.model = model
         roadTitleLabel.text = model.title
-        let time = workCaculator.costTime(distance: model.distance)
+        let time = walkCalculator.costTime(distance: model.distance)
         if time > 60 {
             let hour = time / 60
             let min = time % 60

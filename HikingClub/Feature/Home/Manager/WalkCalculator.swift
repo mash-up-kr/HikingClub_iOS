@@ -1,5 +1,5 @@
 //
-//  WorkCalculator.swift
+//  WalkCalculator.swift
 //  HikingClub
 //
 //  Created by 남수김 on 2021/11/18.
@@ -8,7 +8,7 @@
 import Foundation
 
 /// 거리정보 계산
-struct WorkCalculator {
+struct WalkCalculator {
     /// 1.04m/s 속도로 걷는다고 가정
     /// 62.5m/m
     let speed: Float = 62.5
