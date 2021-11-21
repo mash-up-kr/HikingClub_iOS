@@ -169,9 +169,7 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
         // MARK: - ViewModel Binding
         
         viewModel.enableNextStepRelay
-            .subscribe(onNext: { [weak self] in
-                self?.nextButton.setEnabled($0, type: .ok)
-            })
+            .bind { [weak self] in self?.nextButton.rx.isEnabled.onNext($0) }
             .disposed(by: disposeBag)
     }
     

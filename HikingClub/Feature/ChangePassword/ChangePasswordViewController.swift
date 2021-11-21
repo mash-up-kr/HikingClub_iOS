@@ -147,9 +147,7 @@ final class ChangePasswordViewController: BaseViewController<ChangePasswordViewM
             .disposed(by: disposeBag)
         
         viewModel.enableNextStepRelay
-            .subscribe(onNext: { [weak self] in
-                self?.completeButton.setEnabled($0, type: .ok)
-            })
+            .bind { [weak self] in self?.completeButton.rx.isEnabled.onNext($0) }
             .disposed(by: disposeBag)
             
         viewModel.changePasswordSucceedRelay
