@@ -12,7 +12,11 @@ final class WebViewController: BaseViewController<WebViewModel> {
     private lazy var configuration: WKWebViewConfiguration = {
         BaseWebView.contentControllerfiguration(self.viewModel)
     }()
-    private lazy var webView: WKWebView = WKWebView(frame: .zero, configuration: configuration)
+    private lazy var webView: BaseWebView = {
+        let webView = BaseWebView(frame: .zero, configuration: configuration)
+        webView.setUserTokenAtCookie()
+        return webView
+    }()
     
     override func attribute() {
         super.attribute()

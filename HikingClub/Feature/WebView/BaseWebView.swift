@@ -18,11 +18,7 @@ final class BaseWebView: WKWebView {
     static var contentHandlerName: String {
         "handler"
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+        
     static func contentControllerfiguration(_ handler: WKScriptMessageHandler) -> WKWebViewConfiguration {
         let preference = WKPreferences()
         preference.javaScriptEnabled = true
@@ -39,5 +35,25 @@ final class BaseWebView: WKWebView {
         configuration.websiteDataStore = WKWebsiteDataStore.default()
         
         return configuration
+    }
+    
+    func setUserTokenAtCookie() {
+        guard
+            let token = UserInformationUserDefault.init(key: .token).value,
+            let cookie = makeUserTokenCookie(token)
+        else { return }
+        configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
+    }
+    
+    private func makeUserTokenCookie(_ token: String) -> HTTPCookie? {
+        let monthInterval = 60 * 60 * 60 * 24 * 30
+        return HTTPCookie(properties: [
+            .domain: "nadeulgil.com",
+            .path: "/",
+            .name: "USER_TOKEN",
+            .value: token,
+            .secure: "TRUE",
+            .expires: NSDate(timeIntervalSinceNow: TimeInterval(monthInterval))
+        ])
     }
 }
