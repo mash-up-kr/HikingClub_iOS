@@ -31,7 +31,7 @@ final class MainTabBarController: UITabBarController {
     }()
     
     private let myPageViewController: UINavigationController = {
-        MyPageViewController(BaseViewModel()).wrappedByNavigationController()
+        MyPageViewController(MyPageViewModel()).wrappedByNavigationController()
     }()
     
     enum TabBarIndex: Int {

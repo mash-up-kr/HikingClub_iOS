@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxRelay
 
-final class MyPageViewController: BaseViewController<BaseViewModel> {
+final class MyPageViewController: BaseViewController<MyPageViewModel> {
     private let navigationBar: NaviBar = {
         let view = NaviBar()
         view.setTitle("마이페이지")
