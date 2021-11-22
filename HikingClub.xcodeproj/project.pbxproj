@@ -74,6 +74,7 @@
 		28ED07F5273681C700D33354 /* VersionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED07F4273681C700D33354 /* VersionInfoViewController.swift */; };
 		28ED07FD2736833500D33354 /* VersionInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28ED07FC2736833500D33354 /* VersionInfo.storyboard */; };
 		771230DC27283EDA003B63E5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771230DB27283EDA003B63E5 /* MyPageViewController.swift */; };
+		77125D92274A7DDC003885C2 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77125D91274A7DDC003885C2 /* SettingViewModel.swift */; };
 		77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77169DD0270C8C36000AB1D2 /* BaseViewController.swift */; };
 		77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77213CF72708EF1600994C9A /* BaseWebView.swift */; };
 		7722136F27401F1400A42CCA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7722136E27401F1400A42CCA /* Kingfisher */; };
@@ -132,7 +133,7 @@
 		777B517E2714336700299430 /* InitialSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517D2714336700299430 /* InitialSettingViewController.swift */; };
 		777B51802714472B00299430 /* TermDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517F2714472B00299430 /* TermDetailViewController.swift */; };
 		777B51852714553600299430 /* InitialCategorySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B51842714553600299430 /* InitialCategorySettingViewController.swift */; };
-    779B94FB2745557100325353 /* TermDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B94FA2745557100325353 /* TermDetailViewModel.swift */; };
+		779B94FB2745557100325353 /* TermDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B94FA2745557100325353 /* TermDetailViewModel.swift */; };
 		779B94FE27467D8C00325353 /* SignUpRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B94FD27467D8C00325353 /* SignUpRequestModel.swift */; };
 		779B950227467E0600325353 /* EmailVerifiactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B950127467E0600325353 /* EmailVerifiactionService.swift */; };
 		779B950427467E1B00325353 /* EmailVerificationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B950327467E1B00325353 /* EmailVerificationAPI.swift */; };
@@ -227,6 +228,7 @@
 		28ED07F4273681C700D33354 /* VersionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoViewController.swift; sourceTree = "<group>"; };
 		28ED07FC2736833500D33354 /* VersionInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VersionInfo.storyboard; sourceTree = "<group>"; };
 		771230DB27283EDA003B63E5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		77125D91274A7DDC003885C2 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		77169DD0270C8C36000AB1D2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		77213CF72708EF1600994C9A /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		77221370274040C900A42CCA /* InitialSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingViewModel.swift; sourceTree = "<group>"; };
@@ -751,6 +753,7 @@
 			children = (
 				77764FD12732DA4A00A216C8 /* View */,
 				77764FC92732ABB700A216C8 /* SettingViewController.swift */,
+				77125D91274A7DDC003885C2 /* SettingViewModel.swift */,
 				28B86D5327403C9100E962A8 /* InquiryListCell.swift */,
 				28B86D4F2740399800E962A8 /* InquiryViewController.swift */,
 				28B86D51274039BA00E962A8 /* inquiryMenuViewModel.swift */,
@@ -834,6 +837,15 @@
 			path = InitialSetting;
 			sourceTree = "<group>";
 		};
+		779B94F92745556400325353 /* Term */ = {
+			isa = PBXGroup;
+			children = (
+				777B517F2714472B00299430 /* TermDetailViewController.swift */,
+				779B94FA2745557100325353 /* TermDetailViewModel.swift */,
+			);
+			path = Term;
+			sourceTree = "<group>";
+		};
 		779B94FC27467D7200325353 /* Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -887,15 +899,6 @@
 				779B950D274681C600325353 /* UserRequestModel.swift */,
 			);
 			path = Request;
-      sourceTree = "<group>";
-		};
-		779B94F92745556400325353 /* Term */ = {
-			isa = PBXGroup;
-			children = (
-				777B517F2714472B00299430 /* TermDetailViewController.swift */,
-				779B94FA2745557100325353 /* TermDetailViewModel.swift */,
-			);
-			path = Term;
 			sourceTree = "<group>";
 		};
 		77B7A1212708A14D008F5530 /* WebView */ = {
@@ -1106,6 +1109,7 @@
 				06D4FF2A27390A8400300AE5 /* UserDefault+.swift in Sources */,
 				06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */,
 				77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */,
+				77125D92274A7DDC003885C2 /* SettingViewModel.swift in Sources */,
 				7761AC0B273D641E0029BCF2 /* InitialCategorySettingViewModel.swift in Sources */,
 				77169DD1270C8C36000AB1D2 /* BaseViewController.swift in Sources */,
 				77C69BF4272D977B004C2207 /* SignInService.swift in Sources */,
