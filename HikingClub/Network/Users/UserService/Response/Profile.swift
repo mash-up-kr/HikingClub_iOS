@@ -12,5 +12,13 @@ struct Profile: Decodable {
     let nickname: String
     let imageURL: String?
     let places: PlaceModel
-    let favoiteCategories: [CategoryModel]
+    let favoriteCategories: [CategoryModel]
+    
+    enum CodingKeys: String, CodingKey {
+        case email
+        case nickname
+        case imageURL = "profileImageUrl"
+        case places
+        case favoriteCategories
+    }
 }
