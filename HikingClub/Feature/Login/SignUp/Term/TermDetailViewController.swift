@@ -15,9 +15,8 @@ final class TermDetailViewController: BaseViewController<TermDetailViewModel> {
         view.setBackItemImage()
         return view
     }()
-    
-    private lazy var termWebView: BaseWebView = {
-        let webView = BaseWebView(self)
+    private lazy var termWebView: WKWebView = {
+        let webView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
         let request = URLRequest(url: URL(string: "https://nadeulgil.com/terms.html")!)
         webView.load(request)
         return webView

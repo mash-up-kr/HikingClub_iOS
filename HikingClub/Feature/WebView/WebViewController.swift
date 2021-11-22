@@ -9,7 +9,10 @@ import UIKit
 import WebKit
 
 final class WebViewController: BaseViewController<WebViewModel> {
-    private lazy var webView: BaseWebView = BaseWebView(self)
+    private lazy var configuration: WKWebViewConfiguration = {
+        BaseWebView.contentControllerfiguration(self.viewModel)
+    }()
+    private lazy var webView: WKWebView = WKWebView(frame: .zero, configuration: configuration)
     
     override func attribute() {
         super.attribute()
@@ -29,32 +32,23 @@ final class WebViewController: BaseViewController<WebViewModel> {
             $0.bottom.equalTo(view)
         }
     }
-}
-
-extension WebViewController: WKUIDelegate, WKNavigationDelegate { }
-
-extension WebViewController: WKScriptMessageHandler {
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        // TODO: REFACTOR
-        guard
-            let body = message.body as? [String: Any],
-            let functionString = body["function"] as? String,
-            let function = BaseWebView.WebMessageFunction(rawValue: functionString)
-        else { return }
-        
-        switch function {
-        case .close:
-            if modalPresentationStyle == .fullScreen {
-                dismiss(animated: true, completion: nil)
-            } else {
-                navigationController?.popViewController(animated: true)
-            }
-        case .share:
-            guard let data = body as? [String: String],
-                  let shareURL = data["url"]
-            else { return }
-            // TODO: REFACTOR
-            print("share url\(shareURL)")
+    
+    override func bind() {
+        super.bind()
+        viewModel.closeAction
+            .subscribe(onNext: { [weak self] _ in
+                self?.closeAction()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func closeAction() {
+        if modalPresentationStyle == .fullScreen {
+            dismiss(animated: true, completion: nil)
+        } else {
+            navigationController?.popViewController(animated: true)
         }
     }
 }
+
+extension WebViewController: WKUIDelegate, WKNavigationDelegate { }

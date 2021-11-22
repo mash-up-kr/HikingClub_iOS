@@ -6,6 +6,7 @@
 //
 
 import WebKit
+import RxRelay
 
 final class WebViewModel: BaseViewModel {
     var localTestWebPageURL: URL {
@@ -31,7 +32,31 @@ final class WebViewModel: BaseViewModel {
         }
     }()
     
+    let closeAction = PublishRelay<Void>()
+    
     init(for type: PageType) {
         page = type
+    }
+}
+
+extension WebViewModel: WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        // TODO: REFACTOR
+        guard
+            let body = message.body as? [String: Any],
+            let functionString = body["function"] as? String,
+            let function = BaseWebView.WebMessageFunction(rawValue: functionString)
+        else { return }
+        
+        switch function {
+        case .close:
+            closeAction.accept(Void())
+        case .share:
+            guard let data = body as? [String: String],
+                  let shareURL = data["url"]
+            else { return }
+            // TODO: REFACTOR
+            print("share url\(shareURL)")
+        }
     }
 }
