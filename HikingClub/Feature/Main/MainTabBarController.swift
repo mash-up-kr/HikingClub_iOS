@@ -96,7 +96,9 @@ final class MainTabBarController: UITabBarController {
         if index == TabBarIndex.write.rawValue {
             selectedIndex = previousTabIndex
             if checkLogin() {
-                present(WebViewController(WebViewModel(for: .write)), animated: true, completion: nil)
+                let webViewController = WebViewController(WebViewModel(for: .write))
+                webViewController.modalPresentationStyle = .fullScreen
+                present(webViewController, animated: true, completion: nil)
             } else {
                 presentLoginViewController()
             }
