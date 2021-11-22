@@ -27,4 +27,8 @@ struct PlaceService {
     func roads(model: PlaceRequestModel.RoadListModel) -> Single<RoadsResponse> {
         provider.request(.roadList(model))
     }
+    
+    func myRoads() -> Single<RoadsResponse> {
+        provider.request(.myRoads)
+    }
 }
