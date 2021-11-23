@@ -13,7 +13,7 @@ final class SettingViewModel: BaseViewModel {
     let signOutSucceedRelay = PublishRelay<Void>()
 
     func signOut() {
-        UserInformationUserDefault.init(key: .token).removeAll()
+        UserInformationManager.shared.singOut()
         signOutSucceedRelay.accept(Void())
     }
 }

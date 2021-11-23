@@ -133,6 +133,7 @@
 		777B517E2714336700299430 /* InitialSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517D2714336700299430 /* InitialSettingViewController.swift */; };
 		777B51802714472B00299430 /* TermDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B517F2714472B00299430 /* TermDetailViewController.swift */; };
 		777B51852714553600299430 /* InitialCategorySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B51842714553600299430 /* InitialCategorySettingViewController.swift */; };
+		7784885D274D18DE00437D51 /* UserInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7784885C274D18DE00437D51 /* UserInformationManager.swift */; };
 		779B94FB2745557100325353 /* TermDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B94FA2745557100325353 /* TermDetailViewModel.swift */; };
 		779B94FE27467D8C00325353 /* SignUpRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B94FD27467D8C00325353 /* SignUpRequestModel.swift */; };
 		779B950227467E0600325353 /* EmailVerifiactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B950127467E0600325353 /* EmailVerifiactionService.swift */; };
@@ -280,6 +281,7 @@
 		777B517D2714336700299430 /* InitialSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingViewController.swift; sourceTree = "<group>"; };
 		777B517F2714472B00299430 /* TermDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewController.swift; sourceTree = "<group>"; };
 		777B51842714553600299430 /* InitialCategorySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCategorySettingViewController.swift; sourceTree = "<group>"; };
+		7784885C274D18DE00437D51 /* UserInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationManager.swift; sourceTree = "<group>"; };
 		779B94FA2745557100325353 /* TermDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewModel.swift; sourceTree = "<group>"; };
 		779B94FD27467D8C00325353 /* SignUpRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestModel.swift; sourceTree = "<group>"; };
 		779B950127467E0600325353 /* EmailVerifiactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifiactionService.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 				777B516D27119A7100299430 /* CodeBased */,
 				06A1EC9127089D2700EA78D8 /* Extension */,
 				777B517127129D4D00299430 /* Protocol */,
+				7784885B274D18C600437D51 /* Manager */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -835,6 +838,14 @@
 				7761AC0A273D641E0029BCF2 /* InitialCategorySettingViewModel.swift */,
 			);
 			path = InitialSetting;
+			sourceTree = "<group>";
+		};
+		7784885B274D18C600437D51 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7784885C274D18DE00437D51 /* UserInformationManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		779B94F92745556400325353 /* Term */ = {
@@ -1106,6 +1117,7 @@
 				7760CA96272541D0006B39A9 /* Encodable+.swift in Sources */,
 				7760CA8D27252ED2006B39A9 /* EmailAuthorizeViewModel.swift in Sources */,
 				773DF08E2737A2AB0025DC91 /* SelectTownViewModel.swift in Sources */,
+				7784885D274D18DE00437D51 /* UserInformationManager.swift in Sources */,
 				06D4FF2A27390A8400300AE5 /* UserDefault+.swift in Sources */,
 				06679F09271EB3E500D63AE1 /* NDCTAButton.swift in Sources */,
 				77E59135270DDFCF0070F381 /* WebViewModel.swift in Sources */,

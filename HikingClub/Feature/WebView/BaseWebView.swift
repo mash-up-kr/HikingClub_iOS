@@ -39,7 +39,7 @@ final class BaseWebView: WKWebView {
     
     func setUserTokenAtCookie() {
         guard
-            let token = UserInformationUserDefault.init(key: .token).value,
+            let token = UserInformationManager.shared.token,
             let cookie = makeUserTokenCookie(token)
         else { return }
         configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
