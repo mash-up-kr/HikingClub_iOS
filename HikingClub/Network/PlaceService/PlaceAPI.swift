@@ -11,7 +11,7 @@ enum PlaceAPI {
     case search(PlaceRequestModel.SearchModel)
     case categories
     case roadList(PlaceRequestModel.RoadListModel)
-    case myRoads
+    case myRoads(PlaceRequestModel.MyRoadModel)
 }
 
 extension PlaceAPI: TargetType {
@@ -52,8 +52,8 @@ extension PlaceAPI: TargetType {
             return .requestPlain
         case .roadList(let model):
             return .requestParameters(parameters: model.dictionary, encoding: URLEncoding.queryString)
-        case .myRoads:
-            return .requestPlain
+        case .myRoads(let model):
+            return .requestParameters(parameters: model.dictionary, encoding: URLEncoding.default)
         }
     }
 }
