@@ -35,6 +35,12 @@ final class MyPageViewModel: BaseViewModel {
             })
             .disposed(by: disposeBag)
         
+        UserInformationManager.shared.isSignedIn
+            .subscribe(onNext: { [weak self] in
+                self?.requestMyRoads()
+            })
+            .disposed(by: disposeBag)
+        
         requestMyRoads()
     }
     

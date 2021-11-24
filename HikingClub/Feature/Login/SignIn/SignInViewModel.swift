@@ -18,7 +18,7 @@ final class SignInViewModel: BaseViewModel {
             .subscribe(onSuccess: { [weak self] response in
                 if response.responseCode ==  "SUCCESS_LOGIN" {
                     guard let responseData = response.data else { return }
-                    UserInformationUserDefault(key: .token).save(responseData.accessToken)
+                    UserInformationManager.shared.signIn(responseData.accessToken)
                     NDToastView.shared.rx.showText.onNext(.green(text: response.message))
                     self?.loginSucceededRelay.accept(Void())
                 } else {

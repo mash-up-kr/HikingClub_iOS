@@ -22,10 +22,12 @@ final class UserInformationManager {
         userDefault.value
     }
     
+    var isSignedIn = PublishRelay<Void>()
     var isSignedOut = PublishRelay<Void>()
     
     func signIn(_ token: String) {
         userDefault.save(token)
+        isSignedIn.accept(Void())
     }
     
     func singOut() {
