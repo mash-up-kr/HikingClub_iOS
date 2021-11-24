@@ -103,6 +103,7 @@ final class MainTabBarController: UITabBarController {
                 presentLoginViewController()
             }
         } else if index == TabBarIndex.myPage.rawValue {
+            previousTabIndex = index
             if false == checkLogin() {
                 selectedIndex = previousTabIndex
                 presentLoginViewController()
