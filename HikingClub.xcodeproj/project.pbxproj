@@ -25,6 +25,7 @@
 		06962E9B272A86100021402F /* RecentSearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06962E99272A86100021402F /* RecentSearchCollectionViewCell.xib */; };
 		06962E9F272BCD400021402F /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06962E9D272BCD400021402F /* CategoryCollectionViewCell.swift */; };
 		06962EA0272BCD400021402F /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06962E9E272BCD400021402F /* CategoryCollectionViewCell.xib */; };
+		0698EF31274CDCE100D7AF2A /* NDIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698EF30274CDCE100D7AF2A /* NDIndicator.swift */; };
 		06A1EC8E27088F3E00EA78D8 /* HitThemeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1EC8D27088F3E00EA78D8 /* HitThemeTableHeaderView.swift */; };
 		06A1EC9027088F4400EA78D8 /* HitThemeTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06A1EC8F27088F4400EA78D8 /* HitThemeTableHeaderView.xib */; };
 		06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1EC982708A7F300EA78D8 /* UIFont+.swift */; };
@@ -179,6 +180,7 @@
 		06962E99272A86100021402F /* RecentSearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentSearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		06962E9D272BCD400021402F /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		06962E9E272BCD400021402F /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		0698EF30274CDCE100D7AF2A /* NDIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDIndicator.swift; sourceTree = "<group>"; };
 		06A1EC8D27088F3E00EA78D8 /* HitThemeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitThemeTableHeaderView.swift; sourceTree = "<group>"; };
 		06A1EC8F27088F4400EA78D8 /* HitThemeTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HitThemeTableHeaderView.xib; sourceTree = "<group>"; };
 		06A1EC982708A7F300EA78D8 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				06AB8CB727312461007F32AA /* RxTextFieldDelegateProxy.swift */,
 				06962E8F2727FC250021402F /* NDTabButton.swift */,
 				77C69BEA272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift */,
+				0698EF30274CDCE100D7AF2A /* NDIndicator.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1157,6 +1160,7 @@
 				283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */,
 				779B950C2746818F00325353 /* UserService.swift in Sources */,
 				77C69BEB272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift in Sources */,
+				0698EF31274CDCE100D7AF2A /* NDIndicator.swift in Sources */,
 				06AB8CBA273136F7007F32AA /* SearchCategoryResultViewController.swift in Sources */,
 				06BE34982746024500F4917A /* RoadModel.swift in Sources */,
 				777B517327129D6500299430 /* CodeBasedProtocol.swift in Sources */,

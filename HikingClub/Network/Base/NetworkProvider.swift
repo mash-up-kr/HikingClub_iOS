@@ -25,7 +25,19 @@ final class HomeService {
  ```
  */
 final class NetworkProvider<Target: TargetType> {
-    private let networkProvider = MoyaProvider<Target>(plugins: [NetworkLogging()])
+    private let activity = NetworkActivityPlugin { change, target in
+        switch change {
+        case .began:
+            DispatchQueue.main.async {
+                NDIndicator.shared.show()
+            }
+        case .ended:
+            DispatchQueue.main.async {
+                NDIndicator.shared.hide()
+            }
+        }
+    }
+    private lazy var networkProvider = MoyaProvider<Target>(plugins: [NetworkLogging(), activity])
     
     init() {
         let configure = networkProvider.session.sessionConfiguration
