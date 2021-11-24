@@ -12,7 +12,7 @@ final class MyPageViewModel: BaseViewModel {
     private let placeService = PlaceService()
     private let userService = UserService()
     
-    private var isRequestMoreRoads: Bool = false
+    private var canRequestMoreRoads: Bool = false
     private var needResetRoadDatas: Bool = false
     
     /// 길목록
@@ -24,18 +24,33 @@ final class MyPageViewModel: BaseViewModel {
     
     override init() {
         super.init()
-        
         baseBinding()
     }
     
     private func baseBinding() {
-        if UserInformationUserDefault.init(key: .token).value != nil {
-            requestProfile()
-            requestMyRoads()
-        }
+        UserInformationManager.shared.isSignedOut
+            .subscribe(onNext: { [weak self] in
+                self?.resetInformation()
+            })
+            .disposed(by: disposeBag)
     }
     
-    func requestMyRoads() {
+    private func resetInformation() {
+        userInformation.accept(nil)
+        
+        resetRoadInformation()
+    }
+    
+    private func resetRoadInformation() {
+        canRequestMoreRoads = false
+        needResetRoadDatas = false
+        myRoadRequestModel.page = 1
+        roadDatas.accept([])
+    }
+    
+    func requestMyRoads(needReset: Bool = false) {
+        resetRoadRequest(needReset)
+        
         placeService.myRoads(myRoadRequestModel)
             .compactMap { $0.data?.roads.map { Road(road: $0) } }
             .subscribe(onSuccess: { [weak self] in
@@ -46,10 +61,25 @@ final class MyPageViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
     
+    private func resetRoadRequest(_ needReset: Bool) {
+        if needReset {
+            myRoadRequestModel.page = 1
+            needResetRoadDatas = true
+        } else {
+            myRoadRequestModel.page += 1
+        }
+    }
+    
+    func requestMoreRoads(_ indexPath: IndexPath) {
+        guard indexPath.row == roadDatas.value.count - 1, canRequestMoreRoads else { return }
+        requestMyRoads()
+    }
+    
     private func processRoadsResponse(_ roads: [Road]) {
         checkCanMoreRequests(roads)
         if needResetRoadDatas {
             roadDatas.accept(roads)
+            needResetRoadDatas = false
         } else {
             var current = roadDatas.value
             current.append(contentsOf: roads)
@@ -59,10 +89,9 @@ final class MyPageViewModel: BaseViewModel {
     
     private func checkCanMoreRequests(_ roads: [Road]) {
         if roads.count < myRoadRequestModel.pageSize || (roads.count == .zero || roads.isEmpty) {
-            isRequestMoreRoads = false
+            canRequestMoreRoads = false
         } else {
-            isRequestMoreRoads = true
-            needResetRoadDatas = false
+            canRequestMoreRoads = true
         }
     }
     

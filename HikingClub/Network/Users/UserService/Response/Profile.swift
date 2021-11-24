@@ -11,7 +11,7 @@ struct Profile: Decodable {
     let email: String
     let nickname: String
     let imageURL: String?
-    let places: PlaceModel
+    let places: PlaceModel?
     let favoriteCategories: [CategoryModel]
     
     enum CodingKeys: String, CodingKey {

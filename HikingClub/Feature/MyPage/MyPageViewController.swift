@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MyPageViewController: BaseViewController<MyPageViewModel> {
+final class MyPageViewController: BaseViewController <MyPageViewModel> {
     private let navigationBar: NaviBar = {
         let view = NaviBar()
         view.setTitle("마이페이지")
@@ -27,6 +27,13 @@ final class MyPageViewController: BaseViewController<MyPageViewModel> {
     }()
     private let nicknameHeaderView = MypageListNicknameHeaderView()
     private let tableHeaderView = MypageListSectionHeaderView()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.requestProfile()
+        viewModel.requestMyRoads(needReset: true)
+    }
     
     // MARK: - Attribute
     
@@ -59,6 +66,12 @@ final class MyPageViewController: BaseViewController<MyPageViewModel> {
         navigationBar.rx.tapRightItem
             .subscribe(onNext: { [weak self] in
                 self?.navigateToSettingViewController()
+            })
+            .disposed(by: disposeBag)
+        
+        tableView.rx.willDisplayCell
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.requestMoreRoads($0.indexPath)
             })
             .disposed(by: disposeBag)
         
