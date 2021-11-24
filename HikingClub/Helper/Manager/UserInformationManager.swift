@@ -15,7 +15,7 @@ final class UserInformationManager {
     private init() { }
     
     var isSingIn: Bool {
-        userDefault.isEmpty
+        !userDefault.isEmpty
     }
     
     var token: String? {
