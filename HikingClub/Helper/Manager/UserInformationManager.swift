@@ -7,27 +7,29 @@
 
 import RxRelay
 
-struct UserInformationManager {
+final class UserInformationManager {
     static let shared = UserInformationManager()
+    
+    private let userDefault = UserInformationUserDefault.init(key: .token)
     
     private init() { }
     
     var isSingIn: Bool {
-        UserInformationUserDefault.init(key: .token).isEmpty
+        userDefault.isEmpty
     }
     
     var token: String? {
-        UserInformationUserDefault.init(key: .token).value
+        userDefault.value
     }
     
     var isSignedOut = PublishRelay<Void>()
     
     func signIn(_ token: String) {
-        UserInformationUserDefault.init(key: .token).save(token)
+        userDefault.save(token)
     }
     
     func singOut() {
-        UserInformationUserDefault.init(key: .token).removeAll()
+        userDefault.removeAll()
         isSignedOut.accept(Void())
     }
 }
