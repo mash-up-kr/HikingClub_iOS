@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class MyPageViewController: BaseViewController <MyPageViewModel> {
     private let navigationBar: NaviBar = {
@@ -75,6 +76,13 @@ final class MyPageViewController: BaseViewController <MyPageViewModel> {
             })
             .disposed(by: disposeBag)
         
+        tableView.rx.itemSelected
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.navigateToRoadDetailViewController($0)
+            })
+            .disposed(by: disposeBag)
+        
         // MARK: - ViewModel Binding
         viewModel.roadDatas
             .bind(to: tableView.rx.items(cellIdentifier: "RoadTableViewCell",
@@ -99,6 +107,13 @@ final class MyPageViewController: BaseViewController <MyPageViewModel> {
     private func navigateToSettingViewController() {
         let viewController = SettingViewController(SettingViewModel())
         viewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func navigateToRoadDetailViewController(_ indexPath: IndexPath) {
+        let road = viewModel.roadDatas.value[indexPath.row].id
+        let viewModel = WebViewModel(for: .detail(roadId: road))
+        let viewController = WebViewController(viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
