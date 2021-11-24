@@ -14,7 +14,7 @@ enum PlaceRequestModel {
     }
     
     struct MyRoadModel: Encodable {
-        var page: Int = 1
+        var page: Int = .zero
         let pageSize: Int = 30
     }
 }

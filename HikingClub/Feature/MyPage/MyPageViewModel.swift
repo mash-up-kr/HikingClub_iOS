@@ -53,7 +53,7 @@ final class MyPageViewModel: BaseViewModel {
     private func resetRoadInformation() {
         canRequestMoreRoads = false
         needResetRoadDatas = false
-        myRoadRequestModel.page = 1
+        myRoadRequestModel.page = .zero
         roadDatas.accept([])
     }
     
@@ -74,10 +74,11 @@ final class MyPageViewModel: BaseViewModel {
     
     private func resetRoadRequest(_ needReset: Bool) {
         if needReset {
-            myRoadRequestModel.page = 1
+            myRoadRequestModel.page = .zero
             needResetRoadDatas = true
         } else {
-            myRoadRequestModel.page += 1
+            let nextPage = myRoadRequestModel.page == .zero ? 1 : myRoadRequestModel.page + 1
+            myRoadRequestModel.page = nextPage
         }
     }
     
