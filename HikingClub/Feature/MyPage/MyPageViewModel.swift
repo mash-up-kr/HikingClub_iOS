@@ -18,6 +18,7 @@ final class MyPageViewModel: BaseViewModel {
     /// 길목록
     private var myRoadRequestModel = PlaceRequestModel.MyRoadModel()
     let roadDatas: BehaviorRelay<[Road]> = BehaviorRelay(value: [])
+    let roadRequestFinised = PublishRelay<Void>()
     
     /// 유저 정보
     let userInformation = BehaviorRelay<Profile?>(value: nil)
@@ -33,6 +34,8 @@ final class MyPageViewModel: BaseViewModel {
                 self?.resetInformation()
             })
             .disposed(by: disposeBag)
+        
+        requestMyRoads()
     }
     
     private func resetInformation() {
@@ -55,7 +58,9 @@ final class MyPageViewModel: BaseViewModel {
             .compactMap { $0.data?.roads.map { Road(road: $0) } }
             .subscribe(onSuccess: { [weak self] in
                 self?.processRoadsResponse($0)
-            }, onError: { _ in
+                self?.roadRequestFinised.accept(Void())
+            }, onError: { [weak self] _ in
+                self?.roadRequestFinised.accept(Void())
                 NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)

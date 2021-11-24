@@ -20,20 +20,25 @@ final class MyPageViewController: BaseViewController <MyPageViewModel> {
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         tableView.register(RoadTableViewCell.self)
+        tableView.backgroundColor = .gray50
+        tableView.refreshControl = refreshControl
         tableView.tableHeaderView = nicknameHeaderView
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = .zero
         }
         return tableView
     }()
+    private let refreshControl: UIRefreshControl = {
+        let view = UIRefreshControl()
+        view.tintColor = .green700
+        return view
+    }()
     private let nicknameHeaderView = MypageListNicknameHeaderView()
     private let tableHeaderView = MypageListSectionHeaderView()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         viewModel.requestProfile()
-        viewModel.requestMyRoads(needReset: true)
     }
     
     // MARK: - Attribute
@@ -69,6 +74,12 @@ final class MyPageViewController: BaseViewController <MyPageViewModel> {
                 self?.navigateToSettingViewController()
             })
             .disposed(by: disposeBag)
+
+        refreshControl.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.requestMyRoads(needReset: true)
+            })
+            .disposed(by: disposeBag)
         
         tableView.rx.willDisplayCell
             .subscribe(onNext: { [weak self] in
@@ -100,6 +111,14 @@ final class MyPageViewController: BaseViewController <MyPageViewModel> {
             .compactMap({ $0 })
             .subscribe(onNext: { [weak self] in
                 self?.setProfile($0)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.roadRequestFinised
+            .subscribe(onNext: { [weak self] _ in
+                if self?.refreshControl.isRefreshing ?? false {
+                    self?.refreshControl.endRefreshing()
+                }
             })
             .disposed(by: disposeBag)
     }
