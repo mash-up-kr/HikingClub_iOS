@@ -116,9 +116,7 @@ final class MyPageViewController: BaseViewController <MyPageViewModel> {
         
         viewModel.roadRequestFinised
             .subscribe(onNext: { [weak self] _ in
-                if self?.refreshControl.isRefreshing ?? false {
-                    self?.refreshControl.endRefreshing()
-                }
+                self?.refreshControl.endRefreshing()
             })
             .disposed(by: disposeBag)
     }
