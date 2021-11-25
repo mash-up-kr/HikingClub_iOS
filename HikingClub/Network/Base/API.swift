@@ -47,7 +47,10 @@ extension TargetType {
     }
     
     var headers: [String : String]? {
-        ["Content-Type": "application/json"]
+        [
+            "Content-Type": "application/json",
+            "Authorization": "Bearer \(UserInformationManager.shared.token ?? "")"
+        ]
     }
 }
 

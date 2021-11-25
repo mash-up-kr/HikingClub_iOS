@@ -15,17 +15,19 @@ final class UserInformationManager {
     private init() { }
     
     var isSingIn: Bool {
-        userDefault.isEmpty
+        !userDefault.isEmpty
     }
     
     var token: String? {
         userDefault.value
     }
     
+    var isSignedIn = PublishRelay<Void>()
     var isSignedOut = PublishRelay<Void>()
     
     func signIn(_ token: String) {
         userDefault.save(token)
+        isSignedIn.accept(Void())
     }
     
     func singOut() {

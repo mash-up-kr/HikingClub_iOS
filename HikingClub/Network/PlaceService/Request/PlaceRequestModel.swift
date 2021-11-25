@@ -12,4 +12,9 @@ enum PlaceRequestModel {
         var keyword: String = ""
         var pageSize: Int = 10
     }
+    
+    struct MyRoadModel: Encodable {
+        var page: Int = .zero
+        let pageSize: Int = 30
+    }
 }

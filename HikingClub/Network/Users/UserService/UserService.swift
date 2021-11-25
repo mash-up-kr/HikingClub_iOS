@@ -12,11 +12,17 @@ import RxMoya
 struct UserService {
     private let provider = NetworkProvider<UserAPI>()
     
+    typealias ProfileResponse = Single<ResponseModel<Profile>>
+    
     func requestChangePassword(for email: String) -> Single <BaseResponseModel> {
         provider.request(.requestResetPassword(UserRequestModel.ResetPasswordModel(email: email, password: nil)))
     }
     
     func changePassword(_ body: UserRequestModel.ResetPasswordModel) -> Single<BaseResponseModel> {
         provider.request(.resetPassword(body))
+    }
+    
+    func profile() -> ProfileResponse {
+        provider.request(.profile)
     }
 }

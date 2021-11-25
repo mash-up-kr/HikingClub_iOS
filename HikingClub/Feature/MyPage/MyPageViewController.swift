@@ -7,9 +7,8 @@
 
 import UIKit
 import RxSwift
-import RxRelay
 
-final class MyPageViewController: BaseViewController<BaseViewModel> {
+final class MyPageViewController: BaseViewController <MyPageViewModel> {
     private let navigationBar: NaviBar = {
         let view = NaviBar()
         view.setTitle("마이페이지")
@@ -18,25 +17,36 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
     }()
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
         tableView.register(RoadTableViewCell.self)
+        tableView.backgroundColor = .gray50
+        tableView.refreshControl = refreshControl
         tableView.tableHeaderView = nicknameHeaderView
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = .zero
         }
         return tableView
     }()
+    private let refreshControl: UIRefreshControl = {
+        let view = UIRefreshControl()
+        view.tintColor = .green700
+        return view
+    }()
     private let nicknameHeaderView = MypageListNicknameHeaderView()
     private let tableHeaderView = MypageListSectionHeaderView()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.requestProfile()
+    }
     
     // MARK: - Attribute
     
     override func attribute() {
         super.attribute()
-        // FIXME: Mock Data Remove
-        nicknameHeaderView.setNickname("둘레길마스터")
-        tableHeaderView.setCount(11235)
+        nicknameHeaderView.setNickname("-")
+        tableHeaderView.setCount(0)
     }
     
     // MARK: - Layout
@@ -64,6 +74,51 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
                 self?.navigateToSettingViewController()
             })
             .disposed(by: disposeBag)
+
+        refreshControl.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.requestMyRoads(needReset: true)
+            })
+            .disposed(by: disposeBag)
+        
+        tableView.rx.willDisplayCell
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.requestMoreRoads($0.indexPath)
+            })
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.navigateToRoadDetailViewController($0)
+            })
+            .disposed(by: disposeBag)
+        
+        // MARK: - ViewModel Binding
+        viewModel.roadDatas
+            .bind(to: tableView.rx.items(cellIdentifier: "RoadTableViewCell",
+                                         cellType: RoadTableViewCell.self)) { row, cellModel, cell in
+                cell.configure(model: cellModel)
+            }.disposed(by: disposeBag)
+        
+        viewModel.roadDatas
+            .subscribe(onNext: { [weak self] in
+                self?.tableHeaderView.setCount($0.count)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.userInformation
+            .compactMap({ $0 })
+            .subscribe(onNext: { [weak self] in
+                self?.setProfile($0)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.roadRequestFinised
+            .subscribe(onNext: { [weak self] _ in
+                self?.refreshControl.endRefreshing()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func navigateToSettingViewController() {
@@ -71,22 +126,20 @@ final class MyPageViewController: BaseViewController<BaseViewModel> {
         viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    private func navigateToRoadDetailViewController(_ indexPath: IndexPath) {
+        let road = viewModel.roadDatas.value[indexPath.row].id
+        let viewModel = WebViewModel(for: .detail(roadId: road))
+        let viewController = WebViewController(viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func setProfile(_ profile: Profile) {
+        nicknameHeaderView.setNickname(profile.nickname)
+    }
 }
 
 extension MyPageViewController: UITableViewDelegate {
-    
-}
-
-extension MyPageViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(RoadTableViewCell.self, for: indexPath)
-        return cell
-    }
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 48
     }

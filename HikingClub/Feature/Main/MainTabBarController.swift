@@ -31,7 +31,7 @@ final class MainTabBarController: UITabBarController {
     }()
     
     private let myPageViewController: UINavigationController = {
-        MyPageViewController(BaseViewModel()).wrappedByNavigationController()
+        MyPageViewController(MyPageViewModel()).wrappedByNavigationController()
     }()
     
     enum TabBarIndex: Int {
@@ -110,6 +110,8 @@ final class MainTabBarController: UITabBarController {
             if false == checkLogin() {
                 selectedIndex = previousTabIndex
                 presentLoginViewController()
+            } else {
+                previousTabIndex = index
             }
         } else {
             previousTabIndex = index
