@@ -36,7 +36,8 @@ final class MainTabBarController: UITabBarController {
     
     enum TabBarIndex: Int {
         case home
-        case search
+        // TODO: 첫 심사 시 기능 미완료로 검색 탭바 숨김 처리
+        // case search
         case write
         case myPage
     }
@@ -63,11 +64,14 @@ final class MainTabBarController: UITabBarController {
         tabBar.barTintColor = .white
         tabBar.backgroundColor = .white
         homeViewController.tabBarItem = homeTabBarItem
-        searchViewController.tabBarItem = searchTabBarItem
+        // TODO: 첫 심사 시 기능 미완료로 검색 탭바 숨김 처리
+        // searchViewController.tabBarItem = searchTabBarItem
         writeViewController.tabBarItem = writeTabBarItem
         myPageViewController.tabBarItem = mypageTabBarItem
         
-        setViewControllers([homeViewController, searchViewController, writeViewController, myPageViewController], animated: false)
+        // TODO: 첫 심사 시 기능 미완료로 검색 탭바 숨김 처리
+        // setViewControllers([homeViewController, searchViewController, writeViewController, myPageViewController], animated: false)
+        setViewControllers([homeViewController, writeViewController, myPageViewController], animated: false)
         
         bind()
     }
