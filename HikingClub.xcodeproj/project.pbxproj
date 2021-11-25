@@ -74,6 +74,7 @@
 		28B86D5427403C9100E962A8 /* InquiryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D5327403C9100E962A8 /* InquiryListCell.swift */; };
 		28ED07F5273681C700D33354 /* VersionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED07F4273681C700D33354 /* VersionInfoViewController.swift */; };
 		28ED07FD2736833500D33354 /* VersionInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28ED07FC2736833500D33354 /* VersionInfo.storyboard */; };
+		770BB53B274FCD33002EDD6B /* NDLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BB53A274FCD33002EDD6B /* NDLocationManager.swift */; };
 		771230DC27283EDA003B63E5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771230DB27283EDA003B63E5 /* MyPageViewController.swift */; };
 		77125D92274A7DDC003885C2 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77125D91274A7DDC003885C2 /* SettingViewModel.swift */; };
 		77125D94274BCB3D003885C2 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77125D93274BCB3D003885C2 /* MyPageViewModel.swift */; };
@@ -232,6 +233,7 @@
 		28B86D5327403C9100E962A8 /* InquiryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryListCell.swift; sourceTree = "<group>"; };
 		28ED07F4273681C700D33354 /* VersionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoViewController.swift; sourceTree = "<group>"; };
 		28ED07FC2736833500D33354 /* VersionInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VersionInfo.storyboard; sourceTree = "<group>"; };
+		770BB53A274FCD33002EDD6B /* NDLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDLocationManager.swift; sourceTree = "<group>"; };
 		771230DB27283EDA003B63E5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		77125D91274A7DDC003885C2 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		77125D93274BCB3D003885C2 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
@@ -860,6 +862,7 @@
 			isa = PBXGroup;
 			children = (
 				7784885C274D18DE00437D51 /* UserInformationManager.swift */,
+				770BB53A274FCD33002EDD6B /* NDLocationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1120,6 +1123,7 @@
 				06A1EC9B2708B12A00EA78D8 /* UILabel+.swift in Sources */,
 				777B517C2712AEB300299430 /* EmailAuthroizeViewController.swift in Sources */,
 				77238836273FDC2B00F3AA84 /* SignUpService.swift in Sources */,
+				770BB53B274FCD33002EDD6B /* NDLocationManager.swift in Sources */,
 				7776BEE727366D36009EC168 /* MypageListNicknameHeaderView.swift in Sources */,
 				777B51802714472B00299430 /* TermDetailViewController.swift in Sources */,
 				779B94FE27467D8C00325353 /* SignUpRequestModel.swift in Sources */,
