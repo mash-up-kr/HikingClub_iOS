@@ -17,15 +17,11 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
         return stackView
     }()
     
-    private let lottieView: UIView = {
-        let view = UIView()
+    private let lottieView: AnimationView = {
         let animationView = AnimationView(name: "lottie_start")
-        view.addSubview(animationView)
-        animationView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        animationView.backgroundBehavior = .pauseAndRestore
         animationView.play()
-        return view
+        return animationView
     }()
     
     private let signUpButton: NDButton = {
