@@ -113,6 +113,26 @@ enum AssetImage: String {
     case icon_my_unlock_normal_gray900_24
     case icon_my_unlock_normal_green700_24
     
+    // MARK: - themeImg
+    
+    case img_category_bungeoppang_large
+    case img_category_bungeoppang_small
+    case img_category_cherryBlossoms_large
+    case img_category_cherryBlossoms_small
+    case img_category_dog_large
+    case img_category_dog_small
+    case img_category_heart_large
+    case img_category_heart_small
+    case img_category_kindergartenHat_large
+    case img_category_kindergartenHat_small
+    case img_category_lake_large
+    case img_category_lake_small
+    case img_category_moonStar_large
+    case img_category_moonStar_small
+    case img_category_sneakers_large
+    case img_category_sneakers_small
+    case img_category_trees_large
+    case img_category_trees_small
     
     var image: UIImage? {
         return UIImage.init(named: self.rawValue)
