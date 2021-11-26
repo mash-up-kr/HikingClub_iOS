@@ -22,17 +22,11 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
     private lazy var tableViewHeaderImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.image = self.viewModel.categoryWords.value[viewModel.selectedCategory.value].key.themeImage
+        imageView.image = self.viewModel.categoryWords.value[viewModel.selectedCategory.value].key.themeImage(scale: .large)
         imageView.clipsToBounds = true
         return imageView
     }()
     private var tableViewHeaderViewTitleView = UIView()
-    private let tableViewHeaderViewTitleLabel: UILabel = {
-        let label = UILabel()
-        label.setFont(.semiBold24)
-        label.textColor = .gray900
-        return label
-    }()
     private let backButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(.icon_angleBracket_left_gray900_24)
@@ -73,7 +67,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         }
         
         tableViewHeaderView?.addSubViews(tableViewHeaderViewTitleView, categoryCollectionView)
-        tableViewHeaderViewTitleView.addSubViews(tableViewHeaderImageView, backButton, tableViewHeaderViewTitleLabel)
+        tableViewHeaderViewTitleView.addSubViews(tableViewHeaderImageView, backButton)
         tableViewHeaderViewTitleView.snp.makeConstraints {
             $0.leading.top.trailing.equalToSuperview()
             $0.height.equalTo(titleHeaderViewHeight)
@@ -88,12 +82,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
             $0.top.equalToSuperview().offset(52)
             $0.leading.equalToSuperview().offset(16)
         }
-        
-        tableViewHeaderViewTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(backButton.snp.bottom).offset(38)
-            $0.leading.equalToSuperview().offset(20)
-        }
-        
+    
         categoryCollectionView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
             $0.height.equalTo(tabbarHeight)
@@ -149,14 +138,9 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
             .disposed(by: disposeBag)
         
         viewModel.currentCategory
-            .map { $0.name }
-            .bind(to: tableViewHeaderViewTitleLabel.rx.text)
-            .disposed(by: disposeBag)
-        
-        viewModel.currentCategory
             .map { $0.key }
             .subscribe(onNext: { [weak self] in
-                self?.tableViewHeaderImageView.image = $0.themeImage
+                self?.tableViewHeaderImageView.image = $0.themeImage(scale: .large)
             })
             .disposed(by: disposeBag)
         

@@ -26,10 +26,6 @@ final class HomeViewModel: BaseViewModel {
     // FIXME: 더미용 나중에 삭제할것
     func mockData() {
         locations.accept(["송파구", "문정동", "가락동", "삼전동", "잠실동", "남양주", "서울시 송파구"])
-        
-        categoryWords.accept([CategoryModel(id: 1, key: .cherryBlossom, name: "벚꽃"),
-                              CategoryModel(id: 2, key: .couple, name: "연인"),
-                              CategoryModel(id: 1, key: .food, name: "음식")])
     }
     
     /// 주소별 길 리스트 조회
