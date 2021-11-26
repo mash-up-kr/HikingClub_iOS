@@ -38,14 +38,6 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
 //    }()
     private lazy var emptyView: EmptyView = EmptyView()
  
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // 초기선택설정
-        locationTabbar.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
-        
-        viewModel.requestRoads()
-    }
-    
     override func attribute() {
         super.attribute()
         
@@ -116,8 +108,14 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
 //            })
 //            .disposed(by: disposeBag)
         
-        // FIXME: - 목데이터 삭제
-        viewModel.mockData()
+        // 위치정보
+        viewModel.locations
+            .asDriver()
+            .filter { !$0.isEmpty }
+            .drive(onNext: { [weak self] _ in
+                self?.locationTabbar.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
+            })
+            .disposed(by: disposeBag)
     }
     
     func setTableView() {

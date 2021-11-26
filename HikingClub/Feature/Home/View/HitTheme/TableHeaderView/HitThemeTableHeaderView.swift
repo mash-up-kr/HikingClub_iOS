@@ -40,7 +40,6 @@ final class HitThemeTableHeaderView: UIView {
         categoryWords
             .bind(to: collectionView.rx.items(cellIdentifier: "HitThemeHeaderCollectionViewCell",
                                               cellType: HitThemeHeaderCollectionViewCell.self)) { item, cellModel, cell in
-                print("🚨 \(cellModel)")
                 cell.configure(cellModel)
             }.disposed(by: disposeBag)
     }

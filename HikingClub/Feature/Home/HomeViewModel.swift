@@ -22,10 +22,12 @@ final class HomeViewModel: BaseViewModel {
     private var placeCode: Int = 1123068
     /// 페이징 가능한지체크
     private var isRequestMoreRoads: Bool = true
-    
-    // FIXME: 더미용 나중에 삭제할것
-    func mockData() {
-        locations.accept(["송파구", "문정동", "가락동", "삼전동", "잠실동", "남양주", "서울시 송파구"])
+    private let userInformationUserDefault = UserInformationUserDefault(key: .token)
+
+    override init() {
+        super.init()
+        updateCategory()
+        requestRoads()
     }
     
     /// 주소별 길 리스트 조회
@@ -61,5 +63,37 @@ final class HomeViewModel: BaseViewModel {
                 self?.isLoading.accept(false)
             })
             .disposed(by: disposeBag)
+    }
+    
+    func updateCategory() {
+        if userInformationUserDefault.isEmpty {
+            requestCategories()
+        } else {
+            // TODO: 내정보에있는 카테고리쓰기
+        }
+    }
+    
+    /// 카테고리 리스트통신
+    private func requestCategories() {
+        placeService.categories()
+            .subscribe(onSuccess: { [weak self] in
+                guard let list = $0.listData else { return }
+                self?.categoryWords.accept(list)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    // TODO: 내위치 가져오기
+    func updateLocation() {
+        if userInformationUserDefault.isEmpty {
+            currentLocation()
+        } else {
+            // TODO: 내정보에있는 위치정보쓰기
+            
+        }
+    }
+    
+    /// 위치정보가져오기
+    private func currentLocation() {
     }
 }
