@@ -76,6 +76,7 @@
 		28ED07FD2736833500D33354 /* VersionInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28ED07FC2736833500D33354 /* VersionInfo.storyboard */; };
 		770BB53B274FCD33002EDD6B /* NDLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BB53A274FCD33002EDD6B /* NDLocationManager.swift */; };
 		770BB53D27535E5E002EDD6B /* NDNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BB53C27535E5E002EDD6B /* NDNotificationName.swift */; };
+		770BB53F27535ECC002EDD6B /* PrimitiveSequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BB53E27535ECC002EDD6B /* PrimitiveSequence+.swift */; };
 		771230DC27283EDA003B63E5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771230DB27283EDA003B63E5 /* MyPageViewController.swift */; };
 		77125D92274A7DDC003885C2 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77125D91274A7DDC003885C2 /* SettingViewModel.swift */; };
 		77125D94274BCB3D003885C2 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77125D93274BCB3D003885C2 /* MyPageViewModel.swift */; };
@@ -236,6 +237,7 @@
 		28ED07FC2736833500D33354 /* VersionInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VersionInfo.storyboard; sourceTree = "<group>"; };
 		770BB53A274FCD33002EDD6B /* NDLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDLocationManager.swift; sourceTree = "<group>"; };
 		770BB53C27535E5E002EDD6B /* NDNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDNotificationName.swift; sourceTree = "<group>"; };
+		770BB53E27535ECC002EDD6B /* PrimitiveSequence+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimitiveSequence+.swift"; sourceTree = "<group>"; };
 		771230DB27283EDA003B63E5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		77125D91274A7DDC003885C2 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		77125D93274BCB3D003885C2 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 				7760CA95272541D0006B39A9 /* Encodable+.swift */,
 				0684EA5A2734623300FC74D1 /* UITableViewCell+.swift */,
 				06D4FF2927390A8400300AE5 /* UserDefault+.swift */,
+				770BB53E27535ECC002EDD6B /* PrimitiveSequence+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1128,6 +1131,7 @@
 				77238836273FDC2B00F3AA84 /* SignUpService.swift in Sources */,
 				770BB53B274FCD33002EDD6B /* NDLocationManager.swift in Sources */,
 				7776BEE727366D36009EC168 /* MypageListNicknameHeaderView.swift in Sources */,
+				770BB53F27535ECC002EDD6B /* PrimitiveSequence+.swift in Sources */,
 				777B51802714472B00299430 /* TermDetailViewController.swift in Sources */,
 				779B94FE27467D8C00325353 /* SignUpRequestModel.swift in Sources */,
 				77E59133270DDDA40070F381 /* HomeViewModel.swift in Sources */,
