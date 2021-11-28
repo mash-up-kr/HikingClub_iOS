@@ -46,10 +46,18 @@ extension TargetType {
         URL(string: "https://api.nadeulgil.com")!
     }
     
+    var authorization: String {
+        if let token = UserInformationManager.shared.token {
+            return "Bearer \(token)"
+        } else {
+            return ""
+        }
+    }
+    
     var headers: [String : String]? {
         [
             "Content-Type": "application/json",
-            "Authorization": "Bearer \(UserInformationManager.shared.token ?? "")"
+            "Authorization": authorization
         ]
     }
 }
