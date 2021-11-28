@@ -38,11 +38,6 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
 //    }()
     private lazy var emptyView: EmptyView = EmptyView()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewModel.updateLocation()
-    }
-    
     override func attribute() {
         super.attribute()
         
@@ -103,11 +98,6 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         locationTabbar.rx.itemSelected
             .asDriver()
             .debounce(.milliseconds(300))
-            .do(onNext: { [weak self] in
-                if $0.item == 0 {
-                    self?.viewModel.currentLocation()
-                }
-            })
             .drive(onNext: { [weak self] in
                 self?.viewModel.requestRoads(index: $0.item)
             })
