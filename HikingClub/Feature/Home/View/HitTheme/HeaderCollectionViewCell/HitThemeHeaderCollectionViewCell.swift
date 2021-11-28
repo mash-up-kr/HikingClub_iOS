@@ -9,13 +9,11 @@ import UIKit
 
 final class HitThemeHeaderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
     
     var model: CategoryModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleLabel.setFont(.semiBold16)
         layer.cornerRadius = 12
     }
     
@@ -26,7 +24,6 @@ final class HitThemeHeaderCollectionViewCell: UICollectionViewCell {
     
     func configure(_ model: CategoryModel) {
         self.model = model
-        titleLabel.text = model.name
-        imageView.image = model.key.themeImage
+        imageView.image = model.key.themeImage(scale: .small)
     }
 }
