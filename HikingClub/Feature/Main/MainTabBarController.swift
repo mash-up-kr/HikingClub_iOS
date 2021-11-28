@@ -90,6 +90,16 @@ final class MainTabBarController: UITabBarController {
                 self?.selectedIndexProcess($0.rawValue)
             })
             .disposed(by: disposeBag)
+        
+        // TODO: 리팩터링
+        NotificationCenter.default.rx.notification(NDNotificationName.invalidToken.name, object: nil)
+            .subscribe(onNext: { [weak self] _ in
+                NDToastView.shared.rx.showText.onNext(.red(text: NetworkError.invalidToken.description))
+                
+                self?.selectTab.accept(.home)
+                self?.popAllNavigationController()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func checkLogin() -> Bool {
@@ -122,6 +132,13 @@ final class MainTabBarController: UITabBarController {
         let viewController = LoginNavigationViewController(LoginNavigationViewModel()).wrappedByNavigationController()
         viewController.modalPresentationStyle = .fullScreen
         present(viewController, animated: true, completion: nil)
+    }
+    
+    private func popAllNavigationController() {
+        homeViewController.popToRootViewController(animated: false)
+        searchViewController.popToRootViewController(animated: false)
+        writeViewController.popToRootViewController(animated: false)
+        myPageViewController.popToRootViewController(animated: false)
     }
     
 #if DEBUG
