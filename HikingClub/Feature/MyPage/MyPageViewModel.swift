@@ -41,7 +41,9 @@ final class MyPageViewModel: BaseViewModel {
             })
             .disposed(by: disposeBag)
         
-        requestMyRoads()
+        if UserInformationManager.shared.isSingIn {
+            requestMyRoads()
+        }
     }
     
     private func resetInformation() {
