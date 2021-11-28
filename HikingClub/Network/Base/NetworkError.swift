@@ -23,7 +23,7 @@ enum NetworkError: Error {
         case .objectMapping(let reason):
             return reason
         case .invalidToken:
-            return "유효하지 않은 토큰입니다"
+            return "유효하지 않은 토큰입니다."
         }
     }
     
@@ -78,4 +78,3 @@ enum NetworkError: Error {
         }
     }
 }
-
