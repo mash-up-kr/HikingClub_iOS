@@ -7,6 +7,7 @@
 
 import Foundation
 import RxRelay
+import RxSwift
 
 final class HomeViewModel: BaseViewModel {
     // MARK: - Output
@@ -95,5 +96,24 @@ final class HomeViewModel: BaseViewModel {
     
     /// 위치정보가져오기
     private func currentLocation() {
+        NDLocationManager.shared.requestLocationAuth { [weak self] in
+            guard let self = self else { return }
+            NDLocationManager.shared.rx.didUpdateLocation
+                .flatMap { [weak self] in self?.requestAddress(location: $0) ?? .error(RxError.noElements)}
+                .catch { _ in .just(PlaceModel(code: "", fullAddress: "알수없음", coords: [])) }
+                .subscribe(onNext: { [weak self] in
+                    self?.locations.accept([$0.addressDong])
+                })
+                .disposed(by: self.disposeBag)
+        }
+    }
+    
+    /// 경도위도 통신으로 주소 가져옴
+    private func requestAddress(location: (Double, Double)) -> Observable<PlaceModel> {
+        var model = PlaceRequestModel.SearchModel(lat: location.0, long: location.1)
+        model.pageSize = 1
+        return placeService.search(model)
+            .compactMap { $0.listData?.first }
+            .asObservable()
     }
 }

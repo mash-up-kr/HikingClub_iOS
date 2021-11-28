@@ -37,7 +37,12 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
 //        return button
 //    }()
     private lazy var emptyView: EmptyView = EmptyView()
- 
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.updateLocation()
+    }
+    
     override func attribute() {
         super.attribute()
         

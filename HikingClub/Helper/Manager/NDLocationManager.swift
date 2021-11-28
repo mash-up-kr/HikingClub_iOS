@@ -6,6 +6,8 @@
 //
 
 import CoreLocation
+import RxCocoa
+import RxSwift
 
 final class NDLocationManager: NSObject {
     static let shared = NDLocationManager()
@@ -23,6 +25,7 @@ final class NDLocationManager: NSObject {
     }()
 
     var currentCoordinate: (Double, Double)?
+    fileprivate let _didUpdateLocation = BehaviorRelay<(Double, Double)?>(value: nil)
     
     var locationAuthStatus: CLAuthorizationStatus {
         if #available(iOS 14.0, *) {
@@ -55,6 +58,19 @@ final class NDLocationManager: NSObject {
 extension NDLocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let coordinate = locations.last?.coordinate else { return }
-        currentCoordinate = (coordinate.latitude, coordinate.longitude)
+        let locataion = (coordinate.latitude, coordinate.longitude)
+        currentCoordinate = locataion
+        _didUpdateLocation.accept(locataion)
+        locationManager.stopUpdatingLocation()
     }
 }
+
+
+extension Reactive where Base: NDLocationManager {
+    var didUpdateLocation: Observable<(Double, Double)> {
+        base._didUpdateLocation
+            .compactMap { $0 }
+            .asObservable()
+    }
+}
+
