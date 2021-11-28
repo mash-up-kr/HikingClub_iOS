@@ -19,10 +19,10 @@ final class SelectTownViewModel: BaseViewModel {
     func searchTown(_ keyword: String) {
         placeService.search(keyword)
             .subscribe(onSuccess: { [weak self] response in
-                guard let place = response.listData else { return }
-                self?.searchedTownListRelay.accept(place)
-            }, onFailure: { [weak self] error in
-                print(error)
+                guard let places = response.listData else { return }
+                self?.processPlaceResponse(places)
+            }, onFailure: { _ in
+                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)
     }
@@ -33,7 +33,20 @@ final class SelectTownViewModel: BaseViewModel {
     }
     
     func searchTownWithCurrentLocation() {
-        guard let currentCoordinate = currentCoordinate else { return }
-        // TODO: lat, long 보내는 API 추가 할 것
+        guard let currentCoordinate = NDLocationManager.shared.currentCoordinate else { return }
+        let requestModel = PlaceRequestModel.SearchModel(lat: currentCoordinate.0,
+                                                         long: currentCoordinate.1)
+        placeService.search(requestModel)
+            .subscribe(onSuccess: { [weak self] response in
+                guard let places = response.listData else { return }
+                self?.processPlaceResponse(places)
+            }, onFailure: { _ in
+                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func processPlaceResponse(_ places: [PlaceModel]) {
+        searchedTownListRelay.accept(places)
     }
 }

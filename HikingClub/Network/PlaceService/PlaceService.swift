@@ -20,6 +20,10 @@ struct PlaceService {
         provider.request(.search(PlaceRequestModel.SearchModel(keyword: keyword)))
     }
     
+    func search(_ model: PlaceRequestModel.SearchModel) -> Single<PlaceSearchListResponse> {
+        provider.request(.search(model))
+    }
+    
     func categories() -> Single<CategoriesResponse> {
         provider.request(.categories)
     }

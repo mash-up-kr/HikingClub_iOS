@@ -5,7 +5,6 @@
 //  Created by AhnSangHoon on 2021/11/06.
 //
 
-import CoreLocation
 import UIKit
 import RxSwift
 
@@ -55,28 +54,6 @@ final class SelectTownViewController: BaseViewController<SelectTownViewModel> {
         
         return tableView
     }()
-    
-    private let locationManager = CLLocationManager()
-    private var locationAuthStatus: CLAuthorizationStatus {
-        if #available(iOS 14.0, *) {
-            return locationManager.authorizationStatus
-        } else {
-            return CLLocationManager.authorizationStatus()
-        }
-    }
-    
-    // MARK: - Attribute
-    
-    override func attribute() {
-        super.attribute()
-        locationManagerAtrribute()
-    }
-    
-    private func locationManagerAtrribute() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.startUpdatingLocation()
-    }
     
     // MARK: - Layout
     
@@ -134,12 +111,14 @@ final class SelectTownViewController: BaseViewController<SelectTownViewModel> {
             .disposed(by: disposeBag)
         
         searchCurrnetLocationButton.rx.tap
-            .filter { [weak self] in
-                guard let self = self else { return false }
-                if self.locationAuthStatus == .authorizedWhenInUse {
+            .filter {
+                if NDLocationManager.shared.locationAuthStatus == .authorizedWhenInUse ||
+                    NDLocationManager.shared.locationAuthStatus == .authorizedAlways {
                     return true
                 } else {
-                    self.requestLocationAuth()
+                    NDLocationManager.shared.requestLocationAuth { [weak self] in
+                        self?.viewModel.searchTownWithCurrentLocation()
+                    }
                     return false
                 }
             }
@@ -161,25 +140,6 @@ final class SelectTownViewController: BaseViewController<SelectTownViewModel> {
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func requestLocationAuth() {
-        switch locationAuthStatus {
-        case .authorizedWhenInUse:
-            fallthrough
-        case .authorizedAlways:
-            break
-        case .restricted:
-            fallthrough
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .denied:
-            // TODO: 권한 거부 상태일때의 처리 추가해야함
-            break
-        default:
-            // TODO: 추가된 상태에 대한 처리 추가해야함
-            print(locationAuthStatus)
-        }
     }
 }
 
@@ -206,12 +166,5 @@ extension SelectTownViewController: UITableViewDataSource {
         let townAddress = viewModel.searchedTownListRelay.value[indexPath.row].fullAddress
         cell.setTownName(townAddress)
         return cell
-    }
-}
-
-extension SelectTownViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let coordinate = locations.last?.coordinate else { return }
-        viewModel.currentCoordinate = (coordinate.latitude, coordinate.longitude)
     }
 }
