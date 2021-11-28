@@ -97,13 +97,19 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         viewModel.locations
             .bind(to: locationTabbar.rx.items(cellIdentifier: CategoryTabCollectionView.cellIdentifier,
                                       cellType: CategoryTabCollectionViewCell.self)) { item, cellModel, cell in
-                cell.configure(with: cellModel, subTitle: item == 0 ? "현위치" : nil)
+                cell.configure(with: cellModel.addressDong, subTitle: item == 0 ? "현위치" : nil)
             }.disposed(by: disposeBag)
         
-        // TODO: - 선택시 통신
         locationTabbar.rx.itemSelected
-            .subscribe(onNext: {
-                print($0)
+            .asDriver()
+            .debounce(.milliseconds(300))
+            .do(onNext: { [weak self] in
+                if $0.item == 0 {
+                    self?.viewModel.currentLocation()
+                }
+            })
+            .drive(onNext: { [weak self] in
+                self?.viewModel.requestRoads(index: $0.item)
             })
             .disposed(by: disposeBag)
         // TODO: - 추후 추가해야할 기능
@@ -203,7 +209,7 @@ extension HomeViewController: UITableViewDataSourcePrefetching {
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let word = viewModel.locations.value[indexPath.item]
+        let word = viewModel.locations.value[indexPath.item].addressDong
         return locationTabbar.cellSize(title: word, subTitle: indexPath.item == 0 ? "현위치" : nil)
     }
 }

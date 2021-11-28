@@ -14,7 +14,7 @@ final class HomeViewModel: BaseViewModel {
     /// 길목록
     let roadDatas: BehaviorRelay<[Road]> = BehaviorRelay(value: [])
     /// 위치
-    let locations: BehaviorRelay<[String]> = BehaviorRelay(value: [])
+    let locations: BehaviorRelay<[PlaceModel]> = BehaviorRelay(value: [])
     /// 카테고리
     let categoryWords: BehaviorRelay<[CategoryModel]> = BehaviorRelay(value: [])
     let isLoading: BehaviorRelay<Bool> = BehaviorRelay(value: false)
@@ -24,15 +24,15 @@ final class HomeViewModel: BaseViewModel {
     /// 페이징 가능한지체크
     private var isRequestMoreRoads: Bool = true
     private let userInformationUserDefault = UserInformationUserDefault(key: .token)
-
+    
     override init() {
         super.init()
         updateCategory()
-        requestRoads()
     }
     
     /// 주소별 길 리스트 조회
-    func requestRoads() {
+    func requestRoads(index: Int) {
+        guard let placeCode = Int(locations.value[index].code) else { return }
         let model = PlaceRequestModel.RoadListModel(placeCode: placeCode, lastId: nil, direction: .forward)
         placeService.roads(model: model)
             .compactMap { $0.data?.roads.map { Road(road: $0) } }
@@ -95,14 +95,14 @@ final class HomeViewModel: BaseViewModel {
     }
     
     /// 위치정보가져오기
-    private func currentLocation() {
+    func currentLocation() {
         NDLocationManager.shared.requestLocationAuth { [weak self] in
             guard let self = self else { return }
             NDLocationManager.shared.rx.didUpdateLocation
                 .flatMap { [weak self] in self?.requestAddress(location: $0) ?? .error(RxError.noElements)}
                 .catch { _ in .just(PlaceModel(code: "", fullAddress: "알수없음", coords: [])) }
                 .subscribe(onNext: { [weak self] in
-                    self?.locations.accept([$0.addressDong])
+                    self?.locations.accept([$0])
                 })
                 .disposed(by: self.disposeBag)
         }
