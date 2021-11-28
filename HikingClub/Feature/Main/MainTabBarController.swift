@@ -92,7 +92,7 @@ final class MainTabBarController: UITabBarController {
             .disposed(by: disposeBag)
         
         // TODO: 리팩터링
-        NotificationCenter.default.rx.notification(NDNotificationName.invalidToken.name, object: nil)
+        NotificationCenter.default.rx.notification(Notification.Name.invalidToken, object: nil)
             .subscribe(onNext: { [weak self] _ in
                 NDToastView.shared.rx.showText.onNext(.red(text: NetworkError.invalidToken.description))
                 

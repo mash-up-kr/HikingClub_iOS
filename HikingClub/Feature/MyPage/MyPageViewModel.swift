@@ -41,7 +41,7 @@ final class MyPageViewModel: BaseViewModel {
             })
             .disposed(by: disposeBag)
         
-        if UserInformationManager.shared.isSingIn {
+        if UserInformationManager.shared.isSignIn {
             requestMyRoads()
         }
     }

@@ -14,7 +14,7 @@ final class UserInformationManager {
     
     private init() { }
     
-    var isSingIn: Bool {
+    var isSignIn: Bool {
         !userDefault.isEmpty
     }
     

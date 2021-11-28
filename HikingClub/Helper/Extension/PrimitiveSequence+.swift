@@ -49,7 +49,7 @@ extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
         }
         if responseCode == "FAILED_AUTHORIZATION" {
             UserInformationManager.shared.singOut()
-            NotificationCenter.default.post(name: NDNotificationName.invalidToken.name, object: nil, userInfo: nil)
+            NotificationCenter.default.post(name: Notification.Name.invalidToken, object: nil, userInfo: nil)
             throw NetworkError.invalidToken
         }
     }
