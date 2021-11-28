@@ -53,6 +53,10 @@ final class NDLocationManager: NSObject {
             print(locationAuthStatus)
         }
     }
+    
+    func startUpdatingLocation() {
+        locationManager.startUpdatingLocation()
+    }
 }
 
 extension NDLocationManager: CLLocationManagerDelegate {

@@ -133,6 +133,8 @@ final class HomeViewModel: BaseViewModel {
     private func fetchCurrentLocation() {
         NDLocationManager.shared.requestLocationAuth { [weak self] in
             guard let self = self else { return }
+            
+            NDLocationManager.shared.startUpdatingLocation()
             NDLocationManager.shared.rx.didUpdateLocation
                 .flatMap { [weak self] in self?.requestAddress(location: $0) ?? .error(RxError.noElements)}
                 .catch { _ in .just(PlaceModel(code: "", fullAddress: "알수없음", coords: [])) }
