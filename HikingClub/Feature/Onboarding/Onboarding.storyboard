@@ -1,28 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17150" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Lottie Onboarding View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                <viewController storyboardIdentifier="LottieOnboardingViewController" id="Y6W-OH-hqX" customClass="LottieOnboardingViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="AnimatedButton" customModule="Lottie">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgv-cX-RF2" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" name="green500"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mgv-cX-RF2" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="7bm-RN-unc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mgv-cX-RF2" secondAttribute="trailing" id="KhK-Bh-Fq2"/>
+                            <constraint firstAttribute="bottom" secondItem="Mgv-cX-RF2" secondAttribute="bottom" id="fd8-R8-4Ep"/>
+                            <constraint firstItem="Mgv-cX-RF2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="x12-eL-7Ur"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="n4Q-Rp-qrW"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="5EZ-qb-Rvc" id="KRw-5g-MSH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="704.34782608695662" y="75.669642857142847"/>
+        </scene>
+        <!--Onboarding Page View Controller-->
+        <scene sceneID="cmU-4a-UAK">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z4C-Hi-295" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="OnboardingFirstViewController" id="Iqg-np-Qsz" customClass="OnboardingPageViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u9w-Av-FUr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kS-DK-rCh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="718"/>
+                                <connections>
+                                    <segue destination="PuV-fz-NMm" kind="embed" identifier="pageViewControllerSegue" id="pp2-ul-zXk"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3QW-7E-pKi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1kS-DK-rCh" firstAttribute="top" secondItem="3QW-7E-pKi" secondAttribute="top" id="66d-cu-gvm"/>
+                            <constraint firstItem="3QW-7E-pKi" firstAttribute="bottom" secondItem="1kS-DK-rCh" secondAttribute="bottom" constant="100" id="CN7-Be-CfG"/>
+                            <constraint firstItem="3QW-7E-pKi" firstAttribute="trailing" secondItem="1kS-DK-rCh" secondAttribute="trailing" id="oHr-ee-qCZ"/>
+                            <constraint firstItem="1kS-DK-rCh" firstAttribute="leading" secondItem="3QW-7E-pKi" secondAttribute="leading" id="uCg-yL-Rj8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="11.594202898550726" y="766.74107142857144"/>
+        </scene>
+        <!--Onboarding Page View Controller-->
+        <scene sceneID="hgl-Nm-Otu">
+            <objects>
+                <pageViewController storyboardIdentifier="OnboardingPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="PuV-fz-NMm" customClass="OnboardingPageViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SLo-Qs-nTV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704" y="767"/>
+        </scene>
+        <!--Onboarding Second View Controller-->
+        <scene sceneID="RmM-dr-dVi">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingSecondViewController" id="2u8-f0-lYV" customClass="OnboardingSecondViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AHF-0S-Pt9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wa0-iv-vqm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Xs-XH-6qD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2170" y="767"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mn9-wE-Bao">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ySx-W9-XoC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4vl-TM-8Jg">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Pjl-O7-aT9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ONI-En-zbk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.043478260869566" y="75.669642857142847"/>
+        </scene>
+        <!--Onboarding Third View Controller-->
+        <scene sceneID="hb7-N7-yaq">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingThirdViewController" id="YWY-c3-Ict" customClass="OnboardingThirdViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jzG-iK-U6C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="M9o-5G-u5K"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WyJ-ZK-bHK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2914" y="767"/>
+        </scene>
+        <!--Onboarding First View Controller-->
+        <scene sceneID="OUF-Tl-SpE">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingThirdViewController" id="vfz-DV-6c5" customClass="OnboardingFirstViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4wR-VA-MiH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ymT-jh-7bY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AzD-x4-hor" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1477" y="767"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="green500">
+            <color red="0.30196078431372547" green="0.61960784313725492" blue="0.44705882352941179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

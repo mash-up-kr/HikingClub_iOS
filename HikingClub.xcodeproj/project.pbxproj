@@ -66,6 +66,15 @@
 		283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF07527086DA40033ED71 /* RoadTableViewCell.swift */; };
 		283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283AF07627086DA40033ED71 /* RoadTableViewCell.xib */; };
 		283AF0832708B6440033ED71 /* RoadHashTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283AF0822708B6440033ED71 /* RoadHashTagView.swift */; };
+		285111FB27534B0100C2E31C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285111F927534B0100C2E31C /* SplashViewController.swift */; };
+		285111FE27534B6A00C2E31C /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285111FD27534B6A00C2E31C /* SplashViewModel.swift */; };
+		2851120027534FA600C2E31C /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285111FF27534FA600C2E31C /* Splash.storyboard */; };
+		2851120527535A6200C2E31C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2851120427535A6200C2E31C /* Onboarding.storyboard */; };
+		2851120727535AB200C2E31C /* LottieOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2851120627535AB200C2E31C /* LottieOnboardingViewController.swift */; };
+		2851120927535CAD00C2E31C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2851120827535CAD00C2E31C /* OnboardingViewController.swift */; };
+		2851120B275360AE00C2E31C /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2851120A275360AE00C2E31C /* OnboardingPageViewController.swift */; };
+		2851120D2753619400C2E31C /* OnboardingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2851120C2753619400C2E31C /* OnboardingSecondViewController.swift */; };
+		2851120F275361A400C2E31C /* OnboardingThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2851120E275361A400C2E31C /* OnboardingThirdViewController.swift */; };
 		28B86D3E273FE67100E962A8 /* VersionInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D3D273FE67100E962A8 /* VersionInfoViewModel.swift */; };
 		28B86D49273FE8AF00E962A8 /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D48273FE8AF00E962A8 /* PersonalInformationViewController.swift */; };
 		28B86D4D273FE8C300E962A8 /* PersonalInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D4C273FE8C300E962A8 /* PersonalInformationViewModel.swift */; };
@@ -225,6 +234,15 @@
 		283AF07527086DA40033ED71 /* RoadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadTableViewCell.swift; sourceTree = "<group>"; };
 		283AF07627086DA40033ED71 /* RoadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadTableViewCell.xib; sourceTree = "<group>"; };
 		283AF0822708B6440033ED71 /* RoadHashTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadHashTagView.swift; sourceTree = "<group>"; };
+		285111F927534B0100C2E31C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		285111FD27534B6A00C2E31C /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		285111FF27534FA600C2E31C /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		2851120427535A6200C2E31C /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		2851120627535AB200C2E31C /* LottieOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieOnboardingViewController.swift; sourceTree = "<group>"; };
+		2851120827535CAD00C2E31C /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		2851120A275360AE00C2E31C /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		2851120C2753619400C2E31C /* OnboardingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSecondViewController.swift; sourceTree = "<group>"; };
+		2851120E275361A400C2E31C /* OnboardingThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingThirdViewController.swift; sourceTree = "<group>"; };
 		28B86D3D273FE67100E962A8 /* VersionInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoViewModel.swift; sourceTree = "<group>"; };
 		28B86D48273FE8AF00E962A8 /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
 		28B86D4C273FE8C300E962A8 /* PersonalInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewModel.swift; sourceTree = "<group>"; };
@@ -464,6 +482,29 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		285111F7275347FC00C2E31C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				2851120427535A6200C2E31C /* Onboarding.storyboard */,
+				2851120627535AB200C2E31C /* LottieOnboardingViewController.swift */,
+				2851120A275360AE00C2E31C /* OnboardingPageViewController.swift */,
+				2851120827535CAD00C2E31C /* OnboardingViewController.swift */,
+				2851120C2753619400C2E31C /* OnboardingSecondViewController.swift */,
+				2851120E275361A400C2E31C /* OnboardingThirdViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		285111F827534AE200C2E31C /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				285111FF27534FA600C2E31C /* Splash.storyboard */,
+				285111F927534B0100C2E31C /* SplashViewController.swift */,
+				285111FD27534B6A00C2E31C /* SplashViewModel.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		28B86D3F273FE6F800E962A8 /* VersionInfoMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,6 +568,8 @@
 		77169DC3270AD076000AB1D2 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				285111F827534AE200C2E31C /* Splash */,
+				285111F7275347FC00C2E31C /* Onboarding */,
 				77E5913627115F6D0070F381 /* Login */,
 				77169DC4270AD08B000AB1D2 /* Main */,
 				77169DC5270AD096000AB1D2 /* Home */,
@@ -1074,12 +1117,14 @@
 				06962EA0272BCD400021402F /* CategoryCollectionViewCell.xib in Resources */,
 				06A1ECAA2711789500EA78D8 /* Colors.xcassets in Resources */,
 				06962E9B272A86100021402F /* RecentSearchCollectionViewCell.xib in Resources */,
+				2851120027534FA600C2E31C /* Splash.storyboard in Resources */,
 				28ED07FD2736833500D33354 /* VersionInfo.storyboard in Resources */,
 				772213742742A3C400A42CCA /* lottie_start.json in Resources */,
 				283AF0502708672C0033ED71 /* Home.storyboard in Resources */,
 				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
 				283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */,
 				06962E95272927A00021402F /* Search.storyboard in Resources */,
+				2851120527535A6200C2E31C /* Onboarding.storyboard in Resources */,
 				06A1EC9027088F4400EA78D8 /* HitThemeTableHeaderView.xib in Resources */,
 				06AB8CC0273287B4007F32AA /* CategoryTabCollectionViewCell.xib in Resources */,
 				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
@@ -1108,6 +1153,7 @@
 				77238834273FDC2200F3AA84 /* SignUpAPI.swift in Sources */,
 				06962E9F272BCD400021402F /* CategoryCollectionViewCell.swift in Sources */,
 				06A1ECA82711782100EA78D8 /* NDButton.swift in Sources */,
+				2851120B275360AE00C2E31C /* OnboardingPageViewController.swift in Sources */,
 				06A1ECB12712C10A00EA78D8 /* NDButtonTheme.swift in Sources */,
 				06A1EC992708A7F300EA78D8 /* UIFont+.swift in Sources */,
 				77E5913827115F890070F381 /* LoginNavigationViewController.swift in Sources */,
@@ -1128,9 +1174,12 @@
 				777B51802714472B00299430 /* TermDetailViewController.swift in Sources */,
 				779B94FE27467D8C00325353 /* SignUpRequestModel.swift in Sources */,
 				77E59133270DDDA40070F381 /* HomeViewModel.swift in Sources */,
+				2851120727535AB200C2E31C /* LottieOnboardingViewController.swift in Sources */,
 				06BE349A2746037D00F4917A /* RoadListRequestModel.swift in Sources */,
 				06962E97272928290021402F /* SearchViewModel.swift in Sources */,
 				06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */,
+				2851120F275361A400C2E31C /* OnboardingThirdViewController.swift in Sources */,
+				2851120D2753619400C2E31C /* OnboardingSecondViewController.swift in Sources */,
 				779B950E274681C600325353 /* UserRequestModel.swift in Sources */,
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
 				06A1ECB327180C2F00EA78D8 /* NaviBar.swift in Sources */,
@@ -1167,6 +1216,7 @@
 				775507F726F842E5005B8763 /* AppDelegate.swift in Sources */,
 				06B68F9727228FF9007174E1 /* NDSearchTextField.swift in Sources */,
 				283AF07727086DA40033ED71 /* RoadTableViewCell.swift in Sources */,
+				285111FB27534B0100C2E31C /* SplashViewController.swift in Sources */,
 				77764FCF2732AC6F00A216C8 /* MyPageListHeaderButton.swift in Sources */,
 				06D4FF2F273939C100300AE5 /* RecentSearchUserDefault.swift in Sources */,
 				06A1EC8E27088F3E00EA78D8 /* HitThemeTableHeaderView.swift in Sources */,
@@ -1213,10 +1263,12 @@
 				7760CA9927254249006B39A9 /* PlaceService.swift in Sources */,
 				28B86D502740399800E962A8 /* InquiryViewController.swift in Sources */,
 				777B517A2712AA2300299430 /* SignUpInputViewController.swift in Sources */,
+				2851120927535CAD00C2E31C /* OnboardingViewController.swift in Sources */,
 				28B86D49273FE8AF00E962A8 /* PersonalInformationViewController.swift in Sources */,
 				779B94FB2745557100325353 /* TermDetailViewModel.swift in Sources */,
 				06A1ECAC2711828900EA78D8 /* UIColor+.swift in Sources */,
 				77C69BE727294613004C2207 /* SignUpViewModel.swift in Sources */,
+				285111FE27534B6A00C2E31C /* SplashViewModel.swift in Sources */,
 				28ED07F5273681C700D33354 /* VersionInfoViewController.swift in Sources */,
 				77213CF82708EF1600994C9A /* BaseWebView.swift in Sources */,
 				06AB8CB827312461007F32AA /* RxTextFieldDelegateProxy.swift in Sources */,
