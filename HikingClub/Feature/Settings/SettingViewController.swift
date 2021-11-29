@@ -86,6 +86,13 @@ final class SettingViewController: BaseViewController<SettingViewModel> {
     }
     
     private func menuStackViewLayout() {
+        menuStackView.addArrangedSubviews(versionMenu,
+                                          inquiryMenu,
+                                          signOutMenu,
+                                          opensourceMenu)
+         
+        // TODO: 기능 개발 완료 후 아래 주석 해제
+        /*
         menuStackView.addArrangedSubviews(townMenu,
                                           personalInformationMenu,
                                           versionMenu,
@@ -93,6 +100,7 @@ final class SettingViewController: BaseViewController<SettingViewModel> {
                                           signOutMenu,
                                           withdrawMenu,
                                           opensourceMenu)
+         */
     }
     
     
