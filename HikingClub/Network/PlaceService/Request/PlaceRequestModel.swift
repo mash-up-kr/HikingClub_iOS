@@ -17,8 +17,8 @@ enum PlaceRequestModel {
         enum CodingKeys: String, CodingKey {
             case keyword
             case pageSize
-            case long = "position_y"
-            case lat = "position_x"
+            case long = "position_x"
+            case lat = "position_y"
         }
         
         init(lat: Double, long: Double) {
