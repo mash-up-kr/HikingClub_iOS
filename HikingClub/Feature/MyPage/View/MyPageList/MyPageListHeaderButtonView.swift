@@ -24,6 +24,8 @@ final class MyPageListHeaderButtonView: CodeBasedView {
     
     private let savedListButton: UIButton = {
         let button = MyPageListHeaderButton("저장한 길")
+        // TODO: 북마크 기능 활성 화 후 해제할 것
+        button.isHidden = true
         return button
     }()
     
