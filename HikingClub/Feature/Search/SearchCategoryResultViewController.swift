@@ -176,12 +176,8 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         
         tableView.rx.itemSelected
             .subscribe(onNext: { [weak self] in
-                // TODO: 길상세페이지 넘기기
-                print($0)
-                let webViewController = WebViewController(WebViewModel(for: .write))
-                webViewController.hidesBottomBarWhenPushed = true
+                self?.navigateToRoadWebViewController($0)
                 self?.tableView.deselectRow(at: $0, animated: true)
-                self?.navigationController?.pushViewController(webViewController, animated: true)
             })
             .disposed(by: disposeBag)
         
@@ -198,6 +194,13 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
                 self.tableView.scrollIndicatorInsets = .init(top: self.headerViewHeight - posY, left: 0, bottom: 0, right: 0)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func navigateToRoadWebViewController(_ indexPath: IndexPath) {
+        let roadId = viewModel.roadDatas.value[indexPath.row].id
+        let webViewController = WebViewController(WebViewModel(for: .detail(roadId: roadId)))
+        webViewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(webViewController, animated: true)
     }
 }
 
