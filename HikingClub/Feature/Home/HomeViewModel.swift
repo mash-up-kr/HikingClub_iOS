@@ -31,7 +31,6 @@ final class HomeViewModel: BaseViewModel {
     private var selectedLocationIndex = 0
     /// 페이징 가능한지체크
     private var isRequestMoreRoads: Bool = true
-    private let userInformationUserDefault = UserInformationUserDefault(key: .token)
     
     override init() {
         super.init()
@@ -120,7 +119,7 @@ final class HomeViewModel: BaseViewModel {
     
     /// 내위치 가져오기
     private func updateLocation() {
-        if userInformationUserDefault.isEmpty {
+        if !UserInformationManager.shared.isSingIn {
             fetchCurrentLocation()
             userSaveLocation.accept([])
         } else {
