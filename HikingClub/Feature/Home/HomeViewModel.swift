@@ -119,7 +119,7 @@ final class HomeViewModel: BaseViewModel {
     
     /// 내위치 가져오기
     private func updateLocation() {
-        if !UserInformationManager.shared.isSingIn {
+        if !UserInformationManager.shared.isSignIn {
             fetchCurrentLocation()
             userSaveLocation.accept([])
         } else {
