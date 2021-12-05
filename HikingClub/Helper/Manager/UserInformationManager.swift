@@ -30,7 +30,7 @@ final class UserInformationManager {
         isSignedIn.accept(Void())
     }
     
-    func singOut() {
+    func signOut() {
         userDefault.removeAll()
         isSignedOut.accept(Void())
     }
