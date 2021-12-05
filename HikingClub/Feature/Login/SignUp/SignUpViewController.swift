@@ -25,7 +25,15 @@ final class SignUpViewController: BaseViewController<SignUpViewModel> {
         label.numberOfLines = .zero
         label.textColor = .lightGray
         label.lineBreakMode = .byCharWrapping
-        label.text = "개인정보 처리 방침에 동의하지 않으셔도 비회원으로 서비스 이용이 가능합니다. 비회원으로 서비스 이용시 일부 기능에 제한이 있을 수 있습니다."
+        
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.25
+        label.attributedText = NSAttributedString(
+            string: "개인정보 처리 방침에 동의하지 않으셔도 비회원으로 서비스 이용이 가능합니다. 비회원으로 서비스 이용시 일부 기능에 제한이 있을 수 있습니다.",
+            attributes: [
+                .paragraphStyle: paragraphStyle
+            ]
+        )
         return label
     }()
     

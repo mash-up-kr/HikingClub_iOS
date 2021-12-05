@@ -16,7 +16,7 @@ extension SignUpAPI: TargetType {
     var path: String {
         switch self {
         case .singUp:
-            return "/v1/apis/users/create"
+            return "/v1/apis/users"
         }
     }
     

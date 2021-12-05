@@ -75,6 +75,8 @@
 		28ED07F5273681C700D33354 /* VersionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED07F4273681C700D33354 /* VersionInfoViewController.swift */; };
 		28ED07FD2736833500D33354 /* VersionInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28ED07FC2736833500D33354 /* VersionInfo.storyboard */; };
 		770BB53B274FCD33002EDD6B /* NDLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BB53A274FCD33002EDD6B /* NDLocationManager.swift */; };
+		770BB53D27535E5E002EDD6B /* NotificationName+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BB53C27535E5E002EDD6B /* NotificationName+.swift */; };
+		770BB53F27535ECC002EDD6B /* PrimitiveSequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BB53E27535ECC002EDD6B /* PrimitiveSequence+.swift */; };
 		771230DC27283EDA003B63E5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771230DB27283EDA003B63E5 /* MyPageViewController.swift */; };
 		77125D92274A7DDC003885C2 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77125D91274A7DDC003885C2 /* SettingViewModel.swift */; };
 		77125D94274BCB3D003885C2 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77125D93274BCB3D003885C2 /* MyPageViewModel.swift */; };
@@ -92,6 +94,9 @@
 		773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D61A22719D872001528B3 /* ChangePasswordViewController.swift */; };
 		773DF08C2737A2600025DC91 /* SelectTownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */; };
 		773DF08E2737A2AB0025DC91 /* SelectTownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DF08D2737A2AB0025DC91 /* SelectTownViewModel.swift */; };
+		7741CA75275C99B000DBD24B /* SignUpResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741CA74275C99B000DBD24B /* SignUpResponseModel.swift */; };
+		7741CA6F275C8DEF00DBD24B /* license.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7741CA6E275C8DEF00DBD24B /* license.rtf */; };
+		7741CA72275C8E2900DBD24B /* OpensourceLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741CA71275C8E2900DBD24B /* OpensourceLicenseViewController.swift */; };
 		7741F98E27171CC2005B3D88 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741F98D27171CC2005B3D88 /* UIViewController+.swift */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
@@ -234,6 +239,8 @@
 		28ED07F4273681C700D33354 /* VersionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoViewController.swift; sourceTree = "<group>"; };
 		28ED07FC2736833500D33354 /* VersionInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VersionInfo.storyboard; sourceTree = "<group>"; };
 		770BB53A274FCD33002EDD6B /* NDLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDLocationManager.swift; sourceTree = "<group>"; };
+		770BB53C27535E5E002EDD6B /* NotificationName+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+.swift"; sourceTree = "<group>"; };
+		770BB53E27535ECC002EDD6B /* PrimitiveSequence+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimitiveSequence+.swift"; sourceTree = "<group>"; };
 		771230DB27283EDA003B63E5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		77125D91274A7DDC003885C2 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		77125D93274BCB3D003885C2 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
@@ -250,6 +257,9 @@
 		773D61A22719D872001528B3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTownTableViewCell.swift; sourceTree = "<group>"; };
 		773DF08D2737A2AB0025DC91 /* SelectTownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTownViewModel.swift; sourceTree = "<group>"; };
+		7741CA6E275C8DEF00DBD24B /* license.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = license.rtf; sourceTree = "<group>"; };
+		7741CA71275C8E2900DBD24B /* OpensourceLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpensourceLicenseViewController.swift; sourceTree = "<group>"; };
+    7741CA74275C99B000DBD24B /* SignUpResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponseModel.swift; sourceTree = "<group>"; };
 		7741F98D27171CC2005B3D88 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -396,6 +406,8 @@
 				7760CA95272541D0006B39A9 /* Encodable+.swift */,
 				0684EA5A2734623300FC74D1 /* UITableViewCell+.swift */,
 				06D4FF2927390A8400300AE5 /* UserDefault+.swift */,
+				770BB53C27535E5E002EDD6B /* NotificationName+.swift */,
+				770BB53E27535ECC002EDD6B /* PrimitiveSequence+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -520,6 +532,7 @@
 				775507FF26F842E6005B8763 /* Assets.xcassets */,
 				775B95A7271F0BD9004D4540 /* AssetImage.swift */,
 				06A1ECA92711789500EA78D8 /* Colors.xcassets */,
+				7741CA6E275C8DEF00DBD24B /* license.rtf */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -657,6 +670,7 @@
 		77238832273FDC0900F3AA84 /* SignUpService */ = {
 			isa = PBXGroup;
 			children = (
+				7741CA73275C999800DBD24B /* Response */,
 				779B94FC27467D7200325353 /* Request */,
 				77238833273FDC2200F3AA84 /* SignUpAPI.swift */,
 				77238835273FDC2B00F3AA84 /* SignUpService.swift */,
@@ -698,6 +712,22 @@
 				773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7741CA73275C999800DBD24B /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				7741CA74275C99B000DBD24B /* SignUpResponseModel.swift */,
+			);
+			path = Response;
+      sourceTree = "<group>";
+		};
+		7741CA70275C8E0800DBD24B /* OpenSourceLicnese */ = {
+			isa = PBXGroup;
+			children = (
+				7741CA71275C8E2900DBD24B /* OpensourceLicenseViewController.swift */,
+			);
+			path = OpenSourceLicnese;
 			sourceTree = "<group>";
 		};
 		775507EA26F842E5005B8763 = {
@@ -775,11 +805,10 @@
 				77764FD12732DA4A00A216C8 /* View */,
 				77764FC92732ABB700A216C8 /* SettingViewController.swift */,
 				77125D91274A7DDC003885C2 /* SettingViewModel.swift */,
-				28B86D5327403C9100E962A8 /* InquiryListCell.swift */,
-				28B86D4F2740399800E962A8 /* InquiryViewController.swift */,
-				28B86D51274039BA00E962A8 /* inquiryMenuViewModel.swift */,
+				77BA461D275C81B900F84341 /* Inquiry */,
 				28B86D4E2740282B00E962A8 /* PersonalInformationMenu */,
 				28B86D3F273FE6F800E962A8 /* VersionInfoMenu */,
+				7741CA70275C8E0800DBD24B /* OpenSourceLicnese */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -942,6 +971,16 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
+		77BA461D275C81B900F84341 /* Inquiry */ = {
+			isa = PBXGroup;
+			children = (
+				28B86D5327403C9100E962A8 /* InquiryListCell.swift */,
+				28B86D4F2740399800E962A8 /* InquiryViewController.swift */,
+				28B86D51274039BA00E962A8 /* inquiryMenuViewModel.swift */,
+			);
+			path = Inquiry;
+			sourceTree = "<group>";
+		};
 		77C69BEC272D967A004C2207 /* SignInService */ = {
 			isa = PBXGroup;
 			children = (
@@ -1079,6 +1118,7 @@
 				283AF0502708672C0033ED71 /* Home.storyboard in Resources */,
 				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
 				283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */,
+				7741CA6F275C8DEF00DBD24B /* license.rtf in Resources */,
 				06962E95272927A00021402F /* Search.storyboard in Resources */,
 				06A1EC9027088F4400EA78D8 /* HitThemeTableHeaderView.xib in Resources */,
 				06AB8CC0273287B4007F32AA /* CategoryTabCollectionViewCell.xib in Resources */,
@@ -1125,6 +1165,7 @@
 				77238836273FDC2B00F3AA84 /* SignUpService.swift in Sources */,
 				770BB53B274FCD33002EDD6B /* NDLocationManager.swift in Sources */,
 				7776BEE727366D36009EC168 /* MypageListNicknameHeaderView.swift in Sources */,
+				770BB53F27535ECC002EDD6B /* PrimitiveSequence+.swift in Sources */,
 				777B51802714472B00299430 /* TermDetailViewController.swift in Sources */,
 				779B94FE27467D8C00325353 /* SignUpRequestModel.swift in Sources */,
 				77E59133270DDDA40070F381 /* HomeViewModel.swift in Sources */,
@@ -1132,6 +1173,7 @@
 				06962E97272928290021402F /* SearchViewModel.swift in Sources */,
 				06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */,
 				779B950E274681C600325353 /* UserRequestModel.swift in Sources */,
+				7741CA72275C8E2900DBD24B /* OpensourceLicenseViewController.swift in Sources */,
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
 				06A1ECB327180C2F00EA78D8 /* NaviBar.swift in Sources */,
 				06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */,
@@ -1191,8 +1233,10 @@
 				283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */,
 				779B950C2746818F00325353 /* UserService.swift in Sources */,
 				77C69BEB272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift in Sources */,
+				7741CA75275C99B000DBD24B /* SignUpResponseModel.swift in Sources */,
 				0698EF31274CDCE100D7AF2A /* NDIndicator.swift in Sources */,
 				06AB8CBA273136F7007F32AA /* SearchCategoryResultViewController.swift in Sources */,
+				770BB53D27535E5E002EDD6B /* NotificationName+.swift in Sources */,
 				06BE34982746024500F4917A /* RoadModel.swift in Sources */,
 				777B517327129D6500299430 /* CodeBasedProtocol.swift in Sources */,
 				7776BEE527366666009EC168 /* MypageListSectionHeaderView.swift in Sources */,
@@ -1379,6 +1423,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8WGBZHP3L6;
 				INFOPLIST_FILE = HikingClub/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1386,6 +1431,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sz.HikingClub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = mashuphikingclub;
@@ -1401,6 +1447,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8WGBZHP3L6;
 				INFOPLIST_FILE = HikingClub/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1408,6 +1455,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sz.HikingClub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = mashuphikingclub;

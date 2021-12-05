@@ -46,8 +46,6 @@ final class NetworkProvider<Target: TargetType> {
     
     func request<T: Decodable>(_ api: Target) -> Single<T> {
         networkProvider.rx.request(api)
-            .filter(statusCodes: 200...299)
-            .map(T.self)
+            .NDmap(T.self)
     }
 }
-

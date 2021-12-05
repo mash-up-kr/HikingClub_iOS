@@ -84,6 +84,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
             .drive(onNext: { [weak self] in
                 let viewModel = WebViewModel(for: .detail(roadId: $0))
                 let viewController = WebViewController(viewModel)
+                viewController.hidesBottomBarWhenPushed = true
                 self?.navigationController?.pushViewController(viewController, animated: true)
             })
             .disposed(by: disposeBag)

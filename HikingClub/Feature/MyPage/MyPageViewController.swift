@@ -38,7 +38,9 @@ final class MyPageViewController: BaseViewController <MyPageViewModel> {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.requestProfile()
+        if UserInformationManager.shared.isSignIn {
+            viewModel.requestProfile()
+        }
     }
     
     // MARK: - Attribute

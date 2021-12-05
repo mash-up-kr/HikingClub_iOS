@@ -21,16 +21,25 @@ final class InitialSettingViewModel: BaseViewModel {
         
         service.signUp(signUpModel)
             .subscribe(onSuccess: { [weak self] response in
-                let message = response.message
-                if response.responseCode ==  "SUCCESS_SIGN_UP" {
-                    NDToastView.shared.rx.showText.onNext(.green(text: message))
-                    self?.signUpSucceedRelay.accept(Void())
+                if response.responseCode == "SUCCESS_SIGN_UP" {
+                    self?.signInProcess(response)
                 } else {
-                    NDToastView.shared.rx.showText.onNext(.red(text: message))
+                    NDToastView.shared.rx.showText.onNext(.red(text: response.message))
                 }
             }, onFailure: { _ in
                 NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func signInProcess(_ response: ResponseModel<SignUpResponseModel>) {
+        guard let token = response.data?.accessToken else {
+            NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            return
+        }
+        UserInformationManager.shared.signIn(token)
+        NDToastView.shared.rx.showText.onNext(.green(text: response.message))
+        
+        signUpSucceedRelay.accept(Void())
     }
 }
