@@ -46,7 +46,7 @@ final class BaseWebView: WKWebView {
     }
     
     private func makeUserTokenCookie(_ token: String) -> HTTPCookie? {
-        let monthInterval = 60 * 60 * 60 * 24 * 30
+        let monthInterval = 60 * 60 * 24 * 30
         return HTTPCookie(properties: [
             .domain: "nadeulgil.com",
             .path: "/",
