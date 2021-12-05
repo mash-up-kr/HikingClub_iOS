@@ -75,6 +75,8 @@
 		2851120B275360AE00C2E31C /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2851120A275360AE00C2E31C /* OnboardingPageViewController.swift */; };
 		2851120D2753619400C2E31C /* OnboardingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2851120C2753619400C2E31C /* OnboardingSecondViewController.swift */; };
 		2851120F275361A400C2E31C /* OnboardingThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2851120E275361A400C2E31C /* OnboardingThirdViewController.swift */; };
+		2890300F275C8EF600AEF079 /* MainOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2890300E275C8EF600AEF079 /* MainOnboardingViewController.swift */; };
+		28903013275CB8DF00AEF079 /* lottie_Onboarding.json in Resources */ = {isa = PBXBuildFile; fileRef = 28903012275CB8DF00AEF079 /* lottie_Onboarding.json */; };
 		28B86D3E273FE67100E962A8 /* VersionInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D3D273FE67100E962A8 /* VersionInfoViewModel.swift */; };
 		28B86D49273FE8AF00E962A8 /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D48273FE8AF00E962A8 /* PersonalInformationViewController.swift */; };
 		28B86D4D273FE8C300E962A8 /* PersonalInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B86D4C273FE8C300E962A8 /* PersonalInformationViewModel.swift */; };
@@ -243,6 +245,8 @@
 		2851120A275360AE00C2E31C /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		2851120C2753619400C2E31C /* OnboardingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSecondViewController.swift; sourceTree = "<group>"; };
 		2851120E275361A400C2E31C /* OnboardingThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingThirdViewController.swift; sourceTree = "<group>"; };
+		2890300E275C8EF600AEF079 /* MainOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOnboardingViewController.swift; sourceTree = "<group>"; };
+		28903012275CB8DF00AEF079 /* lottie_Onboarding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_Onboarding.json; sourceTree = "<group>"; };
 		28B86D3D273FE67100E962A8 /* VersionInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoViewModel.swift; sourceTree = "<group>"; };
 		28B86D48273FE8AF00E962A8 /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
 		28B86D4C273FE8C300E962A8 /* PersonalInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewModel.swift; sourceTree = "<group>"; };
@@ -487,6 +491,7 @@
 			children = (
 				2851120427535A6200C2E31C /* Onboarding.storyboard */,
 				2851120627535AB200C2E31C /* LottieOnboardingViewController.swift */,
+				2890300E275C8EF600AEF079 /* MainOnboardingViewController.swift */,
 				2851120A275360AE00C2E31C /* OnboardingPageViewController.swift */,
 				2851120827535CAD00C2E31C /* OnboardingViewController.swift */,
 				2851120C2753619400C2E31C /* OnboardingSecondViewController.swift */,
@@ -685,6 +690,7 @@
 			isa = PBXGroup;
 			children = (
 				772213732742A3C400A42CCA /* lottie_start.json */,
+				28903012275CB8DF00AEF079 /* lottie_Onboarding.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -1115,6 +1121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06962EA0272BCD400021402F /* CategoryCollectionViewCell.xib in Resources */,
+				28903013275CB8DF00AEF079 /* lottie_Onboarding.json in Resources */,
 				06A1ECAA2711789500EA78D8 /* Colors.xcassets in Resources */,
 				06962E9B272A86100021402F /* RecentSearchCollectionViewCell.xib in Resources */,
 				2851120027534FA600C2E31C /* Splash.storyboard in Resources */,
@@ -1165,6 +1172,7 @@
 				779B950627467E8C00325353 /* EmailVerificationRequestModel.swift in Sources */,
 				28B86D3E273FE67100E962A8 /* VersionInfoViewModel.swift in Sources */,
 				775B95AC27204D1C004D4540 /* UITabBarItem+.swift in Sources */,
+				2890300F275C8EF600AEF079 /* MainOnboardingViewController.swift in Sources */,
 				779B950227467E0600325353 /* EmailVerifiactionService.swift in Sources */,
 				06A1EC9B2708B12A00EA78D8 /* UILabel+.swift in Sources */,
 				777B517C2712AEB300299430 /* EmailAuthroizeViewController.swift in Sources */,

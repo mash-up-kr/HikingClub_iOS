@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class OnboardingSecondViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 }
