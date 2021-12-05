@@ -24,7 +24,13 @@ final class WebViewModel: BaseViewModel {
     lazy var webURL: URL = {
         switch page {
         case .write:
-            return .init(string: "https://nadeulgil.com/edit.html?roadId=new")!
+            if let currentCoordinate = NDLocationManager.shared.currentCoordinate {
+                let lat = currentCoordinate.0
+                let long = currentCoordinate.1
+                return .init(string: "https://nadeulgil.com/edit.html?roadId=new&lat=\(lat)&long=\(long)")!
+            } else {
+                return .init(string: "https://nadeulgil.com/edit.html?roadId=new")!
+            }
         case .detail(let roadId):
             return .init(string: "https://nadeulgil.com/detail.html?roadId=\(roadId)")!
         case .update(let roadId):
