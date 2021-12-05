@@ -794,9 +794,7 @@
 				77764FD12732DA4A00A216C8 /* View */,
 				77764FC92732ABB700A216C8 /* SettingViewController.swift */,
 				77125D91274A7DDC003885C2 /* SettingViewModel.swift */,
-				28B86D5327403C9100E962A8 /* InquiryListCell.swift */,
-				28B86D4F2740399800E962A8 /* InquiryViewController.swift */,
-				28B86D51274039BA00E962A8 /* inquiryMenuViewModel.swift */,
+				77BA461D275C81B900F84341 /* Inquiry */,
 				28B86D4E2740282B00E962A8 /* PersonalInformationMenu */,
 				28B86D3F273FE6F800E962A8 /* VersionInfoMenu */,
 				7741CA70275C8E0800DBD24B /* OpenSourceLicnese */,
@@ -960,6 +958,16 @@
 				77E59134270DDFCF0070F381 /* WebViewModel.swift */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		77BA461D275C81B900F84341 /* Inquiry */ = {
+			isa = PBXGroup;
+			children = (
+				28B86D5327403C9100E962A8 /* InquiryListCell.swift */,
+				28B86D4F2740399800E962A8 /* InquiryViewController.swift */,
+				28B86D51274039BA00E962A8 /* inquiryMenuViewModel.swift */,
+			);
+			path = Inquiry;
 			sourceTree = "<group>";
 		};
 		77C69BEC272D967A004C2207 /* SignInService */ = {
@@ -1403,6 +1411,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8WGBZHP3L6;
 				INFOPLIST_FILE = HikingClub/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1426,6 +1435,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8WGBZHP3L6;
 				INFOPLIST_FILE = HikingClub/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
