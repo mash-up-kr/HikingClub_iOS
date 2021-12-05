@@ -94,6 +94,7 @@
 		773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D61A22719D872001528B3 /* ChangePasswordViewController.swift */; };
 		773DF08C2737A2600025DC91 /* SelectTownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */; };
 		773DF08E2737A2AB0025DC91 /* SelectTownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DF08D2737A2AB0025DC91 /* SelectTownViewModel.swift */; };
+		7741CA75275C99B000DBD24B /* SignUpResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741CA74275C99B000DBD24B /* SignUpResponseModel.swift */; };
 		7741F98E27171CC2005B3D88 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741F98D27171CC2005B3D88 /* UIViewController+.swift */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
@@ -254,6 +255,7 @@
 		773D61A22719D872001528B3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTownTableViewCell.swift; sourceTree = "<group>"; };
 		773DF08D2737A2AB0025DC91 /* SelectTownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTownViewModel.swift; sourceTree = "<group>"; };
+		7741CA74275C99B000DBD24B /* SignUpResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponseModel.swift; sourceTree = "<group>"; };
 		7741F98D27171CC2005B3D88 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 		77238832273FDC0900F3AA84 /* SignUpService */ = {
 			isa = PBXGroup;
 			children = (
+				7741CA73275C999800DBD24B /* Response */,
 				779B94FC27467D7200325353 /* Request */,
 				77238833273FDC2200F3AA84 /* SignUpAPI.swift */,
 				77238835273FDC2B00F3AA84 /* SignUpService.swift */,
@@ -704,6 +707,14 @@
 				773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7741CA73275C999800DBD24B /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				7741CA74275C99B000DBD24B /* SignUpResponseModel.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		775507EA26F842E5005B8763 = {
@@ -1198,6 +1209,7 @@
 				283AF06D27086B950033ED71 /* HomeViewController.swift in Sources */,
 				779B950C2746818F00325353 /* UserService.swift in Sources */,
 				77C69BEB272CD4E6004C2207 /* KeyboardAccessoryToolbar.swift in Sources */,
+				7741CA75275C99B000DBD24B /* SignUpResponseModel.swift in Sources */,
 				0698EF31274CDCE100D7AF2A /* NDIndicator.swift in Sources */,
 				06AB8CBA273136F7007F32AA /* SearchCategoryResultViewController.swift in Sources */,
 				770BB53D27535E5E002EDD6B /* NotificationName+.swift in Sources */,

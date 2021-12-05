@@ -12,7 +12,9 @@ import RxMoya
 struct SignUpService {
     private let provider = NetworkProvider<SignUpAPI>()
     
-    func signUp(_ model: SignUpRequestModel.SignUpModel) -> Single<BaseResponseModel> {
+    typealias SignUpResponse = Single<ResponseModel<SignUpResponseModel>>
+    
+    func signUp(_ model: SignUpRequestModel.SignUpModel) -> SignUpResponse {
         provider.request(.singUp(model))
     }
 }
