@@ -9,5 +9,5 @@ import Foundation
 import RxRelay
 
 final class VersionInfoViewModel: BaseViewModel {
-    let versionInfo: BehaviorRelay<[String]> = BehaviorRelay(value: [])
+   
 }

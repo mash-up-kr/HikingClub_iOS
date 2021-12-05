@@ -78,7 +78,7 @@ final class MenuButtonView: UIButton, CodeBasedProtocol {
         case .version:
             title = "버전 정보"
             icon = .icon_my_info_normal_gray900_24
-            subTitle = "v.1.5"
+            subTitle = "v\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)"
         case .notice:
             title = "공지사항"
             icon = .icon_my_loudspeaker_normal_gray900_24

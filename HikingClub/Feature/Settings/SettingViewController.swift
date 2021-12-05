@@ -128,16 +128,16 @@ final class SettingViewController: BaseViewController<SettingViewModel> {
     }
     
     private func menuButtonBinding() {
-        versionMenu.rx.tap
-            .subscribe(onNext: { [weak self] in
-                let versionInfoStoryboard = UIStoryboard(name: "VersionInfo", bundle: nil)
-                let versionInfoViewContoller = versionInfoStoryboard.instantiate("VersionInfoViewController") { coder -> VersionInfoViewController in
-                        .init(coder,BaseViewModel()) ?? VersionInfoViewController(BaseViewModel())
-                }
-                self?.navigationController?.pushViewController(versionInfoViewContoller, animated: true)
-            })
-            .disposed(by: disposeBag)
-        
+//        versionMenu.rx.tap
+//            .subscribe(onNext: { [weak self] in
+//                let versionInfoStoryboard = UIStoryboard(name: "VersionInfo", bundle: nil)
+//                let versionInfoViewContoller = versionInfoStoryboard.instantiate("VersionInfoViewController") { coder -> VersionInfoViewController in
+//                        .init(coder,BaseViewModel()) ?? VersionInfoViewController(BaseViewModel())
+//                }
+//                self?.navigationController?.pushViewController(versionInfoViewContoller, animated: true)
+//            })
+//            .disposed(by: disposeBag)
+//        
         personalInformationMenu.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.navigateToPersonalInformationMenu()
