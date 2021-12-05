@@ -94,6 +94,8 @@
 		773D61A32719D872001528B3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D61A22719D872001528B3 /* ChangePasswordViewController.swift */; };
 		773DF08C2737A2600025DC91 /* SelectTownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */; };
 		773DF08E2737A2AB0025DC91 /* SelectTownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DF08D2737A2AB0025DC91 /* SelectTownViewModel.swift */; };
+		7741CA6F275C8DEF00DBD24B /* license.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7741CA6E275C8DEF00DBD24B /* license.rtf */; };
+		7741CA72275C8E2900DBD24B /* OpensourceLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741CA71275C8E2900DBD24B /* OpensourceLicenseViewController.swift */; };
 		7741F98E27171CC2005B3D88 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741F98D27171CC2005B3D88 /* UIViewController+.swift */; };
 		775507F726F842E5005B8763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F626F842E5005B8763 /* AppDelegate.swift */; };
 		775507F926F842E5005B8763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775507F826F842E5005B8763 /* SceneDelegate.swift */; };
@@ -254,6 +256,8 @@
 		773D61A22719D872001528B3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		773DF08B2737A2600025DC91 /* SelectTownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTownTableViewCell.swift; sourceTree = "<group>"; };
 		773DF08D2737A2AB0025DC91 /* SelectTownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTownViewModel.swift; sourceTree = "<group>"; };
+		7741CA6E275C8DEF00DBD24B /* license.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = license.rtf; sourceTree = "<group>"; };
+		7741CA71275C8E2900DBD24B /* OpensourceLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpensourceLicenseViewController.swift; sourceTree = "<group>"; };
 		7741F98D27171CC2005B3D88 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		775507F326F842E5005B8763 /* HikingClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikingClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775507F626F842E5005B8763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -526,6 +530,7 @@
 				775507FF26F842E6005B8763 /* Assets.xcassets */,
 				775B95A7271F0BD9004D4540 /* AssetImage.swift */,
 				06A1ECA92711789500EA78D8 /* Colors.xcassets */,
+				7741CA6E275C8DEF00DBD24B /* license.rtf */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -706,6 +711,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7741CA70275C8E0800DBD24B /* OpenSourceLicnese */ = {
+			isa = PBXGroup;
+			children = (
+				7741CA71275C8E2900DBD24B /* OpensourceLicenseViewController.swift */,
+			);
+			path = OpenSourceLicnese;
+			sourceTree = "<group>";
+		};
 		775507EA26F842E5005B8763 = {
 			isa = PBXGroup;
 			children = (
@@ -784,6 +797,7 @@
 				77BA461D275C81B900F84341 /* Inquiry */,
 				28B86D4E2740282B00E962A8 /* PersonalInformationMenu */,
 				28B86D3F273FE6F800E962A8 /* VersionInfoMenu */,
+				7741CA70275C8E0800DBD24B /* OpenSourceLicnese */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1093,6 +1107,7 @@
 				283AF0502708672C0033ED71 /* Home.storyboard in Resources */,
 				7755080326F842E6005B8763 /* LaunchScreen.storyboard in Resources */,
 				283AF07827086DA40033ED71 /* RoadTableViewCell.xib in Resources */,
+				7741CA6F275C8DEF00DBD24B /* license.rtf in Resources */,
 				06962E95272927A00021402F /* Search.storyboard in Resources */,
 				06A1EC9027088F4400EA78D8 /* HitThemeTableHeaderView.xib in Resources */,
 				06AB8CC0273287B4007F32AA /* CategoryTabCollectionViewCell.xib in Resources */,
@@ -1147,6 +1162,7 @@
 				06962E97272928290021402F /* SearchViewModel.swift in Sources */,
 				06BC1F74271C1B79001A6584 /* NDAlert.swift in Sources */,
 				779B950E274681C600325353 /* UserRequestModel.swift in Sources */,
+				7741CA72275C8E2900DBD24B /* OpensourceLicenseViewController.swift in Sources */,
 				067DC50126FF238F00650862 /* NetworkLogging.swift in Sources */,
 				06A1ECB327180C2F00EA78D8 /* NaviBar.swift in Sources */,
 				06A1ECB7271967E600EA78D8 /* ComponentTestViewController.swift in Sources */,

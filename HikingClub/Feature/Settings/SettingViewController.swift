@@ -149,7 +149,13 @@ final class SettingViewController: BaseViewController<SettingViewModel> {
                 self?.sendInquiryEmail()
             })
             .disposed(by: disposeBag)
-
+        
+        opensourceMenu.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.navigateToOpensourceViewController()
+            })
+            .disposed(by: disposeBag)
+        
         signOutMenu.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.showSignOutAlert()
@@ -166,6 +172,10 @@ final class SettingViewController: BaseViewController<SettingViewModel> {
         tabBarController.selectTab.accept(.home)
         
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    private func navigateToOpensourceViewController() {
+        navigationController?.pushViewController(OpensourceLicenseViewController(BaseViewModel()), animated: true)
     }
     
     private func showSignOutAlert() {
