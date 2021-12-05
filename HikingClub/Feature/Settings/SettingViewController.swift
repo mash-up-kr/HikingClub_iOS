@@ -5,6 +5,7 @@
 //  Created by AhnSangHoon on 2021/11/03.
 //
 
+import MessageUI
 import UIKit
 
 final class SettingViewController: BaseViewController<SettingViewModel> {
@@ -114,6 +115,19 @@ final class SettingViewController: BaseViewController<SettingViewModel> {
             })
             .disposed(by: disposeBag)
         
+        menuButtonBinding()
+        
+        // MARK: - ViewModel Binding
+        
+        viewModel.signOutSucceedRelay
+            .subscribe(onNext: { [weak self] in
+                NDToastView.shared.rx.showText.onNext(.green(text: "로그아웃 되었습니다."))
+                self?.navigateToHomeViewController()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func menuButtonBinding() {
         versionMenu.rx.tap
             .subscribe(onNext: { [weak self] in
                 let versionInfoStoryboard = UIStoryboard(name: "VersionInfo", bundle: nil)
@@ -130,18 +144,15 @@ final class SettingViewController: BaseViewController<SettingViewModel> {
             })
             .disposed(by: disposeBag)
         
+        inquiryMenu.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.sendInquiryEmail()
+            })
+            .disposed(by: disposeBag)
+
         signOutMenu.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.showSignOutAlert()
-            })
-            .disposed(by: disposeBag)
-        
-        // MARK: - ViewModel Binding
-        
-        viewModel.signOutSucceedRelay
-            .subscribe(onNext: { [weak self] in
-                NDToastView.shared.rx.showText.onNext(.green(text: "로그아웃 되었습니다."))
-                self?.navigateToHomeViewController()
             })
             .disposed(by: disposeBag)
     }
@@ -162,5 +173,28 @@ final class SettingViewController: BaseViewController<SettingViewModel> {
         signOutAlert.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+    private func sendInquiryEmail() {
+        guard MFMailComposeViewController.canSendMail() else {
+            navigateToMailSetting()
+            return
+        }
+        
+        let mailComposeViewController = MFMailComposeViewController()
+        mailComposeViewController.mailComposeDelegate = self
+        mailComposeViewController.setToRecipients(["nadeulgil@gmail.com"])
+        present(mailComposeViewController, animated: true, completion: nil)
+    }
+    
+    private func navigateToMailSetting() {
+        guard let mailUrl = URL(string: "mailto:") else { return }
+        UIApplication.shared.open(mailUrl, options: [:], completionHandler: nil)
+    }
+}
+
+extension SettingViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
