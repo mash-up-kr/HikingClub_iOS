@@ -34,9 +34,10 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
     
     private lazy var emailTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("이메일", description: "이메일 주소 입력", theme: .normal)
+        textfield.setTitle("이메일", description: nil, theme: .normal)
         textfield.setTitle("이메일", description: "이메일이 인증 되었습니다", theme: .highlight)
         textfield.setTheme(.normal)
+        textfield.setPlaceholder("이메일 주소 입력")
         
         textfield.addSubview(emailTextFieldButton)
         emailTextFieldButton.snp.makeConstraints {
@@ -49,19 +50,21 @@ final class SignUpInputViewController: BaseViewController<SignUpInputViewModel>,
     
     private let passwordTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("비밀번호", description: "6~18자의 비밀번호", theme: .normal)
+        textfield.setTitle("비밀번호", description: nil, theme: .normal)
         textfield.setTitle("비밀번호", description: "비밀번호는 6~18자로 입력해야합니다.", theme: .warning)
         textfield.setPasswordMode()
         textfield.setTheme(.normal)
+        textfield.setPlaceholder("6~18자의 비밀번호")
         return textfield
     }()
     
     private let passwordConfirmTextfield: NDTextFieldView = {
         let textfield = NDTextFieldView(scale: .big)
-        textfield.setTitle("비밀번호 확인", description: "비밀번호를 다시 입력해주세요.", theme: .normal)
+        textfield.setTitle("비밀번호 확인", description: nil, theme: .normal)
         textfield.setTitle("비밀번호 확인", description: "비밀번호가 일치하지 않습니다.", theme: .warning)
         textfield.setPasswordMode()
         textfield.setTheme(.normal)
+        textfield.setPlaceholder("비밀번호를 다시 입력해주세요.")
         return textfield
     }()
     
