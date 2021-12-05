@@ -12,6 +12,7 @@ final class WebViewModel: BaseViewModel {
     var localTestWebPageURL: URL {
         URL(string: "http://192.168.200.109:3000/detail/1234")!
     }
+    var expiredTokenRelay = PublishRelay<Void>()
     
     enum PageType {
         case write
@@ -63,6 +64,9 @@ extension WebViewModel: WKScriptMessageHandler {
             else { return }
             // TODO: REFACTOR
             print("share url\(shareURL)")
+        case .expireToken:
+            UserInformationManager.shared.signOut()
+            expiredTokenRelay.accept(Void())
         }
     }
 }

@@ -130,7 +130,7 @@ final class HomeViewModel: BaseViewModel {
             isLocationDenied.accept(true)
         } else {
             isLocationDenied.accept(false)
-            if !UserInformationManager.shared.isSingIn {
+            if !UserInformationManager.shared.isSignIn {
                 fetchCurrentLocation()
                 userSaveLocation.accept([])
             } else {
