@@ -117,6 +117,20 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
                 self?.locationTabbar.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.isLocationDenied
+            .compactMap { $0 }
+            .distinctUntilChanged()
+            .bind(to: locationTabbar.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.isLocationDenied
+            .compactMap { $0 }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
     
     func setTableView() {
@@ -126,8 +140,9 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let containerView = UIView()
-        containerView.backgroundColor = .white
+        let containerView = UIStackView()
+        containerView.axis = .vertical
+        containerView.distribution = .fill
         
         guard let headerView = Bundle.main.loadNibNamed("HitThemeTableHeaderView", owner: nil, options: nil)?.first as? HitThemeTableHeaderView else {
             return nil
@@ -135,18 +150,13 @@ extension HomeViewController: UITableViewDelegate {
         
         // TODO: - 추후 추가해야할 기능
         // locationMoreButtonContainerView 추가하기
-        containerView.addSubViews(headerView, locationTabbar)
+        containerView.addArrangedSubviews(headerView, locationTabbar)
         headerView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(174)
         }
         
         locationTabbar.snp.remakeConstraints {
-            $0.top.equalTo(headerView.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(57)
-            $0.bottom.equalToSuperview()
         }
         // TODO: - 추후 추가해야할 기능
 //        locationMoreButtonContainerView.snp.remakeConstraints {
@@ -169,7 +179,6 @@ extension HomeViewController: UITableViewDelegate {
         
         headerView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
-                print(indexPath)
                 let item = indexPath.item
                 let searchStoryboard = UIStoryboard(name: "Search", bundle: nil)
                 let nextViewController = searchStoryboard.instantiate("SearchCategoryResultViewController") { [weak self] coder -> SearchCategoryResultViewController? in
@@ -183,7 +192,7 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 231
+        return (viewModel.isLocationDenied.value ?? true) ? 231 - 57 : 231
     }
 }
 
