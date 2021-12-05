@@ -128,6 +128,12 @@ final class SettingViewController: BaseViewController<SettingViewModel> {
             })
             .disposed(by: disposeBag)
         
+        opensourceMenu.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.navigateToOpensourceViewController()
+            })
+            .disposed(by: disposeBag)
+        
         // MARK: - ViewModel Binding
         
         viewModel.signOutSucceedRelay
@@ -147,6 +153,10 @@ final class SettingViewController: BaseViewController<SettingViewModel> {
         tabBarController.selectTab.accept(.home)
         
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    private func navigateToOpensourceViewController() {
+        navigationController?.pushViewController(OpensourceLicenseViewController(BaseViewModel()), animated: true)
     }
     
     private func showSignOutAlert() {
