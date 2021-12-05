@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "img_category_trees_144x104.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "img_category_trees_144x104@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "img_category_trees_144x104@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "img_category_trees_small.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

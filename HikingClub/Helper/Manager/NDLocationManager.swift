@@ -26,6 +26,7 @@ final class NDLocationManager: NSObject {
 
     var currentCoordinate: (Double, Double)?
     fileprivate let _didUpdateLocation = BehaviorRelay<(Double, Double)?>(value: nil)
+    fileprivate let _didChangeState = BehaviorRelay<CLAuthorizationStatus?>(value: nil)
     
     var locationAuthStatus: CLAuthorizationStatus {
         if #available(iOS 14.0, *) {
@@ -67,12 +68,22 @@ extension NDLocationManager: CLLocationManagerDelegate {
         _didUpdateLocation.accept(locataion)
         locationManager.stopUpdatingLocation()
     }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        _didChangeState.accept(locationAuthStatus)
+    }
 }
 
 
 extension Reactive where Base: NDLocationManager {
     var didUpdateLocation: Observable<(Double, Double)> {
         base._didUpdateLocation
+            .compactMap { $0 }
+            .asObservable()
+    }
+    
+    var didChangeState: Observable<CLAuthorizationStatus> {
+        base._didChangeState
             .compactMap { $0 }
             .asObservable()
     }

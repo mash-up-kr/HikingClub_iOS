@@ -31,12 +31,12 @@ final class HomeViewModel: BaseViewModel {
     private var selectedLocationIndex = 0
     /// 페이징 가능한지체크
     private var isRequestMoreRoads: Bool = true
+    let isLocationDenied = BehaviorRelay<Bool?>(value: nil)
     
     override init() {
         super.init()
         bind()
         updateCategory()
-        updateLocation()
     }
     
     func bind() {
@@ -62,6 +62,13 @@ final class HomeViewModel: BaseViewModel {
             self?.requestRoads(index: 0)
         })
         .disposed(by: disposeBag)
+        
+        NDLocationManager.shared.rx.didChangeState
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] _ in
+                self?.updateLocation()
+            })
+            .disposed(by: disposeBag)
     }
     
     /// 주소별 길 리스트 조회
@@ -119,12 +126,17 @@ final class HomeViewModel: BaseViewModel {
     
     /// 내위치 가져오기
     private func updateLocation() {
-        if !UserInformationManager.shared.isSignIn {
-            fetchCurrentLocation()
-            userSaveLocation.accept([])
+        if NDLocationManager.shared.locationAuthStatus == .denied {
+            isLocationDenied.accept(true)
         } else {
-            fetchCurrentLocation()
-            requestProfile()
+            isLocationDenied.accept(false)
+            if !UserInformationManager.shared.isSingIn {
+                fetchCurrentLocation()
+                userSaveLocation.accept([])
+            } else {
+                fetchCurrentLocation()
+                requestProfile()
+            }
         }
     }
     

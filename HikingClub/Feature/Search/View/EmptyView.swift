@@ -35,11 +35,11 @@ final class EmptyView: CodeBasedView {
         
         emptyImageView.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.centerX.equalToSuperview()
+            $0.centerX.equalToSuperview().offset(-10)
         }
         
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(emptyImageView.snp.bottom).offset(47)
+            $0.top.equalTo(emptyImageView.snp.bottom).offset(40)
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }
