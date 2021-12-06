@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ySx-W9-XoC">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Lottie Onboarding View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LottieOnboardingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LottieOnboardingViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="AnimatedButton" customModule="Lottie">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnboardingImage" translatesAutoresizingMaskIntoConstraints="NO" id="kOb-ly-ueR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="xXU-HI-wO2">
+                                <rect key="frame" x="155.66666666666666" y="357.33333333333331" width="102.99999999999997" height="181.66666666666669"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_logoText" translatesAutoresizingMaskIntoConstraints="NO" id="qwi-U6-EeI">
+                                        <rect key="frame" x="22" y="0.0" width="59" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="22q-ev-Nef"/>
+                                            <constraint firstAttribute="width" constant="59" id="7dL-5n-hNr"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_splash" translatesAutoresizingMaskIntoConstraints="NO" id="ZlU-FZ-Abe">
+                                        <rect key="frame" x="0.0" y="56.000000000000007" width="103" height="125.66666666666669"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WeP-iM-cv0" customClass="NDButton" customModule="HikingClub" customModuleProvider="target">
+                                <rect key="frame" x="35.666666666666657" y="774" width="343" height="54"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="G8q-sg-3nw"/>
+                                    <constraint firstAttribute="height" constant="54" id="NKS-No-jlc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kOb-ly-ueR" secondAttribute="trailing" id="8Km-Kd-Yna"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WeP-iM-cv0" secondAttribute="bottom" constant="34" id="8de-uz-W3L"/>
+                            <constraint firstAttribute="bottom" secondItem="kOb-ly-ueR" secondAttribute="bottom" id="D1C-UM-4fk"/>
+                            <constraint firstItem="kOb-ly-ueR" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="NZ1-As-Uws"/>
+                            <constraint firstItem="WeP-iM-cv0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jtw-by-QqO"/>
+                            <constraint firstItem="xXU-HI-wO2" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="l8L-Dj-jqG"/>
+                            <constraint firstItem="kOb-ly-ueR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="p8X-5H-iYt"/>
+                            <constraint firstItem="xXU-HI-wO2" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="vbl-iT-2GJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="n4Q-Rp-qrW"/>
+                    <connections>
+                        <outlet property="onboardingStartButtonView" destination="WeP-iM-cv0" id="leD-7c-zre"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704.34782608695662" y="75.669642857142847"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mn9-wE-Bao">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ySx-W9-XoC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4vl-TM-8Jg">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Pjl-O7-aT9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ONI-En-zbk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.043478260869566" y="75.669642857142847"/>
+        </scene>
+        <!--Main Onboarding View Controller-->
+        <scene sceneID="aOS-fy-1jj">
+            <objects>
+                <viewController storyboardIdentifier="MainOnboardingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oZY-E8-4IE" customClass="MainOnboardingViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YjO-zs-amY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H0M-zG-ZXG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="806"/>
+                                <connections>
+                                    <segue destination="MRm-cX-fqD" kind="embed" identifier="pageViewSegue" id="6kb-1G-fOJ"/>
+                                </connections>
+                            </containerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="3Vh-PV-1Qn">
+                                <rect key="frame" x="153" y="806" width="108" height="16"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Bf-qf-pCE">
+                                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                        <color key="backgroundColor" name="green500"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="Kse-EB-uMJ"/>
+                                            <constraint firstAttribute="width" constant="16" id="hIL-c9-O6n"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obk-FI-eZp">
+                                        <rect key="frame" x="46" y="0.0" width="16" height="16"/>
+                                        <color key="backgroundColor" name="gray200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="p6i-an-P6p"/>
+                                            <constraint firstAttribute="height" constant="16" id="xVE-gu-f4N"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="279-RU-yNG">
+                                        <rect key="frame" x="92" y="0.0" width="16" height="16"/>
+                                        <color key="backgroundColor" name="gray200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="7ed-DK-0qE"/>
+                                            <constraint firstAttribute="height" constant="16" id="PbX-Fv-WXw"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="EO5-qz-eOK"/>
+                                    <constraint firstAttribute="height" constant="16" id="Y4o-Au-0oB"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9uN-RP-FnK">
+                                <rect key="frame" x="302.33333333333331" y="798.66666666666663" width="72.666666666666686" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="입장하기"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RuX-cC-hG9"/>
+                        <color key="backgroundColor" name="gray50"/>
+                        <constraints>
+                            <constraint firstItem="9uN-RP-FnK" firstAttribute="centerY" secondItem="3Vh-PV-1Qn" secondAttribute="centerY" id="0nq-Wt-vob"/>
+                            <constraint firstItem="3Vh-PV-1Qn" firstAttribute="top" secondItem="H0M-zG-ZXG" secondAttribute="bottom" id="3gj-dV-ivw"/>
+                            <constraint firstItem="RuX-cC-hG9" firstAttribute="trailing" secondItem="9uN-RP-FnK" secondAttribute="trailing" constant="39" id="7X0-vN-lmX"/>
+                            <constraint firstItem="H0M-zG-ZXG" firstAttribute="leading" secondItem="RuX-cC-hG9" secondAttribute="leading" id="CGX-6Q-0uj"/>
+                            <constraint firstItem="3Vh-PV-1Qn" firstAttribute="centerX" secondItem="YjO-zs-amY" secondAttribute="centerX" id="SUY-NB-Fey"/>
+                            <constraint firstItem="RuX-cC-hG9" firstAttribute="trailing" secondItem="H0M-zG-ZXG" secondAttribute="trailing" id="aCh-Nb-6rm"/>
+                            <constraint firstItem="H0M-zG-ZXG" firstAttribute="top" secondItem="YjO-zs-amY" secondAttribute="top" id="bVn-we-oZ8"/>
+                            <constraint firstItem="RuX-cC-hG9" firstAttribute="bottom" secondItem="3Vh-PV-1Qn" secondAttribute="bottom" constant="40" id="vSI-ZU-COv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="H0M-zG-ZXG" id="3bw-gH-owL"/>
+                        <outlet property="doneButton" destination="9uN-RP-FnK" id="q9c-CU-XiA"/>
+                        <outlet property="firstIndicator" destination="0Bf-qf-pCE" id="2Np-Bo-hi7"/>
+                        <outlet property="secondIndicator" destination="Obk-FI-eZp" id="pMx-tI-yXx"/>
+                        <outlet property="thridIndicator" destination="279-RU-yNG" id="O7V-b1-Fj3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4T8-ga-H6K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11.594202898550726" y="741.96428571428567"/>
+        </scene>
+        <!--Onboarding Page View Controller-->
+        <scene sceneID="hfO-lc-ApL">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="MRm-cX-fqD" customClass="OnboardingPageViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zOB-o6-xbM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704" y="742"/>
+        </scene>
+        <!--Onboarding First View Controller-->
+        <scene sceneID="KZ4-iD-tnZ">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingFirstViewController" id="60M-QG-cN8" customClass="OnboardingFirstViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cc3-ns-sCL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding_2" translatesAutoresizingMaskIntoConstraints="NO" id="c1U-2n-fyo">
+                                <rect key="frame" x="19.666666666666657" y="73" width="375" height="636"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nE1-dB-3Ct"/>
+                        <color key="backgroundColor" name="gray50"/>
+                        <constraints>
+                            <constraint firstItem="c1U-2n-fyo" firstAttribute="top" secondItem="Cc3-ns-sCL" secondAttribute="top" constant="73" id="Dwp-G2-0Gu"/>
+                            <constraint firstItem="nE1-dB-3Ct" firstAttribute="bottom" secondItem="c1U-2n-fyo" secondAttribute="bottom" constant="41" id="Jdq-ME-MzN"/>
+                            <constraint firstItem="c1U-2n-fyo" firstAttribute="centerX" secondItem="Cc3-ns-sCL" secondAttribute="centerX" id="c9Y-E2-E0o"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="750"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fcf-3K-jtc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1390" y="742"/>
+        </scene>
+        <!--Onboarding Second View Controller-->
+        <scene sceneID="7zr-gx-O8M">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingSecondViewController" id="aFD-k0-q7Y" customClass="OnboardingSecondViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UcB-o6-lxP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding_3" translatesAutoresizingMaskIntoConstraints="NO" id="A8g-i1-7cu">
+                                <rect key="frame" x="19.666666666666657" y="73" width="375" height="636"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KZl-tm-bX9"/>
+                        <color key="backgroundColor" name="gray50"/>
+                        <constraints>
+                            <constraint firstItem="A8g-i1-7cu" firstAttribute="centerX" secondItem="UcB-o6-lxP" secondAttribute="centerX" id="2lM-h9-HqB"/>
+                            <constraint firstItem="KZl-tm-bX9" firstAttribute="bottom" secondItem="A8g-i1-7cu" secondAttribute="bottom" constant="41" id="END-yx-8nU"/>
+                            <constraint firstItem="A8g-i1-7cu" firstAttribute="top" secondItem="UcB-o6-lxP" secondAttribute="top" constant="73" id="JeO-Ri-gCA"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="750"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SfV-HO-Msn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2100" y="741.96428571428567"/>
+        </scene>
+        <!--Onboarding Third View Controller-->
+        <scene sceneID="3JR-b4-9VZ">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingThirdViewController" id="2gA-bY-7wp" customClass="OnboardingThirdViewController" customModule="HikingClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2mJ-1W-4H1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding_4" translatesAutoresizingMaskIntoConstraints="NO" id="PWS-Qh-fID">
+                                <rect key="frame" x="19.666666666666657" y="73" width="375" height="636"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ooy-eH-iAL"/>
+                        <color key="backgroundColor" name="gray50"/>
+                        <constraints>
+                            <constraint firstItem="PWS-Qh-fID" firstAttribute="centerX" secondItem="2mJ-1W-4H1" secondAttribute="centerX" id="9of-zW-rQS"/>
+                            <constraint firstItem="PWS-Qh-fID" firstAttribute="top" secondItem="2mJ-1W-4H1" secondAttribute="top" constant="73" id="TgY-Ih-XLb"/>
+                            <constraint firstItem="Ooy-eH-iAL" firstAttribute="bottom" secondItem="PWS-Qh-fID" secondAttribute="bottom" constant="41" id="up8-iP-6Av"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="750"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S5n-Xw-Dzs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2806" y="742"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="OnboardingImage" width="375" height="812"/>
+        <image name="Onboarding_2" width="375" height="587"/>
+        <image name="Onboarding_3" width="375" height="587"/>
+        <image name="Onboarding_4" width="375" height="587"/>
+        <image name="image_logoText" width="59" height="21.333333969116211"/>
+        <image name="image_splash" width="103" height="125.66666412353516"/>
+        <namedColor name="gray200">
+            <color red="0.89411764705882357" green="0.89411764705882357" blue="0.89411764705882357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray50">
+            <color red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="green500">
+            <color red="0.30196078431372547" green="0.61960784313725492" blue="0.44705882352941179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
