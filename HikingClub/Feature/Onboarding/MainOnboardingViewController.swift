@@ -15,7 +15,7 @@ final class MainOnboardingViewController: UIViewController, CodeBasedProtocol {
     @IBOutlet weak var firstIndicator: UIView!
     @IBOutlet weak var secondIndicator: UIView!
     @IBOutlet weak var thridIndicator: UIView!
-    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet private weak var doneButton: UIButton!
     
     private var indicators: [UIView] = []
     var pageViewController: OnboardingPageViewController?
@@ -24,16 +24,8 @@ final class MainOnboardingViewController: UIViewController, CodeBasedProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        doneButton.tintColor = .gray400
-        doneButton.setFont(.medium14)
+        attribute()
         
-        indicators = [firstIndicator, secondIndicator, thridIndicator]
-        indicators.forEach {
-            $0.layer.cornerRadius = 8
-        }
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnboarding))
-        containerView.addGestureRecognizer(tapGesture)
     }
     
     @objc
@@ -48,7 +40,19 @@ final class MainOnboardingViewController: UIViewController, CodeBasedProtocol {
         }
         
         pageViewController?.changeViewController(page+1)
+    }
+    
+    func attribute() {
+        doneButton.tintColor = .gray400
+        doneButton.setFont(.medium14)
         
+        indicators = [firstIndicator, secondIndicator, thridIndicator]
+        indicators.forEach {
+            $0.layer.cornerRadius = 8
+        }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnboarding))
+        containerView.addGestureRecognizer(tapGesture)
     }
     
     func bind() {
@@ -82,8 +86,8 @@ final class MainOnboardingViewController: UIViewController, CodeBasedProtocol {
     }
     
     func changeIndicatorColor(currentPage: Int) {
-        for (i, element) in indicators.enumerated() {
-            if i == currentPage {
+        for (index, element) in indicators.enumerated() {
+            if index == currentPage {
                 element.backgroundColor = .green500
             } else {
                 element.backgroundColor = .gray200

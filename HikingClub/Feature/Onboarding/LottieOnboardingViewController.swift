@@ -14,7 +14,7 @@ final class LottieOnboardingViewController: UIViewController, CodeBasedProtocol 
     @IBOutlet private weak var onboardingStartButtonView: NDButton!
     private var disposeBag = DisposeBag()
     
-    func onboardingStartButton() {
+    private func onboardingStartButton() {
         onboardingStartButtonView.setTitle("나들길 들어가기", for: .normal)
         onboardingStartButtonView.snp.makeConstraints {
             $0.height.equalTo(54)
