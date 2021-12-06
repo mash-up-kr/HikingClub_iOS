@@ -45,6 +45,8 @@ class VersionInfoViewController: BaseViewController<BaseViewModel> {
         versionCommentLabel.setFont(.semiBold18)
         presentVersionLable.textColor = .gray500
         presentVersionLable.setFont(.medium14)
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        presentVersionLable.text = version
     }
     
     override func layout() {
