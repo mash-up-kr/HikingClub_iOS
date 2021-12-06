@@ -45,6 +45,12 @@ final class WebViewController: BaseViewController<WebViewModel> {
             })
             .disposed(by: disposeBag)
         
+        viewModel.shareLinkRelay
+            .subscribe(onNext: { [weak self] in
+                self?.showActivityControlelr($0)
+            })
+            .disposed(by: disposeBag)
+        
         UserInformationManager.shared.isSignedOut
             .subscribe(onNext: { [weak self] in
                 self?.expiredTokenProcess()
@@ -58,6 +64,12 @@ final class WebViewController: BaseViewController<WebViewModel> {
         } else {
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    private func showActivityControlelr(_ url: URL) {
+        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = view
+        present(activityViewController, animated: true, completion: nil)
     }
     
     private func expiredTokenProcess() {
