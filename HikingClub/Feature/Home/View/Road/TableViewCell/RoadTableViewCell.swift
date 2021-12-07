@@ -77,6 +77,7 @@ final class RoadTableViewCell: UITableViewCell {
     }
     
     private func settingRoadHashTagStackView(_ tags: [String]) {
+        roadHashTagStackView.distribution = .equalSpacing
         roadHashTagStackView.subviews.forEach {
             $0.removeFromSuperview()
         }
