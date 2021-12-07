@@ -12,6 +12,8 @@ final class WebViewModel: BaseViewModel {
     var localTestWebPageURL: URL {
         URL(string: "http://192.168.200.109:3000/detail/1234")!
     }
+    var expiredTokenRelay = PublishRelay<Void>()
+    var shareLinkRelay = PublishRelay<URL>()
     
     enum PageType {
         case write
@@ -24,7 +26,13 @@ final class WebViewModel: BaseViewModel {
     lazy var webURL: URL = {
         switch page {
         case .write:
-            return .init(string: "https://nadeulgil.com/edit.html?roadId=new")!
+            if let currentCoordinate = NDLocationManager.shared.currentCoordinate {
+                let lat = currentCoordinate.0
+                let long = currentCoordinate.1
+                return .init(string: "https://nadeulgil.com/edit.html?roadId=new&lat=\(lat)&long=\(long)")!
+            } else {
+                return .init(string: "https://nadeulgil.com/edit.html?roadId=new")!
+            }
         case .detail(let roadId):
             return .init(string: "https://nadeulgil.com/detail.html?roadId=\(roadId)")!
         case .update(let roadId):
@@ -52,11 +60,14 @@ extension WebViewModel: WKScriptMessageHandler {
         case .close:
             closeAction.accept(Void())
         case .share:
-            guard let data = body as? [String: String],
-                  let shareURL = data["url"]
+            guard let data = body["data"] as? [String: Any],
+                  let urlString = data["url"] as? String,
+                  let shareURL = URL(string: urlString)
             else { return }
-            // TODO: REFACTOR
-            print("share url\(shareURL)")
+            shareLinkRelay.accept(shareURL)
+        case .expireToken:
+            UserInformationManager.shared.signOut()
+            expiredTokenRelay.accept(Void())
         }
     }
 }

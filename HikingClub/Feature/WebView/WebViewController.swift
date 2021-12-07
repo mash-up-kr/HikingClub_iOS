@@ -44,6 +44,18 @@ final class WebViewController: BaseViewController<WebViewModel> {
                 self?.closeAction()
             })
             .disposed(by: disposeBag)
+        
+        viewModel.shareLinkRelay
+            .subscribe(onNext: { [weak self] in
+                self?.showActivityControlelr($0)
+            })
+            .disposed(by: disposeBag)
+        
+        UserInformationManager.shared.isSignedOut
+            .subscribe(onNext: { [weak self] in
+                self?.expiredTokenProcess()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func closeAction() {
@@ -52,6 +64,21 @@ final class WebViewController: BaseViewController<WebViewModel> {
         } else {
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    private func showActivityControlelr(_ url: URL) {
+        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = view
+        present(activityViewController, animated: true, completion: nil)
+    }
+    
+    private func expiredTokenProcess() {
+        guard let tabBarController = UIApplication.shared.windows.first?.rootViewController as? MainTabBarController else { return }
+        tabBarController.selectTab.accept(.home)
+        
+        NDToastView.shared.rx.showText.onNext(.red(text: "로그인 기한이 만료되었습니다.\n다시 로그인 해 주세요."))
+        
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 

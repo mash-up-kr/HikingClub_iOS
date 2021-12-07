@@ -13,6 +13,7 @@ final class BaseWebView: WKWebView {
     enum WebMessageFunction: String {
         case close
         case share
+        case expireToken
     }
     // js에서 messsage를 호출하기 위해 필요한 키워드
     static var contentHandlerName: String {
@@ -46,7 +47,7 @@ final class BaseWebView: WKWebView {
     }
     
     private func makeUserTokenCookie(_ token: String) -> HTTPCookie? {
-        let monthInterval = 60 * 60 * 60 * 24 * 30
+        let monthInterval = 60 * 60 * 24 * 30
         return HTTPCookie(properties: [
             .domain: "nadeulgil.com",
             .path: "/",

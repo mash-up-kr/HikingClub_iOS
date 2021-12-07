@@ -50,6 +50,7 @@ final class NDToastView: UIView, CodeBasedProtocol {
     func attribute() {
         titleLabel.setFont(.semiBold16)
         titleLabel.textColor = .white
+        titleLabel.numberOfLines = .zero
         iconImageView.layer.cornerRadius = 12
         iconImageView.backgroundColor = .white
         layer.cornerRadius = 8

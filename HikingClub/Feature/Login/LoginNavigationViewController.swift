@@ -26,7 +26,7 @@ final class LoginNavigationViewController: BaseViewController<LoginNavigationVie
     
     private let signUpButton: NDButton = {
         let button = NDButton(theme: .init(.fillGreen, textStyle: .large, radius: 8))
-        button.setTitle("시작하기", for: .normal)
+        button.setTitle("회원가입", for: .normal)
         return button
     }()
     
