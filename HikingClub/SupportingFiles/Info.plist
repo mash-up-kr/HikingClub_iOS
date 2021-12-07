@@ -27,10 +27,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>현재 위치를 기반으로 게시물을 표시하고, 위치/지역에 따른 알림, 경로 안내, 스페셜 스팟 제공등의 이유로 사용자 위치가 공유됩니다.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>사진 업로드를 위해 카메라에 대한 권한이 필요합니다. 촬영된 이미지는 게시물 업로드에 사용됩니다.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>현재 위치를 기반으로 게시물을 표시하고, 위치/지역에 따른 알림, 경로 안내, 스페셜 스팟 제공등의 이유로 사용자 위치가 공유됩니다.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
