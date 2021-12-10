@@ -1,5 +1,10 @@
 # HikingClub_iOS
-열쯔엉! 열쯔엉! 열쯔엉! 😎
+열쯔엉! 열쯔엉! 열쯔엉! 😎:fire:</br></br>
+![image](https://user-images.githubusercontent.com/39300449/145593930-33575dc3-0a2a-42cd-9ca6-5e54964d88d3.png)
+
+
+## 서비스 소개 페이지
+[나들길 제작 팀](https://lilee.notion.site/lilee/11-98468ab8edfe43e09d7979de9f434e15)
 
 ## 팀원
 <table>
@@ -27,7 +32,7 @@
     </tr>
 </table>
 
-### Commit 컨벤션
+## Commit 컨벤션
 ```
 🎉 :tada: = 프로젝트시작
 
@@ -41,3 +46,9 @@
 
 📝 :memo: = 문서작성시
 ```
+            
+## Directory Structure 
+[DirectoryRule](https://github.com/mash-up-kr/HikingClub_iOS/blob/develop/DirectoryRule.md)
+
+## AssetNaming Rule
+[AssetNamingRule](https://github.com/mash-up-kr/HikingClub_iOS/blob/develop/AssetNamingRule.md)
