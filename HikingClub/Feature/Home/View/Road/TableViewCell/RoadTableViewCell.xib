@@ -99,7 +99,7 @@
                                                     <constraint firstItem="NlF-5A-m1h" firstAttribute="leading" secondItem="A6i-oV-Ofn" secondAttribute="leading" constant="2" id="wbO-If-aBK"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jn1-ZO-RIg">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jn1-ZO-RIg">
                                                 <rect key="frame" x="0.0" y="79.5" width="0.0" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="CsV-Tn-qKZ"/>

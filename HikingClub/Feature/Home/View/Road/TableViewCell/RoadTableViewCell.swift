@@ -8,6 +8,10 @@
 import UIKit
 import Kingfisher
 
+protocol RoadTableViewImageDelegate: AnyObject {
+    func didUpdate()
+}
+
 final class RoadTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var titleStackView: UIStackView!
@@ -40,7 +44,7 @@ final class RoadTableViewCell: UITableViewCell {
         setRoadImageViewHidden(true)
     }
     
-    func configure(model: Road) {
+    func configure(model: Road, delegate: RoadTableViewImageDelegate? = nil) {
         self.model = model
         roadTitleLabel.text = model.title
         setRoadDistanceLabel(distance: model.distance)
@@ -51,9 +55,10 @@ final class RoadTableViewCell: UITableViewCell {
         let imageURL = URL(string: imageString) {
             setRoadImageViewHidden(false)
             roadImageView.kf.indicatorType = .activity
-            roadImageView.kf.setImage(with: imageURL, options: [.cacheOriginalImage])
+            roadImageView.kf.setImage(with: imageURL, options: [.cacheMemoryOnly]) { _ in
+                delegate?.didUpdate()
+            }
         }
-        
         settingRoadHashTagStackView(model.hashtags)
     }
     
@@ -77,13 +82,13 @@ final class RoadTableViewCell: UITableViewCell {
     }
     
     private func settingRoadHashTagStackView(_ tags: [String]) {
-        roadHashTagStackView.distribution = .equalSpacing
         roadHashTagStackView.subviews.forEach {
             $0.removeFromSuperview()
         }
         // 테그 3개를 가져와서 순서대로 View 반환
         let maxCount = min(tags.count, 3)
-        var width: CGFloat = 0
+        let spacing: CGFloat = 4
+        var width: CGFloat = CGFloat(maxCount-1) * spacing
         for i in 0..<maxCount {
             let tagView = RoadHashTagView()
             width += tagView.setText(tags[i])
@@ -96,7 +101,7 @@ final class RoadTableViewCell: UITableViewCell {
             label.setFont(.medium14)
             label.textColor = .gray500
             label.sizeToFit()
-            width += label.frame.width
+            width += label.frame.width + spacing
             roadHashTagStackView.addArrangedSubview(label)
         }
         roadHashTagStackViewWidth.constant = width
