@@ -10,17 +10,23 @@ import SnapKit
 
 final class RoadHashTagView: UIView {
     private let hashTagLabel = UILabel()
+    private let padding: CGFloat = 6
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(hashTagLabel)
         hashTagLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(5)
-            $0.trailing.bottom.equalToSuperview().inset(5)
-            $0.top.equalToSuperview().offset(6)
+            $0.leading.equalToSuperview().offset(padding)
+            $0.trailing.bottom.equalToSuperview().inset(padding)
+            $0.top.equalToSuperview().offset(padding)
+            $0.bottom.equalToSuperview().inset(padding)
         }
         layer.cornerRadius = 4
         backgroundColor = .gray100
+    }
+    
+    convenience init() {
+        self.init(frame: .zero)
     }
     
     func setText(_ text: String) -> CGFloat {
@@ -28,7 +34,7 @@ final class RoadHashTagView: UIView {
         hashTagLabel.textColor = .gray700
         hashTagLabel.text = "#\(text)"
         hashTagLabel.sizeToFit()
-        return hashTagLabel.frame.width + 15
+        return hashTagLabel.frame.width + padding * 2
     }
 
     required init?(coder: NSCoder) {
