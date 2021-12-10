@@ -8,6 +8,10 @@
 import UIKit
 import Kingfisher
 
+protocol RoadTableViewImageDelegate: AnyObject {
+    func didUpdate()
+}
+
 final class RoadTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var titleStackView: UIStackView!
@@ -40,7 +44,7 @@ final class RoadTableViewCell: UITableViewCell {
         setRoadImageViewHidden(true)
     }
     
-    func configure(model: Road) {
+    func configure(model: Road, delegate: RoadTableViewImageDelegate? = nil) {
         self.model = model
         roadTitleLabel.text = model.title
         setRoadDistanceLabel(distance: model.distance)
@@ -51,11 +55,10 @@ final class RoadTableViewCell: UITableViewCell {
         let imageURL = URL(string: imageString) {
             setRoadImageViewHidden(false)
             roadImageView.kf.indicatorType = .activity
-            roadImageView.kf.setImage(with: imageURL, options: [.cacheOriginalImage]) { _ in
-                
+            roadImageView.kf.setImage(with: imageURL, options: [.cacheMemoryOnly]) { _ in
+                delegate?.didUpdate()
             }
         }
-        
         settingRoadHashTagStackView(model.hashtags)
     }
     

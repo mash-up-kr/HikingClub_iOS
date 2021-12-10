@@ -171,7 +171,7 @@ final class SearchCategoryResultViewController: BaseViewController<SearchCategor
         viewModel.roadDatas
             .bind(to: tableView.rx.items(cellIdentifier: "RoadTableViewCell",
                                          cellType: RoadTableViewCell.self)) { row, cellModel, cell in
-                cell.configure(model: cellModel)
+                cell.configure(model: cellModel, delegate: self)
             }.disposed(by: disposeBag)
         
         tableView.rx.itemSelected
@@ -208,5 +208,11 @@ extension SearchCategoryResultViewController: UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let word = viewModel.categoryWords.value[indexPath.item].name
         return categoryCollectionView.cellSize(title: word)
+    }
+}
+
+extension SearchCategoryResultViewController: RoadTableViewImageDelegate {
+    func didUpdate() {
+        tableView.performBatchUpdates(nil)
     }
 }
