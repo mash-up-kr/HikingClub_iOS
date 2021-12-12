@@ -71,12 +71,12 @@ final class ChangePasswordViewModel: BaseViewModel {
             .subscribe(onSuccess: { [weak self] response in
                 if response.responseCode == "SUCCESS_RESET_PASSWORD" {
                     self?.changePasswordSucceedRelay.accept(Void())
-                    NDToastView.shared.rx.showText.onNext(.green(text: response.message))
+                    self?.toastMessage.accept(.green(text: response.message))
                 } else {
-                    NDToastView.shared.rx.showText.onNext(.red(text: response.message))
+                    self?.toastMessage.accept(.red(text: response.message))
                 }
-            }, onFailure: { _ in
-                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            }, onFailure: { [weak self] _ in
+                self?.toastMessage.accept(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)
     }
