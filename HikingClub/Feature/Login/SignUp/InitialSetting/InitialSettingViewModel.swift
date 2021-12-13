@@ -24,21 +24,21 @@ final class InitialSettingViewModel: BaseViewModel {
                 if response.responseCode == "SUCCESS_SIGN_UP" {
                     self?.signInProcess(response)
                 } else {
-                    NDToastView.shared.rx.showText.onNext(.red(text: response.message))
+                    self?.toastMessage.accept(.red(text: response.message))
                 }
-            }, onFailure: { _ in
-                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            }, onFailure: { [weak self] _ in
+                self?.toastMessage.accept(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)
     }
     
     private func signInProcess(_ response: ResponseModel<SignUpResponseModel>) {
         guard let token = response.data?.accessToken else {
-            NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            toastMessage.accept(.red(text: "네트워크 오류가 발생했습니다."))
             return
         }
         UserInformationManager.shared.signIn(token)
-        NDToastView.shared.rx.showText.onNext(.green(text: response.message))
+        toastMessage.accept(.green(text: response.message))
         
         signUpSucceedRelay.accept(Void())
     }

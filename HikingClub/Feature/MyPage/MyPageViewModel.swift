@@ -69,7 +69,7 @@ final class MyPageViewModel: BaseViewModel {
                 self?.roadRequestFinised.accept(Void())
             }, onError: { [weak self] _ in
                 self?.roadRequestFinised.accept(Void())
-                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+                self?.toastMessage.accept(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)
     }
@@ -113,8 +113,8 @@ final class MyPageViewModel: BaseViewModel {
         userService.profile()
             .subscribe(onSuccess: { [weak self] in
                 self?.userInformation.accept($0.data)
-            }, onFailure: { _ in
-                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            }, onFailure: { [weak self] _ in
+                self?.toastMessage.accept(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)
     }

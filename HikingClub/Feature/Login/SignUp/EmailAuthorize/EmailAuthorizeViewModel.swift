@@ -38,30 +38,28 @@ class EmailAuthorizeViewModel: BaseViewModel {
     
     private func sendEmailForSingUp(_ email: String) {
         emailService.sendToken(email)
-            .subscribe(onSuccess: { response in
+            .subscribe(onSuccess: { [weak self] response in
                 if response.responseCode == "SUCCESS_SEND_MAIL_SIGN_UP_TOKEN" {
-                    NDToastView.shared.rx.showText.onNext(.green(text: "인증메일이 전송되었습니다."))
+                    self?.toastMessage.accept(.green(text: "인증메일이 전송되었습니다."))
                 } else {
-                    let message = response.message
-                    NDToastView.shared.rx.showText.onNext(.red(text: message))
+                    self?.toastMessage.accept(.red(text: response.message))
                 }
-            }, onFailure: { _ in
-                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            }, onFailure: { [weak self] _ in
+                self?.toastMessage.accept(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)
     }
     
     private func sendEmailForChangePassword(_ email: String) {
         userService.requestChangePassword(for: email)
-            .subscribe(onSuccess: { response in
+            .subscribe(onSuccess: { [weak self] response in
                 if response.responseCode == "SUCCESS_REQUEST_RESET_PASSWORD" {
-                    NDToastView.shared.rx.showText.onNext(.green(text: "인증메일이 전송되었습니다."))
+                    self?.toastMessage.accept(.green(text: "인증메일이 전송되었습니다."))
                 } else {
-                    let message = response.message
-                    NDToastView.shared.rx.showText.onNext(.red(text: message))
+                    self?.toastMessage.accept(.green(text: response.message))
                 }
-            }, onFailure: { _ in
-                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            }, onFailure: { [weak self] _ in
+                self?.toastMessage.accept(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)
     }
@@ -74,11 +72,10 @@ class EmailAuthorizeViewModel: BaseViewModel {
                 if response.responseCode == "SUCCESS_VERIFYING" {
                     self?.authorizeSucceedRelay.accept(email)
                 } else {
-                    let message = response.message
-                    NDToastView.shared.rx.showText.onNext(.red(text: message))
+                    self?.toastMessage.accept(.green(text: response.message))
                 }
-            }, onFailure: { _ in
-                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            }, onFailure: { [weak self] _ in
+                self?.toastMessage.accept(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)
     }

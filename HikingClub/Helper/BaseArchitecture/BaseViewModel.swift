@@ -7,7 +7,9 @@
 
 import Foundation
 import RxSwift
+import RxRelay
 
 class BaseViewModel: NSObject {
     let disposeBag = DisposeBag()
+    let toastMessage = PublishRelay<NDToastView.Theme>()
 }

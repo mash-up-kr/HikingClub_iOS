@@ -43,7 +43,19 @@ class BaseViewController<T: BaseViewModel>: UIViewController, CodeBasedProtocol 
     
     func layout() { }
     
-    func bind() { }
+    func bind() {
+        baseBinding()
+    }
+    
+    private func baseBinding() {
+        toastMessageBinding()
+    }
+    
+    private func toastMessageBinding() {
+        viewModel.toastMessage
+            .bind(to: NDToastView.shared.rx.showText)
+            .disposed(by: disposeBag)
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

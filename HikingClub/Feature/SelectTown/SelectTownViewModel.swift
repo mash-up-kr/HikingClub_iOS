@@ -21,8 +21,8 @@ final class SelectTownViewModel: BaseViewModel {
             .subscribe(onSuccess: { [weak self] response in
                 guard let places = response.listData else { return }
                 self?.processPlaceResponse(places)
-            }, onFailure: { _ in
-                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            }, onFailure: { [weak self] _ in
+                self?.toastMessage.accept(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)
     }
@@ -40,8 +40,8 @@ final class SelectTownViewModel: BaseViewModel {
             .subscribe(onSuccess: { [weak self] response in
                 guard let places = response.listData else { return }
                 self?.processPlaceResponse(places)
-            }, onFailure: { _ in
-                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            }, onFailure: { [weak self] _ in
+                self?.toastMessage.accept(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)
     }

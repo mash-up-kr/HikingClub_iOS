@@ -124,7 +124,9 @@ final class SignUpViewController: BaseViewController<SignUpViewModel> {
         let viewModel = TermDetailViewModel()
         viewModel.agreementRelay
             .subscribe(onNext: { [weak self] _ in
-                self?.termStackView.didAgree.accept(.personal)
+                if false == self?.viewModel.isEnableSignUp ?? false {
+                    self?.termStackView.didAgree.accept(.personal)
+                }
             })
             .disposed(by: disposeBag)
         let viewController = TermDetailViewController(viewModel)

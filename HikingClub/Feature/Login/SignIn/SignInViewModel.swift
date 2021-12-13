@@ -19,13 +19,13 @@ final class SignInViewModel: BaseViewModel {
                 if response.responseCode ==  "SUCCESS_LOGIN" {
                     guard let responseData = response.data else { return }
                     UserInformationManager.shared.signIn(responseData.accessToken)
-                    NDToastView.shared.rx.showText.onNext(.green(text: response.message))
+                    self?.toastMessage.accept(.green(text: response.message))
                     self?.loginSucceededRelay.accept(Void())
                 } else {
-                    NDToastView.shared.rx.showText.onNext(.red(text: response.message))
+                    self?.toastMessage.accept(.red(text: response.message))
                 }
-            }, onFailure: { _ in
-                NDToastView.shared.rx.showText.onNext(.red(text: "네트워크 오류가 발생했습니다."))
+            }, onFailure: { [weak self] _ in
+                self?.toastMessage.accept(.red(text: "네트워크 오류가 발생했습니다."))
             })
             .disposed(by: disposeBag)
     }
