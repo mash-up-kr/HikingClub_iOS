@@ -63,7 +63,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         viewModel.roadDatas
             .bind(to: tableView.rx.items(cellIdentifier: "RoadTableViewCell",
                                          cellType: RoadTableViewCell.self)) { row, cellModel, cell in
-                cell.configure(model: cellModel, delegate: self)
+                cell.configure(model: cellModel)
             }.disposed(by: disposeBag)
         
         viewModel.roadDatas
@@ -211,11 +211,5 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let word = viewModel.locations.value[indexPath.item].addressDong
         return locationTabbar.cellSize(title: word, subTitle: indexPath.item == 0 ? "현위치" : nil)
-    }
-}
-
-extension HomeViewController: RoadTableViewImageDelegate {
-    func didUpdate() {
-        tableView.performBatchUpdates(nil)
     }
 }
