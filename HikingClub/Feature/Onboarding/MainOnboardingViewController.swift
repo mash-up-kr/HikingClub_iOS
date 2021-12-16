@@ -43,7 +43,7 @@ final class MainOnboardingViewController: UIViewController, CodeBasedProtocol {
     }
     
     func attribute() {
-        doneButton.tintColor = .gray400
+        doneButton.tintColor = .green700
         doneButton.setFont(.medium14)
         
         indicators = [firstIndicator, secondIndicator, thridIndicator]
