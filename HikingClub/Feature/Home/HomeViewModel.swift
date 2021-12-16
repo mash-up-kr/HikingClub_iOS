@@ -32,6 +32,7 @@ final class HomeViewModel: BaseViewModel {
     /// 페이징 가능한지체크
     private var isRequestMoreRoads: Bool = true
     let isLocationDenied = BehaviorRelay<Bool?>(value: nil)
+    let locationStatusUpdated = PublishRelay<Void>()
     
     override init() {
         super.init()
@@ -67,6 +68,7 @@ final class HomeViewModel: BaseViewModel {
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] _ in
                 self?.updateLocation()
+                self?.locationStatusUpdated.accept(Void())
             })
             .disposed(by: disposeBag)
     }
