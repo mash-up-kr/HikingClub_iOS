@@ -52,15 +52,13 @@ final class EmptyView: CodeBasedView {
         }
     }
     
-    func updateComment(_ isEmptyData: Bool = false) {
+    func updateComment() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 8
         paragraphStyle.alignment = .center
         
-        let titleText: String = isEmptyData ? "현재 위치에 등록된 게시물이 없습니다.\n상단의 테마 리스트를 확인해 보세요." : title
-        
         titleLabel.attributedText = NSAttributedString(
-            string: titleText,
+            string: title,
             attributes: [
                 .paragraphStyle: paragraphStyle,
                 .font: UIFont.ndFont(type: .semiBold18),

@@ -137,8 +137,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 if false == self.emptyView.isHidden {
-                    let isEmptyLocation = self.viewModel.locations.value.isEmpty
-                    self.emptyView.updateComment(isEmptyLocation)
+                    self.emptyView.updateComment()
                 }
             })
             .disposed(by: disposeBag)
