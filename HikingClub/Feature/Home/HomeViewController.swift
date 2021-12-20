@@ -132,6 +132,15 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
+        
+        viewModel.locationStatusUpdated
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                if false == self.emptyView.isHidden {
+                    self.emptyView.updateComment()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     func setTableView() {

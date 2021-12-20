@@ -16,17 +16,25 @@ final class EmptyView: CodeBasedView {
         imageView.setImage(.img_empty)
         return imageView
     }()
-    private let titleLabel: UILabel = {
+    
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "검색 결과가 없습니다."
-        label.textColor = .gray700
-        label.setFont(.semiBold18)
+        label.numberOfLines = .zero
         return label
     }()
+    
+    private var title: String {
+        if NDLocationManager.shared.locationAuthStatus == .denied {
+            return "현재위치 기반 검색 결과가 없습니다.\n\n위치 접근 권한을 확인하시거나\n상단의 테마 리스트를 확인해 보세요."
+        } else {
+            return "현재 위치에 등록된 게시물이 없습니다.\n상단의 테마 리스트를 확인해 보세요."
+        }
+    }
     
     override func attribute() {
         super.attribute()
         backgroundColor = .white
+        updateComment()
     }
     
     override func layout() {
@@ -42,5 +50,20 @@ final class EmptyView: CodeBasedView {
             $0.top.equalTo(emptyImageView.snp.bottom).offset(40)
             $0.leading.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    func updateComment() {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 8
+        paragraphStyle.alignment = .center
+        
+        titleLabel.attributedText = NSAttributedString(
+            string: title,
+            attributes: [
+                .paragraphStyle: paragraphStyle,
+                .font: UIFont.ndFont(type: .semiBold18),
+                .foregroundColor: UIColor.gray700
+            ]
+        )
     }
 }
