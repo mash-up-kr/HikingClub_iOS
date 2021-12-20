@@ -61,7 +61,7 @@ final class EmptyView: CodeBasedView {
             string: title,
             attributes: [
                 .paragraphStyle: paragraphStyle,
-                .font: UIFont.ndFont(type: .semiBold18),
+                .font: UIFont.ndFont(type: .semiBold16),
                 .foregroundColor: UIColor.gray700
             ]
         )
